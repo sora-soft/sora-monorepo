@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    "types": ["node"],
+
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "outDir": "../../dist/runtime",
+    "rootDir": "./",
+    "declaration": true,
+    "sourceMap": true,
+
+    "skipLibCheck": true,
+    "incremental": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./*"],
+  "exclude": []
+}

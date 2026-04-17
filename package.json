@@ -1,0 +1,15 @@
+{
+	"devDependencies": {
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@stylistic/eslint-plugin-ts": "^4.4.1",
+		"@typescript-eslint/eslint-plugin": "^8.58.2",
+		"@typescript-eslint/parser": "^8.58.2",
+		"eslint": "^9.39.4",
+		"eslint-plugin-simple-import-sort": "^13.0.0",
+		"eslint-plugin-unused-imports": "^4.4.1",
+		"global": "^4.4.0",
+		"globals": "^17.5.0",
+		"ts-patch": "^3.3.0",
+		"typescript": "^6.0.3"
+	}
+}

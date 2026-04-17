@@ -1,0 +1,63 @@
+{
+  "name": "@sora-soft/framework",
+  "version": "1.12.12",
+  "description": "sora system framework project",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tspc",
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "tspc",
+    "prepare": "npx husky install && ts-patch install -s",
+    "lint": "eslint",
+    "preversion": "eslint && npm run build",
+    "preCommit": "lint-staged"
+  },
+  "repository": "git@github.com:sora-soft/framework.git",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./rxjs": {
+      "import": "./dist/rxjs.js",
+      "types": "./dist/rxjs.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "keywords": [
+    "sora",
+    "frame"
+  ],
+  "author": "yaya",
+  "license": "WTFPL",
+  "lint-staged": {
+    "*.ts": [
+      "eslint"
+    ]
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@stylistic/eslint-plugin-ts": "^4.4.1",
+    "@types/node": "^24.0.0",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "rimraf": "^3.0.2",
+    "ts-patch": "^3.3.0",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@sora-soft/type-guard": "workspace:*",
+    "chalk": "^5.6.2",
+    "error-stack-parser": "^2.0.6",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.0",
+    "uuid": "^8.3.2"
+  }
+}

@@ -1,0 +1,97 @@
+import type {OPCode} from '../Enum.js';
+import type {ErrorArgs, ErrorLevel} from '../utility/ExError.js';
+import type {ILabelData} from '../utility/LabelFilter.js';
+import type {ILabels} from './config.js';
+
+export type IRawNetPacket<T = unknown> = IRawReqPacket<T> | IRawResPacket<unknown> | IRawCommandPacket;
+
+export interface IListenerInfo {
+  protocol: string;
+  endpoint: string;
+  codecs: string[];
+  labels: ILabels;
+}
+
+export interface IRawReqPacket<T = unknown> {
+  opcode: OPCode.Request | OPCode.Notify;
+  method: string;
+  service: string;
+  headers: {
+    [key: string]: unknown;
+  };
+  payload: T;
+}
+
+export interface IRawCommandPacket {
+  opcode: OPCode.Command;
+  command: string;
+  args: any;
+}
+
+export interface IRawResPacket<T = unknown> {
+  opcode: OPCode.Response;
+  headers: {
+    [key: string]: unknown;
+  };
+  payload: IResPayloadPacket<T>;
+}
+
+export interface IPayloadError {
+  code: string;
+  message: string;
+  level: ErrorLevel;
+  name: string;
+  args: ErrorArgs;
+}
+
+export interface IResPayloadPacket<T = unknown> {
+  error: IPayloadError | null;
+  result: T | null;
+}
+
+export interface IConnectorPingOptions {
+  enabled: true;
+  timeout?: number;
+  interval?: number;
+}
+
+export interface IConnectorNoPingOptions {
+  enabled: false;
+}
+
+export type ConnectorPingOptions = IConnectorPingOptions | IConnectorNoPingOptions;
+
+export interface IConnectorOptions {
+  ping: ConnectorPingOptions;
+}
+
+export enum RPCSenderState {
+  Idle = 1,
+  Connecting = 2,
+  Ready = 3,
+
+  NotAvailable = -1,
+}
+
+// Sender 应该连接还是保持 Idle
+export enum RPCSenderStatus {
+  Connect = 1,
+  Disconnect = 2,
+}
+
+export interface ISenderMetaData {
+  readonly id: string;
+  readonly state: RPCSenderState;
+  readonly listenerId: string;
+  readonly targetId: string;
+  readonly weight: number;
+  readonly protocol?: string;
+  readonly codec?: string;
+  readonly status: RPCSenderStatus;
+}
+
+export interface IProviderMetaData {
+  readonly name: string;
+  readonly filter: ILabelData[];
+  readonly senders: ISenderMetaData[];
+}
