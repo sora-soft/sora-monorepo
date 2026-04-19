@@ -70,7 +70,7 @@ class DatabaseComponent extends Component {
 
   buildSQL<T extends ObjectLiteral>(
     entity: EntityTarget<T>,
-    options: ISqlOptions<T>,
+    options: ISqlOptions<T>
   ) {
     let sqlBuilder = this.manager
       .getRepository(entity)

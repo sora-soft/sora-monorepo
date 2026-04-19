@@ -1,17 +1,17 @@
-import * as ts from 'typescript';
 import {AssertProgrammer, ImportProgrammer} from '@typia/core';
+import * as ts from 'typescript';
 
-const GUARD_DECLARATION_FILE = 'runtime/index.d.ts';
+const guardDeclarationFile = 'runtime/index.d.ts';
 
 function isGuardFromRuntime(declaration: ts.Declaration): boolean {
   const sourceFile = declaration.getSourceFile();
   const fileName = sourceFile.fileName.replace(/\\/g, '/');
-  return fileName.endsWith(GUARD_DECLARATION_FILE);
+  return fileName.endsWith(guardDeclarationFile);
 }
 
 function resolveGuardSymbol(
   decorator: ts.Decorator,
-  checker: ts.TypeChecker,
+  checker: ts.TypeChecker
 ): boolean {
   const expr = decorator.expression;
 
@@ -55,7 +55,7 @@ interface GuardedParam {
 
 function findGuardedParams(
   method: ts.MethodDeclaration,
-  checker: ts.TypeChecker,
+  checker: ts.TypeChecker
 ): GuardedParam[] {
   const parameters = method.parameters;
   if (!parameters || parameters.length === 0) return [];
@@ -96,7 +96,7 @@ interface TransformEnv {
 function buildTypiaContext(
   env: TransformEnv,
   tsContext: ts.TransformationContext,
-  importer: ImportProgrammer,
+  importer: ImportProgrammer
 ): Parameters<typeof AssertProgrammer.write>[0]['context'] {
   return {
     program: env.program,
@@ -107,14 +107,14 @@ function buildTypiaContext(
     transformer: tsContext,
     importer,
     extras: {
-      addDiagnostic: (_diag: ts.Diagnostic) => 0,
+      addDiagnostic: (_: ts.Diagnostic) => 0,
     },
   };
 }
 
 function collectGuardedMethods(
   node: ts.Node,
-  checker: ts.TypeChecker,
+  checker: ts.TypeChecker
 ): Map<ts.MethodDeclaration, GuardedParam[]> {
   const results = new Map<ts.MethodDeclaration, GuardedParam[]>();
 
@@ -135,7 +135,7 @@ function collectGuardedMethods(
 export function processSourceFile(
   sourceFile: ts.SourceFile,
   env: TransformEnv,
-  tsContext: ts.TransformationContext,
+  tsContext: ts.TransformationContext
 ): ts.SourceFile {
   const {checker} = env;
 
@@ -168,7 +168,7 @@ export function processSourceFile(
       const callWithArg = ts.factory.createCallExpression(
         assertFn,
         undefined,
-        [ts.factory.createIdentifier(gp.paramName)],
+        [ts.factory.createIdentifier(gp.paramName)]
       );
 
       statements.push(ts.factory.createExpressionStatement(callWithArg));
@@ -180,7 +180,7 @@ export function processSourceFile(
     if (ts.isMethodDeclaration(node) && guardedMethods.has(node)) {
       const assertStatements = assertStatementMap.get(node) ?? [];
       const guardDecoratorSet = new Set(
-        (guardedMethods.get(node) ?? []).map((gp) => gp.guardDecorator),
+        (guardedMethods.get(node) ?? []).map((gp) => gp.guardDecorator)
       );
 
       const newParameters = ts.factory.createNodeArray(
@@ -199,15 +199,15 @@ export function processSourceFile(
             param.name,
             param.questionToken,
             param.type,
-            param.initializer,
+            param.initializer
           );
-        }),
+        })
       );
 
       const existingBody = node.body ?? ts.factory.createBlock([], true);
       const newBody = ts.factory.updateBlock(
         existingBody,
-        ts.factory.createNodeArray([...assertStatements, ...existingBody.statements]),
+        ts.factory.createNodeArray([...assertStatements, ...existingBody.statements])
       );
 
       const methodModifiers = ts.factory.createNodeArray([
@@ -224,7 +224,7 @@ export function processSourceFile(
         node.typeParameters,
         newParameters,
         node.type,
-        newBody,
+        newBody
       );
     }
     return node;
@@ -241,7 +241,7 @@ export function processSourceFile(
   if (importStatements.length > 0) {
     return ts.factory.updateSourceFile(
       transformed,
-      ts.factory.createNodeArray([...importStatements, ...transformed.statements]),
+      ts.factory.createNodeArray([...importStatements, ...transformed.statements])
     );
   }
 

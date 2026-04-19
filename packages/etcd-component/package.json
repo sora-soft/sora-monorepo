@@ -9,8 +9,8 @@
     "clean": "rimraf ./dist",
     "prepublishOnly": "tspc",
     "prepare": "ts-patch install -s",
-    "lint": "eslint",
-    "preversion": "eslint && npm run build"
+    "lint": "eslint src/",
+    "preversion": "eslint src/ && npm run build"
   },
   "repository": "git@github.com:sora-soft/etcd-component.git",
   "type": "module",

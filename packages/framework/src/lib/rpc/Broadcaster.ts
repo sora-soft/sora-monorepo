@@ -98,10 +98,7 @@ class Broadcaster<T extends Route> {
   }
 
 
-  private connectors_: Map<string, {
-    connector: Connector;
-    methods: Set<string>;
-  }>;
+  private connectors_: Map<string, {connector: Connector; methods: Set<string>}>;
   private subscriptionMap_: WeakMap<Connector, Subscription>;
 }
 

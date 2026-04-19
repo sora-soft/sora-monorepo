@@ -1,1 +1,2 @@
-export function guard(_target: Object, _propertyKey: string | symbol, _parameterIndex: number): void {}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function guard(target: Object, propertyKey: string | symbol, parameterIndex: number): void {}

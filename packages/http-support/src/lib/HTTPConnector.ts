@@ -216,7 +216,7 @@ class HTTPConnector extends Connector {
       opcode: OPCode.Request,
       headers: {
         ...Object.fromEntries(
-          Object.entries(req.headers).map(([k, v]) => [k, Array.isArray(v) ? JSON.stringify(v) : v as string]),
+          Object.entries(req.headers).map(([k, v]) => [k, Array.isArray(v) ? JSON.stringify(v) : v as string])
         ),
         [RPCHeader.RpcIdHeader]: '1',
         [HTTPHeader.HttpMethodHeader]: ctx.method.toLocaleLowerCase(),

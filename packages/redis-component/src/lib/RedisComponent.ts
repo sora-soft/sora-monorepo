@@ -1,14 +1,9 @@
 import {Component, ExError, FrameworkErrorCode, type IComponentOptions, Logger, Runtime} from '@sora-soft/framework';
 import {guard} from '@sora-soft/typia-decorator';
-import {readFile} from 'fs/promises';
 import {createClient, type RedisClientType} from 'redis';
 import Redlock, {type EvalArg} from 'redlock';
 
 import {RedisError} from './RedisError.js';
-
-const pkg = JSON.parse(
-  await readFile(new URL('../../package.json', import.meta.url), {encoding: 'utf-8'}),
-) as {version: string};
 
 export interface IRedisComponentOptions extends IComponentOptions {
   url: string;
@@ -112,7 +107,7 @@ class RedisComponent extends Component {
   }
 
   get version() {
-    return pkg.version;
+    return __VERSION__;
   }
 
   private redisOptions_?: IRedisComponentOptions;

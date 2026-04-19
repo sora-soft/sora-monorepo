@@ -1,11 +1,6 @@
 import {Discovery, type Election, type IDiscoveryInfo, type IListenerMetaData, type INodeMetaData, type IServiceMetaData, type IWorkerMetaData} from '@sora-soft/framework';
-import {readFile} from 'fs/promises';
 
 import {RamElection} from './RamElection.js';
-
-const pkg = JSON.parse(
-  await readFile(new URL('../../package.json', import.meta.url), {encoding: 'utf-8'}),
-) as {version: string};
 
 export class RamDiscovery extends Discovery {
   constructor() {
@@ -127,7 +122,7 @@ export class RamDiscovery extends Discovery {
   }
 
   get version() {
-    return pkg.version;
+    return __VERSION__;
   }
 
   get info(): IDiscoveryInfo {

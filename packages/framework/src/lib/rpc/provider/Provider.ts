@@ -69,7 +69,7 @@ class Provider<T extends Route = Route> {
       const sub = this.pvdManager.discovery.listenerSubject.pipe(
         map(listeners => listeners.filter((listener) => {
           return listener.targetName == this.name && this.filter_.isSatisfy(listener.labels);
-        })),
+        }))
       ).subscribe(async (listeners) => {
         await this.executor_.doJob(async () => {
           const keepListeners = listeners.filter((listener) =>{
@@ -154,7 +154,7 @@ class Provider<T extends Route = Route> {
             });
             const res = await sender.callRpc(
               request,
-              options.timeout,
+              options.timeout
             );
             const response = new Response(res);
             if (rawResponse) return response;
@@ -210,7 +210,7 @@ class Provider<T extends Route = Route> {
                   headers: options.headers || {},
                 });
                 return s.connector.sendNotify(notify);
-              }),
+              })
             );
           };
         },

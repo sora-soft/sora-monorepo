@@ -1,7 +1,7 @@
-import {Lease} from 'etcd3';
+import {type Lease} from 'etcd3';
 
 export enum EtcdEvent {
-  LeaseReconnect = 'lease-reconnect'
+  LeaseReconnect = 'lease-reconnect',
 }
 
 export interface IEtcdEvent {

@@ -14,7 +14,7 @@
     "build": "rimraf ./dist && tsc --project ./src/runtime/tsconfig.json && tsc --project ./src/transform/tsconfig.json && copyfiles -f ./src/transform/package.json ./dist/transform",
     "clean": "rimraf ./dist",
     "prepublishOnly": "npm run build",
-    "lint": "eslint"
+    "lint": "eslint src/"
   },
   "repository": "git@github.com:sora-soft/typia-decorator.git",
   "engines": {

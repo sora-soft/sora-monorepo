@@ -7,7 +7,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['dist/**'],
+    ignores: ['**/dist/**', '**/node_modules/**'],
   },
   {
     files: ['src/**/*.{ts,tsx}'],
@@ -29,10 +29,17 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
+      "@stylistic/ts/comma-dangle": ["error", {
+        "enums": "always-multiline",     // 强制要求枚举必须有末尾逗号
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }],
       "unused-imports/no-unused-imports": "error",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
-      'comma-dangle': ['error', 'always-multiline'],
       "@stylistic/ts/semi-spacing": ["error", {
         "before": false, // 禁止分号前有空格
         "after": true    // 强制分号后有空格（如果分号不是行末的话）
