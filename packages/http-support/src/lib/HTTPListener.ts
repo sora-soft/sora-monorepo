@@ -1,7 +1,7 @@
 import {type ExError, type ILabels, Listener, type ListenerCallback, ListenerState, Logger, Runtime, Time, Utility} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
 import http from 'http';
 import type Koa from 'koa';
+import typia from 'typia';
 import util from 'util';
 import {v4 as uuid} from 'uuid';
 
@@ -22,7 +22,7 @@ class HTTPListener extends Listener {
   constructor(options: IHTTPListenerOptions, koa: Koa, callback: ListenerCallback, labels: ILabels = {}) {
     super(callback, [new HTTPCodec()], labels);
 
-    TypeGuard.assert<IHTTPListenerOptions>(options);
+    typia.assert<IHTTPListenerOptions>(options);
 
     this.options_ = options;
 

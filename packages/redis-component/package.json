@@ -35,21 +35,14 @@
   "author": "yaya",
   "license": "WTFPL",
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^5.10.0",
-    "@stylistic/eslint-plugin-ts": "^4.4.1",
-    "@types/node": "^24.0.0",
     "@types/redlock": "^4.0.4",
-    "@typescript-eslint/eslint-plugin": "^8.58.0",
-    "@typescript-eslint/parser": "^8.58.0",
-    "eslint": "^9.39.4",
-    "eslint-plugin-simple-import-sort": "^13.0.0",
-    "eslint-plugin-unused-imports": "^4.4.1",
     "rimraf": "^3.0.2",
-    "ts-patch": "^3.3.0"
+    "ts-patch": "^3.3.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@sora-soft/framework": "workspace:*",
-    "@sora-soft/type-guard": "workspace:*",
+    "@sora-soft/typia-decorator": "workspace:*",
     "redis": "^4.6.5",
     "redlock": "^4.2.0"
   }

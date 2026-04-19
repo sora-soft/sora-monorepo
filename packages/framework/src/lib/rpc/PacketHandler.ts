@@ -1,4 +1,4 @@
-import {TypeGuard} from '@sora-soft/type-guard';
+import typia from 'typia';
 
 import {RPCHeader} from '../../Const.js';
 import {OPCode} from '../../Enum.js';
@@ -62,7 +62,7 @@ export class PacketHandler {
           try {
             let ret: IRawResPacket<unknown> | null = null;
 
-            if (!TypeGuard.is<IRawReqPacket>(data)) {
+            if (!typia.is<IRawReqPacket>(data)) {
               ret = createErrorResPacket(new RouteError(RPCErrorCode.ErrRpcBodyParseFailed, 'invalid request packet format', ErrorLevel.Expected));
               await connector.send(ret);
               return;
@@ -102,7 +102,7 @@ export class PacketHandler {
             Runtime.frameLogger.warn('connector', {event: 'connector-response-not-enabled', session: connector.session});
             return;
           }
-          if (!TypeGuard.is<IRawReqPacket>(data)) {
+          if (!typia.is<IRawReqPacket>(data)) {
             Runtime.frameLogger.warn('connector', {event: 'parse-body-failed', data});
             return;
           }
@@ -113,7 +113,7 @@ export class PacketHandler {
         break;
       }
       case OPCode.Response: {
-        if (!TypeGuard.is<IRawResPacket>(data)) {
+        if (!typia.is<IRawResPacket>(data)) {
           Runtime.frameLogger.warn('connector', {event: 'parse-body-failed', data});
           return;
         }
@@ -130,7 +130,7 @@ export class PacketHandler {
         if (Utility.isUndefined(rpcId))
           throw new RPCError(RPCErrorCode.ErrRpcIdNotFound, 'rpc id not found');
 
-        if (TypeGuard.is<string>(rpcId)) {
+        if (typia.is<string>(rpcId)) {
           rpcId = parseInt(rpcId, 10);
         }
 

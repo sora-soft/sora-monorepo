@@ -3,9 +3,12 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "lib": ["ESNext"],
-    "types": ["node"],
-
+    "lib": [
+      "ESNext"
+    ],
+    "types": [
+      "node"
+    ],
     "strict": true,
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
@@ -16,16 +19,21 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-
     "skipLibCheck": true,
     "incremental": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-
-    "plugins": [{
-      "transform": "@sora-soft/type-guard/dist/transformer"
-    }, {
-      "transform": "../../transformer/VersionTransformer.cjs"
-    }]
+    "plugins": [
+      {
+        "transform": "../../transformer/VersionTransformer.cjs"
+      },
+      {
+        "transform": "@sora-soft/typia-decorator/transform"
+      },
+      {
+        "transform": "typia/lib/transform"
+      }
+    ],
+    "strictNullChecks": true
   }
 }

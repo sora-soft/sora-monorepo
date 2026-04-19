@@ -138,8 +138,8 @@ export abstract class TraceContext {
     try {
       const ret = storage.run(this, callback);
       if (ret instanceof Promise) {
-        ret.catch(err => {
-          throw err;
+        ret.catch((err) => {
+          this.onError(err);
         }).finally(() => {
           this.onEnd();
         });

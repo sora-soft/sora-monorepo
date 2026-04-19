@@ -1,5 +1,5 @@
 import {Connector, ConnectorState, ExError, type IConnectorPingOptions, type IListenerInfo, type IRawNetPacket, Logger, NodeTime, type ProviderManager, Retry, RetryEvent, RPCError, RPCErrorCode, Runtime} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
+import typia from 'typia';
 import util from 'util';
 import WebSocket from 'ws';
 
@@ -133,7 +133,7 @@ class WebSocketConnector extends Connector {
       if (!packet)
         return;
 
-      if (!TypeGuard.is<IRawNetPacket>(packet)) {
+      if (!typia.is<IRawNetPacket>(packet)) {
         const err = new RPCError(RPCErrorCode.ErrRpcBodyParseFailed, 'body is not IRawNetPacket');
         Runtime.frameLogger.error('connector.websocket', err, {event: 'connector-body-invalid', packet});
         return;

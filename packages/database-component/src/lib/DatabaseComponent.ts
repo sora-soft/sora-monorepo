@@ -1,5 +1,5 @@
 import {Component, FrameworkErrorCode, type IComponentOptions} from '@sora-soft/framework';
-import {AssertType, ValidateClass} from '@sora-soft/type-guard';
+import {guard} from '@sora-soft/typia-decorator';
 import {DataSource, type DataSourceOptions, type EntityTarget, type ObjectLiteral, type ObjectType} from 'typeorm';
 
 import {DatabaseError} from './DatabaseError.js';
@@ -31,7 +31,6 @@ export interface INoRelationsSqlOptions<Entity extends ObjectLiteral> {
 
 export type ISqlOptions<Entity extends ObjectLiteral> = INoRelationsSqlOptions<Entity> & IRelationsSqlOptions<Entity>;
 
-@ValidateClass()
 class DatabaseComponent extends Component {
   constructor(entities: ObjectType<unknown>[]) {
     super();
@@ -39,7 +38,7 @@ class DatabaseComponent extends Component {
     this.connected_ = false;
   }
 
-  protected setOptions(@AssertType() options: IDatabaseComponentOptions) {
+  protected setOptions(@guard options: IDatabaseComponentOptions) {
     this.databaseOptions_ = options;
   }
 

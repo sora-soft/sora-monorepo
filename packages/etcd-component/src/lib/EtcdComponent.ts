@@ -1,5 +1,5 @@
 import {Component, ComponentScope, Context, ExError, FrameworkError, FrameworkErrorCode, type IComponentOptions, type IEventEmitter, Retry, RetryEvent, Runtime} from '@sora-soft/framework';
-import {AssertType, ValidateClass} from '@sora-soft/type-guard';
+import {guard} from '@sora-soft/typia-decorator';
 import {Etcd3, type IOptions, Lease, Lock} from 'etcd3';
 import Event from 'events';
 import path from 'path';
@@ -15,7 +15,6 @@ export interface IEtcdComponentOptions extends IComponentOptions {
   prefix: string;
 }
 
-@ValidateClass()
 @Context.scopeClass
 class EtcdComponent extends Component {
   constructor() {
@@ -27,7 +26,7 @@ class EtcdComponent extends Component {
     this.scope_ = new ComponentScope({component: this});
   }
 
-  protected setOptions(@AssertType() options: IEtcdComponentOptions) {
+  protected setOptions(@guard options: IEtcdComponentOptions) {
     this.etcdOptions_ = options;
   }
 

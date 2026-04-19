@@ -6,6 +6,7 @@ import {ConnectorState} from '../../../Enum.js';
 import {RPCErrorCode} from '../../../ErrorCode.js';
 import type {IListenerMetaData} from '../../../interface/discovery.js';
 import {type IRawNetPacket, type IRawResPacket, type ISenderMetaData, RPCSenderState, RPCSenderStatus} from '../../../interface/rpc.js';
+import {ErrorTracer} from '../../../utility/ErrorTracer.js';
 import {LifeCycle} from '../../../utility/LifeCycle.js';
 import {QueueExecutor} from '../../../utility/QueueExecutor.js';
 import {Ref} from '../../../utility/Ref.js';
@@ -15,7 +16,7 @@ import {Context} from '../../context/Context.js';
 import {WorkerScope} from '../../context/scope/WorkerScope.js';
 import {Logger} from '../../logger/Logger.js';
 import {Runtime} from '../../Runtime.js';
-import {RpcClientTraceContext} from '../../trace/context/RpcClientTraceScope.js';
+import {RpcClientTraceContext} from '../../trace/context/RpcClientTraceContext.js';
 import {Trace} from '../../trace/Trace.js';
 import {TraceContext} from '../../trace/TraceContext.js';
 import type {Codec} from '../Codec.js';
@@ -107,6 +108,7 @@ export class RPCSender {
     await this.disconnect();
   }
 
+  @ErrorTracer.trace
   public async callRpc<ResponsePayload>(request: Request, timeout = 10 * 1000): Promise<IRawResPacket<ResponsePayload>> {
     return Trace.run(RpcClientTraceContext.create(), async () => {
       const wait = this.resWaiter_.wait(timeout);

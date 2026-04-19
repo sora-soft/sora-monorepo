@@ -1,0 +1,16 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/transform",
+    "rootDir": "./",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "verbatimModuleSyntax": false,
+    "emitDecoratorMetadata": false,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "plugins": []
+  },
+  "include": ["./*"]
+}

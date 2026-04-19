@@ -1,5 +1,5 @@
-import {TypeGuard} from '@sora-soft/type-guard';
 import net from 'net';
+import typia from 'typia';
 import util from 'util';
 
 import {ConnectorState} from '../../Enum.js';
@@ -204,7 +204,7 @@ class TCPConnector extends Connector {
         return;
       }
 
-      if (!TypeGuard.is<IRawNetPacket>(packet)) {
+      if (!typia.is<IRawNetPacket>(packet)) {
         const err = new RPCError(RPCErrorCode.ErrRpcBodyParseFailed, 'rpc body parse failed');
         Runtime.frameLogger.error('connector.websocket', err, {event: 'connector-body-invalid', packet});
       }

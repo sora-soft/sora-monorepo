@@ -1,4 +1,4 @@
-import {TypeGuardError} from '@sora-soft/type-guard';
+import {TypeGuardError} from 'typia';
 
 import {RPCHeader} from '../../Const.js';
 import {OPCode} from '../../Enum.js';

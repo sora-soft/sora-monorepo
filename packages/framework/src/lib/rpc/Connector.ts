@@ -1,5 +1,5 @@
-import {TypeGuard} from '@sora-soft/type-guard';
 import {interval, Subject, type Subscription} from 'rxjs';
+import typia from 'typia';
 
 import {RPCHeader} from '../../Const.js';
 import {ConnectorCommand, ConnectorState, OPCode} from '../../Enum.js';
@@ -193,7 +193,7 @@ abstract class Connector {
         break;
       }
       case OPCode.Command: {
-        if (!TypeGuard.is<IRawCommandPacket>(data)) {
+        if (!typia.is<IRawCommandPacket>(data)) {
           Runtime.frameLogger.warn('connector', {event: 'parse-body-failed', data});
           return;
         }

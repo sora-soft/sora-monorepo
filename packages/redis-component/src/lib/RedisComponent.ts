@@ -1,5 +1,5 @@
 import {Component, ExError, FrameworkErrorCode, type IComponentOptions, Logger, Runtime} from '@sora-soft/framework';
-import {AssertType, ValidateClass} from '@sora-soft/type-guard';
+import {guard} from '@sora-soft/typia-decorator';
 import {readFile} from 'fs/promises';
 import {createClient, type RedisClientType} from 'redis';
 import Redlock, {type EvalArg} from 'redlock';
@@ -66,9 +66,8 @@ class RedlockClient implements Redlock.CompatibleRedisClient {
   private client_: RedisClientType;
 }
 
-@ValidateClass()
 class RedisComponent extends Component {
-  protected setOptions(@AssertType() options: IRedisComponentOptions) {
+  protected setOptions(@guard options: IRedisComponentOptions) {
     this.redisOptions_ = options;
   }
 

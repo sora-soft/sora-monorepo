@@ -2,14 +2,9 @@ import {type EtcdComponent, EtcdElection, EtcdEvent} from '@sora-soft/etcd-compo
 import {type Etcd3, type IKeyValue, type IOptions, type Lease, type Watcher} from '@sora-soft/etcd-component/etcd3';
 import {Context, Discovery, type ExError, type IListenerMetaData, type INodeMetaData, type IServiceMetaData, type IWorkerMetaData, Logger, QueueExecutor, Runtime, SubscriptionManager} from '@sora-soft/framework';
 import {fromEvent} from '@sora-soft/framework/rxjs';
-import {TypeGuard} from '@sora-soft/type-guard';
-import {readFile} from 'fs/promises';
+import typia from 'typia';
 
 import {ETCDDiscoveryError, ETCDDiscoveryErrorCode} from './ETCDDiscoveryError.js';
-
-const pkg = JSON.parse(
-  await readFile(new URL('../../package.json', import.meta.url), {encoding: 'utf-8'}),
-) as {version: string};
 
 export interface ITECDWorkerMetaData extends IWorkerMetaData {
   version: string;
@@ -46,7 +41,7 @@ class ETCDDiscovery extends Discovery {
 
   constructor(options: IETCDDiscoveryOptions) {
     super();
-    TypeGuard.assert<IETCDDiscoveryOptions>(options);
+    typia.assert<IETCDDiscoveryOptions>(options);
     this.options_ = options;
     this.remoteServiceIdMap_ = new Map();
     this.localServiceIdMap_ = new Map();
@@ -196,7 +191,7 @@ class ETCDDiscovery extends Discovery {
   }
 
   get version() {
-    return pkg.version;
+    return __VERSION__;
   }
 
   protected updateEndpointMeta(kv: IKeyValue) {

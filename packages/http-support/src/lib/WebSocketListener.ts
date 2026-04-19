@@ -1,6 +1,6 @@
 import {type Codec, type ExError, type ILabels, Listener, type ListenerCallback, ListenerState, Logger, Runtime, Time, Utility} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
 import http from 'http';
+import typia from 'typia';
 import util from 'util';
 import {v4 as uuid} from 'uuid';
 import {WebSocketServer} from 'ws';
@@ -22,7 +22,7 @@ class WebSocketListener extends Listener {
   constructor(options: IWebSocketListenerOptions, callback: ListenerCallback, codecs: Codec<any>[], labels: ILabels = {}) {
     super(callback, codecs, labels);
 
-    TypeGuard.assert<IWebSocketListenerOptions>(options);
+    typia.assert<IWebSocketListenerOptions>(options);
     this.options_ = options;
     this.httpServer_ = http.createServer();
     this.usePort_ = 0;

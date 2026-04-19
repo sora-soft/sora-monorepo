@@ -1,5 +1,5 @@
-import {TypeGuard} from '@sora-soft/type-guard';
 import os from 'os';
+import typia from 'typia';
 
 import type {INodeOptions, IServiceOptions, IWorkerOptions} from '../interface/config.js';
 import type {INodeMetaData} from '../interface/discovery.js';
@@ -37,7 +37,7 @@ class Node extends Service {
 
   constructor(options: INodeOptions, listeners: Listener[]) {
     super('node', options);
-    TypeGuard.assert<INodeOptions>(options);
+    typia.assert<INodeOptions>(options);
     this.nodeOptions_ = options;
     this.listeners_ = listeners;
   }

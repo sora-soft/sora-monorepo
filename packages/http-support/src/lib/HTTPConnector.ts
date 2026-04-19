@@ -1,7 +1,7 @@
 import {Connector, ConnectorState, ExError, type IListenerInfo, type IRawNetPacket, type IRawReqPacket, type IRawResPacket, type IResPayloadPacket, Logger, OPCode, type ProviderManager, RPCError, RPCErrorCode, RPCHeader, Runtime} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
 import axios, {type AxiosHeaders, type AxiosInstance} from 'axios';
 import type Koa from 'koa';
+import typia from 'typia';
 
 import {HTTPBodyParser} from './HTTPBodyParser.js';
 import {HTTPCookieManager} from './HTTPCookieManager.js';
@@ -97,7 +97,7 @@ class HTTPConnector extends Connector {
 
   async send(packet: IRawNetPacket) {
     if (this.ctx_) {
-      if (!TypeGuard.is<IRawResPacket<unknown>>(packet)) {
+      if (!typia.is<IRawResPacket<unknown>>(packet)) {
         throw new HTTPError(HTTPErrorCode.ErrHttpListenerNotSupportSendRequest, 'ERR_HTTP_NOT_SUPPORT_SEND_REQUEST');
       }
       this.ctx_.res.setHeader('Content-Type', 'application/json');
@@ -118,7 +118,7 @@ class HTTPConnector extends Connector {
         throw new RPCError(RPCErrorCode.ErrRpcTunnelNotAvailable, 'client not found', {target: this.target_});
       }
 
-      if (!TypeGuard.is<IRawReqPacket>(packet)) {
+      if (!typia.is<IRawReqPacket>(packet)) {
         throw new HTTPError(HTTPErrorCode.ErrHttpClientOnlySupportRequest, 'http connector only support request');
       }
 

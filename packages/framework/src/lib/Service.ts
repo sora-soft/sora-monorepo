@@ -1,4 +1,4 @@
-import {TypeGuard} from '@sora-soft/type-guard';
+import typia from 'typia';
 
 import {ListenerState, WorkerState} from '../Enum.js';
 import type {ILabels, IServiceOptions} from '../interface/config.js';
@@ -16,7 +16,7 @@ import {Worker} from './Worker.js';
 abstract class Service extends Worker {
   constructor(name: string, options: IServiceOptions) {
     super(name, options);
-    TypeGuard.assert<IServiceOptions>(options);
+    typia.assert<IServiceOptions>(options);
     this.serviceOptions_ = options;
 
     this.subManager_ = new SubscriptionManager();
