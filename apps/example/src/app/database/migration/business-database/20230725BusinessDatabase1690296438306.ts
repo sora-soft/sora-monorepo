@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner} from '@sora-soft/database-component/typeorm';
+import {type MigrationInterface, type QueryRunner} from '@sora-soft/database-component/typeorm';
 
 export class BusinessDatabase1690296438306 implements MigrationInterface {
   async up(queryRunner: QueryRunner): Promise<void> {

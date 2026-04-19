@@ -13,5 +13,5 @@ export interface INodeRunData {
   discovery: IDiscoveryInfo;
 }
 
-export type ServiceBuilder = (options: IServiceOptions) => Service;
-export type WorkerBuilder = (options: IWorkerOptions) => Worker;
+export type ServiceBuilder<T extends IServiceOptions> = (options: T) => Service;
+export type WorkerBuilder<T extends IWorkerOptions> = (options: T) => Worker;

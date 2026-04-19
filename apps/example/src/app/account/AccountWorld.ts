@@ -1,20 +1,21 @@
-import {Hash, Random} from '../../lib/Utility.js';
+import {EntityManager, In, LessThan, MoreThan, Not} from '@sora-soft/database-component/typeorm';
+import {NodeTime, UnixTime} from '@sora-soft/framework';
+import {validate} from 'class-validator';
+import {v4 as uuid} from 'uuid';
+
 import {Com} from '../../lib/Com.js';
+import {Hash, Random} from '../../lib/Utility.js';
+import {Application} from '../Application.js';
 import {Account, AccountAuthGroup, AccountLogin, AccountToken} from '../database/Account.js';
 import {AuthGroup, AuthPermission} from '../database/Auth.js';
+import {transaction} from '../database/utility/Decorators.js';
 import {UserErrorCode} from '../ErrorCode.js';
 import {RedisKey} from '../Keys.js';
 import {UserError} from '../UserError.js';
-import {AccountId, AccountLoginType, AuthGroupId, DefaultGroupList, DefaultPermissionList, PermissionResult, RootGroupId} from './AccountType.js';
-import {validate} from 'class-validator';
-import {Application} from '../Application.js';
+import {forgetPasswordEmail} from './AccountEmail.js';
 import {AccountLock} from './AccountLock.js';
-import {ForgetPasswordEmail} from './AccountEmail.js';
-import {NodeTime, UnixTime} from '@sora-soft/framework';
-import {EntityManager, LessThan, Not, MoreThan, In} from '@sora-soft/database-component/typeorm';
-import {transaction} from '../database/utility/Decorators.js';
-import {v4 as uuid} from 'uuid';
 import {AccountPermission} from './AccountPermission.js';
+import {type AccountId, AccountLoginType, type AuthGroupId, defaultGroupList, defaultPermissionList, PermissionResult, rootGroupId} from './AccountType.js';
 
 class AccountWorld {
   static async startup() {
@@ -26,7 +27,7 @@ class AccountWorld {
 
   static async loadDefaultGroup() {
     const groups: AuthGroup [] = [];
-    for (const data of DefaultGroupList) {
+    for (const data of defaultGroupList) {
       const existed = await Com.businessDB.manager.findOneBy(AuthGroup, {id: data.id});
       if (existed)
         continue;
@@ -42,7 +43,7 @@ class AccountWorld {
 
   static async loadDefaultPermission() {
     const permissions: AuthPermission[] = [];
-    for (const data of DefaultPermissionList) {
+    for (const data of defaultPermissionList) {
       const permission = new AuthPermission(data);
       permissions.push(permission);
     }
@@ -115,7 +116,7 @@ class AccountWorld {
   }
 
   static async hasAuth(gid: AuthGroupId, name: string) {
-    if (gid === RootGroupId)
+    if (gid === rootGroupId)
       return true;
 
     const permission = await Com.businessDB.manager.find(AuthPermission, {
@@ -128,21 +129,21 @@ class AccountWorld {
     if (!permission.length)
       return false;
 
-    return permission.every((p) => { return p.permission === PermissionResult.ALLOW; });
+    return permission.every((p) => { return p.permission === PermissionResult.Allow; });
   }
 
   @transaction(Com.businessDB)
   static async resetAccountPassword(account: Account, password: string, manager?: EntityManager) {
     const salt = Random.randomString(20);
     const hashedPassword = Hash.md5(password + salt);
-    await manager!.update(AccountLogin, {id: account.id, type: In([AccountLoginType.USERNAME, AccountLoginType.EMAIL])}, {
+    await manager!.update(AccountLogin, {id: account.id, type: In([AccountLoginType.Username, AccountLoginType.Email])}, {
       password: hashedPassword,
       salt,
     });
   }
 
   static async sendAccountResetPassEmail(login: AccountLogin, code: string) {
-    const template = ForgetPasswordEmail(code);
+    const template = forgetPasswordEmail(code);
     await Com.aliCloud.pop.sendSingleEmail({
       ToAddress: login.username,
       Subject: template.subject,
@@ -170,7 +171,7 @@ class AccountWorld {
       });
 
       if (loginExisted)
-        throw new UserError(UserErrorCode.ERR_DUPLICATE_REGISTER, 'ERR_DUPLICATE_REGISTER');
+        throw new UserError(UserErrorCode.ErrDuplicateRegister, 'ERR_DUPLICATE_REGISTER');
 
       const newAccount = new Account({
         nickname: account.nickname,
@@ -181,7 +182,7 @@ class AccountWorld {
 
       const accountErrors = await validate(newAccount);
       if (accountErrors.length) {
-        throw new UserError(UserErrorCode.ERR_PARAMETERS_INVALID, `ERR_PARAMETERS_INVALID, property=[${accountErrors.map(e => e.property).join(',')}]`);
+        throw new UserError(UserErrorCode.ErrParametersInvalid, `ERR_PARAMETERS_INVALID, property=[${accountErrors.map(e => e.property).join(',')}]`);
       }
 
       const salt = Random.randomString(20);
@@ -228,7 +229,7 @@ class AccountWorld {
     });
 
     if (!login)
-      throw new UserError(UserErrorCode.ERR_ACCOUNT_NOT_FOUND, 'ERR_ACCOUNT_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrAccountNotFound, 'ERR_ACCOUNT_NOT_FOUND');
 
     return login;
   }
@@ -257,10 +258,10 @@ class AccountWorld {
     });
 
     if (!account)
-      throw new UserError(UserErrorCode.ERR_ACCOUNT_NOT_FOUND, 'ERR_ACCOUNT_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrAccountNotFound, 'ERR_ACCOUNT_NOT_FOUND');
 
     if (account.disabled)
-      throw new UserError(UserErrorCode.ERR_ACCOUNT_DISABLED, 'ERR_ACCOUNT_DISABLED');
+      throw new UserError(UserErrorCode.ErrAccountDisabled, 'ERR_ACCOUNT_DISABLED');
 
     const token = uuid();
     const newToken = await AccountWorld.setAccountSession(token, account, ttl);

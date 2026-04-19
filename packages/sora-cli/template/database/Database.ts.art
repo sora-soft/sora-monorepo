@@ -1,0 +1,13 @@
+import {Entity} from '@sora-soft/database-component';
+
+@Entity()
+export class <%- databaseName %> {
+  constructor(data?: Partial<<%- databaseName %>>) {
+    if (!data)
+      return;
+
+    Object.entries(data).forEach(([key, value]) => {
+      this[key] = value;
+    });
+  }
+}

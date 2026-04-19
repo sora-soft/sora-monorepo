@@ -1,12 +1,13 @@
+import {type FindOptionsRelations} from '@sora-soft/database-component/typeorm';
 import {Route} from '@sora-soft/framework';
-import {FindOptionsRelations} from '@sora-soft/database-component/typeorm';
+
+import {AccountPermission} from '../../app/account/AccountPermission.js';
+import {AccountWorld} from '../../app/account/AccountWorld.js';
 import {Account, AccountToken} from '../../app/database/Account.js';
 import {UserErrorCode} from '../../app/ErrorCode.js';
 import {UserError} from '../../app/UserError.js';
 import {Com} from '../Com.js';
 import {AuthRPCHeader} from '../Const.js';
-import {AccountPermission} from '../../app/account/AccountPermission.js';
-import {AccountWorld} from '../../app/account/AccountWorld.js';
 
 interface IAccountOptions {
   relations?: FindOptionsRelations<Pick<Account, 'groupList'>>;
@@ -15,10 +16,12 @@ interface IAccountOptions {
 class AccountRoute extends Route {
   static account(options?: IAccountOptions) {
     return (target: AccountRoute, method: string) => {
-      Route.registerProvider(target, method, Account, async(route, body, request) => {
-        const accountId = request.getHeader<number>(AuthRPCHeader.RPC_ACCOUNT_ID);
-        if (!accountId)
-          throw new UserError(UserErrorCode.ERR_NOT_LOGIN, 'ERR_NOT_LOGIN');
+      Route.registerProvider(target, method, Account, async (route, body, request) => {
+        const accountIdStr = request.getHeader(AuthRPCHeader.RPC_ACCOUNT_ID);
+        if (!accountIdStr)
+          throw new UserError(UserErrorCode.ErrNotLogin, 'ERR_NOT_LOGIN');
+
+        const accountId = parseInt(accountIdStr, 10);
 
         const relations = options?.relations || {};
 
@@ -29,7 +32,7 @@ class AccountRoute extends Route {
           relations,
         });
         if (!account)
-          throw new UserError(UserErrorCode.ERR_NOT_LOGIN, 'ERR_NOT_LOGIN');
+          throw new UserError(UserErrorCode.ErrNotLogin, 'ERR_NOT_LOGIN');
 
         return account;
       });
@@ -38,10 +41,10 @@ class AccountRoute extends Route {
 
   static token() {
     return (target: AccountRoute, method: string) => {
-      Route.registerProvider(target, method, AccountToken, async(route, body, request) => {
-        const session = request.getHeader<string>(AuthRPCHeader.RPC_AUTHORIZATION);
+      Route.registerProvider(target, method, AccountToken, async (route, body, request) => {
+        const session = request.getHeader(AuthRPCHeader.RPC_AUTHORIZATION);
         if (!session)
-          throw new UserError(UserErrorCode.ERR_NOT_LOGIN, 'ERR_NOT_LOGIN');
+          throw new UserError(UserErrorCode.ErrNotLogin, 'ERR_NOT_LOGIN');
 
         const token = await Com.businessDB.manager.findOne(AccountToken, {
           where: {
@@ -49,7 +52,7 @@ class AccountRoute extends Route {
           },
         });
         if (!token)
-          throw new UserError(UserErrorCode.ERR_NOT_LOGIN, 'ERR_NOT_LOGIN');
+          throw new UserError(UserErrorCode.ErrNotLogin, 'ERR_NOT_LOGIN');
 
         return token;
       });
@@ -59,9 +62,11 @@ class AccountRoute extends Route {
   static permission() {
     return (target: AccountRoute, method: string) => {
       Route.registerProvider(target, method, AccountPermission, async (route, body, request) => {
-        const accountId = request.getHeader<number>(AuthRPCHeader.RPC_ACCOUNT_ID);
-        if (!accountId)
-          throw new UserError(UserErrorCode.ERR_NOT_LOGIN, 'ERR_NOT_LOGIN');
+        const accountIdStr = request.getHeader(AuthRPCHeader.RPC_ACCOUNT_ID);
+        if (!accountIdStr)
+          throw new UserError(UserErrorCode.ErrNotLogin, 'ERR_NOT_LOGIN');
+
+        const accountId = parseInt(accountIdStr, 10);
 
         return AccountWorld.fetchAccountPermission(accountId);
       });

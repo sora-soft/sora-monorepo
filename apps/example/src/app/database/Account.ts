@@ -1,7 +1,8 @@
 import {Column, Entity, Index, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn} from '@sora-soft/database-component/typeorm';
-import {AccountId, AccountLoginType, AuthGroupId} from '../account/AccountType.js';
-import {Timestamp} from './utility/Type.js';
+
+import {type AccountId, AccountLoginType, type AuthGroupId} from '../account/AccountType.js';
 import {AuthGroup} from './Auth.js';
+import type {Timestamp} from './utility/Type.js';
 
 @Entity()
 @Index('accountId_idx', ['accountId'])
@@ -12,7 +13,7 @@ export class AccountToken {
       return;
 
     Object.entries(data).forEach(([key, value]) => {
-      this[key] = value;
+      (this as any)[key] = value;
     });
   }
 
@@ -34,7 +35,7 @@ export class AccountLogin {
       return;
 
     Object.entries(data).forEach(([key, value]) => {
-      this[key] = value;
+      (this as any)[key] = value;
     });
   }
 
@@ -63,7 +64,7 @@ export class Account {
       return;
 
     Object.entries(data).forEach(([key, value]) => {
-      this[key] = value;
+      (this as any)[key] = value;
     });
   }
 
@@ -106,7 +107,7 @@ export class AccountAuthGroup {
       return;
 
     Object.entries(data).forEach(([key, value]) => {
-      this[key] = value;
+      (this as any)[key] = value;
     });
   }
 

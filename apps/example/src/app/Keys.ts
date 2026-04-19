@@ -1,4 +1,4 @@
-import {AccountLoginType} from './account/AccountType.js';
+import {type AccountLoginType} from './account/AccountType.js';
 
 export class EtcdKey {
   static traefikConfigServiceUrl(prefix: string, protocol: string, name: string, index: string) {

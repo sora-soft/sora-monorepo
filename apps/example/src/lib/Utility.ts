@@ -41,8 +41,8 @@ class PathUtility {
 }
 
 type NonFunctionPropertyNames<T> = {
-    [K in keyof T]: T[K] extends Function ? never : K
+  [K in keyof T]: T[K] extends Function ? never : K
 }[keyof T];
 type NonFunctionProperties<T> = Pick<T, NonFunctionPropertyNames<T>>;
 
-export {Random, Hash, NonFunctionProperties, PathUtility, Util};
+export {Hash, type NonFunctionProperties, PathUtility, Random, Util};

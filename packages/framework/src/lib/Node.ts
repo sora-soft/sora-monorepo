@@ -10,7 +10,7 @@ import {Runtime} from './Runtime.js';
 import {Service} from './Service.js';
 
 class Node extends Service {
-  static registerWorker(name: string, builder: WorkerBuilder) {
+  static registerWorker<T extends IWorkerOptions>(name: string, builder: WorkerBuilder<T>) {
     this.workerBuilder_.set(name, builder);
   }
 
@@ -21,7 +21,7 @@ class Node extends Service {
     return builder(options);
   }
 
-  static registerService(name: string, builder: ServiceBuilder) {
+  static registerService<T extends IServiceOptions>(name: string, builder: ServiceBuilder<T>) {
     this.serviceBuilder_.set(name, builder);
   }
 
@@ -32,8 +32,8 @@ class Node extends Service {
     return builder(options);
   }
 
-  private static serviceBuilder_: Map<string, ServiceBuilder> = new Map();
-  private static workerBuilder_: Map<string, WorkerBuilder> = new Map();
+  private static serviceBuilder_: Map<string, ServiceBuilder<any>> = new Map();
+  private static workerBuilder_: Map<string, WorkerBuilder<any>> = new Map();
 
   constructor(options: INodeOptions, listeners: Listener[]) {
     super('node', options);

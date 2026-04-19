@@ -1,7 +1,8 @@
 import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from '@sora-soft/database-component/typeorm';
 import {UnixTime} from '@sora-soft/framework';
-import {AuthGroupId, PermissionResult} from '../account/AccountType.js';
-import {Timestamp} from './utility/Type.js';
+
+import {type AuthGroupId, PermissionResult} from '../account/AccountType.js';
+import type {Timestamp} from './utility/Type.js';
 
 @Entity({
   engine: 'InnoDB AUTO_INCREMENT=1000',
@@ -12,7 +13,7 @@ export class AuthGroup {
       return;
 
     Object.entries(data).forEach(([key, value]) => {
-      this[key] = value;
+      (this as any)[key] = value;
     });
   }
 
@@ -49,7 +50,7 @@ export class AuthPermission {
       return;
 
     Object.entries(data).forEach(([key, value]) => {
-      this[key] = value;
+      (this as any)[key] = value;
     });
   }
 
@@ -62,7 +63,7 @@ export class AuthPermission {
   name!: string;
 
   @Column({
-    default: PermissionResult.DENY,
+    default: PermissionResult.Deny,
   })
   permission!: PermissionResult;
 

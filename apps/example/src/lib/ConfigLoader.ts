@@ -1,18 +1,19 @@
-import {ConfigFileType} from './Enum.js';
-import fs = require('fs/promises');
-import url = require('url');
-import util = require('util');
-import yaml = require('js-yaml');
-import {AxiosResponse} from 'axios';
 import axios from 'axios';
+import {type AxiosResponse} from 'axios';
+import fs from 'fs/promises';
+import yaml from 'js-yaml';
+import url from 'url';
+import util from 'util';
+
 import {AppError} from '../app/AppError.js';
 import {AppErrorCode} from '../app/ErrorCode.js';
+import {ConfigFileType} from './Enum.js';
 import path = require('path');
 import process = require('process');
 import {Util} from './Utility.js';
 
-const CONFIG_MASK = '***';
-const PRIVATE_TOKEN = '*';
+const configMask = '***';
+const privateToken = '*';
 
 class ConfigLoader<T extends {}> {
   async readFile(filepath: string, type: ConfigFileType.RAW): Promise<Buffer>
@@ -34,7 +35,7 @@ class ConfigLoader<T extends {}> {
     if (response.status === 200 && !response.data.error) {
       return response.data as unknown as T;
     }
-    throw new AppError(AppErrorCode.ERR_LOAD_CONFIG, `ERR_LOAD_CONFIG, url=${target}`);
+    throw new AppError(AppErrorCode.ErrLoadConfig, `ERR_LOAD_CONFIG, url=${target}`);
   }
 
   async load(targetUrl: string) {
@@ -73,11 +74,11 @@ class ConfigLoader<T extends {}> {
     this.config_ = this.createConfigProxy(config);
   }
 
-  private hidePrivateKey(config: Object) {
-    const result = {};
+  private hidePrivateKey(config: Record<string, unknown>) {
+    const result: Record<string, unknown> = {};
     for (const [key, value] of Object.entries(config)) {
-      if (key[key.length - 1] === PRIVATE_TOKEN) {
-        result[key.slice(0, -1)] = CONFIG_MASK;
+      if (key[key.length - 1] === privateToken) {
+        result[key.slice(0, -1)] = configMask;
         continue;
       }
       if (Array.isArray(value)) {
@@ -86,21 +87,21 @@ class ConfigLoader<T extends {}> {
       if (typeof value === 'object') {
         if (value === null)
           result[key] = null;
-        result[key] = this.hidePrivateKey(value as Object);
+        result[key] = this.hidePrivateKey(value as Record<string, unknown>);
       }
       result[key] = value as unknown;
     }
     return result;
   }
 
-  createConfigProxy<C extends Object>(raw: C): C {
+  createConfigProxy<C extends Record<string, unknown>>(raw: C): C {
     if (util.types.isProxy(raw))
       return raw;
 
     const config = JSON.parse(JSON.stringify(raw)) as C;
 
     if (Array.isArray(config))
-      return config.map((v) => this.createConfigProxy(v as Object)) as unknown as C;
+      return config.map((v) => this.createConfigProxy(v as any)) as unknown as C;
 
     if (typeof config !== 'object')
       return config;
@@ -111,30 +112,31 @@ class ConfigLoader<T extends {}> {
     if (config === null)
       return config;
 
+    const writable = config as Record<string, unknown>;
     const hiddenKeys: string[] = [];
     for (const [key, value] of Object.entries(config)) {
-      if (key[key.length - 1] === PRIVATE_TOKEN) {
+      if (key[key.length - 1] === privateToken) {
         hiddenKeys.push(key.slice(0, -1));
       }
 
       if (Array.isArray(value)) {
-        config[key] = value.map(v => this.createConfigProxy(v) as unknown);
+        writable[key] = value.map(v => this.createConfigProxy(v) as unknown);
         continue;
       }
 
       if (typeof value === 'object') {
-        config[key] = this.createConfigProxy(value) as unknown;
+        writable[key] = this.createConfigProxy(value as any) as unknown;
       }
     }
 
-    config[util.inspect.custom] = () => {
+    (config as any)[util.inspect.custom] = () => {
       return this.hidePrivateKey(config);
     };
 
     const proxy = new Proxy(config, {
       get: (target, property) => {
         if (typeof property === 'symbol') {
-          return target[property] as unknown;
+          return (target as any)[property] as unknown;
         }
 
         if (property === 'toJSON') {
@@ -147,13 +149,13 @@ class ConfigLoader<T extends {}> {
       },
       ownKeys: (target) => {
         const result = Object.getOwnPropertyNames(target).map((property) => {
-          return  property[property.length - 1] === PRIVATE_TOKEN ? property.slice(0, -1) : property;
+          return property[property.length - 1] === privateToken ? property.slice(0, -1) : property;
         });
         return result;
       },
       has: (target, key) => {
         return Object.keys(config).map(property => {
-          return property[property.length - 1] === PRIVATE_TOKEN ? property.slice(0, -1) : property;
+          return property[property.length - 1] === privateToken ? property.slice(0, -1) : property;
         }).includes(key as string);
       },
       getOwnPropertyDescriptor: (target, property) => {
@@ -161,11 +163,11 @@ class ConfigLoader<T extends {}> {
           return Object.getOwnPropertyDescriptor(target, property);
 
         if (hiddenKeys.includes(property)) {
-          const descriptor = Object.getOwnPropertyDescriptor(target, `${property}${PRIVATE_TOKEN}`);
+          const descriptor = Object.getOwnPropertyDescriptor(target, `${property}${privateToken}`);
           if (!descriptor) {
             return undefined;
           }
-          descriptor.value = CONFIG_MASK;
+          descriptor.value = configMask;
           return descriptor;
         } else {
           return Object.getOwnPropertyDescriptor(target, property);

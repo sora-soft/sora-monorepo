@@ -1,4 +1,4 @@
-import {DatabaseComponent} from '@sora-soft/database-component';
+import {type DatabaseComponent} from '@sora-soft/database-component';
 import {EntityManager} from '@sora-soft/database-component/typeorm';
 
 export const transaction = (component: DatabaseComponent) => {

@@ -1,7 +1,7 @@
 import {ETCDDiscovery} from '@sora-soft/etcd-discovery';
-import {AbortError, ConsoleOutput, Context, ExError, type IComponentOptions, type INodeOptions, type IServiceOptions, type IWorkerOptions, Logger, LogLevel, Node, Runtime} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
+import {ConsoleOutput, ExError, type IComponentOptions, type INodeOptions, type IServiceOptions, type IWorkerOptions, Logger, LogLevel, Node, Runtime} from '@sora-soft/framework';
 import {readFile} from 'fs/promises';
+import typia from 'typia';
 
 import {Com} from '../lib/Com.js';
 import {FileOutput} from '../lib/FileLogger.js';
@@ -62,20 +62,20 @@ class Application {
   // 在这种启动模式下，只会进行 Component 设定，不会启动任何 Service / Worker
   // 多用于集群启动
   static async startContainer(options: IApplicationOptions) {
-    await this.start(options, context);
+    await this.start(options);
   }
 
   // 以执行模式启动
   // 在这种启动模式下，只会启动指定的 Worker，在 Worker 执行完 runCommand 方法后自动退出
   // 多用于命令行启动
-  static async startCommand(options: IApplicationOptions, name: string, args: string[], context: Context) {
-    await this.start(options, context);
+  static async startCommand(options: IApplicationOptions, name: string, args: string[]) {
+    await this.start(options);
     if (!options.workers || !options.workers[name])
-      throw new AppError(AppErrorCode.ERR_CONFIG_NOT_FOUND, `ERR_CONFIG_NOT_FOUND, works[${name}]`);
+      throw new AppError(AppErrorCode.ErrConfigNotFound, `ERR_CONFIG_NOT_FOUND, works[${name}]`);
 
     const worker = Node.workerFactory(name, options.workers[name]);
     if (!worker)
-      throw new AppError(AppErrorCode.ERR_WORKER_NOT_CREATED, `ERR_WORKER_NOT_CREATED, worker=${name}`);
+      throw new AppError(AppErrorCode.ErrWorkerNotCreated, `ERR_WORKER_NOT_CREATED, worker=${name}`);
     await Runtime.installWorker(worker);
     const result = await worker.runCommand(args);
     if (result) {
@@ -87,21 +87,18 @@ class Application {
   // 以配置模式启动
   // 在这种启动模式下，会启动配置文件中的所有 Service 与 Worker
   // 多用于调试启动
-  static async startServer(options: IApplicationOptions, context: Context) {
-    await this.start(options, context);
+  static async startServer(options: IApplicationOptions) {
+    await this.start(options);
 
     if (options.services) {
       for (const [name, serviceConfig] of Object.entries(options.services)) {
         const service = Node.serviceFactory(name, serviceConfig);
         if (!service) {
-          const err = new AppError(AppErrorCode.ERR_SERVICE_NOT_CREATED, `ERR_SERVICE_NOT_CREATED, service=${name}`);
+          const err = new AppError(AppErrorCode.ErrServiceNotCreated, `ERR_SERVICE_NOT_CREATED, service=${name}`);
           this.appLog.error('application', err, {event: 'create-service-error', error: Logger.errorMessage(err)});
           continue;
         }
-        Runtime.installService(service, context).catch((err: ExError) => {
-          if (err instanceof AbortError) {
-            return;
-          }
+        Runtime.installService(service).catch((err: ExError) => {
           this.appLog.error('application', err, {event: 'install-service-error', error: Logger.errorMessage(err)});
         });
       }
@@ -111,14 +108,11 @@ class Application {
       for (const [name, workerConfig] of Object.entries(options.workers)) {
         const worker = Node.workerFactory(name, workerConfig);
         if (!worker) {
-          const err = new AppError(AppErrorCode.ERR_WORKER_NOT_CREATED, `ERR_WORKER_NOT_CREATED, worker=${name}`);
+          const err = new AppError(AppErrorCode.ErrWorkerNotCreated, `ERR_WORKER_NOT_CREATED, worker=${name}`);
           this.appLog.error('application', err, {event: 'create-worker-error', error: Logger.errorMessage(err)});
           continue;
         }
-        Runtime.installWorker(worker, context).catch((err: ExError) => {
-          if (err instanceof AbortError) {
-            return;
-          }
+        Runtime.installWorker(worker).catch((err: ExError) => {
           this.appLog.error('application', err, {event: 'install-worker-error', error: Logger.errorMessage(err)});
         });
       }
@@ -128,9 +122,9 @@ class Application {
   static async startOnlyAppLog(debug: boolean, loggerConfig: IApplicationLoggerOptions) {
     this.appLog_ = new AppLogger();
 
-    const logLevels = [LogLevel.error, LogLevel.fatal, LogLevel.info, LogLevel.success, LogLevel.warn];
+    const logLevels = [LogLevel.Error, LogLevel.Fatal, LogLevel.Info, LogLevel.Success, LogLevel.Warn];
     if (debug)
-      logLevels.push(LogLevel.debug);
+      logLevels.push(LogLevel.Debug);
 
     const consoleOutput = new ConsoleOutput({
       levels: logLevels,
@@ -147,9 +141,9 @@ class Application {
   static async startLog(debug: boolean, loggerConfig: IApplicationLoggerOptions) {
     this.appLog_ = new AppLogger();
 
-    const logLevels = [LogLevel.error, LogLevel.fatal, LogLevel.info, LogLevel.success, LogLevel.warn];
+    const logLevels = [LogLevel.Error, LogLevel.Fatal, LogLevel.Info, LogLevel.Success, LogLevel.Warn];
     if (debug)
-      logLevels.push(LogLevel.debug);
+      logLevels.push(LogLevel.Debug);
 
     const consoleOutput = new ConsoleOutput({
       levels: logLevels,
@@ -164,15 +158,14 @@ class Application {
     this.appLog_.pipe(consoleOutput).pipe(fileOutput);
   }
 
-  private static async start(options: IApplicationOptions, ctx: Context) {
-    const context = new Context(ctx);
+  private static async start(options: IApplicationOptions) {
     this.config_ = options;
     Runtime.appVersion = pkg.version;
     try {
-      TypeGuard.assert<IApplicationOptions>(options);
+      typia.assert<IApplicationOptions>(options);
     } catch(e) {
       const err = ExError.fromError(e as Error);
-      throw new AppError(AppErrorCode.ERR_LOAD_CONFIG, `ERR_LOAD_CONFIG, message=${err.message}`);
+      throw new AppError(AppErrorCode.ErrLoadConfig, `ERR_LOAD_CONFIG, message=${err.message}`);
     }
 
     Com.register();
@@ -191,14 +184,13 @@ class Application {
       etcdComponentName: options.discovery.etcdComponentName,
       prefix: options.discovery.scope,
     });
-    const node = new Node(options.node);
-    await Runtime.startup(node, discovery, context);
+    const node = new Node(options.node, []);
+    await Runtime.startup(node, discovery);
     this.appLog_.success('application', {event: 'app-start', versions: {runtime: Runtime.version}, processId: process.pid});
 
     ServiceRegister.init();
     WorkerRegister.init();
     Pvd.registerSenders();
-    context.complete();
   }
 }
 

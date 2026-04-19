@@ -1,0 +1,14 @@
+import {Route} from '@sora-soft/framework';
+import {ValidateClass} from 'typescript-is';
+
+@ValidateClass()
+class <%- handlerName %>Handler extends Route {
+  @Route.method
+  async test(body: void) {
+    return {
+      test: true
+    };
+  }
+}
+
+export {<%- handlerName %>Handler};

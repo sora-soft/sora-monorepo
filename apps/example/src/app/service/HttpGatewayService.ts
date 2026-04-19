@@ -1,14 +1,15 @@
-import {Context, IServiceOptions, Node, Service} from '@sora-soft/framework';
-import {Pvd} from '../../lib/Provider.js';
-import {ServiceName} from './common/ServiceName.js';
+import {type IServiceOptions, JsonBufferCodec, Node, Service} from '@sora-soft/framework';
+import {HTTPListener, type IHTTPListenerOptions, type IWebSocketListenerOptions, WebSocketListener} from '@sora-soft/http-support';
 import Koa from '@sora-soft/http-support/koa';
-import {HTTPListener, IHTTPListenerOptions, IWebSocketListenerOptions, WebSocketListener} from '@sora-soft/http-support';
-import {ForwardRoute} from '../../lib/route/ForwardRoute.js';
+import typia from 'typia';
+
 import {Com} from '../../lib/Com.js';
+import {Pvd} from '../../lib/Provider.js';
+import {ForwardRoute} from '../../lib/route/ForwardRoute.js';
 import {AccountWorld} from '../account/AccountWorld.js';
 import {Application} from '../Application.js';
 import {TraefikWorld} from '../traefik/TraefikWorld.js';
-import {TypeGuard} from '@sora-soft/type-guard';
+import {ServiceName} from './common/ServiceName.js';
 
 export interface IHttpGatewayOptions extends IServiceOptions {
   httpListener?: IHTTPListenerOptions;
@@ -29,18 +30,15 @@ class HttpGatewayService extends Service {
 
   constructor(name: string, options: IHttpGatewayOptions) {
     super(name, options);
-    TypeGuard.assert<IHttpGatewayOptions>(options);
+    typia.assert<IHttpGatewayOptions>(options);
     this.gatewayOptions_ = options;
   }
 
-  protected async startup(ctx: Context) {
-    await this.connectComponents([Com.businessDB, Com.businessRedis, Com.etcd, Com.aliCloud], ctx);
-    await this.registerProviders([Pvd.restful, Pvd.auth], ctx);
-
-    await ctx.await(AccountWorld.startup());
+  protected async startup() {
+    await this.connectComponents([Com.businessDB, Com.businessRedis, Com.etcd, Com.aliCloud]);
+    await this.registerProviders([Pvd.auth]);
 
     const route = new ForwardRoute(this, {
-      [ServiceName.Restful]: Pvd.restful,
       [ServiceName.Auth]: Pvd.auth,
     });
     const koa = new Koa();
@@ -48,17 +46,17 @@ class HttpGatewayService extends Service {
       this.httpListener_ = new HTTPListener(this.gatewayOptions_.httpListener, koa, ForwardRoute.callback(route), this.gatewayOptions_.httpListener.labels);
     }
     if (this.gatewayOptions_.websocketListener) {
-      this.websocketListener_ = new WebSocketListener(this.gatewayOptions_.websocketListener, ForwardRoute.callback(route), this.gatewayOptions_.websocketListener.labels);
+      this.websocketListener_ = new WebSocketListener(this.gatewayOptions_.websocketListener, ForwardRoute.callback(route), [new JsonBufferCodec()], this.gatewayOptions_.websocketListener.labels);
     }
 
     this.registerTraefikListener();
 
     if (this.httpListener_) {
-      await this.installListener(this.httpListener_, ctx);
+      await this.installListener(this.httpListener_);
     }
 
     if (this.websocketListener_) {
-      await this.installListener(this.websocketListener_, ctx);
+      await this.installListener(this.websocketListener_);
     }
   }
 

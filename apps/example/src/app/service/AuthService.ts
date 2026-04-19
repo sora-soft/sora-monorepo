@@ -1,8 +1,9 @@
-import {Context, ExError, Logger, NodeTime, TCPListener} from '@sora-soft/framework';
-import {ITCPListenerOptions} from '@sora-soft/framework';
+import {type ExError, JsonBufferCodec, Logger, NodeTime, TCPListener} from '@sora-soft/framework';
+import {type ITCPListenerOptions} from '@sora-soft/framework';
 import {Route} from '@sora-soft/framework';
-import {IServiceOptions, Node, Service} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
+import {type IServiceOptions, Node, Service} from '@sora-soft/framework';
+import typia from 'typia';
+
 import {Com} from '../../lib/Com.js';
 import {AccountWorld} from '../account/AccountWorld.js';
 import {Application} from '../Application.js';
@@ -22,17 +23,18 @@ class AuthService extends Service {
 
   constructor(name: string, options: IAuthOptions) {
     super(name, options);
-    TypeGuard.assert<IAuthOptions>(options);
+    typia.assert<IAuthOptions>(options);
     this.authOptions_ = options;
   }
 
-  protected async startup(ctx: Context) {
-    await this.connectComponent(Com.businessDB, ctx);
+  protected async startup() {
+    await this.connectComponent(Com.businessDB);
+
+    await AccountWorld.startup();
 
     const route = new AuthHandler(this);
-
-    const listener = new TCPListener(this.authOptions_.tcpListener, Route.callback(route));
-    await this.installListener(listener, ctx);
+    const listener = new TCPListener(this.authOptions_.tcpListener, Route.callback(route), [new JsonBufferCodec()]);
+    await this.installListener(listener);
 
     this.doJobInterval(async () => {
       await AccountWorld.deleteExpiredAccountSession();

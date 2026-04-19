@@ -1,6 +1,8 @@
 import type {AsyncLocalStorage} from 'async_hooks';
 import crypto from 'crypto';
+import diagnostics from 'diagnostics_channel';
 
+import {DiagnosticsChannel} from '../../Const.js';
 import {TraceErrorCode} from '../../ErrorCode.js';
 import {ExError} from '../../utility/ExError.js';
 import {NanoTime} from '../../utility/Utility.js';
@@ -103,6 +105,9 @@ export class TraceState {
 }
 
 export abstract class TraceContext {
+  static startChannel = diagnostics.channel(DiagnosticsChannel.TraceStartChannel);
+  static endChannel = diagnostics.channel(DiagnosticsChannel.TraceEndChannel);
+
   constructor(traceId?: string, parentSpanId?: string, flags?: number, traceState?: string) {
     if (!parentSpanId) {
       const parent = Trace.current();
@@ -159,6 +164,9 @@ export abstract class TraceContext {
       throw new TraceError(TraceErrorCode.ErrDuplicateScopeStart, 'trace scope.start can only be called once');
     }
     this.startNanoTime_ = NanoTime.now();
+    if (TraceContext.startChannel.hasSubscribers) {
+      TraceContext.startChannel.publish(this);
+    }
   }
 
   private onEnd() {
@@ -166,6 +174,9 @@ export abstract class TraceContext {
       throw new TraceError(TraceErrorCode.ErrDuplicateTraceEnd, 'trace scope.end can only be called once');
     }
     this.endNanoTime_ = NanoTime.now();
+    if (TraceContext.endChannel.hasSubscribers) {
+      TraceContext.endChannel.publish(this);
+    }
   }
 
   private onError(err: ExError) {

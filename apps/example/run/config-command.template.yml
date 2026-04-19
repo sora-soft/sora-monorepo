@@ -1,0 +1,58 @@
+#define(projectScope,string,project scope?)
+#define(host,host-ip,host ip?)
+#define(exposeHost,host-ip,port expose ip?)
+#define(portRangeMin,number,min avaliable port?)
+#define(portRangeMax,number,max avaliable port?)
+#define(databaseType,select:[mysql|mariadb],database type?)
+#define(databaseHost,string,database host?)
+#define(databasePort,number,database port?)
+#define(databaseUsername,string,database username?)
+#define(databasePassword,password,database password?)
+#define(databaseDB,string,database db name?)
+#define(etcdHost,string,etcd host?)
+#define(redisUrl,string,redis url?)
+#define(redisDB,number,redis db?)
+#define(alias,string,alias name?)
+
+debug: true
+discovery:
+  etcdComponentName: 'etcd'
+  scope: $(projectScope)
+
+logger:
+  file:
+    fileFormat: '[./logs/server-]YYYY-MM-DD[.log]'
+
+node:
+  alias: $(alias)
+  api:
+    portRange:
+      - $(portRangeMin)
+      - $(portRangeMax)
+    host: $(host)
+    exposeHost: $(exposeHost)
+
+components:
+  business-redis:
+    url: $(redisUrl)
+    database: $(redisDB)
+  business-database:
+    database:
+      type: $(databaseType)
+      host: $(databaseHost)
+      port: $(databasePort)
+      username*: $(databaseUsername)
+      password*: $(databasePassword)
+      database: $(databaseDB)
+  etcd:
+    etcd:
+      hosts:
+      - $(etcdHost)
+    ttl: 60
+    prefix: $(projectScope)
+
+workers:
+  database-migrate-command:
+    components:
+        - business-database
+  auth-command: {}

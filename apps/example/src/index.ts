@@ -1,7 +1,7 @@
 import 'source-map-support/register.js';
 import 'reflect-metadata';
 
-import {Context, type ExError, Logger, Runtime} from '@sora-soft/framework';
+import {type ExError, Logger, Runtime} from '@sora-soft/framework';
 
 import {AppError} from './app/AppError.js';
 import {Application, type IApplicationOptions} from './app/Application.js';
@@ -15,48 +15,46 @@ export interface IStartupOptions {
 }
 
 export const container = async (options: IStartupOptions) => {
-  const context = new Context();
   const config = await loadConfig(options);
   if (!config)
-    throw new AppError(AppErrorCode.ERR_LOAD_CONFIG, 'ERR_LOAD_CONFIG');
+    throw new AppError(AppErrorCode.ErrLoadConfig, 'ERR_LOAD_CONFIG');
+
   await Application.startLog(config.debug, config.logger).catch((err: ExError) => {
     // eslint-disable-next-line no-console
     console.log(`${err.name}: ${err.message}`);
     process.exit(1);
   });
-  await Application.startContainer(config, context).catch(async (err: ExError) => {
+
+  await Application.startContainer(config).catch(async (err: ExError) => {
     Application.appLog.fatal('start', err, {error: Logger.errorMessage(err)});
-    context.abort();
     await Runtime.shutdown();
     process.exit(1);
   });
-  context.complete();
 };
 
 export const server = async (options: IStartupOptions) => {
-  const context = new Context();
   const config = await loadConfig(options);
   if (!config)
-    throw new AppError(AppErrorCode.ERR_LOAD_CONFIG, 'ERR_LOAD_CONFIG');
+    throw new AppError(AppErrorCode.ErrLoadConfig, 'ERR_LOAD_CONFIG');
+
   await Application.startLog(config.debug, config.logger).catch((err: ExError) => {
     // eslint-disable-next-line no-console
     console.log(`${err.name}: ${err.message}`);
     process.exit(1);
   });
-  await Application.startServer(config, context).catch(async (err: ExError) => {
+
+  await Application.startServer(config).catch(async (err: ExError) => {
     Application.appLog.fatal('start', err, {error: Logger.errorMessage(err)});
-    context.abort();
     await Runtime.shutdown();
     process.exit(1);
   });
-  context.complete();
 };
 
 export const command = async (options: IStartupOptions) => {
-  const context = new Context();
   const config = await loadConfig(options);
   if (!config)
-    throw new AppError(AppErrorCode.ERR_LOAD_CONFIG, 'ERR_LOAD_CONFIG');
+    throw new AppError(AppErrorCode.ErrLoadConfig, 'ERR_LOAD_CONFIG');
+
   await Application.startOnlyAppLog(config.debug, config.logger).catch((err: ExError) => {
     // eslint-disable-next-line no-console
     console.log(`${err.name}: ${err.message}`);
@@ -64,28 +62,21 @@ export const command = async (options: IStartupOptions) => {
   });
 
   if (!options.name)
-    throw new AppError(AppErrorCode.ERR_COMMAND_NOT_FOUND, 'ERR_COMMAND_NOT_FOUND');
+    throw new AppError(AppErrorCode.ErrCommandNotFound, 'ERR_COMMAND_NOT_FOUND');
 
   if (!options.arguments)
-    throw new AppError(AppErrorCode.ERR_COMMAND_NOT_FOUND, 'ERR_COMMAND_NOT_FOUND');
+    throw new AppError(AppErrorCode.ErrCommandNotFound, 'ERR_COMMAND_NOT_FOUND');
 
-  await Application.startCommand(config, options.name, options.arguments, context).catch(async (err: ExError) => {
+  await Application.startCommand(config, options.name, options.arguments).catch(async (err: ExError) => {
     Application.appLog.fatal('run-command', err, {error: Logger.errorMessage(err)});
     await Runtime.shutdown();
     process.exit(1);
   });
-  context.complete();
   process.exit(0);
 };
 
 const loadConfig = async (options: IStartupOptions) => {
   const configLoader = new ConfigLoader<IApplicationOptions>();
-  // const configPath = options.config;
   await configLoader.load(options.config);
-  // if (path.isAbsolute(configPath)) {
-  //   await configLoader.load(options.config);
-  // } else {
-  //   await configLoader.load(path.resolve(process.cwd(), options.config));
-  // }
   return configLoader.getConfig();
 };

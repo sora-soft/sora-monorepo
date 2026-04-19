@@ -1,9 +1,10 @@
-import {Listener, ListenerState} from '@sora-soft/framework';
-import {Com} from '../../lib/Com.js';
-import {EtcdKey} from '../Keys.js';
-import {ExError} from '@sora-soft/framework';
-import {Application} from '../Application.js';
+import {type Listener, ListenerState} from '@sora-soft/framework';
+import {type ExError} from '@sora-soft/framework';
 import {Logger} from '@sora-soft/framework';
+
+import {Com} from '../../lib/Com.js';
+import {Application} from '../Application.js';
+import {EtcdKey} from '../Keys.js';
 
 class TraefikWorld {
   static registerTraefikListener(prefix: string, protocol: string, name: string, listener: Listener) {
@@ -21,7 +22,7 @@ class TraefikWorld {
     const loadBalancerKey = EtcdKey.traefikConfigServiceUrl(prefix, protocol, name, listener.id);
 
     switch(listener.state) {
-      case ListenerState.READY: {
+      case ListenerState.Ready: {
         await Com.etcd.persistPut(`${prefix}/${protocol}/services/${name}/loadBalancer/passHostHeader`, 'true');
         let serverUrl = '';
         switch (protocol) {

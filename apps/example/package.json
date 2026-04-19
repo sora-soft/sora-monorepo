@@ -39,7 +39,7 @@
     "@sora-soft/framework": "workspace:*",
     "@sora-soft/http-support": "workspace:*",
     "@sora-soft/redis-component": "workspace:*",
-    "@sora-soft/type-guard": "^1.1.1",
+    "@sora-soft/typia-decorator": "workspace:*",
     "axios": "^1.4.0",
     "camelcase": "^6.2.0",
     "class-validator": "^0.13.1",
@@ -51,13 +51,15 @@
     "mysql2": "^2.2.5",
     "reflect-metadata": "^0.2.2",
     "source-map-support": "^0.5.19",
-    "typia": "^12.0.2"
+    "typia": "^12.0.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@sora-soft/cli": "^1.4.1",
     "@sora-soft/typia-decorator": "workspace:*",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
+    "@types/uuid": "^8.3.0",
     "@types/js-yaml": "^4.0.0",
     "@types/md5": "^2.3.0",
     "@types/node": "^24.0.0",

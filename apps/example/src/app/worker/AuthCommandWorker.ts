@@ -1,12 +1,13 @@
-import {IWorkerOptions, Node, Worker} from '@sora-soft/framework';
-import {Com} from '../../lib/Com.js';
-import {AccountLoginType, RootGroupId} from '../account/AccountType.js';
-import {AccountWorld} from '../account/AccountWorld.js';
-import {WorkerName} from './common/WorkerName.js';
+import {type IWorkerOptions, Node, Worker} from '@sora-soft/framework';
 import md5 from 'md5';
-import {AppErrorCode} from '../ErrorCode.js';
+import typia from 'typia';
+
+import {Com} from '../../lib/Com.js';
+import {AccountLoginType, rootGroupId} from '../account/AccountType.js';
+import {AccountWorld} from '../account/AccountWorld.js';
 import {AppError} from '../AppError.js';
-import {TypeGuard} from '@sora-soft/type-guard';
+import {AppErrorCode} from '../ErrorCode.js';
+import {WorkerName} from './common/WorkerName.js';
 
 export interface IAuthCommandWorkerOptions extends IWorkerOptions {
 }
@@ -20,7 +21,7 @@ class AuthCommandWorker extends Worker {
 
   constructor(name: string, options: IAuthCommandWorkerOptions) {
     super(name, options);
-    TypeGuard.assert<IAuthCommandWorkerOptions>(options);
+    typia.assert<IAuthCommandWorkerOptions>(options);
     this.options_ = options;
   }
 
@@ -46,14 +47,14 @@ class AuthCommandWorker extends Worker {
         await AccountWorld.createAccount({
           nickname: username,
         }, [{
-          type: AccountLoginType.USERNAME,
+          type: AccountLoginType.Username,
           username,
           password: md5Password,
-        }], [RootGroupId]);
+        }], [rootGroupId]);
         break;
       }
       default: {
-        throw new AppError(AppErrorCode.ERR_COMMAND_NOT_FOUND, 'ERR_COMMAND_NOT_FOUND');
+        throw new AppError(AppErrorCode.ErrCommandNotFound, 'ERR_COMMAND_NOT_FOUND');
       }
     }
     return true;

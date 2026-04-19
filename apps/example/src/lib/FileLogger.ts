@@ -1,8 +1,8 @@
-import {ILoggerData, ILoggerOutputOptions, LoggerOutput, Utility} from '@sora-soft/framework';
+import {type ILoggerData, type ILoggerOutputOptions, LoggerOutput, Utility} from '@sora-soft/framework';
+import fs from 'fs';
 import {mkdirp} from 'mkdirp';
-import moment = require('moment');
-import fs = require('fs');
-import path = require('path');
+import moment from 'moment';
+import path from 'path';
 
 export interface IFileOutputOptions extends ILoggerOutputOptions {
   fileFormat: string;
@@ -43,7 +43,12 @@ class FileOutput extends LoggerOutput {
     });
 
     return this.creatingPromise_;
+  }
 
+  async end() {
+    if (this.stream_) {
+      this.stream_.end();
+    }
   }
 
   private currentFileName_: string;

@@ -1,4 +1,4 @@
-import {AuthPermission} from '../database/Auth.js';
+import {type AuthPermission} from '../database/Auth.js';
 import {PermissionResult} from './AccountType.js';
 
 class AccountPermission {
@@ -6,7 +6,7 @@ class AccountPermission {
     this.permissionMap_ = new Map();
     for (const permission of permissions) {
       const existed = this.permissionMap_.get(permission.name);
-      if (existed && existed === PermissionResult.ALLOW) {
+      if (existed && existed === PermissionResult.Allow) {
         continue;
       }
       this.permissionMap_.set(permission.name, permission.permission);
@@ -14,7 +14,7 @@ class AccountPermission {
   }
 
   isAllow(name: string) {
-    return this.permissionMap_.get('root') === PermissionResult.ALLOW || this.permissionMap_.get(name) === PermissionResult.ALLOW;
+    return this.permissionMap_.get('root') === PermissionResult.Allow || this.permissionMap_.get(name) === PermissionResult.Allow;
   }
 
   get list() {

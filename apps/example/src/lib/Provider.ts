@@ -1,7 +1,7 @@
 import {Provider, TCPConnector} from '@sora-soft/framework';
 import {WebSocketConnector} from '@sora-soft/http-support';
-import {AuthHandler} from '../app/handler/AuthHandler.js';
-import {RestfulHandler} from '../app/handler/RestfulHandler.js';
+
+import {type AuthHandler} from '../app/handler/AuthHandler.js';
 import {ServiceName} from '../app/service/common/ServiceName.js';
 
 class Pvd {
@@ -10,7 +10,6 @@ class Pvd {
     WebSocketConnector.register();
   }
 
-  static restful = new Provider<RestfulHandler>(ServiceName.Restful);
   static auth = new Provider<AuthHandler>(ServiceName.Auth);
 }
 

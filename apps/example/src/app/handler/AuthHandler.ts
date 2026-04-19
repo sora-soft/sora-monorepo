@@ -1,10 +1,12 @@
 import {Route, UnixTime} from '@sora-soft/framework';
-import {AssertType, ValidateClass} from '@sora-soft/type-guard';
+import {guard} from '@sora-soft/typia-decorator';
+
 import {Com} from '../../lib/Com.js';
 import {AccountRoute} from '../../lib/route/AccountRoute.js';
 import {AuthRoute} from '../../lib/route/AuthRoute.js';
 import {Hash, Random, Util} from '../../lib/Utility.js';
-import {AccountId, AccountLoginType, AuthGroupId, PermissionResult, UserGroupId} from '../account/AccountType.js';
+import {AccountPermission} from '../account/AccountPermission.js';
+import {type AccountId, AccountLoginType, type AuthGroupId, PermissionResult, userGroupId} from '../account/AccountType.js';
 import {AccountWorld} from '../account/AccountWorld.js';
 import {Application} from '../Application.js';
 import {Account, AccountAuthGroup, AccountLogin, AccountToken} from '../database/Account.js';
@@ -12,7 +14,6 @@ import {AuthGroup, AuthPermission} from '../database/Auth.js';
 import {UserErrorCode} from '../ErrorCode.js';
 import {RedisKey} from '../Keys.js';
 import {UserError} from '../UserError.js';
-import {AccountPermission} from '../account/AccountPermission.js';
 
 export interface IReqUpdatePermission {
   gid: AuthGroupId;
@@ -75,26 +76,24 @@ export interface IReqLogin {
   remember: boolean;
 }
 
-
-@ValidateClass()
 class AuthHandler extends AuthRoute {
   @Route.method
-  async register(@AssertType() body: IReqRegister) {
+  async register(@guard body: IReqRegister) {
     const account = await AccountWorld.createAccount(
       {
         nickname: body.nickname,
         avatarUrl: body.avatarUrl,
       },
       [{
-        type: AccountLoginType.USERNAME,
+        type: AccountLoginType.Username,
         username: body.username,
         password: body.password,
       }, {
-        type: AccountLoginType.EMAIL,
+        type: AccountLoginType.Email,
         username: body.email,
         password: body.password,
       }],
-      [UserGroupId]
+      [userGroupId]
     );
 
     return {
@@ -103,7 +102,7 @@ class AuthHandler extends AuthRoute {
   }
 
   @Route.method
-  async login(@AssertType() body: IReqLogin) {
+  async login(@guard body: IReqLogin) {
     const loginInfo = await Com.businessDB.manager.findOne(AccountLogin, {
       where: {
         type: body.type,
@@ -111,12 +110,12 @@ class AuthHandler extends AuthRoute {
       },
     });
     if (!loginInfo)
-      throw new UserError(UserErrorCode.ERR_USERNAME_NOT_FOUND, 'ERR_USERNAME_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrUsernameNotFound, 'ERR_USERNAME_NOT_FOUND');
 
     const password = Hash.md5(body.password + loginInfo.salt);
 
     if (loginInfo.password !== password)
-      throw new UserError(UserErrorCode.ERR_WRONG_PASSWORD, 'ERR_WRONG_PASSWORD');
+      throw new UserError(UserErrorCode.ErrWrongPassword, 'ERR_WRONG_PASSWORD');
 
     return AccountWorld.accountLogin(loginInfo.id, body.remember ? UnixTime.day(30) : UnixTime.hour(8));
   }
@@ -162,13 +161,13 @@ class AuthHandler extends AuthRoute {
 
   @Route.method
   @AuthRoute.auth()
-  async updatePermission(@AssertType() body: IReqUpdatePermission) {
+  async updatePermission(@guard body: IReqUpdatePermission) {
     const list: AuthPermission[] = [];
 
     const group = await Com.businessDB.manager.findOneBy(AuthGroup, {id: body.gid});
 
     if (!group)
-      throw new UserError(UserErrorCode.ERR_AUTH_GROUP_NOT_FOUND, 'ERR_GROUP_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrAuthGroupNotFound, 'ERR_GROUP_NOT_FOUND');
 
     for (const p of body.permissions) {
       const authPermission = new AuthPermission();
@@ -186,7 +185,7 @@ class AuthHandler extends AuthRoute {
 
   @Route.method
   @AuthRoute.auth()
-  async updateAccount(@AssertType() body: IReqUpdateAccount) {
+  async updateAccount(@guard body: IReqUpdateAccount) {
     await Com.businessDB.manager.transaction(async (manager) => {
       const account = await Com.businessDB.manager.findOne(Account, {
         where: {
@@ -194,7 +193,7 @@ class AuthHandler extends AuthRoute {
         },
       });
       if (!account) {
-        throw new UserError(UserErrorCode.ERR_ACCOUNT_NOT_FOUND, 'ERR_ACCOUNT_NOT_FOUND');
+        throw new UserError(UserErrorCode.ErrAccountNotFound, 'ERR_ACCOUNT_NOT_FOUND');
       }
 
       if (Util.isMeaningful(body.groupList)) {
@@ -213,14 +212,14 @@ class AuthHandler extends AuthRoute {
   @Route.method
   @AuthRoute.auth()
   @AccountRoute.account()
-  async disableAccount(@AssertType() body: IReqDisableAccount, account: Account) {
+  async disableAccount(@guard body: IReqDisableAccount, account: Account) {
     if (account.id === body.accountId)
-      throw new UserError(UserErrorCode.ERR_DISABLE_SELF, 'ERR_DISABLE_SELF');
+      throw new UserError(UserErrorCode.ErrDisableSelf, 'ERR_DISABLE_SELF');
 
     await Com.businessDB.manager.transaction(async (manager) => {
       const target = await Com.businessDB.manager.findOneBy(Account, {id: body.accountId});
       if (!target) {
-        throw new UserError(UserErrorCode.ERR_ACCOUNT_NOT_FOUND, 'ERR_ACCOUNT_NOT_FOUND');
+        throw new UserError(UserErrorCode.ErrAccountNotFound, 'ERR_ACCOUNT_NOT_FOUND');
       }
 
       target.disabled = body.disabled;
@@ -237,7 +236,7 @@ class AuthHandler extends AuthRoute {
 
   @Route.method
   @AuthRoute.auth()
-  async deleteAuthGroup(@AssertType() body: IReqDeleteAuthGroup) {
+  async deleteAuthGroup(@guard body: IReqDeleteAuthGroup) {
     const accounts = await Com.businessDB.manager.find(AccountAuthGroup, {
       where: {
         groupId: body.gid,
@@ -245,7 +244,7 @@ class AuthHandler extends AuthRoute {
     });
 
     if (accounts.length)
-      throw new UserError(UserErrorCode.ERR_AUTH_GROUP_NOT_EMPTY, 'ERR_AUTH_GROUP_NOT_EMPTY');
+      throw new UserError(UserErrorCode.ErrAuthGroupNotEmpty, 'ERR_AUTH_GROUP_NOT_EMPTY');
 
     const group = await Com.businessDB.manager.findOne(AuthGroup, {
       where: {
@@ -254,10 +253,10 @@ class AuthHandler extends AuthRoute {
     });
 
     if (!group)
-      throw new UserError(UserErrorCode.ERR_AUTH_GROUP_NOT_FOUND, 'ERR_GROUP_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrAuthGroupNotFound, 'ERR_GROUP_NOT_FOUND');
 
     if (group.protected)
-      throw new UserError(UserErrorCode.ERR_PROTECTED_GROUP, 'ERR_PROTECTED_GROUP');
+      throw new UserError(UserErrorCode.ErrProtectedGroup, 'ERR_PROTECTED_GROUP');
 
     await Com.businessDB.manager.delete(AuthGroup, {
       id: body.gid,
@@ -268,22 +267,22 @@ class AuthHandler extends AuthRoute {
 
   @Route.method
   @AuthRoute.auth()
-  async createAccount(@AssertType() body: IReqCreateAccount) {
+  async createAccount(@guard body: IReqCreateAccount) {
     for (const gid of body.groupList) {
       const group = await Com.businessDB.manager.findOneBy(AuthGroup, {id: gid});
 
       if (!group)
-        throw new UserError(UserErrorCode.ERR_AUTH_GROUP_NOT_FOUND, 'ERR_GROUP_NOT_FOUND');
+        throw new UserError(UserErrorCode.ErrAuthGroupNotFound, 'ERR_GROUP_NOT_FOUND');
     }
 
     const account = await AccountWorld.createAccount({
       nickname: body.nickname,
     }, [{
-      type: AccountLoginType.USERNAME,
+      type: AccountLoginType.Username,
       username: body.username,
       password: body.password,
     }, {
-      type: AccountLoginType.EMAIL,
+      type: AccountLoginType.Email,
       username: body.email,
       password: body.password,
     }], body.groupList);
@@ -296,10 +295,10 @@ class AuthHandler extends AuthRoute {
   @Route.method
   @AuthRoute.auth()
   @AccountRoute.token()
-  async resetPassword(@AssertType() body: IReqResetPassword, token: AccountToken) {
+  async resetPassword(@guard body: IReqResetPassword, token: AccountToken) {
     const account = await Com.businessDB.manager.findOneBy(Account, {id: body.id});
     if (!account)
-      throw new UserError(UserErrorCode.ERR_ACCOUNT_NOT_FOUND, 'ERR_ACCOUNT_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrAccountNotFound, 'ERR_ACCOUNT_NOT_FOUND');
 
     await Com.businessDB.manager.transaction(async (manager) => {
       await AccountWorld.resetAccountPassword(account, body.password, manager);
@@ -315,14 +314,14 @@ class AuthHandler extends AuthRoute {
   }
 
   @Route.method
-  async requestForgetPassword(@AssertType() body: IReqRequestForgetPassword) {
+  async requestForgetPassword(@guard body: IReqRequestForgetPassword) {
     const account = await Com.businessDB.manager.findOneBy(AccountLogin, {
-      type: AccountLoginType.EMAIL,
+      type: AccountLoginType.Email,
       username: body.email,
     });
 
     if (!account)
-      throw new UserError(UserErrorCode.ERR_ACCOUNT_NOT_FOUND, 'ERR_ACCOUNT_NOT_FOUND');
+      throw new UserError(UserErrorCode.ErrAccountNotFound, 'ERR_ACCOUNT_NOT_FOUND');
 
     const code = Random.randomString(4).toUpperCase();
     const id = await AccountWorld.sendAccountResetPassEmail(account, code);
@@ -331,14 +330,14 @@ class AuthHandler extends AuthRoute {
   }
 
   @Route.method
-  async forgetPassword(@AssertType() body: IReqForgetPassword) {
+  async forgetPassword(@guard body: IReqForgetPassword) {
     const info = await AccountWorld.getAccountResetPassCode(body.id);
     if (!info || info.code !== body.code)
-      throw new UserError(UserErrorCode.ERR_WRONG_EMAIL_CODE, 'ERR_WRONG_EMAIL_CODE');
+      throw new UserError(UserErrorCode.ErrWrongEmailCode, 'ERR_WRONG_EMAIL_CODE');
 
     const account = await Com.businessDB.manager.findOneBy(Account, {id: info.accountId});
     if (!account)
-      throw new UserError(UserErrorCode.ERR_WRONG_EMAIL_CODE, 'ERR_WRONG_EMAIL_CODE');
+      throw new UserError(UserErrorCode.ErrWrongEmailCode, 'ERR_WRONG_EMAIL_CODE');
 
     await Com.businessDB.manager.transaction(async (manager) => {
       await AccountWorld.resetAccountPassword(account, body.password, manager);

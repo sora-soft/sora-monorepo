@@ -1,5 +1,5 @@
-import {DatabaseMigrateCommandWorker} from '../DatabaseMigrateCommandWorker.js';
 import {AuthCommandWorker} from '../AuthCommandWorker.js';
+import {DatabaseMigrateCommandWorker} from '../DatabaseMigrateCommandWorker.js';
 
 class WorkerRegister {
   static init() {

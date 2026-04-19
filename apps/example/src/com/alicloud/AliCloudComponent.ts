@@ -1,8 +1,9 @@
-import {Component, IComponentOptions} from '@sora-soft/framework';
-import {TypeGuard} from '@sora-soft/type-guard';
+import {Component, type IComponentOptions} from '@sora-soft/framework';
+import typia from 'typia';
+
 import {AliCloudError, AliCloudErrorCode} from './AliCloudError.js';
-import {AliCloudPop, IAliCloudPopConfig} from './AliCloudPop.js';
-import {IAliCloudCommonConfig} from './AliCloudType.js';
+import {AliCloudPop, type IAliCloudPopConfig} from './AliCloudPop.js';
+import {type IAliCloudCommonConfig} from './AliCloudType.js';
 
 export interface IAliCloudComponentOptions extends IComponentOptions, IAliCloudCommonConfig {
   pop?: IAliCloudPopConfig;
@@ -10,7 +11,7 @@ export interface IAliCloudComponentOptions extends IComponentOptions, IAliCloudC
 
 class AliCloudComponent extends Component {
   protected setOptions(options: IAliCloudComponentOptions) {
-    TypeGuard.assert<IAliCloudComponentOptions>(options);
+    typia.assert<IAliCloudComponentOptions>(options);
     this.aliCloudOptions_ = options;
   }
 
@@ -28,7 +29,7 @@ class AliCloudComponent extends Component {
 
   get pop() {
     if (!this.pop_)
-      throw new AliCloudError(AliCloudErrorCode.ERR_SUB_NOT_LOADED, 'ERR_SUB_NOT_LOADED, module=pop');
+      throw new AliCloudError(AliCloudErrorCode.ErrSubNotLoaded, 'ERR_SUB_NOT_LOADED, module=pop');
 
     return this.pop_;
   }
