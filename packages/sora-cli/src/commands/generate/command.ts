@@ -8,46 +8,37 @@ import {CodeInserter} from '../../lib/ast/code-inserter';
 import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
 import {Utility} from '../../lib/Utility';
 
-export default class GenerateWorker extends BaseCommand {
-  static description = 'Generate a new worker';
+export default class GenerateCommand extends BaseCommand {
+  static description = 'Generate a new command worker';
 
   static args = [
-    {name: 'name', description: 'Worker name'},
+    {name: 'name', description: 'Command name'},
   ];
 
   static flags = {
     ...BaseCommand.flags,
-    standalone: flags.boolean({description: 'Generate as SingletonWorker'}),
     'dry-run': flags.boolean({description: 'Show what would be generated without writing'}),
   };
 
   async run() {
-    const {args, flags} = this.parse(GenerateWorker);
+    const {args, flags} = this.parse(GenerateCommand);
     await this.loadConfig();
 
     let name: string | undefined = args.name as string | undefined;
-    let standalone: boolean | undefined = flags.standalone;
 
     if (!name) {
       const answers = await inquirer.prompt<{name: string}>([
-        {name: 'name', message: 'Worker name?'},
+        {name: 'name', message: 'Command name?'},
       ]);
       name = answers.name;
     }
 
-    if (standalone === undefined) {
-      const answers = await inquirer.prompt<{standalone: boolean}>([
-        {name: 'standalone', message: 'Standalone mode?', type: 'confirm', default: false},
-      ]);
-      standalone = answers.standalone;
-    }
-
     const upperCamelCaseWorkerName = Utility.camelize(name, true);
-    const upperCamelCaseWorkerFullName = `${upperCamelCaseWorkerName}Worker`;
+    const upperCamelCaseWorkerFullName = `${upperCamelCaseWorkerName}CommandWorker`;
 
     const [workerNameFilePath, workerNameEnum] = this.soraConfig.sora.workerNameEnum.split('#');
-    const workerFilePath = path.join(this.soraConfig.sora.workerDir, `${upperCamelCaseWorkerName}Worker`);
-    const workerFileExPath = path.join(this.soraConfig.sora.workerDir, `${upperCamelCaseWorkerName}Worker.ts`);
+    const workerFilePath = path.join(this.soraConfig.sora.workerDir, `${upperCamelCaseWorkerName}CommandWorker`);
+    const workerFileExPath = path.join(this.soraConfig.sora.workerDir, `${upperCamelCaseWorkerName}CommandWorker.ts`);
     const workerNameWorkerRelativePath = Utility.resolveImportPath(workerFileExPath, workerNameFilePath);
 
     const [workerRegisterFilePath, registerMethodPath] = this.soraConfig.sora.workerRegister.split('#');
@@ -55,7 +46,7 @@ export default class GenerateWorker extends BaseCommand {
 
     const existedFile = this.fileTree.getFile(workerFileExPath);
     if (existedFile)
-      throw new Error('Worker file already exists');
+      throw new Error('Command worker file already exists');
 
     const data = {
       upperCamelCaseWorkerName,
@@ -63,10 +54,9 @@ export default class GenerateWorker extends BaseCommand {
       workerFileExPath,
       workerNameWorkerRelativePath,
       workerNameEnum,
-      standalone,
     };
 
-    const result = template(path.resolve(__dirname, '../../../template/worker/Worker.ts.art'), data);
+    const result = template(path.resolve(__dirname, '../../../template/command/CommandWorker.ts.art'), data);
     const workerFile = this.fileTree.newFile(workerFileExPath) as ScriptFileNode;
     workerFile.setContent(Buffer.from(result));
 
@@ -74,7 +64,7 @@ export default class GenerateWorker extends BaseCommand {
     const workerNameFile = this.fileTree.getFile(workerNameFileExtPath) as ScriptFileNode;
     await workerNameFile.load();
     const workerNameFileAST = new CodeInserter(workerNameFile);
-    workerNameFileAST.insertEnum(workerNameEnum, upperCamelCaseWorkerName, Utility.dashlize(upperCamelCaseWorkerName));
+    workerNameFileAST.insertEnum(workerNameEnum, `${upperCamelCaseWorkerName}Command`, Utility.dashlize(`${upperCamelCaseWorkerName}Command`));
 
     const workerRegisterFileExtPath = workerRegisterFilePath + '.ts';
     const workerRegisterFile = this.fileTree.getFile(workerRegisterFileExtPath) as ScriptFileNode;
@@ -84,7 +74,7 @@ export default class GenerateWorker extends BaseCommand {
     workerRegisterAST.addImport(upperCamelCaseWorkerFullName, workerRegisterServiceRelativePath, false);
     workerRegisterAST.insertCodeInClassMethod(workerRegisterClass, workerRegisterMethod, `\n    ${upperCamelCaseWorkerFullName}.register();`);
 
-    this.log(`Worker ${upperCamelCaseWorkerFullName} generated`);
+    this.log(`Command ${upperCamelCaseWorkerFullName} generated`);
 
     if (!flags['dry-run']) {
       await this.fileTree.commit();

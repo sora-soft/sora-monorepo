@@ -1,0 +1,35 @@
+import {<%- workerNameEnum %>} from '<%- workerNameWorkerRelativePath %>';
+import {IWorkerOptions, Node, Worker} from '@sora-soft/framework';
+import typia from 'typia';
+
+export interface I<%- upperCamelCaseWorkerName %>CommandWorkerOptions extends IWorkerOptions {
+}
+
+class <%- upperCamelCaseWorkerName %>CommandWorker extends Worker {
+  static register() {
+    Node.registerWorker(<%- workerNameEnum %>.<%- upperCamelCaseWorkerName %>Command, (options: I<%- upperCamelCaseWorkerName %>CommandWorkerOptions) => {
+      return new <%- upperCamelCaseWorkerName %>CommandWorker(<%- workerNameEnum %>.<%- upperCamelCaseWorkerName %>Command, options);
+    });
+  }
+
+  constructor(name: string, options: I<%- upperCamelCaseWorkerName %>CommandWorkerOptions) {
+    typia.assert<I<%- upperCamelCaseWorkerName %>CommandWorkerOptions>(options);
+    super(name, options);
+  }
+
+  protected async startup() {}
+
+  protected async shutdown() {}
+
+  async runCommand(commands: string[]) {
+    const [action] = commands;
+
+    switch (action) {
+      // TODO: 实现不同 action 指令
+    }
+  }
+
+  declare protected options_: I<%- upperCamelCaseWorkerName %>CommandWorkerOptions;
+}
+
+export {<%- upperCamelCaseWorkerName %>CommandWorker}

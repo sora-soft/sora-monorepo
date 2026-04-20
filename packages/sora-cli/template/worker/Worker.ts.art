@@ -1,29 +1,27 @@
-import {IWorkerOptions, Node, Worker} from '@sora-soft/framework';
 import {<%- workerNameEnum %>} from '<%- workerNameWorkerRelativePath %>';
-import {AssertType, ValidateClass} from 'typescript-is';
+import {IWorkerOptions, Node<% if (standalone) { %>, SingletonWorker<% } else { %>, Worker<% } %>} from '@sora-soft/framework';
+import typia from 'typia';
 
 export interface I<%- upperCamelCaseWorkerName %>WorkerOptions extends IWorkerOptions {
 }
 
-@ValidateClass()
-class <%- upperCamelCaseWorkerName %>Worker extends Worker {
+class <%- upperCamelCaseWorkerName %>Worker extends <% if (standalone) { %>SingletonWorker<% } else { %>Worker<% } %> {
   static register() {
-    Node.registerWorker(WorkerName.<%- upperCamelCaseWorkerName %>, (options: I<%- upperCamelCaseWorkerName %>WorkerOptions) => {
+    Node.registerWorker(<%- workerNameEnum %>.<%- upperCamelCaseWorkerName %>, (options: I<%- upperCamelCaseWorkerName %>WorkerOptions) => {
       return new <%- upperCamelCaseWorkerName %>Worker(<%- workerNameEnum %>.<%- upperCamelCaseWorkerName %>, options);
     });
   }
 
-  constructor(name: string, @AssertType() options: I<%- upperCamelCaseWorkerName %>WorkerOptions) {
-    super(name);
-    this.options_ = options;
+  constructor(name: string, options: I<%- upperCamelCaseWorkerName %>WorkerOptions) {
+    typia.assert<I<%- upperCamelCaseWorkerName %>WorkerOptions>(options);
+    super(name, options);
   }
 
   protected async startup() {}
 
   protected async shutdown() {}
 
-  private options_: I<%- upperCamelCaseWorkerName %>WorkerOptions;
+  declare protected options_: I<%- upperCamelCaseWorkerName %>WorkerOptions;
 }
 
 export {<%- upperCamelCaseWorkerName %>Worker}
-

@@ -1,28 +1,38 @@
-import {IServiceOptions, Node, Service} from '@sora-soft/framework';
 import {<%- serviceNameEnum %>} from '<%- serviceNameServiceRelativePath %>';
-import {AssertType, ValidateClass} from 'typescript-is';
+import {IServiceOptions, Node<% if (standalone) { %>, SingletonService<% } else { %>, Service<% } %>} from '@sora-soft/framework';<% if (listeners.length > 0) { %>
+import {Route<% listeners.forEach(function(l) { %><% if (l === 'tcp') { %>, TCPListener, type ITCPListenerOptions<% } %><% if (l === 'websocket') { %>, WebSocketListener, type IWebSocketListenerOptions<% } %><% if (l === 'http') { %>, HTTPListener, type IHTTPListenerOptions<% } %><% }) %>} from '@sora-soft/framework';<% } %>
+<% if (listeners.length > 0) { %>import {<%- handlerName %>Handler} from '<%- handlerRelativePath %>';
+<% } %>import typia from 'typia';
 
-export interface I<%- upperCamelCaseServiceName %>Options extends IServiceOptions {
+export interface I<%- upperCamelCaseServiceName %>Options extends IServiceOptions {<% if (listeners.length > 0) { %><% listeners.forEach(function(l) { %>
+  <% if (l === 'tcp') { %>tcpListener: ITCPListenerOptions;<% } %><% if (l === 'websocket') { %>websocketListener: IWebSocketListenerOptions;<% } %><% if (l === 'http') { %>httpListener: IHTTPListenerOptions;<% } %><% }) %><% } %>
 }
 
-@ValidateClass()
-class <%- upperCamelCaseServiceName %>Service extends Service {
+class <%- upperCamelCaseServiceName %>Service extends <% if (standalone) { %>SingletonService<% } else { %>Service<% } %> {
   static register() {
     Node.registerService(<%- serviceNameEnum %>.<%- upperCamelCaseServiceName %>, (options: I<%- upperCamelCaseServiceName %>Options) => {
       return new <%- upperCamelCaseServiceName %>Service(<%- serviceNameEnum %>.<%- upperCamelCaseServiceName %>, options);
     });
   }
 
-  constructor(name: string, @AssertType() options: I<%- upperCamelCaseServiceName %>Options) {
+  constructor(name: string, options: I<%- upperCamelCaseServiceName %>Options) {
+    typia.assert<I<%- upperCamelCaseServiceName %>Options>(options);
     super(name, options);
-    this.serviceOptions_ = options;
   }
 
-  protected async startup() {}
+  protected async startup() {<% if (listeners.length > 0) { %>
+    const route = new <%- handlerName %>Handler(this);<% listeners.forEach(function(l) { %><% if (l === 'tcp') { %>
+    const tcpListener = new TCPListener(this.options_.tcpListener, Route.callback(route));
+    await this.installListener(tcpListener);<% } %><% if (l === 'websocket') { %>
+    const webSocketListener = new WebSocketListener(this.options_.websocketListener, Route.callback(route));
+    await this.installListener(webSocketListener);<% } %><% if (l === 'http') { %>
+    const httpListener = new HTTPListener(this.options_.httpListener, Route.callback(route));
+    await this.installListener(httpListener);<% } %><% }) %><% } %>
+  }
 
   protected async shutdown() {}
 
-  private serviceOptions_: I<%- upperCamelCaseServiceName %>Options;
+  declare protected options_: I<%- upperCamelCaseServiceName %>Options;
 }
 
 export {<%- upperCamelCaseServiceName %>Service}
