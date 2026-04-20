@@ -9,6 +9,7 @@ const VALID_HTTP_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OP
 
 export interface OpenAPIOperation {
   summary: string;
+  description?: string;
   tags: string[];
   requestBody?: any;
   responses: any;
@@ -73,6 +74,7 @@ class DocTransformer {
 
         const methodName = member.name.getText(sourceFile);
         const summary = this.readSummary(member);
+        const description = this.readDescription(member);
         const httpMethod = this.readAndValidateHttpMethod(member, routeInfo.className, methodName);
 
         const paramType = this.getFirstParamType(member, checker);
@@ -80,6 +82,7 @@ class DocTransformer {
 
         const requestBody = paramType ? {requestBody: paramType} : {};
         const response = returnType ? {responses: returnType} : {responses: {'200': {description: ''}}};
+        const descriptionField = description ? {description} : {};
 
         for (const prefix of routeInfo.prefixes) {
           const path = this.buildPath(prefix, methodName);
@@ -88,6 +91,7 @@ class DocTransformer {
             method: httpMethod.toLowerCase(),
             operation: {
               summary,
+              ...descriptionField,
               tags: [routeInfo.className],
               ...requestBody,
               ...response,
@@ -105,22 +109,29 @@ class DocTransformer {
     if (!jsDocs || jsDocs.length === 0) return '';
 
     for (const jsDoc of jsDocs) {
-      if (jsDoc.tags) {
-        for (const tag of jsDoc.tags) {
-          if (tag.tagName.text === 'description') {
-            return AnnotationReader.extractTagComment(tag);
-          }
-        }
-      }
-    }
-
-    for (const jsDoc of jsDocs) {
       if (typeof jsDoc.comment === 'string' && jsDoc.comment.trim()) {
         return jsDoc.comment.trim();
       }
       if (Array.isArray(jsDoc.comment)) {
         const text = jsDoc.comment.map(part => typeof part === 'string' ? part : (part as any).text || '').join('').trim();
         if (text) return text;
+      }
+    }
+
+    return '';
+  }
+
+  private readDescription(member: ts.MethodDeclaration): string {
+    const jsDocs = (member as any).jsDoc as Array<{tags?: ts.JSDocTag[]}> | undefined;
+    if (!jsDocs || jsDocs.length === 0) return '';
+
+    for (const jsDoc of jsDocs) {
+      if (jsDoc.tags) {
+        for (const tag of jsDoc.tags) {
+          if (tag.tagName.text === 'description') {
+            return AnnotationReader.extractTagComment(tag);
+          }
+        }
       }
     }
 

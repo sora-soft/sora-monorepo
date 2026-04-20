@@ -87,7 +87,8 @@ export interface ITestRes {
  */
 class AuthHandler extends AuthRoute {
   /**
-  * @description 注册账号
+  * 注册账号
+  * @description 注册账号接口，如果不传参数会报错
   */
   @Route.method
   async register(@guard body: IReqRegister) {
