@@ -83,11 +83,11 @@ export interface ITestRes {
 /**
  * @soraExport route
  * @soraTargets web
- * @param {*} width
- * @returns
  */
 class AuthHandler extends AuthRoute {
-  // 注释
+  /**
+  * @description 注册账号
+  */
   @Route.method
   async register(@guard body: IReqRegister) {
     const account = await AccountWorld.createAccount(

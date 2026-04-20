@@ -5,7 +5,7 @@ import path = require('path');
 import {BaseCommand} from '../../base';
 import {CodeInserter} from '../../lib/ast/code-inserter';
 import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
-import {Utility} from '../../lib/utility';
+import {Utility} from '../../lib/Utility';
 
 export default class GenerateDatabase extends BaseCommand {
   static description = 'Generate a new database entity';

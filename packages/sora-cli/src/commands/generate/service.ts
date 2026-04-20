@@ -4,10 +4,8 @@ import path = require('path');
 
 import {BaseCommand} from '../../base';
 import {CodeInserter} from '../../lib/ast/code-inserter';
-import {Config} from '../../lib/config';
 import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
-import {FileTree} from '../../lib/fs/FileTree';
-import {Utility} from '../../lib/utility';
+import {Utility} from '../../lib/Utility';
 
 export default class GenerateService extends BaseCommand {
   static description = 'Generate a new service';

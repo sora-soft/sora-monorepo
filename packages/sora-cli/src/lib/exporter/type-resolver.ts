@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 
+import {transferJSDoc} from './jsdoc-utils';
 import {type TransformedDeclaration} from './transformer';
 
 interface ResolvedType {
@@ -34,9 +35,23 @@ class TypeResolver {
 
   private collectFromTransformed(decl: TransformedDeclaration, checker: ts.TypeChecker) {
     this.collectTypeDependencies(decl.node, checker, decl.sourceFile);
+    this.resolveHeritageClauses(decl.node, checker);
 
     if (decl.originalNode) {
       this.resolveSyntheticReturnTypes(decl.node, decl.originalNode, checker, decl.sourceFile);
+    }
+  }
+
+  private resolveHeritageClauses(node: ts.Node, checker: ts.TypeChecker) {
+    if (!ts.isInterfaceDeclaration(node) || !node.heritageClauses) return;
+
+    for (const clause of node.heritageClauses) {
+      for (const type of clause.types) {
+        const symbol = checker.getSymbolAtLocation(type.expression);
+        if (symbol) {
+          this.resolveSymbolDeclaration(symbol, checker);
+        }
+      }
     }
   }
 
@@ -46,11 +61,11 @@ class TypeResolver {
     checker: ts.TypeChecker,
     sourceFile: ts.SourceFile,
   ) {
-    if (!ts.isClassDeclaration(transformedNode) || !ts.isClassDeclaration(originalNode)) return;
+    if (!ts.isInterfaceDeclaration(transformedNode) || !ts.isClassDeclaration(originalNode)) return;
 
-    const transformedMethods = new Map<string, ts.MethodDeclaration>();
+    const transformedMethods = new Map<string, ts.MethodSignature>();
     for (const m of transformedNode.members) {
-      if (ts.isMethodDeclaration(m) && m.name) {
+      if (ts.isMethodSignature(m) && m.name) {
         transformedMethods.set(m.name.getText(sourceFile), m);
       }
     }
@@ -197,49 +212,90 @@ class TypeResolver {
   private collectResolvedDeclaration(decl: ts.Node, checker: ts.TypeChecker, declSourceFile: ts.SourceFile) {
     if (ts.isInterfaceDeclaration(decl)) {
       const name = decl.name.text;
-      const exported = ts.factory.updateInterfaceDeclaration(
-        decl,
+      const members = ts.factory.createNodeArray(
+        decl.members.map(member => {
+          ts.setTextRange(member, {pos: -1, end: -1});
+          return transferJSDoc(member, member, declSourceFile) as ts.TypeElement;
+        }),
+      );
+      const exported = ts.factory.createInterfaceDeclaration(
         [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
         decl.name,
         decl.typeParameters,
         decl.heritageClauses,
-        decl.members,
+        members,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
-      this.collectTypeDependencies(exported, checker, declSourceFile);
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
+      this.collectTypeDependencies(result, checker, declSourceFile);
+      this.resolveHeritageClauses(result, checker);
     } else if (ts.isTypeAliasDeclaration(decl)) {
       const name = decl.name.text;
-      const exported = ts.factory.updateTypeAliasDeclaration(
-        decl,
+      const exported = ts.factory.createTypeAliasDeclaration(
         [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
         decl.name,
         decl.typeParameters,
         decl.type,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
-      this.collectTypeDependencies(exported, checker, declSourceFile);
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
+      this.collectTypeDependencies(result, checker, declSourceFile);
     } else if (ts.isEnumDeclaration(decl)) {
       const name = decl.name.text;
-      const exported = ts.factory.updateEnumDeclaration(
-        decl,
+      const members = ts.factory.createNodeArray(
+        decl.members.map(member => {
+          ts.setTextRange(member, {pos: -1, end: -1});
+          return transferJSDoc(member, member, declSourceFile) as ts.EnumMember;
+        }),
+      );
+      const exported = ts.factory.createEnumDeclaration(
         [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
         decl.name,
-        decl.members,
+        members,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
     } else if (ts.isClassDeclaration(decl)) {
       const name = decl.name?.text;
       if (!name) return;
-      const exported = ts.factory.updateClassDeclaration(
-        decl,
-        [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword)],
-        decl.name,
-        decl.typeParameters,
-        decl.heritageClauses,
-        decl.members,
+
+      const members: ts.TypeElement[] = [];
+      for (const member of decl.members) {
+        if (ts.isConstructorDeclaration(member)) continue;
+        if (ts.isMethodDeclaration(member)) continue;
+        if (!ts.isPropertyDeclaration(member) || !member.name) continue;
+        if (this.hasModifier(member, ts.SyntaxKind.PrivateKeyword) ||
+            this.hasModifier(member, ts.SyntaxKind.ProtectedKeyword) ||
+            this.hasModifier(member, ts.SyntaxKind.StaticKeyword)) {
+          continue;
+        }
+
+        const newProp = ts.factory.createPropertySignature(
+          undefined,
+          member.name,
+          member.questionToken,
+          member.type,
+        );
+        members.push(transferJSDoc(member, newProp, declSourceFile) as ts.TypeElement);
+      }
+
+      const extendsClauses = decl.heritageClauses?.filter(
+        clause => clause.token === ts.SyntaxKind.ExtendsKeyword,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
-      this.collectTypeDependencies(exported, checker, declSourceFile);
+      const heritageClauses = extendsClauses?.length ? extendsClauses : undefined;
+
+      const exported = ts.factory.createInterfaceDeclaration(
+        [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+        decl.name!,
+        decl.typeParameters,
+        heritageClauses,
+        members,
+      );
+
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
+      this.collectTypeDependencies(result, checker, declSourceFile);
+      this.resolveHeritageClauses(result, checker);
     }
   }
 
@@ -259,44 +315,65 @@ class TypeResolver {
     if (ts.isInterfaceDeclaration(decl)) {
       this.visitedSymbols_.add(symbol);
       const name = decl.name.text;
-      const exported = ts.factory.updateInterfaceDeclaration(
-        decl,
+      const members = ts.factory.createNodeArray(
+        decl.members.map(member => {
+          ts.setTextRange(member, {pos: -1, end: -1});
+          return transferJSDoc(member, member, declSourceFile) as ts.TypeElement;
+        }),
+      );
+      const exported = ts.factory.createInterfaceDeclaration(
         [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
         decl.name,
         decl.typeParameters,
         decl.heritageClauses,
-        decl.members,
+        members,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
-      this.collectTypeDependencies(exported, checker, declSourceFile);
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
+      this.collectTypeDependencies(result, checker, declSourceFile);
+      this.resolveHeritageClauses(result, checker);
     } else if (ts.isTypeAliasDeclaration(decl)) {
       this.visitedSymbols_.add(symbol);
       const name = decl.name.text;
-      const exported = ts.factory.updateTypeAliasDeclaration(
-        decl,
+      const exported = ts.factory.createTypeAliasDeclaration(
         [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
         decl.name,
         decl.typeParameters,
         decl.type,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
-      this.collectTypeDependencies(exported, checker, declSourceFile);
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
+      this.collectTypeDependencies(result, checker, declSourceFile);
     } else if (ts.isEnumDeclaration(decl)) {
       this.visitedSymbols_.add(symbol);
       const name = decl.name.text;
-      const exported = ts.factory.updateEnumDeclaration(
-        decl,
+      const members = ts.factory.createNodeArray(
+        decl.members.map(member => {
+          ts.setTextRange(member, {pos: -1, end: -1});
+          return transferJSDoc(member, member, declSourceFile) as ts.EnumMember;
+        }),
+      );
+      const exported = ts.factory.createEnumDeclaration(
         [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
         decl.name,
-        decl.members,
+        members,
       );
-      this.collectedTypes_.push({name, node: exported, sourceFile: declSourceFile});
+      const result = transferJSDoc(decl, exported, declSourceFile);
+      this.collectedTypes_.push({name, node: result, sourceFile: declSourceFile});
     }
   }
 
   private isBuiltInType(fileName: string): boolean {
     const builtInPaths = ['/typescript/lib/', '/@types/node/', 'node_modules'];
     return builtInPaths.some(p => fileName.includes(p));
+  }
+
+  private hasModifier(node: ts.Node, kind: ts.SyntaxKind): boolean {
+    if (ts.canHaveModifiers(node)) {
+      const modifiers = ts.getModifiers(node) || [];
+      return modifiers.some(m => m.kind === kind);
+    }
+    return false;
   }
 }
 

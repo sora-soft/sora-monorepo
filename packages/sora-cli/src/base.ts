@@ -1,6 +1,6 @@
 import {Command, flags} from '@oclif/command';
 
-import {Config} from './lib/config';
+import {Config} from './lib/Config';
 import {FileTree} from './lib/fs/FileTree';
 
 abstract class BaseCommand extends Command {

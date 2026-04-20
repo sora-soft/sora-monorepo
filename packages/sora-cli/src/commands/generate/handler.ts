@@ -4,7 +4,7 @@ import path = require('path');
 
 import {BaseCommand} from '../../base';
 import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
-import {Utility} from '../../lib/utility';
+import {Utility} from '../../lib/Utility';
 
 export default class GenerateHandler extends BaseCommand {
   static description = 'Generate a new handler';

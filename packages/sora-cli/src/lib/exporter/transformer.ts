@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 
 import {AnnotationReader} from './annotation-reader';
+import {transferJSDoc} from './jsdoc-utils';
 import {type ExportClassInfo, type ExportSimpleInfo} from './types';
 
 interface TransformedDeclaration {
@@ -11,8 +12,6 @@ interface TransformedDeclaration {
 }
 
 const FRAMEWORK_MODULE = '@sora-soft/framework';
-
-const SORA_TAGS = new Set(['soraExport', 'soraTargets', 'soraIgnore']);
 
 function getNodeDecorators(node: ts.Node): ts.Decorator[] {
   if (ts.canHaveDecorators(node)) {
@@ -32,20 +31,6 @@ function getNodeDecorators(node: ts.Node): ts.Decorator[] {
   }
 
   return [];
-}
-
-function stripSoraTagsFromComment(commentText: string): string {
-  const lines = commentText.split('\n');
-  const filtered = lines.filter(line => {
-    const trimmed = line.trim();
-    for (const tag of SORA_TAGS) {
-      if (trimmed === `@${tag}` || trimmed.startsWith(`@${tag} `)) {
-        return false;
-      }
-    }
-    return true;
-  });
-  return filtered.join('\n').trim();
 }
 
 class Transformer {
@@ -109,7 +94,7 @@ class Transformer {
         const decl = this.findEnumDeclaration(sourceFile, simpleInfo.name);
         if (!decl) continue;
 
-        const transformed = this.transformEnum(decl);
+        const transformed = this.transformEnum(decl, sourceFile);
         results.push({
           name: simpleInfo.name,
           node: transformed,
@@ -119,7 +104,7 @@ class Transformer {
         const decl = this.findInterfaceDeclaration(sourceFile, simpleInfo.name);
         if (!decl) continue;
 
-        const transformed = this.transformInterface(decl);
+        const transformed = this.transformInterface(decl, sourceFile);
         results.push({
           name: simpleInfo.name,
           node: transformed,
@@ -129,7 +114,7 @@ class Transformer {
         const decl = this.findTypeAliasDeclaration(sourceFile, simpleInfo.name);
         if (!decl) continue;
 
-        const transformed = this.transformTypeAlias(decl);
+        const transformed = this.transformTypeAlias(decl, sourceFile);
         results.push({
           name: simpleInfo.name,
           node: transformed,
@@ -141,37 +126,55 @@ class Transformer {
     return results;
   }
 
-  private transformEnum(decl: ts.EnumDeclaration): ts.EnumDeclaration {
+  private transformEnum(decl: ts.EnumDeclaration, sourceFile: ts.SourceFile): ts.EnumDeclaration {
     const modifiers = this.ensureExport(decl);
-    return ts.factory.updateEnumDeclaration(
-      decl,
-      modifiers,
-      decl.name,
-      decl.members,
+
+    const members = ts.factory.createNodeArray(
+      decl.members.map(member => {
+        ts.setTextRange(member, {pos: -1, end: -1});
+        return transferJSDoc(member, member, sourceFile) as ts.EnumMember;
+      }),
     );
+
+    const result = ts.factory.createEnumDeclaration(
+      modifiers,
+      ts.factory.createIdentifier(decl.name.text),
+      members,
+    );
+
+    return transferJSDoc(decl, result, sourceFile) as ts.EnumDeclaration;
   }
 
-  private transformInterface(decl: ts.InterfaceDeclaration): ts.InterfaceDeclaration {
+  private transformInterface(decl: ts.InterfaceDeclaration, sourceFile: ts.SourceFile): ts.InterfaceDeclaration {
     const modifiers = this.ensureExport(decl);
-    return ts.factory.updateInterfaceDeclaration(
-      decl,
+
+    const members = ts.factory.createNodeArray(
+      decl.members.map(member => {
+        ts.setTextRange(member, {pos: -1, end: -1});
+        return transferJSDoc(member, member, sourceFile) as ts.TypeElement;
+      }),
+    );
+
+    const result = ts.factory.createInterfaceDeclaration(
       modifiers,
-      decl.name,
+      ts.factory.createIdentifier(decl.name.text),
       decl.typeParameters,
       decl.heritageClauses,
-      decl.members,
+      members,
     );
+
+    return transferJSDoc(decl, result, sourceFile) as ts.InterfaceDeclaration;
   }
 
-  private transformTypeAlias(decl: ts.TypeAliasDeclaration): ts.TypeAliasDeclaration {
+  private transformTypeAlias(decl: ts.TypeAliasDeclaration, sourceFile: ts.SourceFile): ts.TypeAliasDeclaration {
     const modifiers = this.ensureExport(decl);
-    return ts.factory.updateTypeAliasDeclaration(
-      decl,
+    const result = ts.factory.createTypeAliasDeclaration(
       modifiers,
-      decl.name,
+      ts.factory.createIdentifier(decl.name.text),
       decl.typeParameters,
       decl.type,
     );
+    return transferJSDoc(decl, result, sourceFile) as ts.TypeAliasDeclaration;
   }
 
   private transformRouteClass(
@@ -180,8 +183,8 @@ class Transformer {
     routeInfo: ExportClassInfo,
     targets: string[] | undefined,
     checker: ts.TypeChecker,
-  ): ts.ClassDeclaration {
-    const members: ts.ClassElement[] = [];
+  ): ts.InterfaceDeclaration {
+    const members: ts.TypeElement[] = [];
     const routeMethodImportMap = this.buildRouteMethodImportMap(sourceFile);
 
     for (const member of classDecl.members) {
@@ -210,28 +213,27 @@ class Transformer {
         }
       }
 
-      const newMethod = ts.factory.updateMethodDeclaration(
-        member,
-        [ts.factory.createModifier(ts.SyntaxKind.PublicKeyword)],
+      const newMethod = ts.factory.createMethodSignature(
         undefined,
         member.name,
         member.questionToken,
         member.typeParameters,
         this.updateParameters(params, sourceFile),
         returnType,
-        undefined,
       );
 
-      members.push(newMethod);
+      members.push(transferJSDoc(member, newMethod, sourceFile) as ts.TypeElement);
     }
 
-    return ts.factory.createClassDeclaration(
-      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword)],
-      classDecl.name,
+    const iface = ts.factory.createInterfaceDeclaration(
+      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+      classDecl.name!,
       classDecl.typeParameters,
       undefined,
       members,
     );
+
+    return transferJSDoc(classDecl, iface, sourceFile) as ts.InterfaceDeclaration;
   }
 
   private transformEntityClass(
@@ -239,8 +241,8 @@ class Transformer {
     sourceFile: ts.SourceFile,
     entityInfo: ExportClassInfo,
     targets?: string[],
-  ): ts.ClassDeclaration {
-    const members: ts.ClassElement[] = [];
+  ): ts.InterfaceDeclaration {
+    const members: ts.TypeElement[] = [];
 
     for (const member of classDecl.members) {
       if (!ts.isPropertyDeclaration(member)) continue;
@@ -255,33 +257,38 @@ class Transformer {
       const ignoreModes = AnnotationReader.readMemberIgnore(member);
       if (ignoreModes !== null && this.shouldIgnoreMember(ignoreModes, targets)) continue;
 
-      const newProp = ts.factory.updatePropertyDeclaration(
-        member,
-        [ts.factory.createModifier(ts.SyntaxKind.PublicKeyword)],
+      const newProp = ts.factory.createPropertySignature(
+        undefined,
         member.name,
         member.questionToken,
         member.type,
-        undefined,
       );
 
-      members.push(newProp);
+      members.push(transferJSDoc(member, newProp, sourceFile) as ts.TypeElement);
     }
 
-    return ts.factory.createClassDeclaration(
-      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword)],
-      classDecl.name,
+    const extendsClauses = classDecl.heritageClauses?.filter(
+      clause => clause.token === ts.SyntaxKind.ExtendsKeyword,
+    );
+    const heritageClauses = extendsClauses?.length ? extendsClauses : undefined;
+
+    const iface = ts.factory.createInterfaceDeclaration(
+      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+      classDecl.name!,
       classDecl.typeParameters,
-      undefined,
+      heritageClauses,
       members,
     );
+
+    return transferJSDoc(classDecl, iface, sourceFile) as ts.InterfaceDeclaration;
   }
 
   private transformGenericClass(
     classDecl: ts.ClassDeclaration,
     sourceFile: ts.SourceFile,
     targets?: string[],
-  ): ts.ClassDeclaration {
-    const members: ts.ClassElement[] = [];
+  ): ts.InterfaceDeclaration {
+    const members: ts.TypeElement[] = [];
 
     for (const member of classDecl.members) {
       if (this.hasModifier(member, ts.SyntaxKind.PrivateKeyword) ||
@@ -296,38 +303,32 @@ class Transformer {
       if (ignoreModes !== null && this.shouldIgnoreMember(ignoreModes, targets)) continue;
 
       if (ts.isMethodDeclaration(member)) {
-        const newMethod = ts.factory.updateMethodDeclaration(
-          member,
-          [ts.factory.createModifier(ts.SyntaxKind.PublicKeyword)],
-          undefined,
-          member.name!,
-          member.questionToken,
-          member.typeParameters,
-          member.parameters,
-          member.type,
-          undefined,
-        );
-        members.push(newMethod);
+        continue;
       } else if (ts.isPropertyDeclaration(member)) {
-        const newProp = ts.factory.updatePropertyDeclaration(
-          member,
-          [ts.factory.createModifier(ts.SyntaxKind.PublicKeyword)],
+        const newProp = ts.factory.createPropertySignature(
+          undefined,
           member.name!,
           member.questionToken,
           member.type,
-          undefined,
         );
-        members.push(newProp);
+        members.push(transferJSDoc(member, newProp, sourceFile) as ts.TypeElement);
       }
     }
 
-    return ts.factory.createClassDeclaration(
-      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword)],
-      classDecl.name,
+    const extendsClauses = classDecl.heritageClauses?.filter(
+      clause => clause.token === ts.SyntaxKind.ExtendsKeyword,
+    );
+    const heritageClauses = extendsClauses?.length ? extendsClauses : undefined;
+
+    const iface = ts.factory.createInterfaceDeclaration(
+      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+      classDecl.name!,
       classDecl.typeParameters,
-      undefined,
+      heritageClauses,
       members,
     );
+
+    return transferJSDoc(classDecl, iface, sourceFile) as ts.InterfaceDeclaration;
   }
 
   private shouldIgnoreMember(memberIgnoreModes: string[] | null, targets?: string[]): boolean {
