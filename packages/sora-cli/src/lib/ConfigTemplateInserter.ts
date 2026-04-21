@@ -17,7 +17,7 @@ class ConfigTemplateInserter {
       }
     }
 
-    return { defines, defineKeys, yamlContent: yamlLines.join('\n') };
+    return {defines, defineKeys, yamlContent: yamlLines.join('\n')};
   }
 
   static checkDuplicate(yamlContent: string, section: 'services' | 'workers', key: string): boolean {
@@ -60,7 +60,7 @@ class ConfigTemplateInserter {
     }
 
     if (listeners.includes('websocket')) {
-      pushListenerBlock('websocketListener', ["      entryPath: '/ws'"]);
+      pushListenerBlock('websocketListener', ['      entryPath: \'/ws\'']);
     }
 
     return parts.join('\n');
@@ -103,18 +103,18 @@ class ConfigTemplateInserter {
     section: 'services' | 'workers',
     dashName: string,
     listeners: string[],
-    log: (msg: string) => void,
+    log: (msg: string) => void
   ): Promise<void> {
     const fs = require('fs/promises');
     let content: string;
     try {
-      content = await fs.readFile(templatePath, { encoding: 'utf-8' });
+      content = await fs.readFile(templatePath, {encoding: 'utf-8'});
     } catch {
       log(`Config template not found: ${templatePath}, skipping config insertion`);
       return;
     }
 
-    const { defines, defineKeys, yamlContent } = ConfigTemplateInserter.extractDefines(content);
+    const {defines, defineKeys, yamlContent} = ConfigTemplateInserter.extractDefines(content);
 
     if (ConfigTemplateInserter.checkDuplicate(yamlContent, section, dashName)) {
       log(`Warning: ${section}.${dashName} already exists in ${templatePath}, skipping config insertion`);
@@ -130,9 +130,9 @@ class ConfigTemplateInserter {
     const defineLines = defines.join('\n');
     const finalContent = defineLines ? `${defineLines}\n${newContent}` : newContent;
 
-    await fs.writeFile(templatePath, finalContent, { encoding: 'utf-8' });
+    await fs.writeFile(templatePath, finalContent, {encoding: 'utf-8'});
     log(`Config entry ${section}.${dashName} added to ${templatePath}`);
   }
 }
 
-export { ConfigTemplateInserter };
+export {ConfigTemplateInserter};

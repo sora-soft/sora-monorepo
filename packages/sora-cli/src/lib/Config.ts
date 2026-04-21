@@ -1,3 +1,4 @@
+import fs = require('fs');
 import path = require('path');
 import * as ts from 'typescript';
 
@@ -26,14 +27,49 @@ class Config {
 
   async loadSoraConfig() {
     this.soraConfigPath_ = process.cwd();
-    this.soraConfig_ = await import(path.resolve(this.soraConfigPath_, 'sora.json'));
+    const configPath = path.resolve(this.soraConfigPath_, 'sora.json');
+
+    if (!fs.existsSync(configPath)) {
+      throw new Error(
+        'Configuration file \'sora.json\' not found in the current directory. ' +
+        'Run this command from the project root, or create a sora.json configuration file.'
+      );
+    }
+
+    try {
+      this.soraConfig_ = await import(configPath);
+    } catch (err: any) {
+      throw new Error(
+        `Failed to parse 'sora.json': ${err.message}. Please check for JSON syntax errors.`
+      );
+    }
   }
 
   async loadTSConfig() {
-    const tsPkg = await import(path.resolve(process.cwd(), 'tsconfig.json'));
+    const tsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
+
+    if (!fs.existsSync(tsConfigPath)) {
+      throw new Error(
+        'TypeScript configuration file \'tsconfig.json\' not found in the current directory.'
+      );
+    }
+
+    let tsPkg: any;
+    try {
+      tsPkg = await import(tsConfigPath);
+    } catch (err: any) {
+      throw new Error(
+        `Failed to parse 'tsconfig.json': ${err.message}. Please check for JSON syntax errors.`
+      );
+    }
+
     const result = ts.convertCompilerOptionsFromJson(tsPkg.compilerOptions, '');
     if (result.errors.length) {
-      throw new Error('Parse tsconfig.json failed');
+      const messages = result.errors.map(e => {
+        if (typeof e.messageText === 'string') return e.messageText;
+        return (e.messageText as any).messageText || String(e.messageText);
+      }).join('; ');
+      throw new Error(`Invalid compiler options in 'tsconfig.json': ${messages}`);
     }
     this.tsConfig_ = result.options;
   }

@@ -3,9 +3,12 @@ import yaml from 'js-yaml';
 import * as path from 'path';
 import * as ts from 'typescript';
 
+import {type DiagnosticCollector} from '../DiagnosticCollector';
+import {AnnotationReader} from '../exporter/AnnotationReader';
+import {buildRouteMethodImportMap, findClassDeclaration, isRouteMethod, isRouteNotify, shouldIgnoreMember} from '../exporter/RouteUtils';
 import {type DocRouteInfo} from './DocCollector';
 import {type OpenAPIPathItem} from './DocTransformer';
-import {SchemaResolver} from './SchemaResolver';
+import {type SchemaResolver} from './SchemaResolver';
 
 interface OpenAPIDocument {
   openapi: string;
@@ -20,21 +23,28 @@ interface OpenAPIDocument {
 }
 
 class OpenApiEmitter {
+  private outputBasePath: string;
+  private configDir: string;
+  private diagnostics_: DiagnosticCollector | null;
+
   constructor(
-    private outputBasePath: string,
-    private configDir: string
-  ) {}
+    outputBasePath: string,
+    configDir: string,
+    diagnostics?: DiagnosticCollector
+  ) {
+    this.outputBasePath = outputBasePath;
+    this.configDir = configDir;
+    this.diagnostics_ = diagnostics || null;
+  }
 
   emit(
     pathItems: OpenAPIPathItem[],
+    resolver: SchemaResolver,
     program: ts.Program,
     routes: DocRouteInfo[],
     targets: string[] | undefined,
     format: 'yaml' | 'json' = 'yaml'
   ): void {
-    const checker = program.getTypeChecker();
-    const resolver = new SchemaResolver(checker);
-
     this.collectAllSchemas(program, routes, targets, resolver);
 
     const doc: OpenAPIDocument = {
@@ -50,10 +60,15 @@ class OpenApiEmitter {
 
     this.ensureDirectory(this.getOutputPath(format));
 
-    if (format === 'yaml') {
-      fs.writeFileSync(this.getOutputPath('yaml'), yaml.dump(doc, {lineWidth: -1, noRefs: true}), 'utf-8');
-    } else {
-      fs.writeFileSync(this.getOutputPath('json'), JSON.stringify(doc, null, 2), 'utf-8');
+    try {
+      if (format === 'yaml') {
+        fs.writeFileSync(this.getOutputPath('yaml'), yaml.dump(doc, {lineWidth: -1, noRefs: true}), 'utf-8');
+      } else {
+        fs.writeFileSync(this.getOutputPath('json'), JSON.stringify(doc, null, 2), 'utf-8');
+      }
+    } catch (err: any) {
+      const outputPath = this.getOutputPath(format);
+      throw new Error(`Failed to write output file '${outputPath}': ${err.message}`);
     }
   }
 
@@ -111,11 +126,19 @@ class OpenApiEmitter {
       const sourceFile = program.getSourceFile(routeInfo.filePath);
       if (!sourceFile) continue;
 
-      const classDecl = this.findClassDeclaration(sourceFile, routeInfo.className);
+      const classDecl = findClassDeclaration(sourceFile, routeInfo.className);
       if (!classDecl) continue;
+
+      const routeMethodImportMap = buildRouteMethodImportMap(sourceFile);
 
       for (const member of classDecl.members) {
         if (!ts.isMethodDeclaration(member) || !member.name) continue;
+
+        if (!isRouteMethod(member, routeMethodImportMap)) continue;
+        if (isRouteNotify(member, routeMethodImportMap)) continue;
+
+        const ignoreModes = AnnotationReader.readMemberIgnore(member, sourceFile, this.diagnostics_ || undefined);
+        if (ignoreModes !== null && shouldIgnoreMember(ignoreModes, targets)) continue;
 
         if (member.parameters.length > 0) {
           const firstParam = member.parameters[0];
@@ -140,15 +163,6 @@ class OpenApiEmitter {
   private getOutputPath(format: 'yaml' | 'json'): string {
     const ext = format === 'yaml' ? '.yml' : '.json';
     return this.outputBasePath + ext;
-  }
-
-  private findClassDeclaration(sourceFile: ts.SourceFile, className: string): ts.ClassDeclaration | null {
-    for (const statement of sourceFile.statements) {
-      if (ts.isClassDeclaration(statement) && statement.name?.text === className) {
-        return statement;
-      }
-    }
-    return null;
   }
 
   private ensureDirectory(filePath: string) {

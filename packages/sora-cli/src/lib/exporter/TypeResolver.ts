@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 
+import {type DiagnosticCollector} from '../DiagnosticCollector';
 import {transferJSDoc} from './JSDocUtils';
 import {type TransformedDeclaration} from './Transformer';
 
@@ -12,18 +13,13 @@ interface ResolvedType {
 class TypeResolver {
   private visitedSymbols_ = new Set<ts.Symbol>();
   private collectedTypes_: ResolvedType[] = [];
+  private diagnostics_: DiagnosticCollector | null;
 
-  resolve(program: ts.Program, declarations: TransformedDeclaration[]): ResolvedType[] {
-    const checker = program.getTypeChecker();
-
-    for (const decl of declarations) {
-      this.collectFromTransformed(decl, checker);
-    }
-
-    return this.collectedTypes_;
+  constructor(diagnostics?: DiagnosticCollector) {
+    this.diagnostics_ = diagnostics || null;
   }
 
-  resolveForTargets(program: ts.Program, declarations: TransformedDeclaration[]): ResolvedType[] {
+  resolve(program: ts.Program, declarations: TransformedDeclaration[]): ResolvedType[] {
     const checker = program.getTypeChecker();
 
     for (const decl of declarations) {
@@ -149,7 +145,6 @@ class TypeResolver {
             }
           }
         } catch {
-          // getAliasedSymbol can throw for non-alias symbols
         }
       }
     }
@@ -174,12 +169,26 @@ class TypeResolver {
     const typeName = node.typeName;
 
     const symbol = checker.getSymbolAtLocation(typeName);
-    if (!symbol) return;
+    if (!symbol) {
+      if (this.diagnostics_) {
+        this.diagnostics_.addWarning(
+          `Cannot resolve type '${typeName.getText()}'. The type symbol was not found.`
+        );
+      }
+      return;
+    }
 
     if (this.visitedSymbols_.has(symbol)) return;
 
     const declarations = this.getDeclarations(symbol, checker);
-    if (!declarations || declarations.length === 0) return;
+    if (!declarations || declarations.length === 0) {
+      if (this.diagnostics_) {
+        this.diagnostics_.addWarning(
+          `Cannot resolve declarations for type '${typeName.getText()}'.`
+        );
+      }
+      return;
+    }
 
     for (const decl of declarations) {
       const declSourceFile = decl.getSourceFile();
@@ -300,13 +309,23 @@ class TypeResolver {
   }
 
   private resolveTypeFromDeclaration(decl: ts.Node, checker: ts.TypeChecker) {
-    const symbol = checker.getSymbolAtLocation(
-      ts.isInterfaceDeclaration(decl) ? decl.name :
-        ts.isTypeAliasDeclaration(decl) ? decl.name :
-          ts.isEnumDeclaration(decl) ? decl.name :
-            decl.getChildren()[0] as ts.Identifier
-    );
+    let nameNode: ts.Identifier | undefined;
+    if (ts.isInterfaceDeclaration(decl)) {
+      nameNode = decl.name;
+    } else if (ts.isTypeAliasDeclaration(decl)) {
+      nameNode = decl.name;
+    } else if (ts.isEnumDeclaration(decl)) {
+      nameNode = decl.name;
+    } else {
+      const children = decl.getChildren();
+      if (children.length > 0 && ts.isIdentifier(children[0])) {
+        nameNode = children[0];
+      }
+    }
 
+    if (!nameNode) return;
+
+    const symbol = checker.getSymbolAtLocation(nameNode);
     if (!symbol) return;
     if (this.visitedSymbols_.has(symbol)) return;
 
@@ -365,7 +384,13 @@ class TypeResolver {
 
   private isBuiltInType(fileName: string): boolean {
     const builtInPaths = ['/typescript/lib/', '/@types/node/', 'node_modules'];
-    return builtInPaths.some(p => fileName.includes(p));
+    const isBuiltIn = builtInPaths.some(p => fileName.includes(p));
+    if (isBuiltIn && this.diagnostics_ && fileName.includes('node_modules')) {
+      this.diagnostics_.addWarning(
+        `External package type referenced from '${fileName}'. This type cannot be exported and will be skipped.`
+      );
+    }
+    return isBuiltIn;
   }
 
   private hasModifier(node: ts.Node, kind: ts.SyntaxKind): boolean {

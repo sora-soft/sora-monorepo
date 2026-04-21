@@ -3,7 +3,7 @@ import inquirer = require('inquirer');
 import template = require('art-template');
 import path = require('path');
 
-import {BaseCommand} from '../../Base';
+import {BaseCommand, type ConfigFieldRequirement} from '../../Base';
 import {CodeInserter} from '../../lib/ast/CodeInserter';
 import {ConfigTemplateInserter} from '../../lib/ConfigTemplateInserter';
 import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
@@ -41,6 +41,16 @@ export default class GenerateService extends BaseCommand {
     standalone: oclifFlags.boolean({description: 'Generate as SingletonService'}),
     'config-template': oclifFlags.string({description: 'Config template file path (relative to cwd)'}),
   };
+
+  protected requiredConfigFields(): ConfigFieldRequirement[] {
+    return [
+      {field: 'root'},
+      {field: 'serviceDir'},
+      {field: 'handlerDir'},
+      {field: 'serviceNameEnum', format: 'path#name'},
+      {field: 'serviceRegister', format: 'path#class.method'},
+    ];
+  }
 
   async run() {
     const {args, flags} = this.parse(GenerateService);
@@ -101,7 +111,7 @@ export default class GenerateService extends BaseCommand {
 
     const existedFile = this.fileTree.getFile(serviceFileExPath);
     if (existedFile)
-      throw new Error('Service file already exists');
+      throw new Error(`Service file already exists: '${serviceFileExPath}'`);
 
     const data = {
       upperCamelCaseServiceName,
@@ -120,16 +130,22 @@ export default class GenerateService extends BaseCommand {
     serviceFile.setContent(Buffer.from(result));
 
     const serviceNameFileExtPath = serviceNameFilePath + '.ts';
-    const serviceNameFile = this.fileTree.getFile(serviceNameFileExtPath) as ScriptFileNode;
-    await serviceNameFile.load();
-    const serviceNameFileAST = new CodeInserter(serviceNameFile);
+    const serviceNameFile = this.fileTree.getFile(serviceNameFileExtPath);
+    if (!serviceNameFile) {
+      throw new Error(`File referenced by 'serviceNameEnum' not found: '${serviceNameFileExtPath}'. Check the path in your sora.json.`);
+    }
+    await (serviceNameFile as ScriptFileNode).load();
+    const serviceNameFileAST = new CodeInserter(serviceNameFile as ScriptFileNode);
     serviceNameFileAST.insertEnum(serviceNameEnum, upperCamelCaseServiceName, Utility.dashlize(upperCamelCaseServiceName));
 
     const serviceRegisterFileExtPath = serviceRegisterFilePath + '.ts';
-    const serviceRegisterFile = this.fileTree.getFile(serviceRegisterFileExtPath) as ScriptFileNode;
+    const serviceRegisterFile = this.fileTree.getFile(serviceRegisterFileExtPath);
+    if (!serviceRegisterFile) {
+      throw new Error(`File referenced by 'serviceRegister' not found: '${serviceRegisterFileExtPath}'. Check the path in your sora.json.`);
+    }
     const serviceRegisterServiceRelativePath = Utility.resolveImportPath(serviceRegisterFilePath, serviceFilePath) + '.js';
-    await serviceRegisterFile.load();
-    const serviceRegisterAST = new CodeInserter(serviceRegisterFile);
+    await (serviceRegisterFile as ScriptFileNode).load();
+    const serviceRegisterAST = new CodeInserter(serviceRegisterFile as ScriptFileNode);
     serviceRegisterAST.addImport(upperCamelCaseServiceFullName, serviceRegisterServiceRelativePath, false);
     serviceRegisterAST.insertCodeInClassMethod(serviceRegisterClass, serviceRegisterMethod, `\n    ${upperCamelCaseServiceFullName}.register();`);
 
@@ -154,14 +170,14 @@ export default class GenerateService extends BaseCommand {
       'services',
       Utility.dashlize(upperCamelCaseServiceName),
       listeners,
-      (msg) => this.log(msg),
+      (msg) => this.log(msg)
     );
   }
 
   private generateHandler(handlerName: string, handlerFileExPath: string) {
     const existedFile = this.fileTree.getFile(handlerFileExPath);
     if (existedFile)
-      throw new Error('Handler file already exists');
+      throw new Error(`Handler file already exists: '${handlerFileExPath}'`);
 
     const data = {handlerName};
     const result = template(path.resolve(__dirname, '../../../template/handler/Handler.ts.art'), data);

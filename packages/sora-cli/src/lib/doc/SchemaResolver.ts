@@ -1,15 +1,23 @@
 import * as ts from 'typescript';
 
+import {type DiagnosticCollector} from '../DiagnosticCollector';
+
 class SchemaResolver {
   private checker_: ts.TypeChecker;
   private schemas_: Record<string, any> = {};
   private visited_: Set<string> = new Set();
+  private diagnostics_: DiagnosticCollector | null;
 
-  constructor(checker: ts.TypeChecker) {
+  constructor(checker: ts.TypeChecker, diagnostics?: DiagnosticCollector) {
     this.checker_ = checker;
+    this.diagnostics_ = diagnostics || null;
   }
 
   resolveType(type: ts.Type): any {
+    if (this.isExternalType(type)) {
+      this.warnExternalType(type);
+      return {};
+    }
     if (type.flags & ts.TypeFlags.String) return {type: 'string'};
     if (type.flags & ts.TypeFlags.Number) return {type: 'number'};
     if (type.flags & ts.TypeFlags.Boolean) return {type: 'boolean'};
@@ -255,6 +263,25 @@ class SchemaResolver {
     if (!symbol) return false;
     const name = symbol.name;
     return ['Array', 'Promise', 'Record', 'Map', 'Set'].includes(name);
+  }
+
+  private isExternalType(type: ts.Type): boolean {
+    const symbol = type.getSymbol?.() || (type as any).symbol || type.symbol;
+    if (!symbol) return false;
+    const decls = symbol.getDeclarations();
+    if (!decls || decls.length === 0) return false;
+    const fileName = decls[0].getSourceFile().fileName;
+    return fileName.includes('node_modules');
+  }
+
+  private warnExternalType(type: ts.Type): void {
+    if (!this.diagnostics_) return;
+    const name = this.getTypeName(type);
+    if (name) {
+      this.diagnostics_.addWarning(
+        `External package type '${name}' referenced. This type cannot be fully resolved and will be exported as an empty schema.`
+      );
+    }
   }
 }
 

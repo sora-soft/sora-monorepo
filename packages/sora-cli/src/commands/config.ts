@@ -5,7 +5,7 @@ import fs = require('fs/promises');
 import inquirer = require('inquirer');
 import os = require('os');
 
-import {BaseCommand} from '../Base';
+import {BaseCommand, type ConfigFieldRequirement} from '../Base';
 
 export default class ConfigCommand extends BaseCommand {
   static description = 'Generate configuration file from template';
@@ -15,6 +15,10 @@ export default class ConfigCommand extends BaseCommand {
     template: oclifFlags.string({char: 't', description: 'Template config file', required: true}),
     dist: oclifFlags.string({char: 'd', description: 'Output file', required: true}),
   };
+
+  protected requiredConfigFields() {
+    return [] as ConfigFieldRequirement[];
+  }
 
   async run() {
     const {flags} = this.parse(ConfigCommand);

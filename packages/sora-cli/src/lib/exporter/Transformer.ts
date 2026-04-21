@@ -1,7 +1,9 @@
 import * as ts from 'typescript';
 
+import {type DiagnosticCollector} from '../DiagnosticCollector';
 import {AnnotationReader} from './AnnotationReader';
 import {transferJSDoc} from './JSDocUtils';
+import {buildRouteMethodImportMap, findClassDeclaration, isRouteMethod, shouldIgnoreMember} from './RouteUtils';
 import {type ExportClassInfo, type ExportSimpleInfo} from './Types';
 
 interface TransformedDeclaration {
@@ -11,29 +13,13 @@ interface TransformedDeclaration {
   originalNode?: ts.Node;
 }
 
-const frameworkModule = '@sora-soft/framework';
-
-function getNodeDecorators(node: ts.Node): ts.Decorator[] {
-  if (ts.canHaveDecorators(node)) {
-    const decs = ts.getDecorators(node);
-    if (decs && decs.length > 0) return [...decs];
-  }
-
-  const nodeAny = node as any;
-  if (nodeAny.modifiers) {
-    const decs: ts.Decorator[] = [];
-    for (const mod of nodeAny.modifiers as readonly ts.Node[]) {
-      if (mod.kind === ts.SyntaxKind.Decorator) {
-        decs.push(mod as ts.Decorator);
-      }
-    }
-    if (decs.length > 0) return decs;
-  }
-
-  return [];
-}
-
 class Transformer {
+  private diagnostics_: DiagnosticCollector | null;
+
+  constructor(diagnostics?: DiagnosticCollector) {
+    this.diagnostics_ = diagnostics || null;
+  }
+
   transform(
     program: ts.Program,
     routes: ExportClassInfo[],
@@ -46,50 +32,80 @@ class Transformer {
 
     for (const routeInfo of routes) {
       const sourceFile = program.getSourceFile(routeInfo.filePath);
-      if (!sourceFile) continue;
+      if (!sourceFile) {
+        this.warnMissingSourceFile(routeInfo.filePath, routeInfo.className);
+        continue;
+      }
 
-      const classDecl = this.findClassDeclaration(sourceFile, routeInfo.className);
-      if (!classDecl) continue;
+      const classDecl = findClassDeclaration(sourceFile, routeInfo.className);
+      if (!classDecl) {
+        this.warnMissingClass(sourceFile, routeInfo.className);
+        continue;
+      }
 
       const transformed = this.transformRouteClass(classDecl, sourceFile, routeInfo, targets, checker);
-      results.push({
-        name: routeInfo.className,
-        node: transformed,
-        sourceFile,
-        originalNode: classDecl,
-      });
+      if (!transformed) {
+        this.warnEmptyResult(sourceFile, routeInfo.className, 'route');
+      } else {
+        results.push({
+          name: routeInfo.className,
+          node: transformed,
+          sourceFile,
+          originalNode: classDecl,
+        });
+      }
     }
 
     for (const entityInfo of entities) {
       const sourceFile = program.getSourceFile(entityInfo.filePath);
-      if (!sourceFile) continue;
+      if (!sourceFile) {
+        this.warnMissingSourceFile(entityInfo.filePath, entityInfo.className);
+        continue;
+      }
 
-      const classDecl = this.findClassDeclaration(sourceFile, entityInfo.className);
-      if (!classDecl) continue;
+      const classDecl = findClassDeclaration(sourceFile, entityInfo.className);
+      if (!classDecl) {
+        this.warnMissingClass(sourceFile, entityInfo.className);
+        continue;
+      }
 
       const transformed = this.transformEntityClass(classDecl, sourceFile, entityInfo, targets);
-      results.push({
-        name: entityInfo.className,
-        node: transformed,
-        sourceFile,
-        originalNode: classDecl,
-      });
+      if (!transformed) {
+        this.warnEmptyResult(sourceFile, entityInfo.className, 'entity');
+      } else {
+        results.push({
+          name: entityInfo.className,
+          node: transformed,
+          sourceFile,
+          originalNode: classDecl,
+        });
+      }
     }
 
     for (const simpleInfo of simple) {
       const sourceFile = program.getSourceFile(simpleInfo.filePath);
-      if (!sourceFile) continue;
+      if (!sourceFile) {
+        this.warnMissingSourceFile(simpleInfo.filePath, simpleInfo.name);
+        continue;
+      }
 
       if (simpleInfo.kind === 'class') {
-        const classDecl = this.findClassDeclaration(sourceFile, simpleInfo.name);
-        if (!classDecl) continue;
+        const classDecl = findClassDeclaration(sourceFile, simpleInfo.name);
+        if (!classDecl) {
+          this.warnMissingClass(sourceFile, simpleInfo.name);
+          continue;
+        }
 
         const transformed = this.transformGenericClass(classDecl, sourceFile, targets);
-        results.push({
-          name: simpleInfo.name,
-          node: transformed,
-          sourceFile,
-        });
+        if (!transformed) {
+          this.warnEmptyResult(sourceFile, simpleInfo.name, 'generic');
+        } else {
+          results.push({
+            name: simpleInfo.name,
+            node: transformed,
+            sourceFile,
+          });
+        }
       } else if (simpleInfo.kind === 'enum') {
         const decl = this.findEnumDeclaration(sourceFile, simpleInfo.name);
         if (!decl) continue;
@@ -183,18 +199,18 @@ class Transformer {
     routeInfo: ExportClassInfo,
     targets: string[] | undefined,
     checker: ts.TypeChecker
-  ): ts.InterfaceDeclaration {
+  ): ts.InterfaceDeclaration | null {
     const members: ts.TypeElement[] = [];
-    const routeMethodImportMap = this.buildRouteMethodImportMap(sourceFile);
+    const routeMethodImportMap = buildRouteMethodImportMap(sourceFile);
 
     for (const member of classDecl.members) {
       if (!ts.isMethodDeclaration(member)) continue;
       if (!member.name) continue;
 
-      if (!this.isRouteMethod(member, routeMethodImportMap)) continue;
+      if (!isRouteMethod(member, routeMethodImportMap)) continue;
 
-      const ignoreModes = AnnotationReader.readMemberIgnore(member);
-      if (ignoreModes !== null && this.shouldIgnoreMember(ignoreModes, targets)) continue;
+      const ignoreModes = AnnotationReader.readMemberIgnore(member, sourceFile, this.diagnostics_ || undefined);
+      if (ignoreModes !== null && shouldIgnoreMember(ignoreModes, targets)) continue;
 
       const params = member.parameters.slice(0, 1);
 
@@ -225,6 +241,8 @@ class Transformer {
       members.push(transferJSDoc(member, newMethod, sourceFile) as ts.TypeElement);
     }
 
+    if (members.length === 0) return null;
+
     const iface = ts.factory.createInterfaceDeclaration(
       [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
       classDecl.name!,
@@ -241,7 +259,7 @@ class Transformer {
     sourceFile: ts.SourceFile,
     entityInfo: ExportClassInfo,
     targets?: string[]
-  ): ts.InterfaceDeclaration {
+  ): ts.InterfaceDeclaration | null {
     const members: ts.TypeElement[] = [];
 
     for (const member of classDecl.members) {
@@ -254,8 +272,14 @@ class Transformer {
         continue;
       }
 
-      const ignoreModes = AnnotationReader.readMemberIgnore(member);
-      if (ignoreModes !== null && this.shouldIgnoreMember(ignoreModes, targets)) continue;
+      if (!member.type && this.diagnostics_) {
+        this.diagnostics_.addWarning(
+          `Property '${member.name.getText(sourceFile)}' in class '${entityInfo.className}' in ${sourceFile.fileName} has no type annotation. It will be exported with 'any' type.`
+        );
+      }
+
+      const ignoreModes = AnnotationReader.readMemberIgnore(member, sourceFile, this.diagnostics_ || undefined);
+      if (ignoreModes !== null && shouldIgnoreMember(ignoreModes, targets)) continue;
 
       const newProp = ts.factory.createPropertySignature(
         undefined,
@@ -266,6 +290,8 @@ class Transformer {
 
       members.push(transferJSDoc(member, newProp, sourceFile) as ts.TypeElement);
     }
+
+    if (members.length === 0) return null;
 
     const extendsClauses = classDecl.heritageClauses?.filter(
       clause => clause.token === ts.SyntaxKind.ExtendsKeyword
@@ -287,7 +313,7 @@ class Transformer {
     classDecl: ts.ClassDeclaration,
     sourceFile: ts.SourceFile,
     targets?: string[]
-  ): ts.InterfaceDeclaration {
+  ): ts.InterfaceDeclaration | null {
     const members: ts.TypeElement[] = [];
 
     for (const member of classDecl.members) {
@@ -299,12 +325,17 @@ class Transformer {
 
       if (ts.isConstructorDeclaration(member)) continue;
 
-      const ignoreModes = AnnotationReader.readMemberIgnore(member);
-      if (ignoreModes !== null && this.shouldIgnoreMember(ignoreModes, targets)) continue;
+      const ignoreModes = AnnotationReader.readMemberIgnore(member, sourceFile, this.diagnostics_ || undefined);
+      if (ignoreModes !== null && shouldIgnoreMember(ignoreModes, targets)) continue;
 
       if (ts.isMethodDeclaration(member)) {
         continue;
       } else if (ts.isPropertyDeclaration(member)) {
+        if (!member.type && this.diagnostics_) {
+          this.diagnostics_.addWarning(
+            `Property '${member.name?.getText(sourceFile)}' in class '${classDecl.name?.getText(sourceFile)}' in ${sourceFile.fileName} has no type annotation. It will be exported with 'any' type.`
+          );
+        }
         const newProp = ts.factory.createPropertySignature(
           undefined,
           member.name!,
@@ -314,6 +345,8 @@ class Transformer {
         members.push(transferJSDoc(member, newProp, sourceFile) as ts.TypeElement);
       }
     }
+
+    if (members.length === 0) return null;
 
     const extendsClauses = classDecl.heritageClauses?.filter(
       clause => clause.token === ts.SyntaxKind.ExtendsKeyword
@@ -331,81 +364,25 @@ class Transformer {
     return transferJSDoc(classDecl, iface, sourceFile) as ts.InterfaceDeclaration;
   }
 
-  private shouldIgnoreMember(memberIgnoreModes: string[] | null, targets?: string[]): boolean {
-    if (memberIgnoreModes === null) return false;
-    if (memberIgnoreModes.length === 0) return true;
-    if (!targets || targets.length === 0) return false;
-    return targets.some(t => memberIgnoreModes.includes(t));
+  private warnMissingSourceFile(filePath: string, name: string) {
+    if (!this.diagnostics_) return;
+    this.diagnostics_.addWarning(
+      `Source file '${filePath}' not found for declaration '${name}'. Skipping.`
+    );
   }
 
-  private isRouteMethod(member: ts.MethodDeclaration, routeMethodImportMap: Map<string, Set<string>>): boolean {
-    const decorators = getNodeDecorators(member);
-
-    for (const decorator of decorators) {
-      const expr = decorator.expression;
-
-      if (ts.isPropertyAccessExpression(expr)) {
-        const objectName = expr.expression.getText();
-        const methodName = expr.name.text;
-        const routeMethods = routeMethodImportMap.get(objectName);
-        if (routeMethods && routeMethods.has(methodName)) {
-          return true;
-        }
-      }
-
-      if (ts.isCallExpression(expr)) {
-        const callee = expr.expression;
-        if (ts.isPropertyAccessExpression(callee)) {
-          const objectName = callee.expression.getText();
-          const methodName = callee.name.text;
-          const routeMethods = routeMethodImportMap.get(objectName);
-          if (routeMethods && routeMethods.has(methodName)) {
-            return true;
-          }
-        }
-      }
-    }
-
-    return false;
+  private warnMissingClass(sourceFile: ts.SourceFile, className: string) {
+    if (!this.diagnostics_) return;
+    this.diagnostics_.addWarning(
+      `Class '${className}' not found in '${sourceFile.fileName}'. Skipping.`
+    );
   }
 
-  private buildRouteMethodImportMap(sourceFile: ts.SourceFile): Map<string, Set<string>> {
-    const map = new Map<string, Set<string>>();
-
-    for (const statement of sourceFile.statements) {
-      if (!ts.isImportDeclaration(statement)) continue;
-
-      const moduleSpecifier = (statement.moduleSpecifier as ts.StringLiteral).text;
-      const isFramework = moduleSpecifier === frameworkModule ||
-        moduleSpecifier.startsWith('@sora-soft/framework/');
-
-      if (!isFramework) continue;
-
-      const importClause = statement.importClause;
-      if (!importClause?.namedBindings || !ts.isNamedImports(importClause.namedBindings)) continue;
-
-      for (const element of importClause.namedBindings.elements) {
-        const localName = element.name.text;
-        const importedName = element.propertyName?.text || localName;
-        if (importedName === 'Route') {
-          const methods = map.get(localName) || new Set<string>();
-          methods.add('method');
-          methods.add('notify');
-          map.set(localName, methods);
-        }
-      }
-    }
-
-    return map;
-  }
-
-  private findClassDeclaration(sourceFile: ts.SourceFile, className: string): ts.ClassDeclaration | null {
-    for (const statement of sourceFile.statements) {
-      if (ts.isClassDeclaration(statement) && statement.name?.text === className) {
-        return statement;
-      }
-    }
-    return null;
+  private warnEmptyResult(sourceFile: ts.SourceFile, name: string, kind: string) {
+    if (!this.diagnostics_) return;
+    this.diagnostics_.addWarning(
+      `No exportable members found for ${kind} class '${name}' in '${sourceFile.fileName}'. Skipping.`
+    );
   }
 
   private findEnumDeclaration(sourceFile: ts.SourceFile, name: string): ts.EnumDeclaration | null {
@@ -442,7 +419,6 @@ class Transformer {
     }
     return false;
   }
-
 
   private ensureExport(node: ts.Declaration): ts.ModifierLike[] {
     const existing = ts.canHaveModifiers(node) ? (ts.getModifiers(node) || []) : [];

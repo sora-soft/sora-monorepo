@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as ts from 'typescript';
 
+import {type DiagnosticCollector} from '../DiagnosticCollector';
 import {stripSoraTagsFromComment} from './JSDocUtils';
 import {type TransformedDeclaration} from './Transformer';
 import {type ResolvedType} from './TypeResolver';
@@ -31,8 +32,12 @@ function stripSoraTagsFromOutput(output: string): string {
 }
 
 class Emitter {
-  constructor(outputBasePath: string) {
+  private outputBasePath_: string;
+  private diagnostics_: DiagnosticCollector | null;
+
+  constructor(outputBasePath: string, diagnostics?: DiagnosticCollector) {
     this.outputBasePath_ = outputBasePath;
+    this.diagnostics_ = diagnostics || null;
   }
 
   emitFile(
@@ -49,7 +54,14 @@ class Emitter {
     const entries: PrintEntry[] = [];
 
     const addEntry = (name: string, node: ts.Node, sourceFile: ts.SourceFile) => {
-      if (seen.has(name)) return;
+      if (seen.has(name)) {
+        if (this.diagnostics_) {
+          this.diagnostics_.addWarning(
+            `Duplicate type name '${name}' found. Only the first occurrence will be exported.`
+          );
+        }
+        return;
+      }
       seen.add(name);
       entries.push({node, sourceFile, name});
     };
@@ -64,6 +76,12 @@ class Emitter {
       addEntry(t.name, t.node, t.sourceFile);
     }
 
+    if (entries.length === 0 && this.diagnostics_) {
+      this.diagnostics_.addWarning(
+        'No declarations to emit. Output file will be empty.'
+      );
+    }
+
     const raw = entries.map(({node, sourceFile}) => {
       return printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
     }).join('\n\n');
@@ -76,7 +94,12 @@ class Emitter {
       : `${this.outputBasePath_}.ts`;
 
     this.ensureDirectory(outputPath);
-    fs.writeFileSync(outputPath, content);
+
+    try {
+      fs.writeFileSync(outputPath, content);
+    } catch (err: any) {
+      throw new Error(`Failed to write output file '${outputPath}': ${err.message}`);
+    }
   }
 
   private ensureDirectory(filePath: string) {
@@ -85,8 +108,6 @@ class Emitter {
       fs.mkdirSync(dir, {recursive: true});
     }
   }
-
-  private outputBasePath_: string;
 }
 
 export {Emitter};

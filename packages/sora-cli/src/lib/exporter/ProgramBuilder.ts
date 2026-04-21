@@ -2,10 +2,17 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as ts from 'typescript';
 
+import {type DiagnosticCollector} from '../DiagnosticCollector';
+
 class ProgramBuilder {
-  constructor(rootDir: string, tsconfigPath: string) {
+  private rootDir_: string;
+  private tsconfigPath_: string;
+  private diagnostics_: DiagnosticCollector | null;
+
+  constructor(rootDir: string, tsconfigPath: string, diagnostics?: DiagnosticCollector) {
     this.rootDir_ = rootDir;
     this.tsconfigPath_ = tsconfigPath;
+    this.diagnostics_ = diagnostics || null;
   }
 
   build(): ts.Program {
@@ -21,6 +28,12 @@ class ProgramBuilder {
   }
 
   private collectTsFiles(dir: string): string[] {
+    if (!fs.existsSync(dir)) {
+      throw new Error(
+        `Source root directory '${dir}' does not exist. Check the 'root' setting in your sora.json.`
+      );
+    }
+
     const result: string[] = [];
 
     const walk = (currentDir: string) => {
@@ -39,6 +52,13 @@ class ProgramBuilder {
     };
 
     walk(dir);
+
+    if (result.length === 0 && this.diagnostics_) {
+      this.diagnostics_.addWarning(
+        `No TypeScript source files found in '${dir}'. Make sure your source directory is correct.`
+      );
+    }
+
     return result;
   }
 
@@ -56,15 +76,15 @@ class ProgramBuilder {
 
     const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
     if (configFile.error) {
-      throw new Error(`Failed to read tsconfig: ${configFile.error.messageText}`);
+      const msg = typeof configFile.error.messageText === 'string'
+        ? configFile.error.messageText
+        : (configFile.error.messageText as any).messageText || String(configFile.error.messageText);
+      throw new Error(`Failed to read tsconfig: ${msg}`);
     }
 
     const parsed = ts.parseJsonConfigFileContent(configFile.config, ts.sys, path.dirname(configFileName));
     return parsed.options;
   }
-
-  private rootDir_: string;
-  private tsconfigPath_: string;
 }
 
 export {ProgramBuilder};

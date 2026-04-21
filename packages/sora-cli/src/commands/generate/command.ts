@@ -3,7 +3,7 @@ import inquirer = require('inquirer');
 import template = require('art-template');
 import path = require('path');
 
-import {BaseCommand} from '../../Base';
+import {BaseCommand, type ConfigFieldRequirement} from '../../Base';
 import {CodeInserter} from '../../lib/ast/CodeInserter';
 import {ConfigTemplateInserter} from '../../lib/ConfigTemplateInserter';
 import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
@@ -20,6 +20,15 @@ export default class GenerateCommand extends BaseCommand {
     ...BaseCommand.flags,
     'config-template': oclifFlags.string({description: 'Config template file path (relative to cwd)'}),
   };
+
+  protected requiredConfigFields(): ConfigFieldRequirement[] {
+    return [
+      {field: 'root'},
+      {field: 'workerDir'},
+      {field: 'workerNameEnum', format: 'path#name'},
+      {field: 'workerRegister', format: 'path#class.method'},
+    ];
+  }
 
   async run() {
     const {args, flags} = this.parse(GenerateCommand);
@@ -47,7 +56,7 @@ export default class GenerateCommand extends BaseCommand {
 
     const existedFile = this.fileTree.getFile(workerFileExPath);
     if (existedFile)
-      throw new Error('Command worker file already exists');
+      throw new Error(`Command worker file already exists: '${workerFileExPath}'`);
 
     const data = {
       upperCamelCaseWorkerName,
@@ -62,16 +71,22 @@ export default class GenerateCommand extends BaseCommand {
     workerFile.setContent(Buffer.from(result));
 
     const workerNameFileExtPath = workerNameFilePath + '.ts';
-    const workerNameFile = this.fileTree.getFile(workerNameFileExtPath) as ScriptFileNode;
-    await workerNameFile.load();
-    const workerNameFileAST = new CodeInserter(workerNameFile);
+    const workerNameFile = this.fileTree.getFile(workerNameFileExtPath);
+    if (!workerNameFile) {
+      throw new Error(`File referenced by 'workerNameEnum' not found: '${workerNameFileExtPath}'. Check the path in your sora.json.`);
+    }
+    await (workerNameFile as ScriptFileNode).load();
+    const workerNameFileAST = new CodeInserter(workerNameFile as ScriptFileNode);
     workerNameFileAST.insertEnum(workerNameEnum, `${upperCamelCaseWorkerName}Command`, Utility.dashlize(`${upperCamelCaseWorkerName}Command`));
 
     const workerRegisterFileExtPath = workerRegisterFilePath + '.ts';
-    const workerRegisterFile = this.fileTree.getFile(workerRegisterFileExtPath) as ScriptFileNode;
+    const workerRegisterFile = this.fileTree.getFile(workerRegisterFileExtPath);
+    if (!workerRegisterFile) {
+      throw new Error(`File referenced by 'workerRegister' not found: '${workerRegisterFileExtPath}'. Check the path in your sora.json.`);
+    }
     const workerRegisterServiceRelativePath = Utility.resolveImportPath(workerRegisterFilePath, workerFilePath) + '.js';
-    await workerRegisterFile.load();
-    const workerRegisterAST = new CodeInserter(workerRegisterFile);
+    await (workerRegisterFile as ScriptFileNode).load();
+    const workerRegisterAST = new CodeInserter(workerRegisterFile as ScriptFileNode);
     workerRegisterAST.addImport(upperCamelCaseWorkerFullName, workerRegisterServiceRelativePath, false);
     workerRegisterAST.insertCodeInClassMethod(workerRegisterClass, workerRegisterMethod, `\n    ${upperCamelCaseWorkerFullName}.register();`);
 
@@ -92,7 +107,7 @@ export default class GenerateCommand extends BaseCommand {
       'workers',
       Utility.dashlize(`${upperCamelCaseWorkerName}Command`),
       [],
-      (msg) => this.log(msg),
+      (msg) => this.log(msg)
     );
   }
 }

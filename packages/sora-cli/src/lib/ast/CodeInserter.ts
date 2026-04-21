@@ -17,7 +17,7 @@ class CodeInserter {
 
     const exited = enumDeclaration.members.some(member => (member.name as ts.Identifier).escapedText === key);
     if (exited)
-      throw new Error(`Duplicate enum member defined, key=${key}`);
+      throw new Error(`Duplicate enum member '${key}' in enum '${enumName}' in file '${this.file_.path}'.`);
 
     const newMember = ts.factory.createEnumMember(key, ts.factory.createStringLiteral(value, true));
 
@@ -44,7 +44,11 @@ class CodeInserter {
         const importDeclaration = statement as ts.ImportDeclaration;
         lastImportDeclaration = importDeclaration;
         if ((importDeclaration.moduleSpecifier as ts.StringLiteral).text === importFrom) {
-          const importElements = ((importDeclaration.importClause as ts.ImportClause).namedBindings as ts.NamedImports).elements;
+          const importClause = importDeclaration.importClause;
+          if (!importClause?.namedBindings || !ts.isNamedImports(importClause.namedBindings)) {
+            continue;
+          }
+          const importElements = importClause.namedBindings.elements;
           const isImported = importElements.some(v => v.name.escapedText === importName);
           if (!isImported) {
             this.file_.modify({
@@ -95,6 +99,11 @@ class CodeInserter {
         }
       }
     }
+
+    throw new Error(
+      `Method '${method}' not found in class '${className}' in file '${this.file_.path}'. ` +
+      'Check the class and method names.'
+    );
   }
 
   getEnumStringPair(enumName: string) {
@@ -105,7 +114,14 @@ class CodeInserter {
     const enumDeclaration = this.getEnumDeclaration(sourceFile, enumName);
     if (enumDeclaration.name.escapedText === enumName) {
       for (const member of enumDeclaration.members) {
-        result[(member.initializer as ts.StringLiteral).text] = (member.name as ts.Identifier).escapedText.toString();
+        const name = member.name as ts.Identifier;
+        const initializer = member.initializer;
+        if (!initializer || !ts.isStringLiteral(initializer)) {
+          throw new Error(
+            `Enum member '${name.escapedText}' in enum '${enumName}' in file '${this.file_.path}' has a non-string initializer. Expected a string literal.`
+          );
+        }
+        result[initializer.text] = name.escapedText.toString();
       }
     }
 
@@ -121,7 +137,10 @@ class CodeInserter {
         }
       }
     }
-    throw new Error('Class declaration not found');
+    throw new Error(
+      `Class '${className}' not found in file '${this.file_.path}'. ` +
+      'Check the class name and file path.'
+    );
   }
 
   private getEnumDeclaration(sourceFile: ts.SourceFile, enumName: string) {
@@ -133,7 +152,10 @@ class CodeInserter {
         }
       }
     }
-    throw new Error('Enum declaration not found');
+    throw new Error(
+      `Enum '${enumName}' not found in file '${this.file_.path}'. ` +
+      'Check the enum name and file path.'
+    );
   }
 
   private file_: ScriptFileNode;
