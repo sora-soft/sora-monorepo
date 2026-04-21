@@ -20,6 +20,11 @@
   ],
   "author": "yaya",
   "license": "WTFPL",
+  "repository": "git@github.com:sora-soft/sora-monorepo.git",
+  "bugs": {
+    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+  },
+  "homepage": "https://github.com/sora-soft/sora-monorepo",
   "dependencies": {
     "@sora-soft/framework": "workspace:*",
     "@sora-soft/http-support": "workspace:*",

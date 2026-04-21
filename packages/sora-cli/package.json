@@ -1,6 +1,6 @@
 {
   "name": "@sora-soft/cli",
-  "version": "2.0.0",
+  "version": "1.4.2",
   "description": "sora system cli tool",
   "bin": {
     "sora": "./bin/cli.js"
@@ -18,6 +18,11 @@
   ],
   "author": "yaya",
   "license": "WTFPL",
+  "repository": "git@github.com:sora-soft/sora-monorepo.git",
+  "bugs": {
+    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+  },
+  "homepage": "https://github.com/sora-soft/sora-monorepo",
   "files": [
     "/bin",
     "/dist",

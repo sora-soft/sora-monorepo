@@ -16,7 +16,7 @@
     "prepublishOnly": "npm run build",
     "lint": "eslint src/"
   },
-  "repository": "git@github.com:sora-soft/typia-decorator.git",
+  "repository": "git@github.com:sora-soft/sora-monorepo.git",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -30,6 +30,10 @@
   ],
   "author": "yaya",
   "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+  },
+  "homepage": "https://github.com/sora-soft/sora-monorepo",
   "peerDependencies": {
     "@typia/core": "^12.0.0",
     "typescript": "^5.0.0",

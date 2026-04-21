@@ -21,16 +21,16 @@
     "lint": "eslint src/",
     "prepare": "ts-patch install -s"
   },
-  "repository": "git@github.com:sora-soft/example-project.git",
+  "repository": "git@github.com:sora-soft/sora-monorepo.git",
   "keywords": [
     "sora"
   ],
   "author": "yaya",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/sora-soft/example-project/issues"
+    "url": "https://github.com/sora-soft/sora-monorepo/issues"
   },
-  "homepage": "https://github.com/sora-soft/example-project#readme",
+  "homepage": "https://github.com/sora-soft/sora-monorepo",
   "dependencies": {
     "@alicloud/pop-core": "^1.7.10",
     "@sora-soft/database-component": "workspace:*",

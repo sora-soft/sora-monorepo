@@ -12,7 +12,7 @@
     "lint": "eslint src/",
     "preversion": "eslint src/ && npm run build"
   },
-  "repository": "git@github.com:sora-soft/etcd-component.git",
+  "repository": "git@github.com:sora-soft/sora-monorepo.git",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
@@ -30,6 +30,10 @@
   ],
   "author": "yaya",
   "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+  },
+  "homepage": "https://github.com/sora-soft/sora-monorepo",
   "devDependencies": {
     "rimraf": "^3.0.2",
     "ts-patch": "^3.3.0",
