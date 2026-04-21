@@ -3,17 +3,20 @@ import inquirer = require('inquirer');
 import ora = require('ora');
 import chalk from 'chalk';
 import path = require('path');
-import git = require('isomorphic-git');
-import http = require('isomorphic-git/http/node');
 import fs = require('fs/promises');
-import oFS = require('fs');
-import pathModule = require('path');
+import pacote = require('pacote');
+import libnpmconfig = require('libnpmconfig');
+
+const templates = [
+  {pkg: '@sora-soft/example-template', desc: 'Sora backend example project'},
+];
 
 export default class NewProject extends Command {
   static description = 'Create a new sora project';
 
   static args = [
     {name: 'name', required: true, description: 'Project name'},
+    {name: 'template', required: false, description: 'npm package name of the template (e.g. @sora-soft/example-template)'},
   ];
 
   static flags = {
@@ -32,6 +35,32 @@ export default class NewProject extends Command {
     if (stat) {
       this.log(chalk.red(`${name} already exists!`));
       return;
+    }
+
+    let templateSpec = args.template as string | undefined;
+
+    if (!templateSpec) {
+      const choices = [
+        ...templates.map(t => ({name: `${t.pkg} - ${t.desc}`, value: t.pkg})),
+        {name: 'Custom (enter package name)', value: '__custom__'},
+      ];
+
+      const {selected} = await inquirer.prompt([{
+        name: 'selected',
+        message: 'Select a template',
+        type: 'list',
+        choices,
+      }]);
+
+      if (selected === '__custom__') {
+        const {customPkg} = await inquirer.prompt([{
+          name: 'customPkg',
+          message: 'Enter npm package name (supports @scope/pkg@version):',
+        }]);
+        templateSpec = customPkg;
+      } else {
+        templateSpec = selected;
+      }
     }
 
     const options = await inquirer
@@ -71,21 +100,17 @@ export default class NewProject extends Command {
       return;
     }
 
-    const loading = ora('Downloading').start();
+    const loading = ora(`Downloading ${templateSpec}`).start();
     const dir = path.join(process.cwd(), name);
-    await git.clone({
-      fs: oFS,
-      http,
-      dir,
-      url: 'https://github.com/sora-soft/backend-example-project.git',
-      singleBranch: true,
-      remote: 'upstream',
-      depth: 1,
-    });
+
+    const config = libnpmconfig.read();
+    const npmOpts = JSON.parse(JSON.stringify(config));
+
+    await pacote.extract(templateSpec!, dir, npmOpts);
 
     loading.stop();
 
-    const pkgPath = pathModule.resolve(process.cwd(), name, 'package.json');
+    const pkgPath = path.resolve(process.cwd(), name, 'package.json');
     const installedPkg = await import(pkgPath);
 
     installedPkg.name = options.projectName;
@@ -103,5 +128,6 @@ export default class NewProject extends Command {
     await fs.writeFile(pkgPath, JSON.stringify(installedPkg, null, 2));
 
     this.log(chalk.green('Project generated successfully'));
+    this.log(chalk.cyan(`cd ${name} && pnpm install`));
   }
 }
