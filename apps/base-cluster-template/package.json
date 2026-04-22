@@ -31,6 +31,7 @@
     "@sora-soft/framework": "workspace:*",
     "@sora-soft/http-support": "workspace:*",
     "@sora-soft/typia-decorator": "workspace:*",
+    "@sora-soft/database-component": "workspace:*",
     "axios": "^1.4.0",
     "commander": "^7.2.0",
     "js-yaml": "^4.0.0",

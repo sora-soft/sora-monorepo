@@ -59,13 +59,13 @@ export async function action(answers, ctx, helpers) {
       `#define(${varPrefix}_database,string,${componentName} database name)`,
     ],
     content: `${componentName}:
-  database:
-    type: \$(${varPrefix}_type)
-    host: \$(${varPrefix}_host)
-    port: \$(${varPrefix}_port)
-    username*: \$(${varPrefix}_username)
-    password*: \$(${varPrefix}_password)
-    database: \$(${varPrefix}_database)`,
+    database:
+      type: \$(${varPrefix}_type)
+      host: \$(${varPrefix}_host)
+      port: \$(${varPrefix}_port)
+      username*: \$(${varPrefix}_username)
+      password*: \$(${varPrefix}_password)
+      database: \$(${varPrefix}_database)`,
   });
 
   helpers.log('! Add TypeORM entities to DatabaseComponent constructor in Com.ts');

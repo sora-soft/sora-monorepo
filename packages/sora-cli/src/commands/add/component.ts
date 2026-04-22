@@ -83,7 +83,7 @@ export default class AddComponent extends BaseCommand {
       this.printSummary();
       this.log(`\nComponent ${packageName} added successfully`);
     } catch (err: any) {
-      this.error(`Install script failed: ${err.message}\nAll file operations have been rolled back.`);
+      this.error(`Install script failed: ${err.message}\nSome files may have been partially modified.`);
     }
   }
 

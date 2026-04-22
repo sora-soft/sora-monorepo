@@ -50,14 +50,15 @@ class CodeInserter {
           }
           const importElements = importClause.namedBindings.elements;
           const isImported = importElements.some(v => v.name.escapedText === importName);
-          if (!isImported) {
-            this.file_.modify({
-              start: importElements.length ? importElements[importElements.length - 1].end : importElements.end,
-              end: importElements.length ? importElements[importElements.length - 1].end : importElements.end,
-              content: `${importElements.length ? ',' : ''} ${importName}`,
-            });
+          if (isImported) {
             return;
           }
+          this.file_.modify({
+            start: importElements.length ? importElements[importElements.length - 1].end : importElements.end,
+            end: importElements.length ? importElements[importElements.length - 1].end : importElements.end,
+            content: `${importElements.length ? ',' : ''} ${importName}`,
+          });
+          return;
         }
       }
     }

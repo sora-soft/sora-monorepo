@@ -35,10 +35,10 @@ export async function action(answers, ctx, helpers) {
       `#define(${varPrefix}_host,string,${componentName} host)`,
     ],
     content: `${componentName}:
-  etcd:
-    hosts:
-    - \$(${varPrefix}_host)
-  ttl: 60
-  prefix: \$(projectScope)`,
+    etcd:
+      hosts:
+      - \$(${varPrefix}_host)
+    ttl: 60
+    prefix: \$(projectScope)`,
   });
 }

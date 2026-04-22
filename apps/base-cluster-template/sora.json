@@ -11,5 +11,7 @@
   "componentNameEnum": "lib/Com#ComponentName",
   "comClass": "lib/Com#Com",
   "apiDeclarationOutput": "../dist-api/api",
-  "docOutput": "../dist-api/doc"
+  "docOutput": "../dist-api/doc",
+  "migration": "app/database/migration",
+  "databaseDir": "app/database"
 }

@@ -36,7 +36,7 @@ export async function action(answers, ctx, helpers) {
       `#define(${varPrefix}_database,number,${componentName} database index)`,
     ],
     content: `${componentName}:
-  url: \$(${varPrefix}_url)
-  database: \$(${varPrefix}_database)`,
+    url: \$(${varPrefix}_url)
+    database: \$(${varPrefix}_database)`,
   });
 }

@@ -168,6 +168,9 @@ importers:
 
   apps/base-cluster-template:
     dependencies:
+      '@sora-soft/database-component':
+        specifier: workspace:*
+        version: link:../../packages/database-component
       '@sora-soft/etcd-component':
         specifier: workspace:*
         version: link:../../packages/etcd-component

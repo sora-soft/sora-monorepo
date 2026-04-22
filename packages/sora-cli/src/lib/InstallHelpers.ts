@@ -108,8 +108,10 @@ class InstallHelpersImpl {
 
   async ensureDir(dirPath: string): Promise<void> {
     const absolutePath = path.resolve(this.fileTree_.rootPath, dirPath);
+    await fsp.mkdir(absolutePath, {recursive: true});
+
     const relativePath = path.relative(this.fileTree_.rootPath, absolutePath).replace(/\\/g, '/');
-    const gitkeepPath = path.join(relativePath, '.gitkeep');
+    const gitkeepPath = path.join(relativePath, '.gitkeep').replace(/\\/g, '/');
     const file = this.fileTree_.newFile(gitkeepPath) as ScriptFileNode;
     file.setContent(Buffer.from(''));
   }
