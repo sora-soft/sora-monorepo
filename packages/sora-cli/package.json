@@ -1,6 +1,6 @@
 {
   "name": "@sora-soft/cli",
-  "version": "1.4.2",
+  "version": "2.0.0",
   "description": "sora system cli tool",
   "bin": {
     "sora": "./bin/cli.js"

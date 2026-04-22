@@ -1,6 +1,6 @@
 {
   "name": "@sora-soft/redis-component",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "sora system redis component",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
