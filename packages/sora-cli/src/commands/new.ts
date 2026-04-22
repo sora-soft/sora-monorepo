@@ -7,8 +7,8 @@ import fs = require('fs/promises');
 import pacote = require('pacote');
 
 const templates = [
-  {pkg: '@sora-soft/example-template', desc: 'Sora backend example project'},
-  {pkg: '@sora-soft/http-server-template', desc: 'Sora minimal HTTP server template'},
+  {pkg: '@sora-soft/http-server-template', desc: '单进程简单 HTTP 服务器'},
+  {pkg: '@sora-soft/account-cluster-template', desc: '带完整网关与账号登录功能的模板项目'},
 ];
 
 export default class NewProject extends Command {
@@ -114,7 +114,7 @@ export default class NewProject extends Command {
     loading.stop();
 
     const pkgPath = path.resolve(process.cwd(), name, 'package.json');
-    const installedPkg = await import(pkgPath);
+    const installedPkg = JSON.parse(await fs.readFile(pkgPath, 'utf-8'));
 
     installedPkg.name = options.projectName;
     installedPkg.description = options.description;
