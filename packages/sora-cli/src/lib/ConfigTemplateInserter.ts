@@ -20,7 +20,7 @@ class ConfigTemplateInserter {
     return {defines, defineKeys, yamlContent: yamlLines.join('\n')};
   }
 
-  static checkDuplicate(yamlContent: string, section: 'services' | 'workers', key: string): boolean {
+  static checkDuplicate(yamlContent: string, section: string, key: string): boolean {
     const parsed = yaml.load(yamlContent) as Record<string, any>;
     if (!parsed || typeof parsed !== 'object') return false;
     const sectionData = parsed[section];
@@ -88,14 +88,68 @@ class ConfigTemplateInserter {
     const isEmptyInline = /:\s*\{\}\s*$/.test(sectionLine);
 
     if (isEmptyInline) {
-      const before = lines.slice(0, sectionLineIdx);
-      const after = lines.slice(sectionLineIdx + 1);
-      return [...before, `${section}:`, `  ${fragment}`, ...after].join('\n');
+      const beforeInline = lines.slice(0, sectionLineIdx);
+      const afterInline = lines.slice(sectionLineIdx + 1);
+      return [...beforeInline, `${section}:`, `  ${fragment}`, ...afterInline].join('\n');
     }
 
-    const before = lines.slice(0, sectionLineIdx + 1);
-    const after = lines.slice(sectionLineIdx + 1);
-    return [...before, `  ${fragment}`, ...after].join('\n');
+    const beforeBlock = lines.slice(0, sectionLineIdx + 1);
+    const afterBlock = lines.slice(sectionLineIdx + 1);
+    return [...beforeBlock, `  ${fragment}`, ...afterBlock].join('\n');
+  }
+
+  static appendDefines(content: string, newDefines: string[]): string {
+    const {defines, defineKeys, yamlContent} = ConfigTemplateInserter.extractDefines(content);
+
+    const additionalDefines: string[] = [];
+    for (const defineLine of newDefines) {
+      const match = defineLine.match(/^#define\(\s*(\w+)/);
+      if (match && !defineKeys.has(match[1])) {
+        additionalDefines.push(defineLine);
+      }
+    }
+
+    if (additionalDefines.length === 0) {
+      return content;
+    }
+
+    const allDefines = [...defines, ...additionalDefines];
+    const defineLines = allDefines.join('\n');
+    return defineLines ? `${defineLines}\n${yamlContent}` : yamlContent;
+  }
+
+  static async appendToConfigTemplateEntry(
+    templatePath: string,
+    entry: { section: string; defines: string[]; content: string },
+    log: (msg: string) => void
+  ): Promise<void> {
+    const fs = require('fs/promises');
+    let content: string;
+    try {
+      content = await fs.readFile(templatePath, {encoding: 'utf-8'});
+    } catch {
+      log(`Config template not found: ${templatePath}, skipping config insertion`);
+      return;
+    }
+
+    const {yamlContent} = ConfigTemplateInserter.extractDefines(content);
+
+    if (ConfigTemplateInserter.checkDuplicate(yamlContent, entry.section, entry.content.split(':')[0].trim())) {
+      log(`Warning: entry already exists in ${entry.section} section of ${templatePath}, skipping`);
+      return;
+    }
+
+    const withDefines = ConfigTemplateInserter.appendDefines(content, entry.defines);
+    const {yamlContent: updatedYaml} = ConfigTemplateInserter.extractDefines(withDefines);
+
+    const newContent = ConfigTemplateInserter.insertSectionEntry(updatedYaml, entry.section, entry.content);
+
+    const {defines: finalDefines} = ConfigTemplateInserter.extractDefines(withDefines);
+    const defineLines = finalDefines.join('\n');
+    const finalContent = defineLines ? `${defineLines}\n${newContent}` : newContent;
+
+    await fs.writeFile(templatePath, finalContent, {encoding: 'utf-8'});
+    log(`Config entry added to ${entry.section} in ${templatePath}`);
   }
 
   static async insertConfig(

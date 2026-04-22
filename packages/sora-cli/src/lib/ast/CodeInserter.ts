@@ -79,6 +79,36 @@ class CodeInserter {
     }
   }
 
+  insertStaticField(className: string, fieldName: string, expression: string) {
+    const sourceFile = ts.createSourceFile(this.file_.path, this.file_.getContent(), ts.ScriptTarget.Latest, false, ts.ScriptKind.TS);
+
+    const classDeclaration = this.getClassDeclaration(sourceFile, className);
+
+    const lastMember = classDeclaration.members.length
+      ? classDeclaration.members[classDeclaration.members.length - 1]
+      : null;
+
+    const fieldCode = `\n  static ${fieldName} = ${expression};`;
+
+    if (lastMember) {
+      this.file_.modify({
+        start: lastMember.end,
+        end: lastMember.end,
+        content: fieldCode,
+      });
+    } else {
+      const openBrace = (classDeclaration as ts.ClassDeclaration).getChildren(sourceFile)
+        .find(c => c.kind === ts.SyntaxKind.OpenBraceToken);
+      if (openBrace) {
+        this.file_.modify({
+          start: openBrace.end,
+          end: openBrace.end,
+          content: fieldCode,
+        });
+      }
+    }
+  }
+
   insertCodeInClassMethod(className: string, method: string, code: string) {
     const sourceFile = ts.createSourceFile(this.file_.path, this.file_.getContent(), ts.ScriptTarget.Latest, false, ts.ScriptKind.TS);
 
