@@ -1,4 +1,3 @@
-import {Flags} from '@oclif/core';
 import template = require('art-template');
 import path = require('path');
 import fs = require('fs/promises');
@@ -9,13 +8,10 @@ import os = require('os');
 import {BaseCommand, type ConfigFieldRequirement} from '../Base';
 
 export default class ConfigCommand extends BaseCommand {
-  static description = 'Generate configuration file from template';
+  static description = '从 sora.json 的 configTemplates 生成所有配置文件';
 
   static flags = {
     ...BaseCommand.flags,
-    template: Flags.string({char: 't', description: 'Template config file'}),
-    dist: Flags.string({char: 'd', description: 'Output file'}),
-    all: Flags.boolean({description: 'Generate all config files from sora.json configTemplates'}),
   };
 
   protected requiredConfigFields() {
@@ -23,45 +19,40 @@ export default class ConfigCommand extends BaseCommand {
   }
 
   async run() {
-    const {flags} = await this.parse(ConfigCommand);
-
-    if (flags.all) {
-      await this.loadConfig();
-      await this.runAll();
-      return;
-    }
-
-    if (!flags.template || !flags.dist) {
-      this.error('Both --template (-t) and --dist (-d) are required when not using --all');
-    }
-
-    await generateConfigFile({
-      template: flags.template,
-      dist: flags.dist,
-    });
+    await this.loadConfig();
+    await this.runAll();
   }
 
   private async runAll() {
     const configTemplates: Array<{type: string; path: string}> | undefined = (this.soraConfig?.sora as any)?.configTemplates;
     if (!configTemplates || !Array.isArray(configTemplates) || configTemplates.length === 0) {
-      this.error('No configTemplates found in sora.json. Add a configTemplates array with {type, path} entries.');
+      this.error('sora.json 中未找到 configTemplates 配置。请添加 configTemplates 数组，例如：[{type: "server", path: "run/config.template.yml"}]');
     }
 
     for (const entry of configTemplates) {
       if (!entry.path || typeof entry.path !== 'string') continue;
 
+      if (!entry.path.includes('.template.')) {
+        this.error(`模板文件路径必须包含 '.template.'：${entry.path}`);
+      }
+
+      const distRelPath = entry.path.replace('.template.', '.');
+      if (distRelPath === entry.path) {
+        this.error(`生成的文件名与模板文件名相同：${entry.path}`);
+      }
+
       const templatePath = path.resolve(process.cwd(), entry.path);
       if (!fsSync.existsSync(templatePath)) {
-        this.warn(`Template file not found for '${entry.type}': ${entry.path}, skipping`);
+        this.warn(`模板文件不存在: ${entry.path}，跳过`);
         continue;
       }
 
-      const distPath = entry.path.replace('.template.', '.');
+      const distPath = path.resolve(process.cwd(), distRelPath);
 
-      this.log(`Generating ${entry.type} config: ${entry.path} -> ${distPath}`);
+      this.log(`生成 ${entry.type} 配置: ${entry.path} -> ${distRelPath}`);
       await generateConfigFile({
         template: templatePath,
-        dist: path.resolve(process.cwd(), distPath),
+        dist: distPath,
       });
     }
   }

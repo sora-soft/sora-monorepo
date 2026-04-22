@@ -10,7 +10,7 @@ import {SchemaResolver} from '../../lib/doc/SchemaResolver';
 import {ProgramBuilder} from '../../lib/exporter/ProgramBuilder';
 
 export default class ExportDoc extends BaseCommand {
-  static description = 'Export OpenAPI documentation from route classes';
+  static description = '导出 OpenAPI 文档';
 
   static flags = {
     ...BaseCommand.flags,

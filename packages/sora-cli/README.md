@@ -30,11 +30,13 @@ cd my-app
 
 ## 生成运行时配置
 
-`sora config` 从模板文件生成实际的配置文件，通过交互式问答填充变量：
+`sora config` 从 `sora.json` 的 `configTemplates` 读取所有模板文件，生成为去掉 `.template.` 的同名文件：
 
 ```bash
-sora config -t run/config.template.yml -d run/config.yml
+sora config
 ```
+
+例如 `run/config.template.yml` → `run/config.yml`，`run/config-command.template.yml` → `run/config-command.yml`。
 
 CLI 会根据模板中定义的变量逐个询问（主机地址、端口号、密码等），首次输入后会缓存到模板同目录的 `.var.json` 中，再次运行时自动填入。
 
@@ -64,7 +66,7 @@ sora generate:service gateway --listeners http,websocket
 现在重新生成配置并重启服务器，新服务就会生效：
 
 ```bash
-sora config -t run/config.template.yml -d run/config.yml
+sora config
 npm run dev
 ```
 
@@ -182,6 +184,71 @@ sora export:doc --target web
 
 > `@Route.notify` 装饰的方法不会出现在文档中。
 
+## 添加组件
+
+`sora add:component` 从 npm 包安装预构建的组件到项目中，自动完成注册、配置、文件生成等脚手架工作：
+
+```bash
+sora add:component @sora-soft/database-component
+```
+
+这个命令做了什么？
+
+1. 从 `node_modules` 中加载包的 `sora-component.json`，执行其 install script
+2. Install script 通常会：向 `Com.ts` 注册组件、向 `sora.json` 写入配置、向配置模板注入变量、生成 Worker 和 npm scripts
+
+Install script 分两阶段运行：
+- **prepare 阶段**：收集用户输入（组件名、枚举键等）
+- **action 阶段**：执行所有文件变更（通过 FileTree 事务保证，失败时全部回滚）
+
+完成后输出变更摘要。如果 install script 添加了新依赖，需要手动执行 `npm install`。
+
+### 组件包结构
+
+组件包需要包含以下文件：
+
+```
+your-component/
+├── sora-component.json        # 清单文件
+├── bin/
+│   ├── install.js             # install script
+│   └── templates/             # 模板文件（可选）
+└── package.json
+```
+
+`sora-component.json`：
+
+```json
+{
+  "installScript": "bin/install.js"
+}
+```
+
+### Install Script 接口
+
+```typescript
+// bin/install.js
+export async function prepare(ctx) {
+  // ctx: { projectRoot, soraRoot, soraConfig, packageVersion, packageName, packageDir }
+  return [
+    { type: 'input', name: 'componentName', message: 'Component name?' },
+  ];
+}
+
+export async function action(answers, ctx, helpers) {
+  // helpers 提供以下方法：
+  // addComponentToCom(info)               — 注册组件到 Com.ts
+  // appendToConfigTemplate(entry)          — 向 server 配置模板追加内容
+  // appendToCommandConfigTemplate(entry)   — 向 command 配置模板追加内容
+  // addWorkerToProject(options)            — 生成 Worker 并注册
+  // mergePackageScripts(scripts)           — 合并 npm scripts
+  // mergePackageDependencies(deps)         — 合并 dependencies
+  // mergeJSON(targetPath, data)            — 合并 JSON 文件
+  // copyFile(from, to) / writeFile / ensureDir
+  // camelize / dashlize / log / warn
+}
+```
+
 ---
 
 ## 命令参考
@@ -190,6 +257,7 @@ sora export:doc --target web
 sora
 ├── new <name>                      创建新项目
 ├── config                          从模板生成配置文件
+├── add:component <package>         安装组件包
 ├── generate:service [name]         生成 Service 脚手架
 ├── generate:worker [name]          生成 Worker 脚手架
 ├── generate:command [name]         生成 CommandWorker 脚手架
@@ -217,6 +285,14 @@ sora
 
 如果不在 `[template]` 参数中指定模板，CLI 会交互式列出可用模板供选择，也可以输入自定义包名。
 
+### `sora add:component <package>`
+
+| 参数 | 说明 |
+|---|---|
+| `<package>` | 组件包名（如 `@sora-soft/database-component`） |
+
+从 `node_modules` 中加载组件包的 install script，自动完成注册、配置注入、文件生成。需要在已有 sora 项目中运行。
+
 ### `sora generate:service [name]`
 
 | 参数 / Flag | 说明 |
@@ -224,7 +300,7 @@ sora
 | `[name]` | 服务名称，未提供时交互式询问 |
 | `--listeners <types>` | 监听器类型（逗号分隔）：`tcp`, `websocket`, `http`, `none` |
 | `--standalone` | 生成 SingletonService |
-| `--config-template <path>` | 配置模板文件路径，默认 `run/config.template.yml` |
+| `--config-template <path>` | 配置模板文件路径，默认从 `sora.json` 的 `configTemplates` 中读取 `server` 类型 |
 
 ### `sora generate:worker [name]`
 
@@ -232,21 +308,20 @@ sora
 |---|---|
 | `[name]` | 工作器名称，未提供时交互式询问 |
 | `--standalone` | 生成 SingletonWorker |
-| `--config-template <path>` | 配置模板文件路径，默认 `run/config.template.yml` |
+| `--config-template <path>` | 配置模板文件路径，默认从 `sora.json` 的 `configTemplates` 中读取 `server` 类型 |
 
 ### `sora generate:command [name]`
 
 | 参数 / Flag | 说明 |
 |---|---|
 | `[name]` | 命令名称，未提供时交互式询问 |
-| `--config-template <path>` | 配置模板文件路径，默认 `run/config-command.template.yml` |
+| `--config-template <path>` | 配置模板文件路径，默认从 `sora.json` 的 `configTemplates` 中读取 `command` 类型 |
 
 ### `sora config`
 
-| Flag | 缩写 | 说明 |
-|---|---|---|
-| `--template <path>` | `-t` | 模板文件路径（必填） |
-| `--dist <path>` | `-d` | 输出文件路径（必填） |
+从 `sora.json` 的 `configTemplates` 读取所有模板文件路径，逐个生成配置文件。输出文件名由模板文件名去掉 `.template.` 得到（如 `config.template.yml` → `config.yml`）。如果生成的文件名与模板相同则报错。
+
+无需任何参数。
 
 模板使用 art-template 引擎，支持以下自定义语法：
 
@@ -313,7 +388,11 @@ database:
   "comClass": "lib/Com#Com",
   "migration": "app/database/migration",
   "apiDeclarationOutput": "../dist-api-declaration/api",
-  "docOutput": "../dist-api-doc/api"
+  "docOutput": "../dist-api-doc/api",
+  "configTemplates": [
+    { "type": "server", "path": "run/config.template.yml" },
+    { "type": "command", "path": "run/config-command.template.yml" }
+  ]
 }
 ```
 
@@ -336,6 +415,25 @@ database:
 | `migration` | `string` | 否 | 数据库迁移文件目录，相对于 `root` |
 | `apiDeclarationOutput` | `string` | 是 | API 类型声明输出路径 |
 | `docOutput` | `string` | 否 | OpenAPI 文档输出路径 |
+| `configTemplates` | `array` | 否 | 配置模板声明，见下文 |
+
+### configTemplates
+
+声明项目使用的配置模板文件路径，供 `sora config --all` 和 `generate:*` 命令使用：
+
+```json
+"configTemplates": [
+  { "type": "server", "path": "run/config.template.yml" },
+  { "type": "command", "path": "run/config-command.template.yml" }
+]
+```
+
+| 字段 | 说明 |
+|---|---|
+| `type` | 模板类型标识，`server` 用于应用配置，`command` 用于命令行 Worker 配置。可自定义类型，`sora config --all` 会遍历所有条目 |
+| `path` | 模板文件路径，相对于项目根目录 |
+
+`generate:service` 和 `generate:worker` 默认使用 `type: "server"` 的模板路径，`generate:command` 默认使用 `type: "command"` 的模板路径。如果未配置 `configTemplates`，回退到硬编码默认值。
 
 ### 符号引用格式
 

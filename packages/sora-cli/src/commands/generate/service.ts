@@ -29,7 +29,7 @@ function parseListeners(raw: string | undefined): string[] {
 }
 
 export default class GenerateService extends BaseCommand {
-  static description = 'Generate a new service';
+  static description = '生成 Service 脚手架代码';
 
   static args = {
     name: Args.string({description: 'Service name'}),

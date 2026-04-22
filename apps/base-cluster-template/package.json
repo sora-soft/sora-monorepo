@@ -11,7 +11,7 @@
     "build": "rimraf ./dist && tspc",
     "dev": "npm run build && node ./bin/cli.js run server --config ./config.yml -w ./run",
     "start": "node ./bin/cli.js run server --config ./config.yml -w ./run",
-    "config": "sora config -t ./run/config.template.yml -d ./run/config.yml",
+    "config": "sora config",
     "lint": "eslint src/",
     "prepare": "ts-patch install -s"
   },

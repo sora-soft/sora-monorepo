@@ -9,7 +9,7 @@ import {type ComponentInstallContext, type ComponentInstallScript, type SoraComp
 import {InstallHelpersImpl} from '../../lib/InstallHelpers';
 
 export default class AddComponent extends BaseCommand {
-  static description = 'Add a component package to the project';
+  static description = '安装组件包并自动完成脚手架注册';
 
   static args = {
     package: Args.string({description: 'Component package name (e.g., @sora-soft/database-component)'}),

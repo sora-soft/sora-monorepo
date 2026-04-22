@@ -16,7 +16,7 @@
     "migrate:drop": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n database-migrate-command drop",
     "migrate:revert": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n database-migrate-command revert",
     "migrate:generate": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n database-migrate-command generate",
-    "config": "sora config -t ./run/config.template.yml -d ./run/config.yml && sora config -t ./run/config-command.template.yml -d ./run/config-command.yml",
+    "config": "sora config",
     "auth": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n auth-command",
     "lint": "eslint src/",
     "prepare": "ts-patch install -s"

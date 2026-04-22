@@ -13,7 +13,7 @@ const templates = [
 ];
 
 export default class NewProject extends Command {
-  static description = 'Create a new sora project';
+  static description = '创建新的 sora 项目';
 
   static args = {
     name: Args.string({required: true, description: 'Project name'}),
