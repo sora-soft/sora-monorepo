@@ -1,11 +1,11 @@
-# @sora-soft/sora-cli
+# @sora-soft/cli
 
 sora 框架的命令行脚手架工具，提供项目创建、代码生成、API 类型导出和 OpenAPI 文档生成等功能。
 
 ## 安装 CLI
 
 ```bash
-npm install -g @sora-soft/sora-cli
+npm install -g @sora-soft/cli
 ```
 
 安装后可通过 `sora` 命令使用。
@@ -343,7 +343,7 @@ database:
 
 ## 注解参考
 
-sora-cli 通过 JSDoc 注解控制导出行为和文档生成。
+@​sora-soft/cli 通过 JSDoc 注解控制导出行为和文档生成。
 
 ### 声明级注解
 

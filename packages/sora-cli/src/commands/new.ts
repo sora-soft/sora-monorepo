@@ -5,7 +5,6 @@ import chalk from 'chalk';
 import path = require('path');
 import fs = require('fs/promises');
 import pacote = require('pacote');
-import libnpmconfig = require('libnpmconfig');
 
 const templates = [
   {pkg: '@sora-soft/example-template', desc: 'Sora backend example project'},
@@ -22,10 +21,12 @@ export default class NewProject extends Command {
 
   static flags = {
     help: Flags.help({char: 'h'}),
+    registry: Flags.string({description: 'npm registry URL'}),
+    token: Flags.string({description: 'auth token for private registry'}),
   };
 
   async run() {
-    const {args} = await this.parse(NewProject);
+    const {args, flags} = await this.parse(NewProject);
     const name = args.name as string;
 
     const stat = await fs.stat(name).catch(err => {
@@ -104,10 +105,11 @@ export default class NewProject extends Command {
     const loading = ora(`Downloading ${templateSpec}`).start();
     const dir = path.join(process.cwd(), name);
 
-    const config = libnpmconfig.read();
-    const npmOpts = JSON.parse(JSON.stringify(config));
+    const pacoteOpts: Record<string, unknown> = {};
+    if (flags.registry) pacoteOpts.registry = flags.registry;
+    if (flags.token) pacoteOpts.token = flags.token;
 
-    await pacote.extract(templateSpec!, dir, npmOpts);
+    await pacote.extract(templateSpec!, dir, pacoteOpts);
 
     loading.stop();
 

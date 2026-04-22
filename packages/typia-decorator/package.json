@@ -1,6 +1,6 @@
 {
   "name": "@sora-soft/typia-decorator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "AOT parameter type validation via @guard decorator and TypeScript AST Transformer, powered by typia",
   "type": "module",
   "main": "./dist/runtime/index.js",
