@@ -131,6 +131,6 @@ export default class NewProject extends Command {
     await fs.writeFile(pkgPath, JSON.stringify(installedPkg, null, 2));
 
     this.log(chalk.green('Project generated successfully'));
-    this.log(chalk.cyan(`cd ${name} && pnpm install`));
+    this.log(chalk.cyan(`cd ${name} && npm install`));
   }
 }
