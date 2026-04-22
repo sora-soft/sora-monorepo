@@ -8,7 +8,7 @@ import os = require('os');
 import {BaseCommand, type ConfigFieldRequirement} from '../Base';
 
 export default class ConfigCommand extends BaseCommand {
-  static description = '从 sora.json 的 configTemplates 生成所有配置文件';
+  static description = '从模板生成配置文件';
 
   static flags = {
     ...BaseCommand.flags,

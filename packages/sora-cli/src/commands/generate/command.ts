@@ -10,7 +10,7 @@ import {type ScriptFileNode} from '../../lib/fs/ScriptFileNode';
 import {Utility} from '../../lib/Utility';
 
 export default class GenerateCommand extends BaseCommand {
-  static description = '生成 CommandWorker 脚手架代码';
+  static description = '生成 脚手架代码';
 
   static args = {
     name: Args.string({description: 'Command name'}),

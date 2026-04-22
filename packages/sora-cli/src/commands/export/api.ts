@@ -10,7 +10,7 @@ import {Transformer} from '../../lib/exporter/Transformer';
 import {TypeResolver} from '../../lib/exporter/TypeResolver';
 
 export default class ExportApi extends BaseCommand {
-  static description = '导出 API 类型声明';
+  static description = '导出 类型声明与文档';
 
   static flags = {
     ...BaseCommand.flags,
