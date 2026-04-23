@@ -1,6 +1,6 @@
 {
   "name": "typia-decorator-transform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "commonjs",
   "description": "",
   "main": "./index.js"
