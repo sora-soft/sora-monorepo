@@ -1,16 +1,16 @@
 # @sora-soft/typia-decorator
 
-AOT (compile-time) parameter type validation via `@guard` decorator, powered by [typia](https://typia.io).
+基于 `@guard` 装饰器的 AOT（编译时）参数类型验证，由 [typia](https://typia.io) 核心库驱动。
 
-## Installation
+## 安装
 
 ```bash
 pnpm add @sora-soft/typia-decorator typia
 ```
 
-## Setup
+## 配置
 
-Add the transformer to your `tsconfig.json`:
+将 transformer 添加到 `tsconfig.json`：
 
 ```jsonc
 {
@@ -24,20 +24,20 @@ Add the transformer to your `tsconfig.json`:
 }
 ```
 
-> The `typia` transformer must be listed **before** `@sora-soft/typia-decorator/transform` so that the injected `typia.assert()` calls are further processed by typia.
+> `typia` transformer 必须列在 `@sora-soft/typia-decorator/transform` **之后**。`typia-decorator` 先通过 `@typia/core` 的 `AssertProgrammer` 直接生成类型验证代码并注入方法体，typia transformer 再处理生成的代码中的 typia 相关引用。
 
-Use `ts-patch` or `ttypescript` to compile:
+使用 `ts-patch` 或 `ttypescript` 编译：
 
 ```bash
-# With ts-patch (recommended)
+# 使用 ts-patch（推荐）
 npx ts-patch install
 tsc
 
-# Or with ttypescript
+# 或使用 ttypescript
 npx ttsc
 ```
 
-## Usage
+## 使用方法
 
 ```typescript
 import { guard } from '@sora-soft/typia-decorator';
@@ -49,7 +49,7 @@ interface UserInput {
 
 class UserService {
   greet(@guard input: UserInput) {
-    // input is already validated at this point
+    // input 在此处已完成验证
     return `Hello, ${input.name}! You are ${input.age} years old.`;
   }
 
@@ -59,42 +59,51 @@ class UserService {
 }
 ```
 
-After compilation, the transformer rewrites the methods to:
+编译后，transformer 会通过 `@typia/core` 的 `AssertProgrammer` 直接生成针对参数类型的验证代码，注入到方法体顶部，并擦除 `@guard` 装饰器。生成的验证代码为高性能的内联类型检查逻辑，不依赖运行时 `typia.assert()` 调用。
 
-```typescript
-class UserService {
-  greet(input) {
-    typia.assert(input);
-    return `Hello, ${input.name}! You are ${input.age} years old.`;
-  }
+## 工作原理
 
-  compute(a, b) {
-    typia.assert(a);
-    typia.assert(b);
-    return a + b;
-  }
-}
-```
+编译过程分为两个 transformer 阶段：
 
-The `@guard` decorator is erased from the output, and `typia.assert<T>(param)` is injected at the top of each method body. The typia transformer then replaces these calls with optimized validation code.
+1. **`typia-decorator/transform`（先执行）**：
+   - 扫描源码中所有带 `@guard` 装饰器的方法参数
+   - 通过 `@typia/core` 的 `AssertProgrammer.write()` 根据参数类型直接生成验证代码
+   - 将验证代码注入到方法体顶部
+   - 从输出中擦除 `@guard` 装饰器
+   - 通过 `ImportProgrammer` 自动添加必要的 import 语句
 
-## How It Works
+2. **`typia/lib/transform`（后执行）**：处理上一阶段生成的 typia 相关引用。
 
-1. **Runtime**: The `guard` function is an empty parameter decorator, used only as an AST marker.
-2. **Transform**: The TypeScript AST transformer:
-   - Scans all method declarations for `@guard` decorated parameters
-   - Uses `TypeChecker` Symbol resolution to verify the decorator comes from `@sora-soft/typia-decorator/runtime` (prevents false positives from same-named decorators)
-   - Injects `typia.assert<Type>(paramName)` at the top of the method body
-   - Removes the `@guard` decorator from the output
+### 符号追踪
+
+transformer **不会**通过字符串匹配 `"guard"` 来识别装饰器，而是通过 `TypeChecker` Symbol 解析追踪装饰器的来源：
+
+- 沿别名链（`import { guard }` → `export { guard }` → 源文件）追踪至声明处
+- 验证声明文件路径以 `runtime/index.d.ts` 结尾
+- 只有确认来自 `@sora-soft/typia-decorator/runtime` 的 `guard` 才会被处理，避免同名装饰器误判
+
+### 约束
+
+- **仅作用于方法声明**（`MethodDeclaration`），不支持构造函数、箭头函数或普通函数
+- **参数必须有显式类型注解**，无类型注解的参数会被静默跳过
+- **支持多参数校验**，同一方法中多个参数可分别使用 `@guard`
 
 ## API
 
-### `guard` (Parameter Decorator)
+### `guard`（参数装饰器）
 
 ```typescript
 import { guard } from '@sora-soft/typia-decorator';
-// or
+// 或
 import { guard } from '@sora-soft/typia-decorator/runtime';
 ```
 
-A no-op parameter decorator. Use it to mark method parameters for compile-time validation.
+空的参数装饰器，运行时不执行任何逻辑，仅作为编译时 AST 标记。`@guard` 标记的参数在编译后会自动生成类型校验代码。
+
+### `transform`（Transformer 插件）
+
+```typescript
+import transformer from '@sora-soft/typia-decorator/transform';
+```
+
+TypeScript `TransformerFactory<SourceFile>`，在 `tsconfig.json` 的 `plugins` 中配置，不应直接调用。
