@@ -2,3 +2,4 @@ packages:
   # 包含所有在 packages/ 子目录下的项目
   - 'packages/**'
   - 'apps/**'
+  - 'docs'
