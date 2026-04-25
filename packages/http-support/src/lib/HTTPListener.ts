@@ -5,8 +5,8 @@ import typia from 'typia';
 import util from 'util';
 import {v4 as uuid} from 'uuid';
 
+import {HTTPCodec} from './HTTPCodec.js';
 import {HTTPConnector} from './HTTPConnector.js';
-import {HTTPCodec} from './HTTPDcodec.js';
 import {HTTPError} from './HTTPError.js';
 import {HTTPErrorCode} from './HTTPErrorCode.js';
 
