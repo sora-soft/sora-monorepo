@@ -8,10 +8,13 @@
   "exports": {
     ".": "./dist/runtime/index.js",
     "./runtime": "./dist/runtime/index.js",
-    "./transform": "./dist/transform/index.js"
+    "./transform": "./dist/transform/index.js",
+    "./unplugin": "./dist/unplugin/index.js",
+    "./unplugin/vite": "./dist/unplugin/vite.js",
+    "./unplugin/esbuild": "./dist/unplugin/esbuild.js"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc --project ./src/runtime/tsconfig.json && tsc --project ./src/transform/tsconfig.json && copyfiles -f ./src/transform/package.json ./dist/transform",
+    "build": "rimraf ./dist && tsc --project ./src/runtime/tsconfig.json && tsc --project ./src/transform/tsconfig.json && tsc --project ./src/unplugin/tsconfig.json && copyfiles -f ./src/transform/package.json ./dist/transform",
     "clean": "rimraf ./dist",
     "prepublishOnly": "npm run build",
     "lint": "eslint src/"
@@ -35,9 +38,17 @@
   },
   "homepage": "https://github.com/sora-soft/sora-monorepo",
   "peerDependencies": {
+    "@rollup/pluginutils": "^5.0.0",
     "@typia/core": "^12.0.0",
+    "consola": "^3.0.0",
+    "diff-match-patch-es": "^1.0.0",
+    "find-cache-dir": "^5.0.0",
+    "magic-string": "^0.30.0",
+    "pathe": "^2.0.0",
+    "pkg-types": "^1.0.0",
     "typescript": "^5.0.0",
-    "typia": "^12.0.0"
+    "typia": "^12.0.0",
+    "unplugin": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
