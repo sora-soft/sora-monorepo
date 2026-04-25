@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://sora-soft.github.io/sora-monorepo/">📄 文档</a>
+  <a href="https://framework.sorasoftware.com/">📄 文档</a>
   <span> · </span>
-  <a href="https://sora-soft.github.io/sora-monorepo/guide/getting-started">🚀 快速开始</a>
+  <a href="https://framework.sorasoftware.com/guide/getting-started">🚀 快速开始</a>
   <span> · </span>
   <a href="https://github.com/sora-soft/sora-monorepo/issues">🐛 提交 Issue</a>
 </p>
@@ -37,7 +37,7 @@ npm install -g @sora-soft/sora-cli
 sora new my-project
 ```
 
-详见 [快速开始](https://sora-soft.github.io/sora-monorepo/guide/getting-started)。
+详见 [快速开始](https://framework.sorasoftware.com/guide/getting-started)。
 
 ## 包结构
 
@@ -55,13 +55,13 @@ sora new my-project
 
 ## 文档
 
-完整文档请访问 [sora-soft.github.io/sora-monorepo](https://sora-soft.github.io/sora-monorepo/)
+完整文档请访问 [sora-soft.github.io/sora-monorepo](https://framework.sorasoftware.com/)
 
-- [指南](https://sora-soft.github.io/sora-monorepo/guide/getting-started)
-- [微服务架构](https://sora-soft.github.io/sora-monorepo/microservice/core-concepts)
-- [RPC 通信](https://sora-soft.github.io/sora-monorepo/rpc/overview)
-- [工具](https://sora-soft.github.io/sora-monorepo/tools/validation)
-- [API 参考](https://sora-soft.github.io/sora-monorepo/api/)
+- [指南](https://framework.sorasoftware.com/guide/getting-started)
+- [微服务架构](https://framework.sorasoftware.com/microservice/core-concepts)
+- [RPC 通信](https://framework.sorasoftware.com/rpc/overview)
+- [工具](https://framework.sorasoftware.com/tools/validation)
+- [API 参考](https://framework.sorasoftware.com/api/)
 
 ## 开发
 
