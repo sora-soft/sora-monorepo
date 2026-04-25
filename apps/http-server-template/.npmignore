@@ -11,3 +11,5 @@ run/config-command.yml
 run/config.yml
 run/.var.json
 run/logs/
+
+CHANGELOG.md

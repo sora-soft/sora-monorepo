@@ -1,81 +1,8 @@
-# 可观测性
+# 分布式追踪
 
-sora 框架内置了日志系统和 W3C 兼容的分布式追踪，为服务的可观测性提供基础支持。
+sora 实现了 W3C Trace Context 规范，支持跨服务的分布式追踪。
 
-## Logger
-
-### 基本使用
-
-```typescript
-import { Logger, LogLevel } from '@sora-soft/framework';
-
-const logger = new Logger({ identify: 'my-service' });
-
-logger.info('startup', 'Service started successfully');
-logger.warn('config', 'Using default timeout');
-logger.error('database', err, 'Connection failed');
-logger.fatal('runtime', err, 'Critical error');
-logger.debug('request', { method: 'GET', path: '/api/users' });
-logger.success('health', 'Health check passed');
-```
-
-日志级别：
-
-| 级别 | 值 | 说明 |
-|------|---|------|
-| `Debug` | 1 | 调试信息 |
-| `Info` | 2 | 一般信息 |
-| `Success` | 3 | 成功操作 |
-| `Warn` | 4 | 警告 |
-| `Error` | 5 | 错误 |
-| `Fatal` | 6 | 致命错误 |
-
-### CategoryLogger
-
-`logger.category` 返回一个 CategoryLogger，自动从当前 Scope 解析日志分类：
-
-```typescript
-// 在 Worker 上下文中调用
-logger.category.info('Processing request');
-// 自动使用 Worker 的 logCategory
-```
-
-### 输出管道
-
-Logger 通过 `pipe()` 支持多个输出目标：
-
-```typescript
-import { Logger, ConsoleOutput } from '@sora-soft/framework';
-
-const logger = new Logger({ identify: 'my-service' })
-  .pipe(new ConsoleOutput());
-```
-
-框架内置 `ConsoleOutput`，使用 chalk 提供彩色输出。你可以通过继承 `LoggerOutput` 实现自定义输出：
-
-```typescript
-import { LoggerOutput, ILoggerData, LogLevel } from '@sora-soft/framework';
-
-class FileOutput extends LoggerOutput {
-  protected async write(data: ILoggerData): Promise<void> {
-    const line = `[${data.timeString}] [${data.level}] [${data.category}] ${data.content}\n`;
-    fs.appendFileSync('app.log', line);
-  }
-}
-
-logger.pipe(new FileOutput(LogLevel.Info));
-```
-
-### FrameworkLogger 和 RPCLogger
-
-框架提供两个预配置的 Logger 实例：
-
-```typescript
-Runtime.frameLogger  // identify = 'framework'，框架内部日志
-Runtime.rpcLogger    // identify = 'rpc'，RPC 通信日志
-```
-
-## 分布式追踪
+## 自动传播
 
 sora 实现了 W3C Trace Context 规范，支持跨服务的分布式追踪。
 

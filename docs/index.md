@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: sora
+  name: Sora
   text: 高性能微服务框架
   tagline: 基于 TypeScript 的 RPC 微服务框架，内置服务发现、组件管理和分布式追踪
   actions:

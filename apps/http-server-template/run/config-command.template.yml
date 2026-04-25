@@ -1,5 +1,4 @@
 #define(projectScope,string,project scope?)
-#define(alias,string,alias name?)
 
 debug: true
 discovery:

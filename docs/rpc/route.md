@@ -68,36 +68,141 @@ const listener = new TCPListener(
 
 `Route.compose()` 按顺序查找第一个匹配方法名的 Route 来处理请求。
 
+## 自定义路由
+
+开发者也可以通过自定义路由决定 Listener 的消息处理方法。自定义路由需要继承 `Route` 类并实现自己的 `ListenerCallback`，例如 `ForwardRoute` 提供了一个直接将请求按需转发给其他服务的网关路由：
+
+```typescript
+import {
+  ErrorLevel, ExError, type IRawResPacket, type ListenerCallback,
+  NodeTime, Notify, OPCode, type Provider, Request, Response, Route,
+  RouteError, RPCError, RPCErrorCode, RPCHeader, RPCResponseError,
+  Runtime, type Service,
+} from '@sora-soft/framework';
+
+type RouteMap = { [key: string]?: Provider<Route> };
+
+class ForwardRoute<T extends Service = Service> extends Route {
+  constructor(service: T, route: RouteMap) {
+    super();
+    this.service = service;
+    this.routeProviderMap_ = new Map();
+    for (const [name, value] of Object.entries(route)) {
+      if (value) this.routeProviderMap_.set(name, value);
+    }
+  }
+
+  private routeProviderMap_: Map<string, Provider<Route>>;
+  private service: T;
+
+  private getProvider(service: string) {
+    const provider = this.routeProviderMap_.get(service);
+    if (!provider)
+      throw new RPCError(RPCErrorCode.ErrRpcProviderNotAvailable, `ERR_RPC_PROVIDER_NOT_AVAILABLE, service=${service}`);
+    return provider;
+  }
+
+  static callback(route: ForwardRoute): ListenerCallback {
+    return async (packet, session, connector): Promise<IRawResPacket | null> => {
+      switch (packet.opcode) {
+        case OPCode.Request: {
+          const request = new Request(packet);
+          const response = new Response({ headers: {}, payload: { error: null, result: null } });
+          if (!packet.service)
+            throw new RouteError(RPCErrorCode.ErrRpcServiceNotFound, 'service is null', ErrorLevel.Expected, { service: packet.service });
+
+          const service = request.service as string;
+          const method = request.method;
+
+          const provider = route.getProvider(service);
+          const res: Response<unknown> = await (provider.rpc(route.service.id) as any)[method](request.payload, {
+            timeout: NodeTime.second(60),
+          }, true);
+          response.payload = res.payload;
+          return response.toPacket();
+        }
+        case OPCode.Notify: {
+          const notify = new Notify(packet);
+          if (!packet.service) return null;
+
+          const service = notify.service as string;
+          const method = notify.method;
+          const provider = route.getProvider(service);
+
+          await (provider.notify(route.service.id) as any)[method](notify.payload);
+          return null;
+        }
+        default:
+          return null;
+      }
+    };
+  }
+}
+```
+
+`ForwardRoute` 的核心思路：
+
+1. 构造时接收一个 `RouteMap`，将服务名映射到对应的 `Provider<Route>`
+2. `callback()` 静态方法返回 `ListenerCallback`，根据 `OPCode` 区分 Request 和 Notify
+3. Request 模式：根据 `packet.service` 查找目标服务的 Provider，通过 `provider.rpc()` 调用远端方法并透传响应
+4. Notify 模式：类似 Request，但不返回响应
+5. 错误处理：根据 `ErrorLevel` 区分致命错误和预期错误，返回对应的错误响应
+
+使用方式：
+
+```typescript
+const route = new ForwardRoute(this, {
+  [ServiceName.BusinessService]: businessProvider,
+});
+
+const listener = new HTTPListener(options, ForwardRoute.callback(route), [Codec.get('json')]);
+await service.installListener(listener);
+```
+
 ## 中间件
 
-使用 `Route.registerMiddleware()` 为特定方法添加中间件。中间件采用 Koa 风格的 `next()` 模式：
+中间件用于在 RPC 方法执行前后插入通用逻辑（如鉴权、日志、限流等）。中间件采用 Koa 风格的洋葱模型，通过 `next()` 调用下一个中间件或最终处理器。
+
+### 装饰器中间件
+
+推荐通过继承 `Route` 并封装装饰器的方式来定义可复用的中间件。装饰器在类声明阶段自动调用 `Route.registerMiddleware()` 完成注册，使用起来更加直观：
 
 ```typescript
 import { Route, RPCMiddleware } from '@sora-soft/framework';
 
-class UserHandler extends Route {
-  @Route.method
-  async getUser(body: { id: string }): Promise<User> {
-    // ...
+class AuthRoute extends Route {
+  static auth(authName?: string) {
+    return (target: AuthRoute, method: string) => {
+      Route.registerMiddleware<AuthRoute>(target, method, async (route, body, request, response, connector, next) => {
+        const allowed = isAuthPermission(authName);
+        if (!allowed) {
+          throw new Error('Permission Denied');
+        }
+        // 必须显式调用 next 进行后续处理
+        await next();
+        // 请求处理完成后打印日志
+        console.log('user permission check finished');
+      });
+    };
   }
 }
-
-// 注册中间件
-const authMiddleware: RPCMiddleware<UserHandler> = async (route, body, req, res, connector, next) => {
-  // 前置处理：验证权限
-  const token = req.headers['authorization'];
-  if (!token) {
-    throw new ExError('AUTH_FAILED', 'AuthFailed', 'Missing token', ErrorLevel.Expected, {});
-  }
-
-  // 调用下一个中间件或处理器
-  await next();
-};
-
-Route.registerMiddleware(UserHandler.prototype, 'getUser', authMiddleware);
 ```
 
-中间件参数说明：
+在子类中通过装饰器将中间件绑定到具体方法：
+
+```typescript
+class ServiceHandler extends AuthRoute {
+  @AuthRoute.auth('permission:setValue')
+  @Route.method
+  async setValue(body: unknown) {
+    // 确认调用方拥有 permission:setValue 权限
+    // 处理具体业务
+    return { message: 'ok' };
+  }
+}
+```
+
+### 中间件参数说明
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
@@ -110,35 +215,76 @@ Route.registerMiddleware(UserHandler.prototype, 'getUser', authMiddleware);
 
 ## 参数注入
 
-使用 `Route.registerProvider()` 为处理方法注入自定义参数：
+当多个路由方法需要相同的数据（如当前用户、账户信息等）时，可以通过参数注入将公共逻辑统一抽取，避免在每个方法中重复编写。
+
+### 反面示例：手动获取重复数据
+
+以下写法在每个方法中都重复相同的提取逻辑，不利于维护：
 
 ```typescript
-import { Route, MethodPramBuilder } from '@sora-soft/framework';
-
-class UserHandler extends Route {
+class AccountServiceHandler extends Route {
   @Route.method
-  async getUser(body: { id: string }, user: IUser): Promise<User> {
-    // user 参数由注入器提供
-    // ...
+  async methodA(body: void, request: Request) {
+    const accountId = request.getHeader('account-id');
+    const account = await db.fetchAccount(accountId);
+    // 使用 account...
+  }
+
+  @Route.method
+  async methodB(body: void, request: Request) {
+    const accountId = request.getHeader('account-id');
+    const account = await db.fetchAccount(accountId);
+    // 使用 account...
   }
 }
-
-// 注册参数注入器
-const userProvider: MethodPramBuilder<IUser, UserHandler> = async (route, body, req, res, connector) => {
-  const token = req.headers['authorization'];
-  return verifyToken(token);
-};
-
-Route.registerProvider(UserHandler.prototype, 'getUser', IUser, userProvider);
 ```
 
-`buildCallParams()` 解析参数的规则：
+### 推荐写法：装饰器参数注入
 
-1. 第一个参数始终是 `request.payload`（即 body）
-2. 类型为 `Connector` 的参数注入当前连接
-3. 类型为 `Request` 或 `Notify` 的参数注入请求对象
-4. 类型为 `Response` 的参数注入响应对象
-5. 其余类型通过 `registerProvider` 注册的注入器提供
+与中间件类似，推荐通过继承 `Route` 并封装装饰器的方式定义可复用的参数注入器。装饰器在类声明阶段自动调用 `Route.registerProvider()` 完成注册：
+
+```typescript
+class Account {
+  id: number;
+  // ...
+}
+
+class AccountRoute extends Route {
+  static account() {
+    return (target: AccountRoute, method: string) => {
+      Route.registerProvider(target, method, Account, async (route, body, request) => {
+        const accountId = request.getHeader('account-id');
+        const account = await db.fetchAccount(accountId);
+        return account;
+      });
+    };
+  }
+}
+```
+
+在子类中通过装饰器将参数绑定到方法，处理方法即可直接使用注入的对象：
+
+```typescript
+class AccountServiceHandler extends AccountRoute {
+  @AccountRoute.account()
+  @Route.method
+  async methodA(body: void, account: Account) {
+    // 直接使用注入的 account
+  }
+}
+```
+
+### 内置注入类型
+
+Sora 框架会自动识别以下类型并完成注入，无需手动注册：
+
+| 类型 | 说明 |
+|------|------|
+| `Request` / `Notify` | 当前请求对象 |
+| `Response` | 当前响应对象 |
+| `Connector` | 当前连接 |
+
+Provider 可以注册多个，注入顺序无关——框架会根据参数的类型签名自动匹配对应的注入器。第一个参数始终是 `request.payload`（即 body），其余参数按类型自动解析。
 
 ## Request 和 Response
 

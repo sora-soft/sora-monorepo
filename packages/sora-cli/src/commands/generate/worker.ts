@@ -104,21 +104,37 @@ export default class GenerateWorker extends BaseCommand {
 
     await this.fileTree.commit();
 
-    let configTemplate = flags['config-template'];
-    if (!configTemplate) {
-      const defaultTemplate = ((this.soraConfig.sora as any).configTemplates as Array<{type: string; path: string}> | undefined)?.find(t => t.type === 'server')?.path ?? 'run/config.template.yml';
-      const answers = await inquirer.prompt<{configTemplate: string}>([
-        {name: 'configTemplate', message: 'Config template file?', default: defaultTemplate},
-      ]);
-      configTemplate = answers.configTemplate;
+    let configTemplatePaths: string[];
+    const configTemplateFlag = flags['config-template'];
+    if (configTemplateFlag) {
+      configTemplatePaths = [path.resolve(process.cwd(), configTemplateFlag)];
+    } else {
+      const templates = ((this.soraConfig.sora as any).configTemplates as Array<{type: string; path: string}> | undefined)?.filter(t => t.type === 'server') ?? [];
+      if (templates.length > 0) {
+        const answers = await inquirer.prompt<{configTemplates: string[]}>([
+          {
+            name: 'configTemplates',
+            message: 'Config template files?',
+            type: 'checkbox',
+            choices: templates.map(t => ({name: t.path, value: t.path})),
+          },
+        ]);
+        configTemplatePaths = answers.configTemplates.map(p => path.resolve(process.cwd(), p));
+      } else {
+        const answers = await inquirer.prompt<{configTemplate: string}>([
+          {name: 'configTemplate', message: 'Config template file?', default: 'run/config.template.yml'},
+        ]);
+        configTemplatePaths = [path.resolve(process.cwd(), answers.configTemplate)];
+      }
     }
-    const configTemplatePath = path.resolve(process.cwd(), configTemplate);
-    await ConfigTemplateInserter.insertConfig(
-      configTemplatePath,
-      'workers',
-      Utility.dashlize(upperCamelCaseWorkerName),
-      [],
-      (msg) => this.log(msg)
-    );
+    for (const configTemplatePath of configTemplatePaths) {
+      await ConfigTemplateInserter.insertConfig(
+        configTemplatePath,
+        'workers',
+        Utility.dashlize(upperCamelCaseWorkerName),
+        [],
+        (msg) => this.log(msg)
+      );
+    }
   }
 }

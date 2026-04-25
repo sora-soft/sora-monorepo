@@ -10,3 +10,5 @@ dist-api/
 run/config.yml
 run/.var.json
 run/logs/
+
+CHANGELOG.md

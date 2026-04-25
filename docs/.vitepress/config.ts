@@ -52,7 +52,7 @@ function getApiSidebarGroups(): { text: string; collapsed: boolean; items: { tex
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: 'sora',
+  title: 'Sora',
   description: '高性能 TypeScript 微服务框架',
   lastUpdated: true,
   cleanUrls: true,
@@ -93,10 +93,9 @@ export default defineConfig({
 function nav() {
   return [
     { text: '指南', link: '/guide/getting-started', activeMatch: '/guide/' },
+    { text: '微服务架构', link: '/microservice/core-concepts', activeMatch: '/microservice/' },
     { text: 'RPC 通信', link: '/rpc/overview', activeMatch: '/rpc/' },
-    { text: '服务发现', link: '/discovery/overview', activeMatch: '/discovery/' },
-    { text: '组件', link: '/components/overview', activeMatch: '/components/' },
-    { text: '高级', link: '/advanced/singleton', activeMatch: '/advanced/' },
+    { text: '工具', link: '/advanced/validation', activeMatch: '/advanced/' },
     { text: 'CLI', link: '/cli/commands', activeMatch: '/cli/' },
     { text: 'API', link: '/api/', activeMatch: '/api/' },
   ]
@@ -109,8 +108,24 @@ function sidebar() {
         text: '指南',
         items: [
           { text: '快速开始', link: '/guide/getting-started' },
-          { text: '核心概念', link: '/guide/core-concepts' },
-          { text: '服务生命周期', link: '/guide/service-lifecycle' },
+          { text: '微服务', link: '/guide/microservice' },
+          { text: '使用组件', link: '/guide/components' },
+          { text: '文档与类型导出', link: '/guide/export' },
+        ],
+      },
+    ],
+    '/microservice/': [
+      {
+        text: '微服务架构',
+        items: [
+          { text: '核心概念', link: '/microservice/core-concepts' },
+          { text: '服务发现', link: '/microservice/discovery' },
+          { text: 'Worker', link: '/microservice/worker' },
+          { text: 'Service', link: '/microservice/service' },
+          { text: 'Singleton', link: '/microservice/singleton' },
+          { text: 'Executor', link: '/microservice/executor' },
+          { text: '生命周期', link: '/microservice/service-lifecycle' },
+          { text: '组件系统', link: '/microservice/component' },
         ],
       },
     ],
@@ -120,38 +135,22 @@ function sidebar() {
         items: [
           { text: '概览', link: '/rpc/overview' },
           { text: '路由 (Route)', link: '/rpc/route' },
+          { text: '消息监听 (Listener)', link: '/rpc/listener' },
           { text: '调用方 (Provider)', link: '/rpc/provider' },
-          { text: '传输层', link: '/rpc/transport' },
-        ],
-      },
-    ],
-    '/discovery/': [
-      {
-        text: '服务发现',
-        items: [
-          { text: '概览与选型', link: '/discovery/overview' },
-        ],
-      },
-    ],
-    '/components/': [
-      {
-        text: '组件',
-        items: [
-          { text: '组件系统', link: '/components/overview' },
-          { text: 'Redis', link: '/components/redis' },
-          { text: 'Database', link: '/components/database' },
-          { text: 'etcd', link: '/components/etcd' },
+          { text: '编码器 (Codec)', link: '/rpc/codec' },
+          { text: '连接器 (Connector)', link: '/rpc/connector' },
         ],
       },
     ],
     '/advanced/': [
       {
-        text: '高级',
+        text: '工具',
         items: [
-          { text: '单例服务与选举', link: '/advanced/singleton' },
+          { text: '配置文件', link: '/advanced/config' },
           { text: '参数验证', link: '/advanced/validation' },
           { text: '上下文与作用域', link: '/advanced/context-scope' },
-          { text: '可观测性', link: '/advanced/observability' },
+          { text: '分布式追踪', link: '/advanced/observability' },
+          { text: '日志', link: '/advanced/logging' },
         ],
       },
     ],

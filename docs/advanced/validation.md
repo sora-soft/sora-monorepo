@@ -1,6 +1,16 @@
 # 参数验证
 
-sora 框架通过 `@guard` 装饰器和 typia AOT（Ahead-of-Time）编译实现零运行时开销的参数类型校验。
+sora 库使用 [typia](https://github.com/samchon/typia) 作为类型检测工具，通过 AOT（Ahead-of-Time）编译实现零运行时开销的类型校验，推荐在项目中也使用 typia。
+
+sora 提供了 `@sora-soft/typia-decorator` 包，其中的 `@guard` 装饰器可以自动校验函数参数：
+
+```typescript
+import { guard } from '@sora-soft/typia-decorator';
+
+function handler(@guard params: IType) {
+  // params 已通过类型校验
+}
+```
 
 ## 工作原理
 
@@ -32,45 +42,6 @@ sora 框架通过 `@guard` 装饰器和 typia AOT（Ahead-of-Time）编译实现
 - 校验代码插入到方法体开头，`@guard` 装饰器从输出中移除
 - 生成的校验代码比手写 `if` 检查更高效（无反射开销）
 
-## 配置 ts-patch
-
-项目需要使用 `ts-patch` 来启用 TypeScript transform 插件：
-
-### 1. 安装依赖
-
-```bash
-pnpm add -D ts-patch typia @sora-soft/typia-decorator
-```
-
-### 2. 配置 tsconfig.json
-
-```json
-{
-  "compilerOptions": {
-    "plugins": [
-      {
-        "transform": "@sora-soft/typia-decorator/dist/transform",
-        "guard": true
-      }
-    ]
-  }
-}
-```
-
-### 3. 安装 ts-patch
-
-在 `package.json` 中添加 prepare 脚本：
-
-```json
-{
-  "scripts": {
-    "prepare": "ts-patch install"
-  }
-}
-```
-
-运行 `pnpm run prepare` 或 `pnpm install` 后，ts-patch 会修补 TypeScript 编译器以支持 transform 插件。
-
 ## 使用方式
 
 ### 在 Component 的 setOptions 中
@@ -87,8 +58,7 @@ interface IMyOptions {
 }
 
 class MyComponent extends Component {
-  @guard
-  protected setOptions(options: IMyOptions): void {
+  protected setOptions(@guard options: IMyOptions): void {
     this.options_ = options;
   }
 
@@ -165,12 +135,4 @@ interface IAdvancedOptions {
 
 所有这些类型约束在运行时都会被校验，确保传入参数完全符合 TypeScript 类型定义。
 
-## 错误处理
 
-校验失败时，typia 抛出 `TypeError`，包含详细的路径信息：
-
-```
-TypeError: assertion failed for IMyOptions:
-  - expected string at $.url
-  - expected number at $.timeout
-```

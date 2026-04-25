@@ -36,7 +36,7 @@ Runtime.registerComponent('redis', redis);
 ```typescript
 class MyService extends Service {
   protected async startup(): Promise<void> {
-    await this.connectComponent(Runtime.getComponent('redis'));
+    await this.connectComponent(Com.redis);
   }
 }
 ```
@@ -46,7 +46,7 @@ class MyService extends Service {
 ### 第三步：使用组件
 
 ```typescript
-const redis = Runtime.getComponent<RedisComponent>('redis');
+const redis = Com.redis;
 await redis.client.set('key', 'value');
 ```
 

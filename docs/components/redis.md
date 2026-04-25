@@ -44,7 +44,7 @@ Runtime.registerComponent('redis', redis);
 在 Worker/Service 中连接组件：
 
 ```typescript
-await this.connectComponent(Runtime.getComponent('redis'));
+await this.connectComponent(Com.redis);
 ```
 
 ### Redis 客户端
@@ -52,7 +52,7 @@ await this.connectComponent(Runtime.getComponent('redis'));
 组件内部使用 `redis` v4 客户端：
 
 ```typescript
-const redis = Runtime.getComponent<RedisComponent>('redis');
+const redis = Com.redis;
 
 // 基本操作
 await redis.client.set('key', 'value');
@@ -81,8 +81,8 @@ await redis.client.zAdd('scores', [{ score: 100, value: 'player1' }]);
 // 存储 JSON 对象（自动序列化）
 await redis.setJSON('user:1', { name: 'Alice', age: 30 });
 
-// 设置过期时间（毫秒）
-await redis.setJSON('user:1', { name: 'Alice', age: 30 }, 3600_000);
+// 设置过期时间
+await redis.setJSON('user:1', { name: 'Alice', age: 30 }, NodeTime.hour(1));
 
 // 读取 JSON 对象（自动反序列化）
 const user = await redis.getJSON<{ name: string; age: number }>('user:1');
@@ -94,16 +94,16 @@ const user = await redis.getJSON<{ name: string; age: number }>('user:1');
 基于 Redlock 实现的分布式锁：
 
 ```typescript
-const redis = Runtime.getComponent<RedisComponent>('redis');
+const redis = Com.redis;
 
 const lock = redis.createLock({
   retryCount: 3,
-  retryDelay: 200,
+  retryDelay: NodeTime.second(0.2),
 });
 
 // 获取锁
 const resource = 'lock:order:123';
-const ttl = 5000;
+const ttl = NodeTime.second(5);
 
 await lock.using([resource], ttl, async (signal) => {
   // 在锁保护下执行操作

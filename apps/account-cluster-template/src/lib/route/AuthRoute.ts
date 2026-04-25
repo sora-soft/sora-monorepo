@@ -8,7 +8,7 @@ import {AuthRPCHeader} from '../Const.js';
 class AuthRoute<T extends Service = Service> extends Route {
   static auth(authName?: string) {
     return (target: AuthRoute, method: string) => {
-      Route.registerMiddleware<AuthRoute>(target, method, async (route, body, request) => {
+      Route.registerMiddleware<AuthRoute>(target, method, async (route, body, request, response, connector, next) => {
         const checkAuthName = [route.service.name, authName || method].join('/');
         const accountIdStr = request.getHeader(AuthRPCHeader.RPC_ACCOUNT_ID);
 
@@ -22,7 +22,8 @@ class AuthRoute<T extends Service = Service> extends Route {
         if (!allowed) {
           throw new UserError(UserErrorCode.ErrAuthDeny, `ERR_AUTH_DENY, name=${checkAuthName}`);
         }
-        return true;
+
+        await next();
       });
     };
   }

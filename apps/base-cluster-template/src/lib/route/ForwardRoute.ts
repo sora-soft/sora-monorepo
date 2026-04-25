@@ -1,4 +1,4 @@
-import {ErrorLevel, ExError, type IRawResPacket, type ListenerCallback, Notify, OPCode, type Provider, Request, Response, Route, RouteError, RPCError, RPCErrorCode, RPCHeader, RPCResponseError, Runtime, type Service} from '@sora-soft/framework';
+import {ErrorLevel, ExError, type IRawResPacket, type ListenerCallback, NodeTime, Notify, OPCode, type Provider, Request, Response, Route, RouteError, RPCError, RPCErrorCode, RPCHeader, RPCResponseError, Runtime, type Service} from '@sora-soft/framework';
 
 import {AppErrorCode} from '../../app/ErrorCode.js';
 import {type ServiceName} from '../../app/service/common/ServiceName.js';
@@ -33,7 +33,7 @@ class ForwardRoute<T extends Service = Service> extends Route {
   }
 
   static callback(route: ForwardRoute): ListenerCallback {
-    return async (packet, session): Promise<IRawResPacket | null> => {
+    return async (packet, session, connector): Promise<IRawResPacket | null> => {
       const startTime = Date.now();
       switch (packet.opcode) {
         case OPCode.Request: {
@@ -64,7 +64,7 @@ class ForwardRoute<T extends Service = Service> extends Route {
                 [ForwardRPCHeader.RpcGatewayId]: route.service.id,
                 [ForwardRPCHeader.RpcGatewaySession]: session,
               },
-              timeout: 60000,
+              timeout: NodeTime.second(60),
             }, true);
             response.payload = res.payload;
             Runtime.rpcLogger.debug('forward-route', {service: route.service.name, method: request.method, duration: Date.now() - startTime});

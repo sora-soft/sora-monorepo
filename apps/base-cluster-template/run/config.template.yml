@@ -2,10 +2,9 @@
 #define(host,host-ip,host ip?)
 #define(httpPort,number,http port?)
 #define(exposeHost,host-ip,port expose ip?)
-#define(portRangeMin,number,min avaliable port?)
-#define(portRangeMax,number,max avaliable port?)
+#define(servicePortRangeMin,number,service min available port?)
+#define(servicePortRangeMax,number,service max available port?)
 #define(etcdHost,string,etcd host?)
-#define(alias,string,alias name?)
 
 debug: true
 discovery:
@@ -16,8 +15,7 @@ logger:
   file:
     fileFormat: '[./logs/server-]YYYY-MM-DD[.log]'
 
-node:
-  alias: $(alias)
+node: {}
 
 services:
   http-gateway:
@@ -29,8 +27,8 @@ services:
   business:
     tcpListener:
       portRange:
-        - $(portRangeMin)
-        - $(portRangeMax)
+        - $(servicePortRangeMin)
+        - $(servicePortRangeMax)
       host: $(host)
       exposeHost: $(exposeHost)
 
@@ -39,7 +37,7 @@ components:
     etcd:
       hosts:
       - $(etcdHost)
-    ttl: 60
+    ttl: 20
     prefix: $(projectScope)
 
 workers: {}

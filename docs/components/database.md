@@ -42,7 +42,7 @@ Runtime.registerComponent('database', database);
 ### 连接
 
 ```typescript
-await this.connectComponent(Runtime.getComponent('database'));
+await this.connectComponent(Com.database);
 ```
 
 ### EntityManager
@@ -50,7 +50,7 @@ await this.connectComponent(Runtime.getComponent('database'));
 通过 `manager` 访问 TypeORM 的 EntityManager：
 
 ```typescript
-const db = Runtime.getComponent<DatabaseComponent>('database');
+const db = Com.database;
 
 // 查询
 const user = await db.manager.findOne(User, { where: { id: '123' } });
@@ -70,7 +70,7 @@ await db.manager.delete(User, { id: '123' });
 直接访问 TypeORM DataSource：
 
 ```typescript
-const db = Runtime.getComponent<DatabaseComponent>('database');
+const db = Com.database;
 
 // 获取 DataSource
 const dataSource = db.dataSource;

@@ -5,7 +5,6 @@
 ## 前置条件
 
 - Node.js >= 22.0.0
-- pnpm
 
 ## 安装 CLI
 
@@ -21,79 +20,103 @@ npm install -g @sora-soft/cli
 sora new my-first-service
 ```
 
-CLI 会交互式地让你选择项目模板。sora 提供以下模板：
+sora 框架提供了丰富的项目快速开始模板以适应不同的场景，可以根据自己的需求进行选择，这里我们先选择 `@sora-soft/http-server-template` 进行快速体验，该模板会基于内存服务发现（ram-discovery）创建一个单节点 HTTP 服务器：
 
-- **http-server-template** — 单进程 HTTP 服务，适合独立 API 服务
-- **base-cluster-template** — 集群模板，包含网关和业务服务，使用 etcd 服务发现
-- **account-cluster-template** — 完整账户系统集群模板
-
-选择 **http-server-template** 进行快速体验。
+```
+$ sora new my-first-service
+? Select a template @sora-soft/http-server-template - 单进程简单 HTTP 服务器
+? Project name? my-first-service
+? Description? 单进程示例 http 服务器
+? Version? 1.0.0
+? Author? yaya
+? License? MIT
+? OK? Yes
+Project generated successfully
+cd my-first-service && npm install
+```
 
 创建完成后进入项目目录并安装依赖：
 
 ```bash
 cd my-first-service
-pnpm install
+npm install
 ```
 
-## 项目结构
+## 生成配置文件
+
+sora 框架提供了交互式模板配置文件生成功能，模板文件位于 `run/config.template.yml`。运行 `npm run config` 开始配置文件生成：
 
 ```
-src/
-├── index.ts                 # 入口文件
-├── app/
-│   ├── Application.ts       # 应用启动编排
-│   ├── AppLogger.ts         # 日志配置
-│   ├── AppError.ts          # 应用错误定义
-│   ├── ErrorCode.ts         # 错误码
-│   ├── handler/             # RPC 处理器
-│   │   └── HttpHandler.ts
-│   ├── service/             # 服务定义
-│   │   ├── HttpService.ts
-│   │   └── common/
-│   │       ├── ServiceName.ts    # 服务名称枚举
-│   │       └── ServiceRegister.ts # 服务注册
-│   └── worker/              # Worker 定义
-│       └── common/
-│           ├── WorkerName.ts
-│           └── WorkerRegister.ts
-└── lib/
-    ├── Com.ts               # 组件注册
-    ├── Provider.ts          # Provider 注册
-    └── ConfigLoader.ts      # 配置加载
-```
+$ npm run config
 
-## 编写第一个处理器
+> my-first-service@1.0.0 config
+> sora config
 
-处理器（Handler）是 RPC 请求的入口。它继承自 `Route` 类，使用 `@Route.method` 装饰器注册方法。
-
-编辑 `src/app/handler/HttpHandler.ts`：
-
-```typescript
-import { Route } from '@sora-soft/framework';
-
-export class HttpHandler extends Route {
-  @Route.method
-  async hello(body: { name: string }): Promise<{ message: string }> {
-    return { message: `Hello, ${body.name}!` };
-  }
-}
+生成 server 配置: run/config.template.yml -> run/config.yml
+? project scope? my-first-service
+? host ip? 127.0.0.1(Loopback Pseudo-Interface 1)
+? port expose ip? 127.0.0.1(Loopback Pseudo-Interface 1)
+? listen port? 8088
+生成 command 配置: run/config-command.template.yml -> run/config-command.yml
 ```
 
 ## 启动服务
 
+执行 `npm run dev` 启动服务：
+
 ```bash
-pnpm start
+npm run dev
 ```
 
-服务启动后，HTTP 监听器会监听配置文件中指定的端口。
-
-## 调用 RPC 方法
-
-sora 的 HTTP 传输层将 URL 映射为 `{service}/{method}` 的格式。假设服务名称为 `http`：
+服务器成功启动后，试试调用测试接口：
 
 ```bash
-curl -X POST http://localhost:3000/http/hello \
+curl http://127.0.0.1:8088/http/test
+```
+
+响应：
+
+```json
+{"error":null,"result":{"result":"sora is here!"}}
+```
+
+恭喜你，第一个 HTTP 服务已经成功启动了！
+
+## 添加一个 HTTP 接口
+
+模板生成的 `HttpHandler` 中已经包含了 `test` 和 `paramsValid` 两个接口。我们在它基础上添加一个 `hello` 接口。
+
+编辑 `src/app/handler/HttpHandler.ts`，在类中添加 `hello` 方法：
+
+```typescript
+import {Route} from '@sora-soft/framework';
+import {guard} from '@sora-soft/typia-decorator';
+
+// 在这里定义请求 payload 结构
+export interface IReqHello {
+  name: string;
+}
+
+/**
+ * @soraExport route
+ */
+class HttpHandler extends Route {
+  /**
+   * 新增 hello 接口
+   */
+  @Route.method
+  async hello(@guard body: IReqHello) {
+    return { message: `Hello, ${body.name}!` };
+  }
+}
+
+export {HttpHandler};
+```
+
+重启服务器（重新运行 `npm run dev`），然后调用新接口：
+
+```bash
+curl -X POST http://127.0.0.1:8088/http/hello \
   -H "Content-Type: application/json" \
   -d '{"name": "sora"}'
 ```
@@ -101,11 +124,12 @@ curl -X POST http://localhost:3000/http/hello \
 响应：
 
 ```json
-{ "result": { "message": "Hello, sora!" } }
+{"error":null,"result":{"message":"Hello, sora!"}}
 ```
 
 ## 下一步
 
 - [核心概念](/guide/core-concepts) — 理解 Runtime、Node、Service、Worker、Component 的层级关系
-- [服务生命周期](/guide/service-lifecycle) — 了解服务启动和关闭的完整时序
+- [生命周期](/microservice/service-lifecycle) — 了解服务启动和关闭的完整时序
+- [使用组件](/guide/components) — 添加和使用 Redis、Database 等外部服务组件
 - [路由 (Route)](/rpc/route) — 深入了解 RPC 处理器的编写方式

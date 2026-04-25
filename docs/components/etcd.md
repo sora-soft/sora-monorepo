@@ -37,7 +37,7 @@ Runtime.registerComponent('etcd', etcd);
 ### 连接
 
 ```typescript
-await this.connectComponent(Runtime.getComponent('etcd'));
+await this.connectComponent(Com.etcd);
 ```
 
 连接时组件会自动创建 Lease，所有键值操作默认绑定到 Lease 上。当组件断开连接时，Lease 下的所有键自动清理。
@@ -47,7 +47,7 @@ await this.connectComponent(Runtime.getComponent('etcd'));
 直接访问底层 `etcd3` 客户端：
 
 ```typescript
-const etcd = Runtime.getComponent<EtcdComponent>('etcd');
+const etcd = Com.etcd;
 
 // 基本操作
 await etcd.client.put('key', 'value');
@@ -60,7 +60,7 @@ await etcd.client.delete().key('key');
 `persistPut` 和 `persistDel` 操作绑定到组件的 Lease 上，连接断开时自动清理：
 
 ```typescript
-const etcd = Runtime.getComponent<EtcdComponent>('etcd');
+const etcd = Com.etcd;
 
 // 写入（绑定 Lease）
 await etcd.persistPut('service-info', JSON.stringify({ host: '10.0.0.1', port: 4000 }));
@@ -74,7 +74,7 @@ await etcd.persistDel('service-info');
 `keys()` 方法生成带前缀的完整键名：
 
 ```typescript
-const etcd = Runtime.getComponent<EtcdComponent>('etcd');
+const etcd = Com.etcd;
 
 const fullKey = etcd.keys('service-info');
 // 返回 '/my-app/service-info'（prefix + '/' + key）
@@ -85,7 +85,7 @@ const fullKey = etcd.keys('service-info');
 组件自动管理 Lease 生命周期：
 
 ```typescript
-const etcd = Runtime.getComponent<EtcdComponent>('etcd');
+const etcd = Com.etcd;
 
 // 获取当前 Lease
 const lease = etcd.lease;
@@ -109,7 +109,7 @@ etcd.emitter.on('lease-reconnect', () => {
 基于 etcd 实现的分布式锁：
 
 ```typescript
-const etcd = Runtime.getComponent<EtcdComponent>('etcd');
+const etcd = Com.etcd;
 
 // 使用锁
 const result = await etcd.lock(
@@ -149,7 +149,7 @@ election.observer().subscribe((id) => {
 await election.resign();
 ```
 
-通常使用 [SingletonService](/advanced/singleton) 封装，无需直接操作 Election。
+通常使用 [Singleton](/microservice/singleton) 封装，无需直接操作 Election。
 
 ## 导出
 
