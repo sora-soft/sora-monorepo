@@ -23,17 +23,7 @@
     "incremental": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "plugins": [
-      {
-        "transform": "../../transformer/VersionTransformer.cjs"
-      },
-      {
-        "transform": "@sora-soft/typia-decorator/transform"
-      },
-      {
-        "transform": "typia/lib/transform"
-      }
-    ],
+    "plugins": [],
     "strictNullChecks": true
   }
 }

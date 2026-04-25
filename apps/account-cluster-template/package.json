@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "rimraf ./dist && tspc",
+    "build": "rimraf ./dist && vite build",
     "dev": "npm run build && node ./bin/cli.js run server --config ./config.yml -w ./run",
     "start": "node ./bin/cli.js run server --config ./config.yml -w ./run",
     "migrate:sync": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n database-migrate-command sync",
@@ -18,8 +18,7 @@
     "migrate:generate": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n database-migrate-command generate",
     "config": "sora config",
     "auth": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n auth-command",
-    "lint": "eslint src/",
-    "prepare": "ts-patch install -s"
+    "lint": "eslint src/"
   },
   "repository": "git@github.com:sora-soft/sora-monorepo.git",
   "keywords": [
@@ -55,6 +54,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@swc/core": "^1.15.30",
     "@sora-soft/cli": "workspace:*",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
@@ -70,7 +70,9 @@
     "eslint-plugin-unused-imports": "^4.4.1",
     "globals": "^17.5.0",
     "rimraf": "^3.0.2",
-    "ts-patch": "^3.3.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.0.10",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-swc-transform": "^1.1.1"
   }
 }

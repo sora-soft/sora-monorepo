@@ -5,10 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npm run clean && tspc",
+    "build": "npm run clean && vite build",
     "clean": "rimraf ./dist",
-    "prepublishOnly": "tspc",
-    "prepare": "ts-patch install -s",
+    "prepublishOnly": "vite build",
     "lint": "eslint src/",
     "preversion": "eslint src/ && npm run build"
   },
@@ -39,10 +38,13 @@
   },
   "homepage": "https://github.com/sora-soft/sora-monorepo",
   "devDependencies": {
+    "@swc/core": "^1.15.30",
     "@types/redlock": "^4.0.4",
     "rimraf": "^3.0.2",
-    "ts-patch": "^3.3.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.0.10",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-swc-transform": "^1.1.1"
   },
   "dependencies": {
     "@sora-soft/framework": "workspace:*",
