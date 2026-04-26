@@ -1,14 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import dts from 'vite-plugin-dts';
-import swc from 'vite-plugin-swc-transform';
-import UnpluginTypia from '@typia/unplugin/vite';
-import typiaDecorator from '@sora-soft/typia-decorator/unplugin/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, type PluginOption } from 'vite';
 
 export interface CreateConfigOptions {
-  typiaDecorator?: boolean;
-  unpluginTypia?: boolean;
+  plugins?: PluginOption[];
 }
 
 function resolveEntries(packageDir: string): Record<string, string> | string {
@@ -46,41 +41,10 @@ export function createConfig(packageDir: string, options: CreateConfigOptions = 
   const SRC = resolve(packageDir, 'src').replaceAll('\\', '/');
   const entries = resolveEntries(packageDir);
 
-  const plugins = [];
-
-  if (options.typiaDecorator) {
-    plugins.push(typiaDecorator({ enforce: 'pre' }));
-  }
-
-  if (options.unpluginTypia) {
-    plugins.push(UnpluginTypia({ enforce: 'pre' }));
-  }
-
-  plugins.push({
-    ...swc({
-      swcOptions: {
-        jsc: {
-          target: 'es2022',
-          transform: {
-            legacyDecorator: true,
-            decoratorMetadata: true,
-            useDefineForClassFields: false,
-          },
-          keepClassNames: true,
-          externalHelpers: false,
-        },
-      },
-    }),
-    enforce: 'pre',
-  });
-
-  plugins.push(dts({
-    outDir: 'dist',
-    tsconfigPath: resolve(packageDir, 'tsconfig.json'),
-  }));
-
   return defineConfig({
-    plugins,
+    esbuild: false,
+    oxc: false,
+    plugins: options.plugins ?? [],
     define: {
       __VERSION__: JSON.stringify(pkg.version),
     },
@@ -109,3 +73,4 @@ export function createConfig(packageDir: string, options: CreateConfigOptions = 
     },
   });
 }
+
