@@ -13,21 +13,23 @@ export default defineConfig({
   plugins: [
     typiaDecorator({ enforce: 'pre' }),
     UnpluginTypia({ enforce: 'pre' }),
-    swc({
-      enforce: 'pre',
-      swcOptions: {
-        jsc: {
-          target: 'es2022',
-          transform: {
-            legacyDecorator: true,
-            decoratorMetadata: true,
-            useDefineForClassFields: false,
+    {
+      ...swc({
+        swcOptions: {
+          jsc: {
+            target: 'es2022',
+            transform: {
+              legacyDecorator: true,
+              decoratorMetadata: true,
+              useDefineForClassFields: false,
+            },
+            keepClassNames: true,
+            externalHelpers: false,
           },
-          keepClassNames: true,
-          externalHelpers: false,
         },
-      },
-    }),
+      }),
+      enforce: 'pre',
+    },
     dts({
       outDir: 'dist',
       tsconfigPath: resolve(__dirname, 'tsconfig.json'),

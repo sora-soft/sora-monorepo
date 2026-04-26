@@ -1,6 +1,6 @@
-import path = require('path');
-import {promises as fsp} from 'fs';
-import fs = require('fs');
+import path = require('node:path');
+import {promises as fsp} from 'node:fs';
+import fs = require('node:fs');
 import template = require('art-template');
 
 import {CodeInserter} from './ast/CodeInserter';

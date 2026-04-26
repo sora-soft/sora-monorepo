@@ -1,8 +1,8 @@
 import {Component, Context, ExError, FrameworkError, FrameworkErrorCode, type IComponentOptions, type IEventEmitter, Retry, RetryEvent, Runtime} from '@sora-soft/framework';
 import {guard} from '@sora-soft/typia-decorator';
 import {Etcd3, type IOptions, Lease, Lock} from 'etcd3';
-import Event from 'events';
-import path from 'path';
+import Event from 'node:events';
+import path from 'node:path';
 
 import {EtcdError, EtcdErrorCode} from './EtcdError.js';
 import {EtcdEvent, type IEtcdEvent} from './EtcdEvent.js';

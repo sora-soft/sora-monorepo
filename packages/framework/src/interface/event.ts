@@ -1,4 +1,4 @@
-import type {EventEmitter} from 'events';
+import type {EventEmitter} from 'node:events';
 
 export interface IEventEmitter<T extends {[key: string]: any}> extends Omit<EventEmitter, 'on' | 'emit'> {
   on<U extends keyof T>(

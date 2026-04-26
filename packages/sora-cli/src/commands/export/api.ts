@@ -1,5 +1,5 @@
 import {Flags} from '@oclif/core';
-import path = require('path');
+import path = require('node:path');
 
 import {BaseCommand, type ConfigFieldRequirement} from '../../Base';
 import {DiagnosticCollector} from '../../lib/DiagnosticCollector';

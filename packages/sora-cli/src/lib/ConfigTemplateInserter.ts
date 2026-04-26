@@ -182,7 +182,7 @@ class ConfigTemplateInserter {
     entry: { defines: Array<{ name: string; type: string; hint: string; choices?: string[] }>; content: Record<string, any> },
     log: (msg: string) => void
   ): Promise<void> {
-    const fs = require('fs/promises');
+    const fs = require('node:fs/promises');
     let fileContent: string;
     try {
       fileContent = await fs.readFile(templatePath, {encoding: 'utf-8'});
@@ -234,7 +234,7 @@ class ConfigTemplateInserter {
     listeners: string[],
     log: (msg: string) => void
   ): Promise<void> {
-    const fs = require('fs/promises');
+    const fs = require('node:fs/promises');
     let content: string;
     try {
       content = await fs.readFile(templatePath, {encoding: 'utf-8'});

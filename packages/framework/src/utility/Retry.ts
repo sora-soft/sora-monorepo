@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 
 import {RetryErrorCode} from '../ErrorCode.js';
 import {RetryEvent} from '../Event.js';

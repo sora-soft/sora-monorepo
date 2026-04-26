@@ -1,4 +1,4 @@
-import crypto = require('crypto');
+import crypto = require('node:crypto');
 
 type NonUndefined<T> = T extends undefined ? never : T;
 

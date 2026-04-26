@@ -1,5 +1,5 @@
 import camelcase = require('camelcase');
-import path = require('path');
+import path = require('node:path');
 
 class Utility {
   static camelize(str: string, upper = false) {

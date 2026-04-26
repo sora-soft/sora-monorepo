@@ -6,6 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npm run clean && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "clean": "rimraf ./dist",
     "prepublishOnly": "vite build",
     "lint": "eslint src/",
@@ -50,7 +52,8 @@
     "typescript": "^5.9.3",
     "vite": "^8.0.10",
     "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-swc-transform": "^1.1.1"
+    "vite-plugin-swc-transform": "^1.1.1",
+    "vitest": "^4.1.5"
   },
   "dependencies": {
     "@sora-soft/typia-decorator": "workspace:*",

@@ -1,6 +1,6 @@
-import {promises as fs} from 'fs';
+import {promises as fs} from 'node:fs';
 import mkdirp = require('mkdirp');
-import path = require('path');
+import path = require('node:path');
 
 import {type FileTree} from './FileTree';
 

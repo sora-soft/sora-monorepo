@@ -1,6 +1,6 @@
-import * as fs from 'fs';
+import * as fs from 'node:fs';
 import yaml from 'js-yaml';
-import * as path from 'path';
+import * as path from 'node:path';
 import * as ts from 'typescript';
 
 import {type DiagnosticCollector} from '../DiagnosticCollector';

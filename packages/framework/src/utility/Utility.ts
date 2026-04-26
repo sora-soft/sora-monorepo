@@ -1,5 +1,5 @@
 import ErrorStackParser from 'error-stack-parser';
-import path from 'path';
+import path from 'node:path';
 
 type NonUndefined<T> = T extends undefined ? never : T;
 

@@ -1,8 +1,8 @@
 import {Args} from '@oclif/core';
 import inquirer = require('inquirer');
-import path = require('path');
-import {exec} from 'child_process';
-import {promises as fs} from 'fs';
+import path = require('node:path');
+import {exec} from 'node:child_process';
+import {promises as fs} from 'node:fs';
 
 import {BaseCommand, type ConfigFieldRequirement} from '../../Base';
 import {type ComponentInstallContext, type ComponentInstallScript, type SoraComponentManifest} from '../../lib/ComponentInstallerTypes';

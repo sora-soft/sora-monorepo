@@ -1,8 +1,8 @@
 import {type ILoggerData, type ILoggerOutputOptions, LoggerOutput, Utility} from '@sora-soft/framework';
-import fs from 'fs';
+import fs from 'node:fs';
 import {mkdirp} from 'mkdirp';
 import moment from 'moment';
-import path from 'path';
+import path from 'node:path';
 
 export interface IFileOutputOptions extends ILoggerOutputOptions {
   fileFormat: string;

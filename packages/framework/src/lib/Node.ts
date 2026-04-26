@@ -1,4 +1,4 @@
-import os from 'os';
+import os from 'node:os';
 import typia from 'typia';
 
 import type {INodeOptions, IServiceOptions, IWorkerOptions} from '../interface/config.js';

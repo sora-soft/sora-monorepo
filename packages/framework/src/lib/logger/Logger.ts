@@ -1,5 +1,5 @@
 import ErrorStackParser from 'error-stack-parser';
-import path from 'path';
+import path from 'node:path';
 
 import {ErrorLevel, ExError} from '../../utility/ExError.js';
 import {Utility} from '../../utility/Utility.js';

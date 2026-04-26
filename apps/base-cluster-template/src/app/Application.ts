@@ -1,6 +1,6 @@
 import {ETCDDiscovery} from '@sora-soft/etcd-discovery';
 import {ConsoleOutput, ExError, type IComponentOptions, type INodeOptions, type IServiceOptions, type IWorkerOptions, Logger, LogLevel, Node, Runtime} from '@sora-soft/framework';
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 import typia from 'typia';
 
 import {Com} from '../lib/Com.js';

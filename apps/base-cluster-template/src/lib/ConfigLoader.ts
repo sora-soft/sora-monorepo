@@ -1,15 +1,15 @@
 import axios from 'axios';
 import {type AxiosResponse} from 'axios';
-import fs from 'fs/promises';
+import fs from 'node:fs/promises';
 import yaml from 'js-yaml';
-import url from 'url';
-import util from 'util';
+import url from 'node:url';
+import util from 'node:util';
 
 import {AppError} from '../app/AppError.js';
 import {AppErrorCode} from '../app/ErrorCode.js';
 import {ConfigFileType} from './Enum.js';
-import path = require('path');
-import process = require('process');
+import path = require('node:path');
+import process = require('node:process');
 import {Util} from './Utility.js';
 
 const configMask = '***';

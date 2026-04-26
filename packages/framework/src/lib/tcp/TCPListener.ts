@@ -1,5 +1,5 @@
-import net from 'net';
-import util from 'util';
+import net from 'node:net';
+import util from 'node:util';
 import {v4 as uuid} from 'uuid';
 
 import {ListenerState} from '../../Enum.js';

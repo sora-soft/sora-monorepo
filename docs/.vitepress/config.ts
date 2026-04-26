@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
-import { readdirSync, statSync, existsSync } from 'fs'
-import { join } from 'path'
+import { readdirSync, statSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
 
 function getApiSidebarGroups(): { text: string; collapsed: boolean; items: { text: string; link: string }[] }[] {
   const apiDir = join(__dirname, '..', 'api')

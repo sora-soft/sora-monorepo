@@ -2,8 +2,8 @@ import {Args, Command, Flags} from '@oclif/core';
 import inquirer = require('inquirer');
 import ora = require('ora');
 import chalk from 'chalk';
-import path = require('path');
-import fs = require('fs/promises');
+import path = require('node:path');
+import fs = require('node:fs/promises');
 import pacote = require('pacote');
 
 const templates = [

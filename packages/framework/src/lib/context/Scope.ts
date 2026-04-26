@@ -1,5 +1,5 @@
 
-import type {AsyncLocalStorage} from 'async_hooks';
+import type {AsyncLocalStorage} from 'node:async_hooks';
 
 import {StackUtility} from '../../utility/Utility.js';
 import {Context} from './Context.js';

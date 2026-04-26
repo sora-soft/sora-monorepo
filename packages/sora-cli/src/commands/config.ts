@@ -1,9 +1,9 @@
 import template = require('art-template');
-import path = require('path');
-import fs = require('fs/promises');
-import fsSync = require('fs');
+import path = require('node:path');
+import fs = require('node:fs/promises');
+import fsSync = require('node:fs');
 import inquirer = require('inquirer');
-import os = require('os');
+import os = require('node:os');
 
 import {BaseCommand, type ConfigFieldRequirement} from '../Base';
 

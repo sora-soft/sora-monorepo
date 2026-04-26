@@ -1,5 +1,5 @@
-import util from 'util';
-import zlib from 'zlib';
+import util from 'node:util';
+import zlib from 'node:zlib';
 
 import {RPCErrorCode} from '../../ErrorCode.js';
 import {RPCError} from '../rpc/RPCError.js';

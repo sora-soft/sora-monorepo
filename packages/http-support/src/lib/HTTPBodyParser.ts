@@ -1,5 +1,6 @@
+import type {IncomingMessage} from 'node:http';
+
 import {XMLParser} from 'fast-xml-parser';
-import type {IncomingMessage} from 'http';
 import qs from 'qs';
 import getRawBody from 'raw-body';
 

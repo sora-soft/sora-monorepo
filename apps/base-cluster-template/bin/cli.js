@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
-import path from 'path';
+import path from 'node:path';
 import {container, server, command} from '../dist/index.js';
 
 program

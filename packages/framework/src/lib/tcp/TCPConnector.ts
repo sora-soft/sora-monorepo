@@ -1,6 +1,6 @@
-import net from 'net';
+import net from 'node:net';
 import typia from 'typia';
-import util from 'util';
+import util from 'node:util';
 
 import {ConnectorState} from '../../Enum.js';
 import {RPCErrorCode, TCPErrorCode} from '../../ErrorCode.js';

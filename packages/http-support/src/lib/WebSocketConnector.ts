@@ -1,6 +1,6 @@
 import {Connector, ConnectorState, ExError, type IConnectorPingOptions, type IListenerInfo, type IRawNetPacket, Logger, NodeTime, type ProviderManager, Retry, RetryEvent, RPCError, RPCErrorCode, Runtime} from '@sora-soft/framework';
 import typia from 'typia';
-import util from 'util';
+import util from 'node:util';
 import WebSocket from 'ws';
 
 class WebSocketConnector extends Connector {

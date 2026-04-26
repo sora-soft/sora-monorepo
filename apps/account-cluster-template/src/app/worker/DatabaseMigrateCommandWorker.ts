@@ -2,12 +2,12 @@ import {type DatabaseComponent, type IDatabaseComponentOptions} from '@sora-soft
 import {DataSource} from '@sora-soft/database-component/typeorm';
 import {type IWorkerOptions, Node, Runtime, Worker} from '@sora-soft/framework';
 import camelcase from 'camelcase';
-import fs from 'fs/promises';
+import fs from 'node:fs/promises';
 import {mkdirp} from 'mkdirp';
 import moment from 'moment';
-import path from 'path';
+import path from 'node:path';
 import typia from 'typia';
-import {fileURLToPath} from 'url';
+import {fileURLToPath} from 'node:url';
 
 import {type ComponentName} from '../../lib/Com.js';
 import {AppError} from '../AppError.js';

@@ -1,6 +1,6 @@
 import {ConsoleOutput, ExError, type IComponentOptions, type INodeOptions, type IServiceOptions, type IWorkerOptions, Logger, LogLevel, Node, Runtime} from '@sora-soft/framework';
 import {RamDiscovery} from '@sora-soft/ram-discovery';
-import {readFile} from 'fs/promises';
+import {readFile} from 'node:fs/promises';
 import typia from 'typia';
 
 import {Com} from '../lib/Com.js';

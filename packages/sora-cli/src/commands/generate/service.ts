@@ -1,7 +1,7 @@
 import {Args, Flags} from '@oclif/core';
 import inquirer = require('inquirer');
 import template = require('art-template');
-import path = require('path');
+import path = require('node:path');
 
 import {BaseCommand, type ConfigFieldRequirement} from '../../Base';
 import {CodeInserter} from '../../lib/ast/CodeInserter';

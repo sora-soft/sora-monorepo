@@ -1,8 +1,8 @@
-import {promises as fs} from 'fs';
+import {promises as fs} from 'node:fs';
 
 import {FileNode} from './FileNode';
 import {ScriptFileNode} from './ScriptFileNode';
-import pathModule = require('path');
+import pathModule = require('node:path');
 const path = pathModule.posix;
 
 class FileTree {

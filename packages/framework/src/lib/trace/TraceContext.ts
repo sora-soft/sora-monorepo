@@ -1,6 +1,6 @@
-import type {AsyncLocalStorage} from 'async_hooks';
-import crypto from 'crypto';
-import diagnostics from 'diagnostics_channel';
+import type {AsyncLocalStorage} from 'node:async_hooks';
+import crypto from 'node:crypto';
+import diagnostics from 'node:diagnostics_channel';
 
 import {DiagnosticsChannel} from '../../Const.js';
 import {TraceErrorCode} from '../../ErrorCode.js';
