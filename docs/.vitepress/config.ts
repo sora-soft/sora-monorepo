@@ -109,6 +109,7 @@ function sidebar() {
       {
         text: '指南',
         items: [
+          { text: '设计理念', link: '/guide/design-philosophy' },
           { text: '快速开始', link: '/guide/getting-started' },
           { text: '微服务', link: '/guide/microservice' },
           { text: '使用组件', link: '/guide/components' },
@@ -148,8 +149,8 @@ function sidebar() {
       {
         text: '工具',
         items: [
-          { text: '配置文件', link: '/tools/config' },
           { text: '参数验证', link: '/tools/validation' },
+          { text: '配置文件', link: '/tools/config' },
           { text: '上下文与作用域', link: '/tools/context-scope' },
           { text: '分布式追踪', link: '/tools/observability' },
           { text: '日志', link: '/tools/logging' },

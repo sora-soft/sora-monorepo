@@ -14,6 +14,13 @@
 - **当** 用户阅读核心概念页面
 - **那么** 用户能够理解 Runtime 是单例入口、Node 是进程根服务、Service 通过 Listener 接收 RPC、Worker 是通用工作单元、Component 是可插拔依赖
 
+### 需求:设计理念文档
+文档站必须提供 `/guide/design-philosophy` 页面，作为指南部分的首要页面（在快速开始之前），阐述 Sora 的四个核心设计理念。该页面必须包含渐进式基础设施抽象、MVP 到生产演进、CLI 开发体验、开箱即用的工程基础设施四个章节，并提供到对应详细文档的链接。
+
+#### 场景:从指南导航到设计理念
+- **当** 用户浏览指南侧边栏
+- **那么** 侧边栏在"快速开始"之前显示"设计理念"条目，链接到 `/guide/design-philosophy`
+
 ### 需求:服务生命周期文档
 文档站必须提供 `/guide/service-lifecycle` 页面，详细描述从 `Runtime.startup()` 到 `Runtime.shutdown()` 的完整启动和关闭时序，包括各阶段的状态流转（Init → Pending → Ready → Stopping → Stopped）。
 
