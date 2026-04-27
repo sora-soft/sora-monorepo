@@ -1,6 +1,6 @@
 {
   "name": "@sora-soft/base-cluster-template",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "sora base cluster template",
   "bin": {
     "base-server": "./bin/cli.js"

@@ -1,5 +1,13 @@
 # @sora-soft/etcd-component
 
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [e658274]
+- Updated dependencies [5adba31]
+  - @sora-soft/framework@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes

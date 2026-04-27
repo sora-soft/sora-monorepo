@@ -1,5 +1,12 @@
 # @sora-soft/framework
 
+## 2.0.3
+
+### Patch Changes
+
+- e658274: fix : 修复 Context 循环依赖问题
+- 5adba31: fix: 修复测试工具文件缺少的问题
+
 ## 2.0.2
 
 ### Patch Changes
