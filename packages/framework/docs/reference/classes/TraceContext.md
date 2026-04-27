@@ -6,7 +6,7 @@
 
 # Abstract Class: TraceContext
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:107](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L107)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:107](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L107)
 
 ## Extended by
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:107](https://githu
 
 > **new TraceContext**(`traceId?`, `parentSpanId?`, `flags?`, `traceState?`): `TraceContext`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:111](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L111)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:111](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L111)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:111](https://githu
 
 > `static` **endChannel**: `Channel`\<`unknown`, `unknown`\>
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:109](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L109)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:109](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L109)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:109](https://githu
 
 > `static` **startChannel**: `Channel`\<`unknown`, `unknown`\>
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:108](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L108)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:108](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L108)
 
 ## Accessors
 
@@ -68,7 +68,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:108](https://githu
 
 > **get** **attribute**(): `Map`\<`string`, `string`\>
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:226](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L226)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:226](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L226)
 
 ##### Returns
 
@@ -82,7 +82,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:226](https://githu
 
 > **get** **endNanoTime**(): `bigint`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:218](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L218)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:218](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L218)
 
 ##### Returns
 
@@ -96,7 +96,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:218](https://githu
 
 > **get** **error**(): [`ExError`](ExError.md) \| `undefined`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:222](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L222)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:222](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L222)
 
 ##### Returns
 
@@ -110,7 +110,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:222](https://githu
 
 > **get** **finished**(): `boolean`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:206](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L206)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:206](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L206)
 
 ##### Returns
 
@@ -124,7 +124,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:206](https://githu
 
 > **get** **flags**(): [`TraceFlag`](../enumerations/TraceFlag.md)
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:198](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L198)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:198](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L198)
 
 ##### Returns
 
@@ -134,7 +134,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:198](https://githu
 
 > **set** **flags**(`value`): `void`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:202](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L202)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:202](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L202)
 
 ##### Parameters
 
@@ -154,7 +154,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:202](https://githu
 
 > **get** **parentSpanId**(): `string` \| `undefined`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:194](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L194)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:194](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L194)
 
 ##### Returns
 
@@ -168,7 +168,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:194](https://githu
 
 > **get** **spanId**(): `string`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:190](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L190)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:190](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L190)
 
 ##### Returns
 
@@ -182,7 +182,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:190](https://githu
 
 > **get** **startNanoTime**(): `bigint`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:214](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L214)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:214](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L214)
 
 ##### Returns
 
@@ -196,7 +196,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:214](https://githu
 
 > **get** **traceId**(): `string`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:186](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L186)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:186](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L186)
 
 ##### Returns
 
@@ -210,7 +210,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:186](https://githu
 
 > **get** **traceState**(): [`TraceState`](TraceState.md)
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:210](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L210)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:210](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L210)
 
 ##### Returns
 
@@ -222,7 +222,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:210](https://githu
 
 > **run**\<`R`\>(`storage`, `callback`): `R`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:141](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L141)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:141](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L141)
 
 #### Type Parameters
 
@@ -250,7 +250,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:141](https://githu
 
 > **toRPCTraceParentHeader**(): `string`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:133](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L133)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:133](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L133)
 
 #### Returns
 
@@ -262,7 +262,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:133](https://githu
 
 > **toRPCTraceStateHeader**(): `string`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:137](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L137)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:137](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L137)
 
 #### Returns
 

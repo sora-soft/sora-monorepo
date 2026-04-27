@@ -19,7 +19,7 @@
     "prepublishOnly": "npm run build",
     "lint": "eslint src/"
   },
-  "repository": "git@github.com:sora-soft/sora-monorepo.git",
+  "repository": "git@github.com:sora-soft/sora-node.git",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -34,9 +34,9 @@
   "author": "yaya",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+    "url": "https://github.com/sora-soft/sora-node/issues"
   },
-  "homepage": "https://github.com/sora-soft/sora-monorepo",
+  "homepage": "https://github.com/sora-soft/sora-node",
   "peerDependencies": {
     "@rollup/pluginutils": "^5.0.0",
     "@typia/core": "^12.0.0",

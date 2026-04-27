@@ -20,16 +20,16 @@
     "auth": "node ./bin/cli.js command --config ./config-command.yml -w ./run -n auth-command",
     "lint": "eslint src/"
   },
-  "repository": "git@github.com:sora-soft/sora-monorepo.git",
+  "repository": "git@github.com:sora-soft/sora-node.git",
   "keywords": [
     "sora"
   ],
   "author": "yaya",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+    "url": "https://github.com/sora-soft/sora-node/issues"
   },
-  "homepage": "https://github.com/sora-soft/sora-monorepo",
+  "homepage": "https://github.com/sora-soft/sora-node",
   "dependencies": {
     "@alicloud/pop-core": "^1.7.10",
     "@sora-soft/database-component": "workspace:*",

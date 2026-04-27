@@ -6,7 +6,7 @@
 
 # Interface: IRuntimeOptions
 
-Defined in: [packages/framework/src/interface/config.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L22)
+Defined in: [packages/framework/src/interface/config.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L22)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [packages/framework/src/interface/config.ts:22](https://github.com/s
 
 > `readonly` **scope**: `string`
 
-Defined in: [packages/framework/src/interface/config.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L23)
+Defined in: [packages/framework/src/interface/config.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L23)

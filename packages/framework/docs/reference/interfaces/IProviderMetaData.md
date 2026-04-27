@@ -6,7 +6,7 @@
 
 # Interface: IProviderMetaData
 
-Defined in: [packages/framework/src/interface/rpc.ts:93](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L93)
+Defined in: [packages/framework/src/interface/rpc.ts:93](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L93)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:93](https://github.com/sora
 
 > `readonly` **filter**: [`ILabelData`](ILabelData.md)[]
 
-Defined in: [packages/framework/src/interface/rpc.ts:95](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L95)
+Defined in: [packages/framework/src/interface/rpc.ts:95](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L95)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:95](https://github.com/sora
 
 > `readonly` **name**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:94](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L94)
+Defined in: [packages/framework/src/interface/rpc.ts:94](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L94)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [packages/framework/src/interface/rpc.ts:94](https://github.com/sora
 
 > `readonly` **senders**: [`ISenderMetaData`](ISenderMetaData.md)[]
 
-Defined in: [packages/framework/src/interface/rpc.ts:96](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L96)
+Defined in: [packages/framework/src/interface/rpc.ts:96](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L96)

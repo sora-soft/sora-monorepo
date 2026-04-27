@@ -6,7 +6,7 @@
 
 # Class: QueueExecutor\<S\>
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:14](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L14)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:14](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L14)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/utility/QueueExecutor.ts:14](https://github.
 
 > **new QueueExecutor**\<`S`\>(`scope?`): `QueueExecutor`\<`S`\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L8)
+Defined in: [packages/framework/src/utility/Executor.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L8)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:8](https://github.com/so
 
 > `protected` **isStopped\_**: `boolean` = `true`
 
-Defined in: [packages/framework/src/utility/Executor.ts:53](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L53)
+Defined in: [packages/framework/src/utility/Executor.ts:53](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L53)
 
 #### Inherited from
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:53](https://github.com/s
 
 > **get** **isIdle**(): `boolean`
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:67](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L67)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:67](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L67)
 
 ##### Returns
 
@@ -76,7 +76,7 @@ Defined in: [packages/framework/src/utility/QueueExecutor.ts:67](https://github.
 
 > **doJob**\<`T`\>(`executor`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L15)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L15)
 
 #### Type Parameters
 
@@ -104,7 +104,7 @@ Defined in: [packages/framework/src/utility/QueueExecutor.ts:15](https://github.
 
 > `protected` **runInContext**\<`T`\>(`callback`): `Promise`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L45)
+Defined in: [packages/framework/src/utility/Executor.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L45)
 
 #### Type Parameters
 
@@ -132,7 +132,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:45](https://github.com/s
 
 > **start**(): `void`
 
-Defined in: [packages/framework/src/utility/Executor.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L31)
+Defined in: [packages/framework/src/utility/Executor.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L31)
 
 #### Returns
 
@@ -148,7 +148,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:31](https://github.com/s
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:30](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L30)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:30](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L30)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 # Interface: IConnectorPingOptions
 
-Defined in: [packages/framework/src/interface/rpc.ts:52](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L52)
+Defined in: [packages/framework/src/interface/rpc.ts:52](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L52)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:52](https://github.com/sora
 
 > **enabled**: `true`
 
-Defined in: [packages/framework/src/interface/rpc.ts:53](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L53)
+Defined in: [packages/framework/src/interface/rpc.ts:53](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L53)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:53](https://github.com/sora
 
 > `optional` **interval?**: `number`
 
-Defined in: [packages/framework/src/interface/rpc.ts:55](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L55)
+Defined in: [packages/framework/src/interface/rpc.ts:55](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L55)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [packages/framework/src/interface/rpc.ts:55](https://github.com/sora
 
 > `optional` **timeout?**: `number`
 
-Defined in: [packages/framework/src/interface/rpc.ts:54](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L54)
+Defined in: [packages/framework/src/interface/rpc.ts:54](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L54)

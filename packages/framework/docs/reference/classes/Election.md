@@ -6,7 +6,7 @@
 
 # Abstract Class: Election
 
-Defined in: [packages/framework/src/lib/Election.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L3)
+Defined in: [packages/framework/src/lib/Election.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L3)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/Election.ts:3](https://github.com/sora-s
 
 > **new Election**(`name`): `Election`
 
-Defined in: [packages/framework/src/lib/Election.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L4)
+Defined in: [packages/framework/src/lib/Election.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L4)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/lib/Election.ts:4](https://github.com/sora-s
 
 > **get** **id**(): `string` \| `undefined`
 
-Defined in: [packages/framework/src/lib/Election.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L17)
+Defined in: [packages/framework/src/lib/Election.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L17)
 
 ##### Returns
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/lib/Election.ts:17](https://github.com/sora-
 
 > **get** **name**(): `string`
 
-Defined in: [packages/framework/src/lib/Election.ts:13](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L13)
+Defined in: [packages/framework/src/lib/Election.ts:13](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L13)
 
 ##### Returns
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/lib/Election.ts:13](https://github.com/sora-
 
 > `abstract` **campaign**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Election.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L8)
+Defined in: [packages/framework/src/lib/Election.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L8)
 
 #### Parameters
 
@@ -78,7 +78,7 @@ Defined in: [packages/framework/src/lib/Election.ts:8](https://github.com/sora-s
 
 > `abstract` **leader**(): `Promise`\<`string` \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/Election.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L10)
+Defined in: [packages/framework/src/lib/Election.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L10)
 
 #### Returns
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/lib/Election.ts:10](https://github.com/sora-
 
 > `abstract` **observer**(): `BehaviorSubject`\<`string` \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/Election.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L11)
+Defined in: [packages/framework/src/lib/Election.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L11)
 
 #### Returns
 
@@ -102,7 +102,7 @@ Defined in: [packages/framework/src/lib/Election.ts:11](https://github.com/sora-
 
 > `abstract` **resign**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Election.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L9)
+Defined in: [packages/framework/src/lib/Election.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Election.ts#L9)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 # Class: WorkerScope
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L8)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L8)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:8](https://
 
 > **new WorkerScope**(`store`): `WorkerScope`
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L9)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L9)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:9](https://
 
 > `protected` **id\_**: `string`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:62](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L62)
+Defined in: [packages/framework/src/lib/context/Scope.ts:62](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L62)
 
 #### Inherited from
 
@@ -52,7 +52,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:62](https://github.com/
 
 > `protected` `optional` **parent\_?**: [`Scope`](Scope.md)\<`unknown`\>
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:63](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L63)
+Defined in: [packages/framework/src/lib/context/Scope.ts:63](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L63)
 
 #### Inherited from
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:63](https://github.com/
 
 > `protected` **stack\_**: `string`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:65](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L65)
+Defined in: [packages/framework/src/lib/context/Scope.ts:65](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L65)
 
 #### Inherited from
 
@@ -76,7 +76,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:65](https://github.com/
 
 > `protected` **store\_**: [`IWorkerScopeStore`](../interfaces/IWorkerScopeStore.md)
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:64](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L64)
+Defined in: [packages/framework/src/lib/context/Scope.ts:64](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L64)
 
 #### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:64](https://github.com/
 
 > **get** **id**(): `string`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:58](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L58)
+Defined in: [packages/framework/src/lib/context/Scope.ts:58](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L58)
 
 ##### Returns
 
@@ -108,7 +108,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:58](https://github.com/
 
 > **get** **logCategory**(): `string`
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:29](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L29)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:29](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L29)
 
 ##### Returns
 
@@ -126,7 +126,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:29](https:/
 
 > **get** **name**(): `string`
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L21)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L21)
 
 ##### Returns
 
@@ -140,7 +140,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:21](https:/
 
 > **get** **parent**(): [`Scope`](Scope.md)\<`unknown`\> \| `undefined`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:46](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L46)
+Defined in: [packages/framework/src/lib/context/Scope.ts:46](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L46)
 
 ##### Returns
 
@@ -150,7 +150,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:46](https://github.com/
 
 > **set** **parent**(`value`): `void`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:50](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L50)
+Defined in: [packages/framework/src/lib/context/Scope.ts:50](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L50)
 
 ##### Parameters
 
@@ -174,7 +174,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:50](https://github.com/
 
 > **get** **stack**(): `string`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:54](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L54)
+Defined in: [packages/framework/src/lib/context/Scope.ts:54](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L54)
 
 ##### Returns
 
@@ -192,7 +192,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:54](https://github.com/
 
 > **get** **store**(): `T`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:42](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L42)
+Defined in: [packages/framework/src/lib/context/Scope.ts:42](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L42)
 
 ##### Returns
 
@@ -210,7 +210,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:42](https://github.com/
 
 > **get** **workerId**(): `string`
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L25)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L25)
 
 ##### Returns
 
@@ -222,7 +222,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:25](https:/
 
 > **hasComponent**(`id`): `boolean`
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L17)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L17)
 
 #### Parameters
 
@@ -240,7 +240,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:17](https:/
 
 > **hasProvider**(`id`): `boolean`
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:13](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L13)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:13](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L13)
 
 #### Parameters
 
@@ -258,7 +258,7 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:13](https:/
 
 > `protected` **isInChain**(`id`): `boolean`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:38](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L38)
+Defined in: [packages/framework/src/lib/context/Scope.ts:38](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L38)
 
 #### Parameters
 
@@ -280,7 +280,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:38](https://github.com/
 
 > **run**\<`R`\>(`storage`, `callback`): `R`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L23)
+Defined in: [packages/framework/src/lib/context/Scope.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L23)
 
 #### Type Parameters
 
@@ -312,7 +312,7 @@ Defined in: [packages/framework/src/lib/context/Scope.ts:23](https://github.com/
 
 > **setStore**(`data`): `void`
 
-Defined in: [packages/framework/src/lib/context/Scope.ts:34](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L34)
+Defined in: [packages/framework/src/lib/context/Scope.ts:34](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/Scope.ts#L34)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: Retry\<T\>
 
-Defined in: [packages/framework/src/utility/Retry.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L45)
+Defined in: [packages/framework/src/utility/Retry.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L45)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/utility/Retry.ts:45](https://github.com/sora
 
 > **new Retry**\<`T`\>(`executor`, `options?`): `Retry`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Retry.ts:46](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L46)
+Defined in: [packages/framework/src/utility/Retry.ts:46](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L46)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [packages/framework/src/utility/Retry.ts:46](https://github.com/sora
 
 > **get** **errorEmitter**(): [`IEventEmitter`](../interfaces/IEventEmitter.md)\<`IErrorEvent`\>
 
-Defined in: [packages/framework/src/utility/Retry.ts:89](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L89)
+Defined in: [packages/framework/src/utility/Retry.ts:89](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L89)
 
 ##### Returns
 
@@ -56,7 +56,7 @@ Defined in: [packages/framework/src/utility/Retry.ts:89](https://github.com/sora
 
 > **doJob**(): `Promise`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Retry.ts:62](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L62)
+Defined in: [packages/framework/src/utility/Retry.ts:62](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L62)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 # Interface: IServiceOptions
 
-Defined in: [packages/framework/src/interface/config.ts:14](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L14)
+Defined in: [packages/framework/src/interface/config.ts:14](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L14)
 
 ## Extends
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/interface/config.ts:14](https://github.com/s
 
 > `readonly` `optional` **alias?**: `string`
 
-Defined in: [packages/framework/src/interface/config.ts:19](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L19)
+Defined in: [packages/framework/src/interface/config.ts:19](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L19)
 
 #### Inherited from
 
@@ -34,4 +34,4 @@ Defined in: [packages/framework/src/interface/config.ts:19](https://github.com/s
 
 > `readonly` `optional` **labels?**: [`ILabels`](ILabels.md)
 
-Defined in: [packages/framework/src/interface/config.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L15)
+Defined in: [packages/framework/src/interface/config.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/config.ts#L15)

@@ -6,7 +6,7 @@
 
 # Class: JsonBufferCodec
 
-Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L4)
+Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L4)
 
 ## Extends
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:4](https://gith
 
 > **get** **code**(): `string`
 
-Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L9)
+Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L9)
 
 ##### Returns
 
@@ -50,7 +50,7 @@ Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:9](https://gith
 
 > **decode**(`raw`): `Promise`\<[`IRawNetPacket`](../type-aliases/IRawNetPacket.md)\>
 
-Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L17)
+Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L17)
 
 #### Parameters
 
@@ -72,7 +72,7 @@ Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:17](https://git
 
 > **encode**(`packet`): `Promise`\<`Buffer`\<`ArrayBufferLike`\>\>
 
-Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:13](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L13)
+Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:13](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/codec/JsonBufferCodec.ts#L13)
 
 #### Parameters
 
@@ -94,7 +94,7 @@ Defined in: [packages/framework/src/lib/codec/JsonBufferCodec.ts:13](https://git
 
 > `static` **get**(`code`): [`Codec`](Codec.md)\<`any`\> \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L8)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L8)
 
 #### Parameters
 
@@ -116,7 +116,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:8](https://github.com/sora-
 
 > `static` **has**(`code`): `boolean`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L12)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L12)
 
 #### Parameters
 
@@ -138,7 +138,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:12](https://github.com/sora
 
 > `static` **register**(`codec`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L4)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L4)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: IServiceMetaData
 
-Defined in: [packages/framework/src/interface/discovery.ts:14](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L14)
+Defined in: [packages/framework/src/interface/discovery.ts:14](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L14)
 
 ## Extends
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:14](https://github.co
 
 > `readonly` `optional` **alias?**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L8)
+Defined in: [packages/framework/src/interface/discovery.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L8)
 
 #### Inherited from
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:8](https://github.com
 
 > `readonly` **id**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L7)
+Defined in: [packages/framework/src/interface/discovery.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L7)
 
 #### Inherited from
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:7](https://github.com
 
 > `readonly` **labels**: [`ILabels`](ILabels.md)
 
-Defined in: [packages/framework/src/interface/discovery.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L15)
+Defined in: [packages/framework/src/interface/discovery.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L15)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:15](https://github.co
 
 > `readonly` **name**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L6)
+Defined in: [packages/framework/src/interface/discovery.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L6)
 
 #### Inherited from
 
@@ -66,7 +66,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:6](https://github.com
 
 > `readonly` **nodeId**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L10)
+Defined in: [packages/framework/src/interface/discovery.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L10)
 
 #### Inherited from
 
@@ -78,7 +78,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:10](https://github.co
 
 > `readonly` **startTime**: `number`
 
-Defined in: [packages/framework/src/interface/discovery.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L11)
+Defined in: [packages/framework/src/interface/discovery.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L11)
 
 #### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:11](https://github.co
 
 > `readonly` **state**: [`WorkerState`](../enumerations/WorkerState.md)
 
-Defined in: [packages/framework/src/interface/discovery.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L9)
+Defined in: [packages/framework/src/interface/discovery.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L9)
 
 #### Inherited from
 

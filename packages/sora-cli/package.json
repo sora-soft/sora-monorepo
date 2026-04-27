@@ -18,11 +18,11 @@
   ],
   "author": "yaya",
   "license": "WTFPL",
-  "repository": "git@github.com:sora-soft/sora-monorepo.git",
+  "repository": "git@github.com:sora-soft/sora-node.git",
   "bugs": {
-    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+    "url": "https://github.com/sora-soft/sora-node/issues"
   },
-  "homepage": "https://github.com/sora-soft/sora-monorepo",
+  "homepage": "https://github.com/sora-soft/sora-node",
   "files": [
     "/bin",
     "/dist",

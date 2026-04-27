@@ -6,7 +6,7 @@
 
 # Class: Waiter\<T\>
 
-Defined in: [packages/framework/src/utility/Waiter.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L3)
+Defined in: [packages/framework/src/utility/Waiter.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L3)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/utility/Waiter.ts:3](https://github.com/sora
 
 > **new Waiter**\<`T`\>(): `Waiter`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Waiter.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L4)
+Defined in: [packages/framework/src/utility/Waiter.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L4)
 
 #### Returns
 
@@ -32,7 +32,7 @@ Defined in: [packages/framework/src/utility/Waiter.ts:4](https://github.com/sora
 
 > **clear**(): `void`
 
-Defined in: [packages/framework/src/utility/Waiter.ts:66](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L66)
+Defined in: [packages/framework/src/utility/Waiter.ts:66](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L66)
 
 #### Returns
 
@@ -44,7 +44,7 @@ Defined in: [packages/framework/src/utility/Waiter.ts:66](https://github.com/sor
 
 > **emit**(`id`, `result`): `void`
 
-Defined in: [packages/framework/src/utility/Waiter.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L37)
+Defined in: [packages/framework/src/utility/Waiter.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L37)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ Defined in: [packages/framework/src/utility/Waiter.ts:37](https://github.com/sor
 
 > **emitError**(`id`, `error`): `void`
 
-Defined in: [packages/framework/src/utility/Waiter.ts:55](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L55)
+Defined in: [packages/framework/src/utility/Waiter.ts:55](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L55)
 
 #### Parameters
 
@@ -88,7 +88,7 @@ Defined in: [packages/framework/src/utility/Waiter.ts:55](https://github.com/sor
 
 > **wait**(`ttlMs?`): `object`
 
-Defined in: [packages/framework/src/utility/Waiter.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L9)
+Defined in: [packages/framework/src/utility/Waiter.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L9)
 
 #### Parameters
 
@@ -114,7 +114,7 @@ Defined in: [packages/framework/src/utility/Waiter.ts:9](https://github.com/sora
 
 > **waitForAll**(`ttlMS?`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/utility/Waiter.ts:75](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L75)
+Defined in: [packages/framework/src/utility/Waiter.ts:75](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Waiter.ts#L75)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: Logger
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:75](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L75)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:75](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L75)
 
 ## Extended by
 
@@ -19,7 +19,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:75](https://github.com/
 
 > **new Logger**(`options`): `Logger`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:96](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L96)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:96](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L96)
 
 #### Parameters
 
@@ -39,7 +39,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:96](https://github.com/
 
 > **get** **category**(): `CategoryLogger`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:187](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L187)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:187](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L187)
 
 ##### Returns
 
@@ -51,7 +51,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:187](https://github.com
 
 > **debug**(`category`, `content`, `boundaryFn?`): `void`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:102](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L102)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:102](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L102)
 
 #### Parameters
 
@@ -77,7 +77,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:102](https://github.com
 
 > **end**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:143](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L143)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:143](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L143)
 
 #### Returns
 
@@ -89,7 +89,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:143](https://github.com
 
 > **error**(`category`, `error`, `content`, `boundaryFn?`): `void`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:122](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L122)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:122](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L122)
 
 #### Parameters
 
@@ -119,7 +119,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:122](https://github.com
 
 > **fatal**(`category`, `error`, `content`, `boundaryFn?`): `void`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:118](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L118)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:118](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L118)
 
 #### Parameters
 
@@ -149,7 +149,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:118](https://github.com
 
 > **info**(`category`, `content`, `boundaryFn?`): `void`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:106](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L106)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:106](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L106)
 
 #### Parameters
 
@@ -175,7 +175,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:106](https://github.com
 
 > **pipe**(`output`): `Logger`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:138](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L138)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:138](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L138)
 
 #### Parameters
 
@@ -193,7 +193,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:138](https://github.com
 
 > **success**(`category`, `content`, `boundaryFn?`): `void`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:114](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L114)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:114](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L114)
 
 #### Parameters
 
@@ -219,7 +219,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:114](https://github.com
 
 > **warn**(`category`, `content`, `boundaryFn?`): `void`
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:110](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L110)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:110](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L110)
 
 #### Parameters
 
@@ -245,7 +245,7 @@ Defined in: [packages/framework/src/lib/logger/Logger.ts:110](https://github.com
 
 > `static` **errorMessage**(`e`): `Error` \| [`ExError`](ExError.md) \| \{ `args`: [`ErrorArgs`](../type-aliases/ErrorArgs.md); `code`: `string`; `message`: `string`; `name`: `string`; `stack`: `string`[]; \}
 
-Defined in: [packages/framework/src/lib/logger/Logger.ts:86](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L86)
+Defined in: [packages/framework/src/lib/logger/Logger.ts:86](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/Logger.ts#L86)
 
 #### Parameters
 

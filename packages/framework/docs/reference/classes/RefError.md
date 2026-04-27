@@ -6,7 +6,7 @@
 
 # Class: RefError
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L7)
+Defined in: [packages/framework/src/utility/LifeRef.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L7)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:7](https://github.com/sor
 
 > **new RefError**(`code`, `message`, `args?`): `RefError`
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L8)
+Defined in: [packages/framework/src/utility/LifeRef.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L8)
 
 #### Parameters
 
@@ -108,7 +108,7 @@ not capture any frames.
 
 > **get** **args**(): [`ErrorArgs`](../type-aliases/ErrorArgs.md)
 
-Defined in: [packages/framework/src/utility/ExError.ts:42](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L42)
+Defined in: [packages/framework/src/utility/ExError.ts:42](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L42)
 
 ##### Returns
 
@@ -126,7 +126,7 @@ Defined in: [packages/framework/src/utility/ExError.ts:42](https://github.com/so
 
 > **get** **code**(): `string`
 
-Defined in: [packages/framework/src/utility/ExError.ts:30](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L30)
+Defined in: [packages/framework/src/utility/ExError.ts:30](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L30)
 
 ##### Returns
 
@@ -144,7 +144,7 @@ Defined in: [packages/framework/src/utility/ExError.ts:30](https://github.com/so
 
 > **get** **level**(): [`ErrorLevel`](../enumerations/ErrorLevel.md)
 
-Defined in: [packages/framework/src/utility/ExError.ts:38](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L38)
+Defined in: [packages/framework/src/utility/ExError.ts:38](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L38)
 
 ##### Returns
 
@@ -162,7 +162,7 @@ Defined in: [packages/framework/src/utility/ExError.ts:38](https://github.com/so
 
 > **get** **name**(): `string`
 
-Defined in: [packages/framework/src/utility/ExError.ts:34](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L34)
+Defined in: [packages/framework/src/utility/ExError.ts:34](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L34)
 
 ##### Returns
 
@@ -178,7 +178,7 @@ Defined in: [packages/framework/src/utility/ExError.ts:34](https://github.com/so
 
 > **toJson**(): `any`
 
-Defined in: [packages/framework/src/utility/ExError.ts:46](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L46)
+Defined in: [packages/framework/src/utility/ExError.ts:46](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L46)
 
 #### Returns
 
@@ -264,7 +264,7 @@ a();
 
 > `static` **fromError**(`err`): [`ExError`](ExError.md)
 
-Defined in: [packages/framework/src/utility/ExError.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L11)
+Defined in: [packages/framework/src/utility/ExError.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/ExError.ts#L11)
 
 #### Parameters
 

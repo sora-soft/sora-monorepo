@@ -6,7 +6,7 @@
 
 # Enumeration: FilterOperator
 
-Defined in: [packages/framework/src/utility/LabelFilter.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LabelFilter.ts#L3)
+Defined in: [packages/framework/src/utility/LabelFilter.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LabelFilter.ts#L3)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/utility/LabelFilter.ts:3](https://github.com
 
 > **EXCLUDE**: `1`
 
-Defined in: [packages/framework/src/utility/LabelFilter.ts:5](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LabelFilter.ts#L5)
+Defined in: [packages/framework/src/utility/LabelFilter.ts:5](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LabelFilter.ts#L5)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/framework/src/utility/LabelFilter.ts:5](https://github.com
 
 > **INCLUDE**: `0`
 
-Defined in: [packages/framework/src/utility/LabelFilter.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LabelFilter.ts#L4)
+Defined in: [packages/framework/src/utility/LabelFilter.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LabelFilter.ts#L4)

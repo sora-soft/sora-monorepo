@@ -6,7 +6,7 @@
 
 # Class: ArrayMap\<K, T\>
 
-Defined in: [packages/framework/src/utility/Utility.ts:189](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L189)
+Defined in: [packages/framework/src/utility/Utility.ts:189](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L189)
 
 ## Extends
 
@@ -28,7 +28,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:189](https://github.com/s
 
 > **new ArrayMap**\<`K`, `T`\>(): `ArrayMap`\<`K`, `T`\>
 
-Defined in: [packages/framework/src/utility/Utility.ts:190](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L190)
+Defined in: [packages/framework/src/utility/Utility.ts:190](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L190)
 
 #### Returns
 
@@ -102,7 +102,7 @@ Returns an iterable of entries in the map.
 
 > **append**(`k`, `value`): `void`
 
-Defined in: [packages/framework/src/utility/Utility.ts:194](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L194)
+Defined in: [packages/framework/src/utility/Utility.ts:194](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L194)
 
 #### Parameters
 
@@ -278,7 +278,7 @@ Returns an iterable of keys in the map
 
 > **remove**(`k`, `value`): `void`
 
-Defined in: [packages/framework/src/utility/Utility.ts:207](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L207)
+Defined in: [packages/framework/src/utility/Utility.ts:207](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L207)
 
 #### Parameters
 
@@ -328,7 +328,7 @@ Adds a new element with a specified key and value to the Map. If an element with
 
 > **sureGet**(`k`): `T`[]
 
-Defined in: [packages/framework/src/utility/Utility.ts:203](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L203)
+Defined in: [packages/framework/src/utility/Utility.ts:203](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L203)
 
 #### Parameters
 

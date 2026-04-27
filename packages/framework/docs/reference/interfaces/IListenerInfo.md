@@ -6,7 +6,7 @@
 
 # Interface: IListenerInfo
 
-Defined in: [packages/framework/src/interface/rpc.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L8)
+Defined in: [packages/framework/src/interface/rpc.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L8)
 
 ## Extended by
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:8](https://github.com/sora-
 
 > **codecs**: `string`[]
 
-Defined in: [packages/framework/src/interface/rpc.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L11)
+Defined in: [packages/framework/src/interface/rpc.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L11)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:11](https://github.com/sora
 
 > **endpoint**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L10)
+Defined in: [packages/framework/src/interface/rpc.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L10)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:10](https://github.com/sora
 
 > **labels**: [`ILabels`](ILabels.md)
 
-Defined in: [packages/framework/src/interface/rpc.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L12)
+Defined in: [packages/framework/src/interface/rpc.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L12)
 
 ***
 
@@ -42,4 +42,4 @@ Defined in: [packages/framework/src/interface/rpc.ts:12](https://github.com/sora
 
 > **protocol**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L9)
+Defined in: [packages/framework/src/interface/rpc.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L9)

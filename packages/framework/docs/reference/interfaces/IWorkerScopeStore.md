@@ -6,7 +6,7 @@
 
 # Interface: IWorkerScopeStore
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L4)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L4)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:4](https://
 
 > **worker**: [`Worker`](../classes/Worker.md)
 
-Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:5](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L5)
+Defined in: [packages/framework/src/lib/context/scope/WorkerScope.ts:5](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/context/scope/WorkerScope.ts#L5)

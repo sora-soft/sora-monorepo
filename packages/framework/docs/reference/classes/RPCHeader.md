@@ -6,7 +6,7 @@
 
 # Class: RPCHeader
 
-Defined in: [packages/framework/src/Const.ts:1](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L1)
+Defined in: [packages/framework/src/Const.ts:1](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L1)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/Const.ts:1](https://github.com/sora-soft/sor
 
 > `readonly` `static` **RpcFromIdHeader**: `"x-sora-rpc-from-id"` = `'x-sora-rpc-from-id'`
 
-Defined in: [packages/framework/src/Const.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L3)
+Defined in: [packages/framework/src/Const.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L3)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [packages/framework/src/Const.ts:3](https://github.com/sora-soft/sor
 
 > `readonly` `static` **RpcIdHeader**: `"x-sora-rpc-id"` = `'x-sora-rpc-id'`
 
-Defined in: [packages/framework/src/Const.ts:2](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L2)
+Defined in: [packages/framework/src/Const.ts:2](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L2)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [packages/framework/src/Const.ts:2](https://github.com/sora-soft/sor
 
 > `readonly` `static` **RpcServiceId**: `"x-sora-rpc-service-id"` = `'x-sora-rpc-service-id'`
 
-Defined in: [packages/framework/src/Const.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L7)
+Defined in: [packages/framework/src/Const.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L7)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/Const.ts:7](https://github.com/sora-soft/sor
 
 > `readonly` `static` **RpcSessionHeader**: `"x-sora-rpc-session"` = `'x-sora-rpc-session'`
 
-Defined in: [packages/framework/src/Const.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L4)
+Defined in: [packages/framework/src/Const.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L4)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [packages/framework/src/Const.ts:4](https://github.com/sora-soft/sor
 
 > `readonly` `static` **RPCTraceParent**: `"traceparent"` = `'traceparent'`
 
-Defined in: [packages/framework/src/Const.ts:5](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L5)
+Defined in: [packages/framework/src/Const.ts:5](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L5)
 
 ***
 
@@ -64,4 +64,4 @@ Defined in: [packages/framework/src/Const.ts:5](https://github.com/sora-soft/sor
 
 > `readonly` `static` **RPCTraceState**: `"tracestate"` = `'tracestate'`
 
-Defined in: [packages/framework/src/Const.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L6)
+Defined in: [packages/framework/src/Const.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Const.ts#L6)

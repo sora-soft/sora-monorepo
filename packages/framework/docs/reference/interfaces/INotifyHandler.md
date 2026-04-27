@@ -6,7 +6,7 @@
 
 # Interface: INotifyHandler\<Req\>
 
-Defined in: [packages/framework/src/lib/rpc/Route.ts:35](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L35)
+Defined in: [packages/framework/src/lib/rpc/Route.ts:35](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L35)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/lib/rpc/Route.ts:35](https://github.com/sora
 
 > **handler**: [`NotifyHandler`](../type-aliases/NotifyHandler.md)\<`Req`\>
 
-Defined in: [packages/framework/src/lib/rpc/Route.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L37)
+Defined in: [packages/framework/src/lib/rpc/Route.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L37)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [packages/framework/src/lib/rpc/Route.ts:37](https://github.com/sora
 
 > **params**: `any`[]
 
-Defined in: [packages/framework/src/lib/rpc/Route.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L36)
+Defined in: [packages/framework/src/lib/rpc/Route.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L36)

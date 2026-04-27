@@ -6,7 +6,7 @@
 
 # Class: ProviderManager
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L32)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L32)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:32](http
 
 > **new ProviderManager**(`discovery`): `ProviderManager`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:33](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L33)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:33](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L33)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:33](http
 
 > **get** **discovery**(): [`Discovery`](Discovery.md)
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:70](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L70)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:70](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L70)
 
 ##### Returns
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:70](http
 
 > **addProvider**(`provider`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:58](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L58)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:58](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L58)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:58](http
 
 > **connectorFactory**(`target`): [`Connector`](Connector.md) \| `null`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:41](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L41)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:41](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L41)
 
 #### Parameters
 
@@ -82,7 +82,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:41](http
 
 > **findAvailableCodec**(`codes`): [`Codec`](Codec.md)\<`any`\> \| `null`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:49](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L49)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:49](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L49)
 
 #### Parameters
 
@@ -100,7 +100,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:49](http
 
 > **getAllProviders**(): [`Provider`](Provider.md)\<[`Route`](Route.md)\>[]
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:66](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L66)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:66](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L66)
 
 #### Returns
 
@@ -112,7 +112,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:66](http
 
 > **registerSender**(`protocol`, `builder`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L37)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L37)
 
 #### Parameters
 
@@ -134,7 +134,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:37](http
 
 > **removeProvider**(`provider`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:62](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L62)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderManager.ts:62](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderManager.ts#L62)
 
 #### Parameters
 

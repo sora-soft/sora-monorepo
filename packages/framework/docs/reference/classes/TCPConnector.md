@@ -6,7 +6,7 @@
 
 # Class: TCPConnector
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L20)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L20)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:20](https://github.c
 
 > **new TCPConnector**(`socket?`): `TCPConnector`
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:27](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L27)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:27](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L27)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:27](https://github.c
 
 > `protected` `optional` **codec\_?**: [`Codec`](Codec.md)\<`any`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:276](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L276)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:276](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L276)
 
 #### Inherited from
 
@@ -52,7 +52,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:276](https://github.com
 
 > `protected` **lifeCycle\_**: [`LifeCycle`](LifeCycle.md)\<[`ConnectorState`](../enumerations/ConnectorState.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:274](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L274)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:274](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L274)
 
 #### Inherited from
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:274](https://github.com
 
 > `protected` **session\_**: `string` \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:277](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L277)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:277](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L277)
 
 #### Inherited from
 
@@ -76,7 +76,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:277](https://github.com
 
 > `protected` `optional` **target\_?**: [`IListenerInfo`](../interfaces/IListenerInfo.md)
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:275](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L275)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:275](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L275)
 
 #### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:275](https://github.com
 
 > **get** **dataSubject**(): `Subject`\<[`IRawNetPacket`](../type-aliases/IRawNetPacket.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:266](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L266)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:266](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L266)
 
 ##### Returns
 
@@ -108,7 +108,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:266](https://github.com
 
 > **get** **protocol**(): `string`
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:216](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L216)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:216](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L216)
 
 ##### Returns
 
@@ -126,7 +126,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:216](https://github.
 
 > **get** **scope**(): [`Scope`](Scope.md)\<`unknown`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:270](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L270)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:270](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L270)
 
 ##### Returns
 
@@ -144,7 +144,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:270](https://github.com
 
 > **get** **session**(): `string` \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:254](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L254)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:254](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L254)
 
 ##### Returns
 
@@ -154,7 +154,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:254](https://github.com
 
 > **set** **session**(`value`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:258](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L258)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:258](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L258)
 
 ##### Parameters
 
@@ -178,7 +178,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:258](https://github.com
 
 > **get** **state**(): [`ConnectorState`](../enumerations/ConnectorState.md)
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:246](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L246)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:246](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L246)
 
 ##### Returns
 
@@ -196,7 +196,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:246](https://github.com
 
 > **get** **stateSubject**(): `BehaviorSubject`\<[`ConnectorState`](../enumerations/ConnectorState.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:250](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L250)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:250](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L250)
 
 ##### Returns
 
@@ -214,7 +214,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:250](https://github.com
 
 > **get** **target**(): [`IListenerInfo`](../interfaces/IListenerInfo.md) \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:262](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L262)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:262](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L262)
 
 ##### Returns
 
@@ -230,7 +230,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:262](https://github.com
 
 > `protected` **connect**(`listenInfo`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:55](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L55)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:55](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L55)
 
 #### Parameters
 
@@ -252,7 +252,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:55](https://github.c
 
 > `protected` **disablePingPong**(): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:178](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L178)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:178](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L178)
 
 #### Returns
 
@@ -268,7 +268,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:178](https://github.com
 
 > `protected` **disconnect**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:142](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L142)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:142](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L142)
 
 #### Returns
 
@@ -284,7 +284,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:142](https://github.
 
 > `protected` **enablePingPong**(): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:147](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L147)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:147](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L147)
 
 #### Returns
 
@@ -300,7 +300,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:147](https://github.com
 
 > `protected` **handleCommand**(`command`, `args`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:214](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L214)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:214](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L214)
 
 #### Parameters
 
@@ -326,7 +326,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:214](https://github.com
 
 > `protected` **handleIncomeMessage**(`data`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:187](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L187)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:187](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L187)
 
 #### Parameters
 
@@ -348,7 +348,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:187](https://github.com
 
 > **isAvailable**(): `boolean`
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:51](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L51)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:51](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L51)
 
 #### Returns
 
@@ -364,7 +364,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:51](https://github.c
 
 > **off**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:96](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L96)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:96](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L96)
 
 #### Returns
 
@@ -380,7 +380,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:96](https://github.com/
 
 > **onCodecSelected**(`code`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:80](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L80)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:80](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L80)
 
 #### Parameters
 
@@ -402,7 +402,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:80](https://github.com/
 
 > `protected` **onPingError**(`err`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:171](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L171)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:171](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L171)
 
 #### Parameters
 
@@ -424,7 +424,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:171](https://github.com
 
 > **selectCodec**(`code`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:170](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L170)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:170](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L170)
 
 #### Parameters
 
@@ -446,7 +446,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:170](https://github.
 
 > **send**(`packet`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:150](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L150)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:150](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L150)
 
 #### Parameters
 
@@ -468,7 +468,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:150](https://github.
 
 > **sendCommand**(`command`, `args?`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:131](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L131)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:131](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L131)
 
 #### Parameters
 
@@ -494,7 +494,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:131](https://github.com
 
 > **sendNotify**(`notify`, `fromId?`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:125](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L125)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:125](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L125)
 
 #### Parameters
 
@@ -520,7 +520,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:125](https://github.com
 
 > `protected` **sendPing**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:139](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L139)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:139](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L139)
 
 #### Parameters
 
@@ -542,7 +542,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:139](https://github.com
 
 > `protected` **sendPong**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:143](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L143)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:143](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L143)
 
 #### Parameters
 
@@ -564,7 +564,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:143](https://github.com
 
 > **sendRaw**(`payload`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:158](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L158)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:158](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L158)
 
 #### Parameters
 
@@ -586,7 +586,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:158](https://github.
 
 > **start**(`target`, `codec`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:62](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L62)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:62](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L62)
 
 #### Parameters
 
@@ -612,7 +612,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:62](https://github.com/
 
 > **waitForReady**(`ttlMs`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Connector.ts:57](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L57)
+Defined in: [packages/framework/src/lib/rpc/Connector.ts:57](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Connector.ts#L57)
 
 #### Parameters
 
@@ -634,7 +634,7 @@ Defined in: [packages/framework/src/lib/rpc/Connector.ts:57](https://github.com/
 
 > `static` **register**(`manager?`): `void`
 
-Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L21)
+Defined in: [packages/framework/src/lib/tcp/TCPConnector.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPConnector.ts#L21)
 
 #### Parameters
 

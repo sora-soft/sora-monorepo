@@ -6,7 +6,7 @@
 
 # Abstract Class: ProviderStrategy
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:5](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L5)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:5](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L5)
 
 ## Extended by
 
@@ -28,7 +28,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:5](http
 
 > `abstract` **init**(`provider`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L6)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L6)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:6](http
 
 > `abstract` **isBroadcastEnabled**(`provider`): `boolean`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L12)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L12)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:12](htt
 
 > `abstract` **selectListener**(`provider`, `list`, `senders`): `Promise`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L8)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L8)
 
 #### Parameters
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:8](http
 
 > `abstract` **selectSender**(`provider`, `senders`, `toId?`): `Promise`\<[`RPCSender`](RPCSender.md) \| `null`\>
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L10)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderStrategy.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderStrategy.ts#L10)
 
 #### Parameters
 

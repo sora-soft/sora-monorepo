@@ -6,7 +6,7 @@
 
 # Enumeration: FrameworkErrorCode
 
-Defined in: [packages/framework/src/ErrorCode.ts:1](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L1)
+Defined in: [packages/framework/src/ErrorCode.ts:1](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L1)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:1](https://github.com/sora-soft
 
 > **ErrCodecNotFound**: `"ERR_CODEC_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:14](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L14)
+Defined in: [packages/framework/src/ErrorCode.ts:14](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L14)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:14](https://github.com/sora-sof
 
 > **ErrComponentNotConnected**: `"ERR_COMPONENT_NOT_CONNECTED"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:18](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L18)
+Defined in: [packages/framework/src/ErrorCode.ts:18](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L18)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:18](https://github.com/sora-sof
 
 > **ErrComponentOptionsNotSet**: `"ERR_COMPONENT_OPTIONS_NOT_SET"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L7)
+Defined in: [packages/framework/src/ErrorCode.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L7)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:7](https://github.com/sora-soft
 
 > **ErrConnectorConnectFailed**: `"ERR_CONNECTOR_CONNECT_FAILED"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L11)
+Defined in: [packages/framework/src/ErrorCode.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L11)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:11](https://github.com/sora-sof
 
 > **ErrConnectorDuplicateEnableResponse**: `"ERR_CONNECTOR_DUPLICATE_ENABLE_RESPONSE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L10)
+Defined in: [packages/framework/src/ErrorCode.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L10)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:10](https://github.com/sora-sof
 
 > **ErrDuplicatedComponent**: `"ERR_DUPLICATED_COMPONENT"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L8)
+Defined in: [packages/framework/src/ErrorCode.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L8)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:8](https://github.com/sora-soft
 
 > **ErrFrameworkUnknown**: `"ERR_FRAMEWORK_UNKNOWN"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:2](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L2)
+Defined in: [packages/framework/src/ErrorCode.ts:2](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L2)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:2](https://github.com/sora-soft
 
 > **ErrNodeServiceCannotBeClosed**: `"ERR_NODE_SERVICE_CANNOT_BE_CLOSED"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:5](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L5)
+Defined in: [packages/framework/src/ErrorCode.ts:5](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L5)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:5](https://github.com/sora-soft
 
 > **ErrNodeServiceCannotBeCreated**: `"ERR_NODE_SERVICE_CANNOT_BE_CREATED"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L6)
+Defined in: [packages/framework/src/ErrorCode.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L6)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:6](https://github.com/sora-soft
 
 > **ErrProviderConnectStrategy**: `"ERR_PROVIDER_CONNECT_STRATEGY"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L15)
+Defined in: [packages/framework/src/ErrorCode.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L15)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:15](https://github.com/sora-sof
 
 > **ErrRpcMethodNotFound**: `"ERR_RPC_METHOD_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:13](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L13)
+Defined in: [packages/framework/src/ErrorCode.ts:13](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L13)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:13](https://github.com/sora-sof
 
 > **ErrServiceNotFound**: `"ERR_SERVICE_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L3)
+Defined in: [packages/framework/src/ErrorCode.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L3)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:3](https://github.com/sora-soft
 
 > **ErrSessionNotFound**: `"ERR_SESSION_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L12)
+Defined in: [packages/framework/src/ErrorCode.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L12)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:12](https://github.com/sora-sof
 
 > **ErrTraceScopeNotFound**: `"Err_TRACE_SCOPE_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L16)
+Defined in: [packages/framework/src/ErrorCode.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L16)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:16](https://github.com/sora-sof
 
 > **ErrWorkerNotFound**: `"ERR_WORKER_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L4)
+Defined in: [packages/framework/src/ErrorCode.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L4)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:4](https://github.com/sora-soft
 
 > **ErrWorkerScopeNotFound**: `"ERR_WORKER_SCOPE_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L17)
+Defined in: [packages/framework/src/ErrorCode.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L17)
 
 ***
 
@@ -142,4 +142,4 @@ Defined in: [packages/framework/src/ErrorCode.ts:17](https://github.com/sora-sof
 
 > **ErrWorkerState**: `"ERR_WORKER_STATE_NOT_READY"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L9)
+Defined in: [packages/framework/src/ErrorCode.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L9)

@@ -6,7 +6,7 @@
 
 # Interface: IReqCreateWorker
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L15)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L15)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:15](https://githu
 
 > **name**: `string`
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L16)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L16)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:16](https://githu
 
 > **options**: [`IWorkerOptions`](IWorkerOptions.md)
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L17)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L17)

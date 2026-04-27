@@ -6,7 +6,7 @@
 
 # Class: Request\<T\>
 
-Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L6)
+Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L6)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:6](https://github.
 
 > **new Request**\<`T`\>(`packet`): `Request`\<`T`\>
 
-Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L7)
+Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L7)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:7](https://github.
 
 > `protected` **headers\_**: `Map`\<`string`, `string`\>
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:49](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L49)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:49](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L49)
 
 #### Inherited from
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:49](https://gith
 
 > **get** **headers**(): `object`
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L45)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L45)
 
 ##### Returns
 
@@ -78,7 +78,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:45](https://gith
 
 > **get** **method**(): `string`
 
-Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L25)
+Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L25)
 
 ##### Returns
 
@@ -92,7 +92,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:25](https://github
 
 > **get** **opCode**(): [`OPCode`](../enumerations/OPCode.md)
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L32)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L32)
 
 ##### Returns
 
@@ -110,7 +110,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:32](https://gith
 
 > **get** **payload**(): `T`
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L37)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L37)
 
 ##### Returns
 
@@ -120,7 +120,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:37](https://gith
 
 > **set** **payload**(`value`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:41](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L41)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:41](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L41)
 
 ##### Parameters
 
@@ -144,7 +144,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:41](https://gith
 
 > **get** **service**(): `string`
 
-Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:29](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L29)
+Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:29](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L29)
 
 ##### Returns
 
@@ -156,7 +156,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:29](https://github
 
 > **getHeader**(`header`): `string` \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L12)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L12)
 
 #### Parameters
 
@@ -178,7 +178,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:12](https://gith
 
 > **loadHeaders**(`headers`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L16)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L16)
 
 #### Parameters
 
@@ -198,7 +198,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:16](https://gith
 
 > **setHeader**(`header`, `value?`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L24)
+Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/RawPacket.ts#L24)
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Defined in: [packages/framework/src/lib/rpc/packet/RawPacket.ts:24](https://gith
 
 > **toPacket**(): [`IRawNetPacket`](../type-aliases/IRawNetPacket.md)\<`T`\>
 
-Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L15)
+Defined in: [packages/framework/src/lib/rpc/packet/Request.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/packet/Request.ts#L15)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 # Abstract Class: Service
 
-Defined in: [packages/framework/src/lib/Service.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L16)
+Defined in: [packages/framework/src/lib/Service.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L16)
 
 ## Extends
 
@@ -23,7 +23,7 @@ Defined in: [packages/framework/src/lib/Service.ts:16](https://github.com/sora-s
 
 > **new Service**(`name`, `options`): `Service`
 
-Defined in: [packages/framework/src/lib/Service.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L17)
+Defined in: [packages/framework/src/lib/Service.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L17)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ Defined in: [packages/framework/src/lib/Service.ts:17](https://github.com/sora-s
 
 > `protected` **executor\_**: [`Executor`](Executor.md)
 
-Defined in: [packages/framework/src/lib/Worker.ts:207](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L207)
+Defined in: [packages/framework/src/lib/Worker.ts:207](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L207)
 
 #### Inherited from
 
@@ -61,7 +61,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:207](https://github.com/sora-s
 
 > `protected` **intervalJobTimer\_**: [`Timer`](Timer.md)
 
-Defined in: [packages/framework/src/lib/Worker.ts:208](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L208)
+Defined in: [packages/framework/src/lib/Worker.ts:208](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L208)
 
 #### Inherited from
 
@@ -73,7 +73,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:208](https://github.com/sora-s
 
 > `protected` **lifeCycle\_**: [`LifeCycle`](LifeCycle.md)\<[`WorkerState`](../enumerations/WorkerState.md)\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:206](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L206)
+Defined in: [packages/framework/src/lib/Worker.ts:206](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L206)
 
 #### Inherited from
 
@@ -85,7 +85,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:206](https://github.com/sora-s
 
 > `protected` **options\_**: [`IServiceOptions`](../interfaces/IServiceOptions.md)
 
-Defined in: [packages/framework/src/lib/Service.ts:174](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L174)
+Defined in: [packages/framework/src/lib/Service.ts:174](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L174)
 
 #### Overrides
 
@@ -97,7 +97,7 @@ Defined in: [packages/framework/src/lib/Service.ts:174](https://github.com/sora-
 
 > `protected` **scope\_**: [`WorkerScope`](WorkerScope.md)
 
-Defined in: [packages/framework/src/lib/Worker.ts:211](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L211)
+Defined in: [packages/framework/src/lib/Worker.ts:211](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L211)
 
 #### Inherited from
 
@@ -109,7 +109,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:211](https://github.com/sora-s
 
 > `protected` **startTime\_**: `number`
 
-Defined in: [packages/framework/src/lib/Worker.ts:209](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L209)
+Defined in: [packages/framework/src/lib/Worker.ts:209](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L209)
 
 #### Inherited from
 
@@ -123,7 +123,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:209](https://github.com/sora-s
 
 > **get** **executor**(): [`Executor`](Executor.md)\<[`Scope`](Scope.md)\<`unknown`\>\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:187](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L187)
+Defined in: [packages/framework/src/lib/Worker.ts:187](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L187)
 
 ##### Returns
 
@@ -141,7 +141,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:187](https://github.com/sora-s
 
 > **get** **id**(): `string`
 
-Defined in: [packages/framework/src/lib/Worker.ts:183](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L183)
+Defined in: [packages/framework/src/lib/Worker.ts:183](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L183)
 
 ##### Returns
 
@@ -159,7 +159,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:183](https://github.com/sora-s
 
 > **get** **isIdle**(): `boolean`
 
-Defined in: [packages/framework/src/lib/Worker.ts:171](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L171)
+Defined in: [packages/framework/src/lib/Worker.ts:171](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L171)
 
 ##### Returns
 
@@ -177,7 +177,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:171](https://github.com/sora-s
 
 > **get** **lifeCycle**(): [`LifeCycle`](LifeCycle.md)\<[`WorkerState`](../enumerations/WorkerState.md)\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:179](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L179)
+Defined in: [packages/framework/src/lib/Worker.ts:179](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L179)
 
 ##### Returns
 
@@ -195,7 +195,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:179](https://github.com/sora-s
 
 > **get** `protected` **listenerPool**(): `Map`\<`string`, [`Listener`](Listener.md)\>
 
-Defined in: [packages/framework/src/lib/Service.ts:170](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L170)
+Defined in: [packages/framework/src/lib/Service.ts:170](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L170)
 
 ##### Returns
 
@@ -209,7 +209,7 @@ Defined in: [packages/framework/src/lib/Service.ts:170](https://github.com/sora-
 
 > **get** **metaData**(): [`IServiceMetaData`](../interfaces/IServiceMetaData.md)
 
-Defined in: [packages/framework/src/lib/Service.ts:144](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L144)
+Defined in: [packages/framework/src/lib/Service.ts:144](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L144)
 
 ##### Returns
 
@@ -227,7 +227,7 @@ Defined in: [packages/framework/src/lib/Service.ts:144](https://github.com/sora-
 
 > **get** **name**(): `string`
 
-Defined in: [packages/framework/src/lib/Worker.ts:163](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L163)
+Defined in: [packages/framework/src/lib/Worker.ts:163](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L163)
 
 ##### Returns
 
@@ -245,7 +245,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:163](https://github.com/sora-s
 
 > **get** **runData**(): [`IServiceRunData`](../interfaces/IServiceRunData.md)
 
-Defined in: [packages/framework/src/lib/Service.ts:156](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L156)
+Defined in: [packages/framework/src/lib/Service.ts:156](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L156)
 
 ##### Returns
 
@@ -259,7 +259,7 @@ Defined in: [packages/framework/src/lib/Service.ts:156](https://github.com/sora-
 
 > **get** **scope**(): [`WorkerScope`](WorkerScope.md)
 
-Defined in: [packages/framework/src/lib/Worker.ts:191](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L191)
+Defined in: [packages/framework/src/lib/Worker.ts:191](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L191)
 
 ##### Returns
 
@@ -277,7 +277,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:191](https://github.com/sora-s
 
 > **get** **state**(): [`WorkerState`](../enumerations/WorkerState.md)
 
-Defined in: [packages/framework/src/lib/Worker.ts:167](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L167)
+Defined in: [packages/framework/src/lib/Worker.ts:167](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L167)
 
 ##### Returns
 
@@ -295,7 +295,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:167](https://github.com/sora-s
 
 > **get** **stateSubject**(): `BehaviorSubject`\<[`WorkerState`](../enumerations/WorkerState.md)\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:175](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L175)
+Defined in: [packages/framework/src/lib/Worker.ts:175](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L175)
 
 ##### Returns
 
@@ -311,7 +311,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:175](https://github.com/sora-s
 
 > **connectComponent**(`component`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:126](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L126)
+Defined in: [packages/framework/src/lib/Worker.ts:126](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L126)
 
 #### Parameters
 
@@ -333,7 +333,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:126](https://github.com/sora-s
 
 > **connectComponents**(`components`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:120](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L120)
+Defined in: [packages/framework/src/lib/Worker.ts:120](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L120)
 
 #### Parameters
 
@@ -355,7 +355,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:120](https://github.com/sora-s
 
 > **disconnectComponent**(`name`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:136](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L136)
+Defined in: [packages/framework/src/lib/Worker.ts:136](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L136)
 
 #### Parameters
 
@@ -377,7 +377,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:136](https://github.com/sora-s
 
 > `protected` **doJob**\<`T`\>(`executor`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:68](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L68)
+Defined in: [packages/framework/src/lib/Worker.ts:68](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L68)
 
 #### Type Parameters
 
@@ -405,7 +405,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:68](https://github.com/sora-so
 
 > `protected` **doJobInterval**(`executor`, `timeMS`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:72](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L72)
+Defined in: [packages/framework/src/lib/Worker.ts:72](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L72)
 
 #### Parameters
 
@@ -431,7 +431,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:72](https://github.com/sora-so
 
 > `protected` **getListenerMetaData**(`listener`): `object`
 
-Defined in: [packages/framework/src/lib/Service.ts:126](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L126)
+Defined in: [packages/framework/src/lib/Service.ts:126](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L126)
 
 #### Parameters
 
@@ -493,7 +493,7 @@ Defined in: [packages/framework/src/lib/Service.ts:126](https://github.com/sora-
 
 > **hasComponent**(`id`): `boolean`
 
-Defined in: [packages/framework/src/lib/Worker.ts:153](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L153)
+Defined in: [packages/framework/src/lib/Worker.ts:153](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L153)
 
 #### Parameters
 
@@ -515,7 +515,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:153](https://github.com/sora-s
 
 > **hasProvider**(`id`): `boolean`
 
-Defined in: [packages/framework/src/lib/Worker.ts:149](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L149)
+Defined in: [packages/framework/src/lib/Worker.ts:149](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L149)
 
 #### Parameters
 
@@ -537,7 +537,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:149](https://github.com/sora-s
 
 > **installListener**(`listener`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Service.ts:58](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L58)
+Defined in: [packages/framework/src/lib/Service.ts:58](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L58)
 
 #### Parameters
 
@@ -555,7 +555,7 @@ Defined in: [packages/framework/src/lib/Service.ts:58](https://github.com/sora-s
 
 > `protected` **onError**(`err`): `void`
 
-Defined in: [packages/framework/src/lib/Worker.ts:157](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L157)
+Defined in: [packages/framework/src/lib/Worker.ts:157](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L157)
 
 #### Parameters
 
@@ -577,7 +577,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:157](https://github.com/sora-s
 
 > **registerEndpoint**(`listener`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Service.ts:98](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L98)
+Defined in: [packages/framework/src/lib/Service.ts:98](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L98)
 
 #### Parameters
 
@@ -595,7 +595,7 @@ Defined in: [packages/framework/src/lib/Service.ts:98](https://github.com/sora-s
 
 > **registerEndpoints**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Service.ts:107](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L107)
+Defined in: [packages/framework/src/lib/Service.ts:107](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L107)
 
 #### Returns
 
@@ -607,7 +607,7 @@ Defined in: [packages/framework/src/lib/Service.ts:107](https://github.com/sora-
 
 > **registerProvider**(`provider`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:98](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L98)
+Defined in: [packages/framework/src/lib/Worker.ts:98](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L98)
 
 #### Parameters
 
@@ -629,7 +629,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:98](https://github.com/sora-so
 
 > **registerProviders**(`providers`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:92](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L92)
+Defined in: [packages/framework/src/lib/Worker.ts:92](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L92)
 
 #### Parameters
 
@@ -651,7 +651,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:92](https://github.com/sora-so
 
 > **runCommand**(...`args`): `Promise`\<`boolean`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:64](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L64)
+Defined in: [packages/framework/src/lib/Worker.ts:64](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L64)
 
 #### Parameters
 
@@ -673,7 +673,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:64](https://github.com/sora-so
 
 > `abstract` `protected` **shutdown**(`reason`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:43](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L43)
+Defined in: [packages/framework/src/lib/Worker.ts:43](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L43)
 
 #### Parameters
 
@@ -695,7 +695,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:43](https://github.com/sora-so
 
 > **start**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:34](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L34)
+Defined in: [packages/framework/src/lib/Worker.ts:34](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L34)
 
 #### Returns
 
@@ -711,7 +711,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:34](https://github.com/sora-so
 
 > `abstract` `protected` **startup**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:33](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L33)
+Defined in: [packages/framework/src/lib/Worker.ts:33](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L33)
 
 #### Returns
 
@@ -727,7 +727,7 @@ Defined in: [packages/framework/src/lib/Worker.ts:33](https://github.com/sora-so
 
 > **stop**(`reason`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Service.ts:42](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L42)
+Defined in: [packages/framework/src/lib/Service.ts:42](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L42)
 
 #### Parameters
 
@@ -749,7 +749,7 @@ Defined in: [packages/framework/src/lib/Service.ts:42](https://github.com/sora-s
 
 > **uninstallListener**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Service.ts:113](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L113)
+Defined in: [packages/framework/src/lib/Service.ts:113](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Service.ts#L113)
 
 #### Parameters
 
@@ -767,7 +767,7 @@ Defined in: [packages/framework/src/lib/Service.ts:113](https://github.com/sora-
 
 > **unregisterProvider**(`name`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Worker.ts:108](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L108)
+Defined in: [packages/framework/src/lib/Worker.ts:108](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Worker.ts#L108)
 
 #### Parameters
 

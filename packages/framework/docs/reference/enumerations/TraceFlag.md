@@ -6,7 +6,7 @@
 
 # Enumeration: TraceFlag
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L22)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L22)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:22](https://github
 
 > **NotSampled**: `0`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L24)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L24)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/framework/src/lib/trace/TraceContext.ts:24](https://github
 
 > **Sampled**: `1`
 
-Defined in: [packages/framework/src/lib/trace/TraceContext.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L23)
+Defined in: [packages/framework/src/lib/trace/TraceContext.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/trace/TraceContext.ts#L23)

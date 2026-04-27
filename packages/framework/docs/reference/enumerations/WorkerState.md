@@ -6,7 +6,7 @@
 
 # Enumeration: WorkerState
 
-Defined in: [packages/framework/src/Enum.ts:1](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L1)
+Defined in: [packages/framework/src/Enum.ts:1](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L1)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/Enum.ts:1](https://github.com/sora-soft/sora
 
 > **Error**: `100`
 
-Defined in: [packages/framework/src/Enum.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L7)
+Defined in: [packages/framework/src/Enum.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L7)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/Enum.ts:7](https://github.com/sora-soft/sora
 
 > **Init**: `1`
 
-Defined in: [packages/framework/src/Enum.ts:2](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L2)
+Defined in: [packages/framework/src/Enum.ts:2](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L2)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/framework/src/Enum.ts:2](https://github.com/sora-soft/sora
 
 > **Pending**: `2`
 
-Defined in: [packages/framework/src/Enum.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L3)
+Defined in: [packages/framework/src/Enum.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L3)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/framework/src/Enum.ts:3](https://github.com/sora-soft/sora
 
 > **Ready**: `3`
 
-Defined in: [packages/framework/src/Enum.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L4)
+Defined in: [packages/framework/src/Enum.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L4)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/Enum.ts:4](https://github.com/sora-soft/sora
 
 > **Stopped**: `5`
 
-Defined in: [packages/framework/src/Enum.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L6)
+Defined in: [packages/framework/src/Enum.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L6)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [packages/framework/src/Enum.ts:6](https://github.com/sora-soft/sora
 
 > **Stopping**: `4`
 
-Defined in: [packages/framework/src/Enum.ts:5](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L5)
+Defined in: [packages/framework/src/Enum.ts:5](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L5)

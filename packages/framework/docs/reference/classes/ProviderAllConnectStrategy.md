@@ -6,7 +6,7 @@
 
 # Class: ProviderAllConnectStrategy
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L8)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L8)
 
 ## Extends
 
@@ -32,7 +32,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.
 
 > **init**(): `void`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L9)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L9)
 
 #### Returns
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.
 
 > **isBroadcastEnabled**(): `boolean`
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L25)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L25)
 
 #### Returns
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.
 
 > **selectListener**(`provider`, `listeners`): `Promise`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L11)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L11)
 
 #### Parameters
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.
 
 > **selectSender**(`provider`, `senders`, `toId?`): `Promise`\<[`RPCSender`](RPCSender.md) \| `null`\>
 
-Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L17)
+Defined in: [packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/provider/ProviderAllConnectStrategy.ts#L17)
 
 #### Parameters
 

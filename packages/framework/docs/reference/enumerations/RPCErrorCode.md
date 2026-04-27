@@ -6,7 +6,7 @@
 
 # Enumeration: RPCErrorCode
 
-Defined in: [packages/framework/src/ErrorCode.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L21)
+Defined in: [packages/framework/src/ErrorCode.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L21)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:21](https://github.com/sora-sof
 
 > **ErrRpcBodyParseFailed**: `"ERR_RPC_BODY_PARSE_FAILED"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L32)
+Defined in: [packages/framework/src/ErrorCode.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L32)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:32](https://github.com/sora-sof
 
 > **ErrRpcCodecNotFound**: `"ERR_RPC_CODEC_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:41](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L41)
+Defined in: [packages/framework/src/ErrorCode.ts:41](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L41)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:41](https://github.com/sora-sof
 
 > **ErrRpcConnectorNull**: `"ERR_RPC_CONNECTOR_NULL"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:42](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L42)
+Defined in: [packages/framework/src/ErrorCode.ts:42](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L42)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:42](https://github.com/sora-sof
 
 > **ErrRpcEmptyResponse**: `"ERR_RPC_EMPTY_RESPONSE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:35](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L35)
+Defined in: [packages/framework/src/ErrorCode.ts:35](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L35)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:35](https://github.com/sora-sof
 
 > **ErrRpcIdNotFound**: `"ERR_RPC_ID_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:39](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L39)
+Defined in: [packages/framework/src/ErrorCode.ts:39](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L39)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:39](https://github.com/sora-sof
 
 > **ErrRpcInvalidResponse**: `"ERR_RPC_INVALID_RESPONSE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L36)
+Defined in: [packages/framework/src/ErrorCode.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L36)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:36](https://github.com/sora-sof
 
 > **ErrRpcMethodNotFound**: `"ERR_RPC_METHOD_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:29](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L29)
+Defined in: [packages/framework/src/ErrorCode.ts:29](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L29)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:29](https://github.com/sora-sof
 
 > **ErrRpcNotSupportOpcode**: `"ERR_RPC_NOT_SUPPORT_OPCODE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:34](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L34)
+Defined in: [packages/framework/src/ErrorCode.ts:34](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L34)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:34](https://github.com/sora-sof
 
 > **ErrRpcParameterInvalid**: `"ERR_RPC_PARAMETER_INVALID"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:30](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L30)
+Defined in: [packages/framework/src/ErrorCode.ts:30](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L30)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:30](https://github.com/sora-sof
 
 > **ErrRpcPayloadTooLarge**: `"ERR_RPC_PAYLOAD_TOO_LARGE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:33](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L33)
+Defined in: [packages/framework/src/ErrorCode.ts:33](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L33)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:33](https://github.com/sora-sof
 
 > **ErrRpcPingError**: `"ERR_RPC_PING_ERROR"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:40](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L40)
+Defined in: [packages/framework/src/ErrorCode.ts:40](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L40)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:40](https://github.com/sora-sof
 
 > **ErrRpcProviderNotAvailable**: `"ERR_RPC_PROVIDER_NOT_AVAILABLE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:28](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L28)
+Defined in: [packages/framework/src/ErrorCode.ts:28](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L28)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:28](https://github.com/sora-sof
 
 > **ErrRpcRegisterMiddleware**: `"ERR_RPC_REGISTER_MIDDLEWARE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:38](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L38)
+Defined in: [packages/framework/src/ErrorCode.ts:38](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L38)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:38](https://github.com/sora-sof
 
 > **ErrRpcRegisterProvider**: `"ERR_RPC_PROVIDER_METHOD_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L37)
+Defined in: [packages/framework/src/ErrorCode.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L37)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:37](https://github.com/sora-sof
 
 > **ErrRpcSenderCanNotConnect**: `"ERR_RPC_SENDER_CAN_NOT_CONNECT"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:26](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L26)
+Defined in: [packages/framework/src/ErrorCode.ts:26](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L26)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:26](https://github.com/sora-sof
 
 > **ErrRpcSenderInner**: `"ERR_RPC_SENDER_INNER"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:27](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L27)
+Defined in: [packages/framework/src/ErrorCode.ts:27](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L27)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:27](https://github.com/sora-sof
 
 > **ErrRpcSenderNotFound**: `"ERR_RPC_SENDER_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L25)
+Defined in: [packages/framework/src/ErrorCode.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L25)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:25](https://github.com/sora-sof
 
 > **ErrRpcServiceNotFound**: `"ERR_RPC_SERVICE_NOT_FOUND"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L31)
+Defined in: [packages/framework/src/ErrorCode.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L31)
 
 ***
 
@@ -158,7 +158,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:31](https://github.com/sora-sof
 
 > **ErrRpcTimeout**: `"ERR_RPC_TIMEOUT"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L23)
+Defined in: [packages/framework/src/ErrorCode.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L23)
 
 ***
 
@@ -166,7 +166,7 @@ Defined in: [packages/framework/src/ErrorCode.ts:23](https://github.com/sora-sof
 
 > **ErrRpcTunnelNotAvailable**: `"ERR_RPC_TUNNEL_NOT_AVAILABLE"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L24)
+Defined in: [packages/framework/src/ErrorCode.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L24)
 
 ***
 
@@ -174,4 +174,4 @@ Defined in: [packages/framework/src/ErrorCode.ts:24](https://github.com/sora-sof
 
 > **ErrRpcUnknown**: `"ERR_RPC_UNKNOWN"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L22)
+Defined in: [packages/framework/src/ErrorCode.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L22)

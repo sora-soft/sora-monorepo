@@ -6,7 +6,7 @@
 
 # Class: TCPListener
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L20)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L20)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:20](https://github.co
 
 > **new TCPListener**(`options`, `callback`, `codecs`, `labels?`): `TCPListener`
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L21)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L21)
 
 #### Parameters
 
@@ -52,7 +52,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:21](https://github.co
 
 > `protected` **callback\_**: [`ListenerCallback`](../type-aliases/ListenerCallback.md)
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:186](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L186)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:186](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L186)
 
 #### Inherited from
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:186](https://github.com/
 
 > `protected` **codecs\_**: [`Codec`](Codec.md)\<`any`\>[]
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:182](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L182)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:182](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L182)
 
 #### Inherited from
 
@@ -76,7 +76,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:182](https://github.com/
 
 > `protected` **connectionSubject\_**: `Subject`\<[`IListenerConnectionEvent`](../interfaces/IListenerConnectionEvent.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:181](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L181)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:181](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L181)
 
 #### Inherited from
 
@@ -88,7 +88,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:181](https://github.com/
 
 > `protected` **connectors\_**: `Map`\<`string`, [`Connector`](Connector.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:185](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L185)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:185](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L185)
 
 #### Inherited from
 
@@ -100,7 +100,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:185](https://github.com/
 
 > `protected` **lifeCycle\_**: [`LifeCycle`](LifeCycle.md)\<[`ListenerState`](../enumerations/ListenerState.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:183](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L183)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:183](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L183)
 
 #### Inherited from
 
@@ -112,7 +112,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:183](https://github.com/
 
 > `protected` **weightSubject\_**: `BehaviorSubject`\<`number`\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:184](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L184)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:184](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L184)
 
 #### Inherited from
 
@@ -126,7 +126,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:184](https://github.com/
 
 > **get** **connectionSubject**(): `Subject`\<[`IListenerConnectionEvent`](../interfaces/IListenerConnectionEvent.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:165](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L165)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:165](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L165)
 
 ##### Returns
 
@@ -144,7 +144,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:165](https://github.com/
 
 > **get** **connectors**(): `Map`\<`string`, [`Connector`](Connector.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:169](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L169)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:169](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L169)
 
 ##### Returns
 
@@ -162,7 +162,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:169](https://github.com/
 
 > **get** **exposeHost**(): `string`
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:102](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L102)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:102](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L102)
 
 ##### Returns
 
@@ -176,7 +176,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:102](https://github.c
 
 > **get** **id**(): `string`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:150](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L150)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:150](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L150)
 
 ##### Returns
 
@@ -194,7 +194,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:150](https://github.com/
 
 > **get** **info**(): [`IListenerInfo`](../interfaces/IListenerInfo.md) \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:130](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L130)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:130](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L130)
 
 ##### Returns
 
@@ -212,7 +212,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:130](https://github.com/
 
 > **get** **labels**(): [`ILabels`](../interfaces/ILabels.md)
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:154](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L154)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:154](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L154)
 
 ##### Returns
 
@@ -230,7 +230,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:154](https://github.com/
 
 > **get** **metaData**(): `object`
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:106](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L106)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:106](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L106)
 
 ##### Returns
 
@@ -272,7 +272,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:106](https://github.c
 
 > **get** **scope**(): [`Scope`](Scope.md)\<`unknown`\> \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:173](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L173)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:173](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L173)
 
 ##### Returns
 
@@ -290,7 +290,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:173](https://github.com/
 
 > **get** **state**(): [`ListenerState`](../enumerations/ListenerState.md)
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:142](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L142)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:142](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L142)
 
 ##### Returns
 
@@ -308,7 +308,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:142](https://github.com/
 
 > **get** **stateSubject**(): `BehaviorSubject`\<[`ListenerState`](../enumerations/ListenerState.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:134](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L134)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:134](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L134)
 
 ##### Returns
 
@@ -326,7 +326,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:134](https://github.com/
 
 > **get** **version**(): `string`
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:117](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L117)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:117](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L117)
 
 ##### Returns
 
@@ -344,7 +344,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:117](https://github.c
 
 > **get** **weight**(): `number`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:146](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L146)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:146](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L146)
 
 ##### Returns
 
@@ -362,7 +362,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:146](https://github.com/
 
 > **get** **weightSubject**(): `BehaviorSubject`\<`number`\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:138](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L138)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:138](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L138)
 
 ##### Returns
 
@@ -378,7 +378,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:138](https://github.com/
 
 > `protected` **closeAllConnector**(): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:108](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L108)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:108](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L108)
 
 #### Returns
 
@@ -394,7 +394,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:108](https://github.com/
 
 > **getConnector**(`session`): [`Connector`](Connector.md) \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:114](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L114)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:114](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L114)
 
 #### Parameters
 
@@ -416,7 +416,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:114](https://github.com/
 
 > `protected` **listen**(): `Promise`\<[`IListenerInfo`](../interfaces/IListenerInfo.md)\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L36)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L36)
 
 #### Returns
 
@@ -432,7 +432,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:36](https://github.co
 
 > `protected` **listenRange**(`min`, `max`): `Promise`\<[`IListenerInfo`](../interfaces/IListenerInfo.md)\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:50](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L50)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:50](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L50)
 
 #### Parameters
 
@@ -454,7 +454,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:50](https://github.co
 
 > `protected` **newConnector**(`session`, `connector`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:66](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L66)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:66](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L66)
 
 #### Parameters
 
@@ -480,7 +480,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:66](https://github.com/s
 
 > **setWeight**(`weight`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:118](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L118)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:118](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L118)
 
 #### Parameters
 
@@ -502,7 +502,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:118](https://github.com/
 
 > `protected` **shutdown**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:86](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L86)
+Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:86](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/tcp/TCPListener.ts#L86)
 
 #### Returns
 
@@ -518,7 +518,7 @@ Defined in: [packages/framework/src/lib/tcp/TCPListener.ts:86](https://github.co
 
 > **startListen**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L45)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L45)
 
 #### Returns
 
@@ -534,7 +534,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:45](https://github.com/s
 
 > **stopListen**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:57](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L57)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:57](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L57)
 
 #### Returns
 

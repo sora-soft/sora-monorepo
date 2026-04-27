@@ -6,7 +6,7 @@
 
 # Enumeration: OPCode
 
-Defined in: [packages/framework/src/Enum.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L21)
+Defined in: [packages/framework/src/Enum.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L21)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/Enum.ts:21](https://github.com/sora-soft/sor
 
 > **Command**: `4`
 
-Defined in: [packages/framework/src/Enum.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L25)
+Defined in: [packages/framework/src/Enum.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L25)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/Enum.ts:25](https://github.com/sora-soft/sor
 
 > **Notify**: `3`
 
-Defined in: [packages/framework/src/Enum.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L24)
+Defined in: [packages/framework/src/Enum.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L24)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/framework/src/Enum.ts:24](https://github.com/sora-soft/sor
 
 > **Request**: `1`
 
-Defined in: [packages/framework/src/Enum.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L22)
+Defined in: [packages/framework/src/Enum.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L22)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [packages/framework/src/Enum.ts:22](https://github.com/sora-soft/sor
 
 > **Response**: `2`
 
-Defined in: [packages/framework/src/Enum.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L23)
+Defined in: [packages/framework/src/Enum.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/Enum.ts#L23)

@@ -6,7 +6,7 @@
 
 # Interface: ISenderMetaData
 
-Defined in: [packages/framework/src/interface/rpc.ts:82](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L82)
+Defined in: [packages/framework/src/interface/rpc.ts:82](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L82)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:82](https://github.com/sora
 
 > `readonly` `optional` **codec?**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:89](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L89)
+Defined in: [packages/framework/src/interface/rpc.ts:89](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L89)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:89](https://github.com/sora
 
 > `readonly` **id**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:83](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L83)
+Defined in: [packages/framework/src/interface/rpc.ts:83](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L83)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:83](https://github.com/sora
 
 > `readonly` **listenerId**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:85](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L85)
+Defined in: [packages/framework/src/interface/rpc.ts:85](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L85)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:85](https://github.com/sora
 
 > `readonly` `optional` **protocol?**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:88](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L88)
+Defined in: [packages/framework/src/interface/rpc.ts:88](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L88)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:88](https://github.com/sora
 
 > `readonly` **state**: [`RPCSenderState`](../enumerations/RPCSenderState.md)
 
-Defined in: [packages/framework/src/interface/rpc.ts:84](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L84)
+Defined in: [packages/framework/src/interface/rpc.ts:84](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L84)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:84](https://github.com/sora
 
 > `readonly` **status**: [`RPCSenderStatus`](../enumerations/RPCSenderStatus.md)
 
-Defined in: [packages/framework/src/interface/rpc.ts:90](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L90)
+Defined in: [packages/framework/src/interface/rpc.ts:90](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L90)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:90](https://github.com/sora
 
 > `readonly` **targetId**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:86](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L86)
+Defined in: [packages/framework/src/interface/rpc.ts:86](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L86)
 
 ***
 
@@ -70,4 +70,4 @@ Defined in: [packages/framework/src/interface/rpc.ts:86](https://github.com/sora
 
 > `readonly` **weight**: `number`
 
-Defined in: [packages/framework/src/interface/rpc.ts:87](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L87)
+Defined in: [packages/framework/src/interface/rpc.ts:87](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L87)

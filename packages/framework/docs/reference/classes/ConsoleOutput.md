@@ -6,7 +6,7 @@
 
 # Class: ConsoleOutput
 
-Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:14](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L14)
+Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:14](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L14)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:14](https://gith
 
 > **new ConsoleOutput**(`options`): `ConsoleOutput`
 
-Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L15)
+Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L15)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:15](https://gith
 
 > `protected` **consoleOptions\_**: [`IConsoleOutputOptions`](../interfaces/IConsoleOutputOptions.md)
 
-Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:57](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L57)
+Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:57](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L57)
 
 ## Methods
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:57](https://gith
 
 > **end**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:55](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L55)
+Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:55](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L55)
 
 #### Returns
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:55](https://gith
 
 > **log**(`log`): `void`
 
-Defined in: [packages/framework/src/lib/logger/LoggerOutput.ts:18](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/LoggerOutput.ts#L18)
+Defined in: [packages/framework/src/lib/logger/LoggerOutput.ts:18](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/LoggerOutput.ts#L18)
 
 #### Parameters
 
@@ -86,7 +86,7 @@ Defined in: [packages/framework/src/lib/logger/LoggerOutput.ts:18](https://githu
 
 > **output**(`data`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L20)
+Defined in: [packages/framework/src/lib/logger/ConsoleOutput.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/logger/ConsoleOutput.ts#L20)
 
 #### Parameters
 

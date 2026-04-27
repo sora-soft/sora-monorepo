@@ -6,7 +6,7 @@
 
 # Abstract Class: Discovery
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L11)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L11)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:11](https://githu
 
 > **new Discovery**(): `Discovery`
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L12)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L12)
 
 #### Returns
 
@@ -26,7 +26,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:12](https://githu
 
 > `protected` **listenerSubject\_**: `BehaviorSubject`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:77](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L77)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:77](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L77)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:77](https://githu
 
 > `protected` **nodeSubject\_**: `BehaviorSubject`\<[`INodeMetaData`](../interfaces/INodeMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:78](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L78)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:78](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L78)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:78](https://githu
 
 > `protected` **serviceSubject\_**: `BehaviorSubject`\<[`IServiceMetaData`](../interfaces/IServiceMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:76](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L76)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:76](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L76)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:76](https://githu
 
 > `protected` **workerSubject\_**: `BehaviorSubject`\<[`IWorkerMetaData`](../interfaces/IWorkerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:79](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L79)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:79](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L79)
 
 ## Accessors
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:79](https://githu
 
 > **get** `abstract` **info**(): [`IDiscoveryInfo`](../interfaces/IDiscoveryInfo.md)
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:75](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L75)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:75](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L75)
 
 ##### Returns
 
@@ -74,7 +74,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:75](https://githu
 
 > **get** **listenerSubject**(): `BehaviorSubject`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:61](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L61)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:61](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L61)
 
 ##### Returns
 
@@ -88,7 +88,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:61](https://githu
 
 > **get** **nodeSubject**(): `BehaviorSubject`\<[`INodeMetaData`](../interfaces/INodeMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:69](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L69)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:69](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L69)
 
 ##### Returns
 
@@ -102,7 +102,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:69](https://githu
 
 > **get** **serviceSubject**(): `BehaviorSubject`\<[`IServiceMetaData`](../interfaces/IServiceMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:57](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L57)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:57](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L57)
 
 ##### Returns
 
@@ -116,7 +116,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:57](https://githu
 
 > **get** `abstract` **version**(): `string`
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:73](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L73)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:73](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L73)
 
 ##### Returns
 
@@ -130,7 +130,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:73](https://githu
 
 > **get** **workerSubject**(): `BehaviorSubject`\<[`IWorkerMetaData`](../interfaces/IWorkerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:65](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L65)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:65](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L65)
 
 ##### Returns
 
@@ -142,7 +142,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:65](https://githu
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L45)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L45)
 
 #### Returns
 
@@ -154,7 +154,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:45](https://githu
 
 > `abstract` **createElection**(`name`): [`Election`](Election.md)
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:40](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L40)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:40](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L40)
 
 #### Parameters
 
@@ -172,7 +172,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:40](https://githu
 
 > **disconnect**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:49](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L49)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:49](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L49)
 
 #### Returns
 
@@ -184,7 +184,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:49](https://githu
 
 > `abstract` **getAllEndpointList**(): `Promise`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L17)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L17)
 
 #### Returns
 
@@ -196,7 +196,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:17](https://githu
 
 > `abstract` **getAllServiceList**(): `Promise`\<[`IServiceMetaData`](../interfaces/IServiceMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L15)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L15)
 
 #### Returns
 
@@ -208,7 +208,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:15](https://githu
 
 > `abstract` **getAllWorkerList**(): `Promise`\<[`IWorkerMetaData`](../interfaces/IWorkerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L20)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L20)
 
 #### Returns
 
@@ -220,7 +220,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:20](https://githu
 
 > `abstract` **getEndpointById**(`id`): `Promise`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md) \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:27](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L27)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:27](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L27)
 
 #### Parameters
 
@@ -238,7 +238,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:27](https://githu
 
 > `abstract` **getEndpointList**(`service`): `Promise`\<[`IListenerMetaData`](../interfaces/IListenerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:18](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L18)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:18](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L18)
 
 #### Parameters
 
@@ -256,7 +256,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:18](https://githu
 
 > `abstract` **getNodeById**(`id`): `Promise`\<[`INodeMetaData`](../interfaces/INodeMetaData.md) \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:26](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L26)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:26](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L26)
 
 #### Parameters
 
@@ -274,7 +274,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:26](https://githu
 
 > `abstract` **getNodeList**(): `Promise`\<[`INodeMetaData`](../interfaces/INodeMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:19](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L19)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:19](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L19)
 
 #### Returns
 
@@ -286,7 +286,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:19](https://githu
 
 > `abstract` **getServiceById**(`id`): `Promise`\<[`IServiceMetaData`](../interfaces/IServiceMetaData.md) \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L24)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L24)
 
 #### Parameters
 
@@ -304,7 +304,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:24](https://githu
 
 > `abstract` **getServiceList**(`name`): `Promise`\<[`IServiceMetaData`](../interfaces/IServiceMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L16)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L16)
 
 #### Parameters
 
@@ -322,7 +322,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:16](https://githu
 
 > `abstract` **getWorkerById**(`id`): `Promise`\<[`IWorkerMetaData`](../interfaces/IWorkerMetaData.md) \| `undefined`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L25)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L25)
 
 #### Parameters
 
@@ -340,7 +340,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:25](https://githu
 
 > `abstract` **getWorkerList**(`worker`): `Promise`\<[`IWorkerMetaData`](../interfaces/IWorkerMetaData.md)[]\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L21)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L21)
 
 #### Parameters
 
@@ -358,7 +358,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:21](https://githu
 
 > `abstract` **registerEndpoint**(`info`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L32)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L32)
 
 #### Parameters
 
@@ -376,7 +376,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:32](https://githu
 
 > `abstract` **registerNode**(`node`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:33](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L33)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:33](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L33)
 
 #### Parameters
 
@@ -394,7 +394,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:33](https://githu
 
 > `abstract` **registerService**(`service`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L31)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L31)
 
 #### Parameters
 
@@ -412,7 +412,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:31](https://githu
 
 > `abstract` **registerWorker**(`worker`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:30](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L30)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:30](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L30)
 
 #### Parameters
 
@@ -430,7 +430,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:30](https://githu
 
 > `abstract` `protected` **shutdown**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:43](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L43)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:43](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L43)
 
 #### Returns
 
@@ -442,7 +442,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:43](https://githu
 
 > `abstract` `protected` **startup**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:42](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L42)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:42](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L42)
 
 #### Returns
 
@@ -454,7 +454,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:42](https://githu
 
 > `abstract` **unregisterEndPoint**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L36)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L36)
 
 #### Parameters
 
@@ -472,7 +472,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:36](https://githu
 
 > `abstract` **unregisterNode**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L37)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L37)
 
 #### Parameters
 
@@ -490,7 +490,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:37](https://githu
 
 > `abstract` **unregisterService**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:35](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L35)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:35](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L35)
 
 #### Parameters
 
@@ -508,7 +508,7 @@ Defined in: [packages/framework/src/lib/discovery/Discovery.ts:35](https://githu
 
 > `abstract` **unregisterWorker**(`id`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/discovery/Discovery.ts:34](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L34)
+Defined in: [packages/framework/src/lib/discovery/Discovery.ts:34](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/discovery/Discovery.ts#L34)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: IRPCHandler\<Req, Res\>
 
-Defined in: [packages/framework/src/lib/rpc/Route.ts:29](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L29)
+Defined in: [packages/framework/src/lib/rpc/Route.ts:29](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L29)
 
 ## Type Parameters
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/lib/rpc/Route.ts:29](https://github.com/sora
 
 > **handler**: [`RPCHandler`](../type-aliases/RPCHandler.md)\<`Req`, `Res`\>
 
-Defined in: [packages/framework/src/lib/rpc/Route.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L31)
+Defined in: [packages/framework/src/lib/rpc/Route.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L31)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [packages/framework/src/lib/rpc/Route.ts:31](https://github.com/sora
 
 > **params**: `any`[]
 
-Defined in: [packages/framework/src/lib/rpc/Route.ts:30](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L30)
+Defined in: [packages/framework/src/lib/rpc/Route.ts:30](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Route.ts#L30)

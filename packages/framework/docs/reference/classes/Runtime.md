@@ -6,7 +6,7 @@
 
 # Class: Runtime
 
-Defined in: [packages/framework/src/lib/Runtime.ts:19](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L19)
+Defined in: [packages/framework/src/lib/Runtime.ts:19](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L19)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:19](https://github.com/sora-s
 
 > `static` **appVersion**: `string` = `'0.0.0'`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L21)
+Defined in: [packages/framework/src/lib/Runtime.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L21)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:21](https://github.com/sora-s
 
 > `static` **root**: `string`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L23)
+Defined in: [packages/framework/src/lib/Runtime.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L23)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:23](https://github.com/sora-s
 
 > `static` **startTime**: `number`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L22)
+Defined in: [packages/framework/src/lib/Runtime.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L22)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:22](https://github.com/sora-s
 
 > `static` **version**: `string` = `__VERSION__`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L20)
+Defined in: [packages/framework/src/lib/Runtime.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L20)
 
 ## Accessors
 
@@ -58,7 +58,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:20](https://github.com/sora-s
 
 > **get** `static` **components**(): [`Component`](Component.md)[]
 
-Defined in: [packages/framework/src/lib/Runtime.ts:263](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L263)
+Defined in: [packages/framework/src/lib/Runtime.ts:263](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L263)
 
 ##### Returns
 
@@ -72,7 +72,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:263](https://github.com/sora-
 
 > **get** `static` **discovery**(): [`Discovery`](Discovery.md)
 
-Defined in: [packages/framework/src/lib/Runtime.ts:243](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L243)
+Defined in: [packages/framework/src/lib/Runtime.ts:243](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L243)
 
 ##### Returns
 
@@ -86,7 +86,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:243](https://github.com/sora-
 
 > **get** `static` **frameLogger**(): [`FrameworkLogger`](FrameworkLogger.md)
 
-Defined in: [packages/framework/src/lib/Runtime.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L25)
+Defined in: [packages/framework/src/lib/Runtime.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L25)
 
 ##### Returns
 
@@ -100,7 +100,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:25](https://github.com/sora-s
 
 > **get** `static` **node**(): [`Node`](Node.md)
 
-Defined in: [packages/framework/src/lib/Runtime.ts:239](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L239)
+Defined in: [packages/framework/src/lib/Runtime.ts:239](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L239)
 
 ##### Returns
 
@@ -114,7 +114,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:239](https://github.com/sora-
 
 > **get** `static` **pvdManager**(): [`ProviderManager`](ProviderManager.md)
 
-Defined in: [packages/framework/src/lib/Runtime.ts:247](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L247)
+Defined in: [packages/framework/src/lib/Runtime.ts:247](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L247)
 
 ##### Returns
 
@@ -128,7 +128,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:247](https://github.com/sora-
 
 > **get** `static` **rpcLogger**(): [`RPCLogger`](RPCLogger.md)
 
-Defined in: [packages/framework/src/lib/Runtime.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L32)
+Defined in: [packages/framework/src/lib/Runtime.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L32)
 
 ##### Returns
 
@@ -142,7 +142,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:32](https://github.com/sora-s
 
 > **get** `static` **scope**(): `string`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:251](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L251)
+Defined in: [packages/framework/src/lib/Runtime.ts:251](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L251)
 
 ##### Returns
 
@@ -156,7 +156,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:251](https://github.com/sora-
 
 > **get** `static` **services**(): [`Service`](Service.md)[]
 
-Defined in: [packages/framework/src/lib/Runtime.ts:255](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L255)
+Defined in: [packages/framework/src/lib/Runtime.ts:255](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L255)
 
 ##### Returns
 
@@ -170,7 +170,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:255](https://github.com/sora-
 
 > **get** `static` **workers**(): [`Worker`](Worker.md)[]
 
-Defined in: [packages/framework/src/lib/Runtime.ts:259](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L259)
+Defined in: [packages/framework/src/lib/Runtime.ts:259](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L259)
 
 ##### Returns
 
@@ -182,7 +182,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:259](https://github.com/sora-
 
 > `static` **getComponent**\<`T`\>(`name`): `T`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:235](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L235)
+Defined in: [packages/framework/src/lib/Runtime.ts:235](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L235)
 
 #### Type Parameters
 
@@ -206,7 +206,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:235](https://github.com/sora-
 
 > `static` **installService**(`service`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:132](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L132)
+Defined in: [packages/framework/src/lib/Runtime.ts:132](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L132)
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:132](https://github.com/sora-
 
 > `static` **installWorker**(`worker`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:161](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L161)
+Defined in: [packages/framework/src/lib/Runtime.ts:161](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L161)
 
 #### Parameters
 
@@ -242,7 +242,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:161](https://github.com/sora-
 
 > `static` **loadConfig**(`options`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L36)
+Defined in: [packages/framework/src/lib/Runtime.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L36)
 
 #### Parameters
 
@@ -260,7 +260,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:36](https://github.com/sora-s
 
 > `static` **registerComponent**(`name`, `component`): `void`
 
-Defined in: [packages/framework/src/lib/Runtime.ts:225](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L225)
+Defined in: [packages/framework/src/lib/Runtime.ts:225](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L225)
 
 #### Parameters
 
@@ -282,7 +282,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:225](https://github.com/sora-
 
 > `static` **shutdown**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:84](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L84)
+Defined in: [packages/framework/src/lib/Runtime.ts:84](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L84)
 
 #### Returns
 
@@ -294,7 +294,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:84](https://github.com/sora-s
 
 > `static` **startup**(`node`, `discovery`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:41](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L41)
+Defined in: [packages/framework/src/lib/Runtime.ts:41](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L41)
 
 #### Parameters
 
@@ -316,7 +316,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:41](https://github.com/sora-s
 
 > `static` **uninstallService**(`id`, `reason`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:208](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L208)
+Defined in: [packages/framework/src/lib/Runtime.ts:208](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L208)
 
 #### Parameters
 
@@ -338,7 +338,7 @@ Defined in: [packages/framework/src/lib/Runtime.ts:208](https://github.com/sora-
 
 > `static` **uninstallWorker**(`id`, `reason`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Runtime.ts:190](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L190)
+Defined in: [packages/framework/src/lib/Runtime.ts:190](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Runtime.ts#L190)
 
 #### Parameters
 

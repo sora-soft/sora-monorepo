@@ -6,7 +6,7 @@
 
 # Interface: IReqRemoveWorker
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L20)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L20)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:20](https://githu
 
 > **id**: `string`
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L21)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L21)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:21](https://githu
 
 > **reason**: `string`
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L22)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L22)

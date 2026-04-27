@@ -6,7 +6,7 @@
 
 # Interface: IReqCreateService
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L10)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L10)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:10](https://githu
 
 > **name**: `string`
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L11)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L11)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:11](https://githu
 
 > **options**: [`IServiceOptions`](IServiceOptions.md)
 
-Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L12)
+Defined in: [packages/framework/src/lib/handler/NodeHandler.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/handler/NodeHandler.ts#L12)

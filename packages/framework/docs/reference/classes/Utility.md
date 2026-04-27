@@ -6,7 +6,7 @@
 
 # Class: Utility
 
-Defined in: [packages/framework/src/utility/Utility.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L6)
+Defined in: [packages/framework/src/utility/Utility.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L6)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:6](https://github.com/sor
 
 > `static` **deepCopy**\<`T`\>(`obj`): `T`
 
-Defined in: [packages/framework/src/utility/Utility.ts:110](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L110)
+Defined in: [packages/framework/src/utility/Utility.ts:110](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L110)
 
 #### Type Parameters
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:110](https://github.com/s
 
 > `static` **formatLogTimeString**(): `string`
 
-Defined in: [packages/framework/src/utility/Utility.ts:62](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L62)
+Defined in: [packages/framework/src/utility/Utility.ts:62](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L62)
 
 #### Returns
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:62](https://github.com/so
 
 > `static` **hideKeys**\<`T`\>(`obj`, `keys`): `Partial`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Utility.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L9)
+Defined in: [packages/framework/src/utility/Utility.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L9)
 
 #### Type Parameters
 
@@ -88,7 +88,7 @@ keyof `T`[]
 
 > `static` **isMeaningful**\<`T`\>(`object`): `object is NonUndefined<T>`
 
-Defined in: [packages/framework/src/utility/Utility.ts:18](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L18)
+Defined in: [packages/framework/src/utility/Utility.ts:18](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L18)
 
 #### Type Parameters
 
@@ -112,7 +112,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:18](https://github.com/so
 
 > `static` **isUndefined**(`object`): `object is undefined`
 
-Defined in: [packages/framework/src/utility/Utility.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L24)
+Defined in: [packages/framework/src/utility/Utility.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L24)
 
 #### Parameters
 
@@ -130,7 +130,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:24](https://github.com/so
 
 > `static` **mapToJSON**\<`T`\>(`map`): `object`
 
-Defined in: [packages/framework/src/utility/Utility.ts:28](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L28)
+Defined in: [packages/framework/src/utility/Utility.ts:28](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L28)
 
 #### Type Parameters
 
@@ -154,7 +154,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:28](https://github.com/so
 
 > `static` **null**(): `void`
 
-Defined in: [packages/framework/src/utility/Utility.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L7)
+Defined in: [packages/framework/src/utility/Utility.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L7)
 
 #### Returns
 
@@ -166,7 +166,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:7](https://github.com/sor
 
 > `static` **parseInt**(`value`): `number`
 
-Defined in: [packages/framework/src/utility/Utility.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L32)
+Defined in: [packages/framework/src/utility/Utility.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L32)
 
 #### Parameters
 
@@ -184,7 +184,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:32](https://github.com/so
 
 > `static` **randomInt**(`begin`, `end`): `number`
 
-Defined in: [packages/framework/src/utility/Utility.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L36)
+Defined in: [packages/framework/src/utility/Utility.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L36)
 
 #### Parameters
 
@@ -206,7 +206,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:36](https://github.com/so
 
 > `static` **randomOne**\<`T`\>(`array`): `T`
 
-Defined in: [packages/framework/src/utility/Utility.ts:43](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L43)
+Defined in: [packages/framework/src/utility/Utility.ts:43](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L43)
 
 #### Type Parameters
 
@@ -230,7 +230,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:43](https://github.com/so
 
 > `static` **randomOneByWeight**\<`T`\>(`array`, `weighter`): `T` \| `null`
 
-Defined in: [packages/framework/src/utility/Utility.ts:48](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L48)
+Defined in: [packages/framework/src/utility/Utility.ts:48](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L48)
 
 #### Type Parameters
 

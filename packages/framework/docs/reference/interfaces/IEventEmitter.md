@@ -6,7 +6,7 @@
 
 # Interface: IEventEmitter\<T\>
 
-Defined in: [packages/framework/src/interface/event.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/event.ts#L3)
+Defined in: [packages/framework/src/interface/event.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/event.ts#L3)
 
 ## Extends
 
@@ -98,7 +98,7 @@ v0.1.26
 
 > **emit**\<`U`\>(`event`, ...`args`): `boolean`
 
-Defined in: [packages/framework/src/interface/event.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/event.ts#L8)
+Defined in: [packages/framework/src/interface/event.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/event.ts#L8)
 
 #### Type Parameters
 
@@ -310,7 +310,7 @@ v10.0.0
 
 > **on**\<`U`\>(`event`, `listener`): `this`
 
-Defined in: [packages/framework/src/interface/event.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/event.ts#L4)
+Defined in: [packages/framework/src/interface/event.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/event.ts#L4)
 
 #### Type Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: IListenerConnectionEvent
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:23](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L23)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:23](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L23)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:23](https://github.com/s
 
 > **connector**: [`Connector`](../classes/Connector.md)
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L25)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L25)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:25](https://github.com/s
 
 > **session**: `string`
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:26](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L26)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:26](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L26)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [packages/framework/src/lib/rpc/Listener.ts:26](https://github.com/s
 
 > **type**: [`ListenerConnectionEventType`](../enumerations/ListenerConnectionEventType.md)
 
-Defined in: [packages/framework/src/lib/rpc/Listener.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L24)
+Defined in: [packages/framework/src/lib/rpc/Listener.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Listener.ts#L24)

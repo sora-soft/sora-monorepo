@@ -6,7 +6,7 @@
 
 # Interface: IListenerMetaData
 
-Defined in: [packages/framework/src/interface/discovery.ts:36](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L36)
+Defined in: [packages/framework/src/interface/discovery.ts:36](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L36)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:36](https://github.co
 
 > **codecs**: `string`[]
 
-Defined in: [packages/framework/src/interface/rpc.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L11)
+Defined in: [packages/framework/src/interface/rpc.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L11)
 
 #### Inherited from
 
@@ -30,7 +30,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:11](https://github.com/sora
 
 > **endpoint**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L10)
+Defined in: [packages/framework/src/interface/rpc.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L10)
 
 #### Inherited from
 
@@ -42,7 +42,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:10](https://github.com/sora
 
 > `readonly` **id**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:37](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L37)
+Defined in: [packages/framework/src/interface/discovery.ts:37](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L37)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:37](https://github.co
 
 > `readonly` **labels**: [`ILabels`](ILabels.md)
 
-Defined in: [packages/framework/src/interface/discovery.ts:41](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L41)
+Defined in: [packages/framework/src/interface/discovery.ts:41](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L41)
 
 #### Overrides
 
@@ -62,7 +62,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:41](https://github.co
 
 > **protocol**: `string`
 
-Defined in: [packages/framework/src/interface/rpc.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L9)
+Defined in: [packages/framework/src/interface/rpc.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L9)
 
 #### Inherited from
 
@@ -74,7 +74,7 @@ Defined in: [packages/framework/src/interface/rpc.ts:9](https://github.com/sora-
 
 > `readonly` **state**: [`ListenerState`](../enumerations/ListenerState.md)
 
-Defined in: [packages/framework/src/interface/discovery.ts:38](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L38)
+Defined in: [packages/framework/src/interface/discovery.ts:38](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L38)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:38](https://github.co
 
 > `readonly` **targetId**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:39](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L39)
+Defined in: [packages/framework/src/interface/discovery.ts:39](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L39)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/interface/discovery.ts:39](https://github.co
 
 > `readonly` **targetName**: `string`
 
-Defined in: [packages/framework/src/interface/discovery.ts:40](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L40)
+Defined in: [packages/framework/src/interface/discovery.ts:40](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L40)
 
 ***
 
@@ -98,4 +98,4 @@ Defined in: [packages/framework/src/interface/discovery.ts:40](https://github.co
 
 > `readonly` **weight**: `number`
 
-Defined in: [packages/framework/src/interface/discovery.ts:42](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L42)
+Defined in: [packages/framework/src/interface/discovery.ts:42](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/discovery.ts#L42)

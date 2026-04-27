@@ -8,7 +8,7 @@
 
 > **IRawNetPacket**\<`T`\> = [`IRawReqPacket`](../interfaces/IRawReqPacket.md)\<`T`\> \| [`IRawResPacket`](../interfaces/IRawResPacket.md)\<`unknown`\> \| [`IRawCommandPacket`](../interfaces/IRawCommandPacket.md)
 
-Defined in: [packages/framework/src/interface/rpc.ts:6](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L6)
+Defined in: [packages/framework/src/interface/rpc.ts:6](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/interface/rpc.ts#L6)
 
 ## Type Parameters
 

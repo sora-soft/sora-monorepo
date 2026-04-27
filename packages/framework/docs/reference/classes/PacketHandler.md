@@ -6,7 +6,7 @@
 
 # Class: PacketHandler
 
-Defined in: [packages/framework/src/lib/rpc/PacketHandler.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/PacketHandler.ts#L21)
+Defined in: [packages/framework/src/lib/rpc/PacketHandler.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/PacketHandler.ts#L21)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/lib/rpc/PacketHandler.ts:21](https://github.
 
 > `static` **handleNetPacket**(`data`, `connector`, `callback?`, `responseWaiter?`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/rpc/PacketHandler.ts:22](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/PacketHandler.ts#L22)
+Defined in: [packages/framework/src/lib/rpc/PacketHandler.ts:22](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/PacketHandler.ts#L22)
 
 #### Parameters
 

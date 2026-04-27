@@ -6,7 +6,7 @@
 
 # Class: StackUtility
 
-Defined in: [packages/framework/src/utility/Utility.ts:218](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L218)
+Defined in: [packages/framework/src/utility/Utility.ts:218](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L218)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:218](https://github.com/s
 
 > `static` **findNearestStack**(`out`): `StackFrame`
 
-Defined in: [packages/framework/src/utility/Utility.ts:240](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L240)
+Defined in: [packages/framework/src/utility/Utility.ts:240](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L240)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:240](https://github.com/s
 
 > `static` **formatFileName**(`filePath`): `string`
 
-Defined in: [packages/framework/src/utility/Utility.ts:261](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L261)
+Defined in: [packages/framework/src/utility/Utility.ts:261](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L261)
 
 #### Parameters
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:261](https://github.com/s
 
 > `static` **getInstantiationStack**(`targetConstructor`): `StackFrame`
 
-Defined in: [packages/framework/src/utility/Utility.ts:252](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L252)
+Defined in: [packages/framework/src/utility/Utility.ts:252](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L252)
 
 #### Parameters
 
@@ -78,7 +78,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:252](https://github.com/s
 
 > `static` **getStack**(): `string`[]
 
-Defined in: [packages/framework/src/utility/Utility.ts:219](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L219)
+Defined in: [packages/framework/src/utility/Utility.ts:219](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L219)
 
 #### Returns
 
@@ -90,7 +90,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:219](https://github.com/s
 
 > `static` **getStackFile**(`depth`): `string`
 
-Defined in: [packages/framework/src/utility/Utility.ts:233](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L233)
+Defined in: [packages/framework/src/utility/Utility.ts:233](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L233)
 
 #### Parameters
 
@@ -108,7 +108,7 @@ Defined in: [packages/framework/src/utility/Utility.ts:233](https://github.com/s
 
 > `static` **getStackPosition**(`depth`): `string`
 
-Defined in: [packages/framework/src/utility/Utility.ts:226](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L226)
+Defined in: [packages/framework/src/utility/Utility.ts:226](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Utility.ts#L226)
 
 #### Parameters
 

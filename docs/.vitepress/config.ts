@@ -65,7 +65,7 @@ export default defineConfig({
     nav: nav(),
     sidebar: sidebar(),
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/sora-soft/sora-monorepo' },
+      { icon: 'github', link: 'https://github.com/sora-soft/sora-node' },
     ],
     footer: {
       message: '基于 WTFPL 许可发布',

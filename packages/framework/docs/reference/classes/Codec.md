@@ -6,7 +6,7 @@
 
 # Abstract Class: Codec\<T\>
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:3](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L3)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:3](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L3)
 
 ## Extended by
 
@@ -36,7 +36,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:3](https://github.com/sora-
 
 > **get** `abstract` **code**(): `string`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:18](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L18)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:18](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L18)
 
 ##### Returns
 
@@ -48,7 +48,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:18](https://github.com/sora
 
 > `abstract` **decode**(`raw`): `Promise`\<[`IRawNetPacket`](../type-aliases/IRawNetPacket.md)\>
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:20](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L20)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:20](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L20)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:20](https://github.com/sora
 
 > `abstract` **encode**(`packet`): `Promise`\<`T`\>
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L21)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L21)
 
 #### Parameters
 
@@ -84,7 +84,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:21](https://github.com/sora
 
 > `static` **get**(`code`): `Codec`\<`any`\> \| `undefined`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L8)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L8)
 
 #### Parameters
 
@@ -102,7 +102,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:8](https://github.com/sora-
 
 > `static` **has**(`code`): `boolean`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L12)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L12)
 
 #### Parameters
 
@@ -120,7 +120,7 @@ Defined in: [packages/framework/src/lib/rpc/Codec.ts:12](https://github.com/sora
 
 > `static` **register**(`codec`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Codec.ts:4](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L4)
+Defined in: [packages/framework/src/lib/rpc/Codec.ts:4](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Codec.ts#L4)
 
 #### Parameters
 

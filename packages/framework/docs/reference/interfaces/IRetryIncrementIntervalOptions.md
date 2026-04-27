@@ -6,7 +6,7 @@
 
 # Interface: IRetryIncrementIntervalOptions
 
-Defined in: [packages/framework/src/utility/Retry.ts:27](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L27)
+Defined in: [packages/framework/src/utility/Retry.ts:27](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L27)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/framework/src/utility/Retry.ts:27](https://github.com/sora
 
 > **incrementInterval**: `true`
 
-Defined in: [packages/framework/src/utility/Retry.ts:28](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L28)
+Defined in: [packages/framework/src/utility/Retry.ts:28](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L28)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [packages/framework/src/utility/Retry.ts:28](https://github.com/sora
 
 > **maxRetryIntervalMS**: `number`
 
-Defined in: [packages/framework/src/utility/Retry.ts:29](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L29)
+Defined in: [packages/framework/src/utility/Retry.ts:29](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L29)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/utility/Retry.ts:29](https://github.com/sora
 
 > **maxRetryTimes**: `number`
 
-Defined in: [packages/framework/src/utility/Retry.ts:24](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L24)
+Defined in: [packages/framework/src/utility/Retry.ts:24](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L24)
 
 #### Inherited from
 
@@ -46,4 +46,4 @@ Defined in: [packages/framework/src/utility/Retry.ts:24](https://github.com/sora
 
 > **minIntervalMS**: `number`
 
-Defined in: [packages/framework/src/utility/Retry.ts:30](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L30)
+Defined in: [packages/framework/src/utility/Retry.ts:30](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L30)

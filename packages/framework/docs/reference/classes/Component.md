@@ -6,7 +6,7 @@
 
 # Abstract Class: Component
 
-Defined in: [packages/framework/src/lib/Component.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L15)
+Defined in: [packages/framework/src/lib/Component.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L15)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [packages/framework/src/lib/Component.ts:15](https://github.com/sora
 
 > **new Component**(): `Component`
 
-Defined in: [packages/framework/src/lib/Component.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L16)
+Defined in: [packages/framework/src/lib/Component.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L16)
 
 #### Returns
 
@@ -26,7 +26,7 @@ Defined in: [packages/framework/src/lib/Component.ts:16](https://github.com/sora
 
 > `protected` **id\_**: `string`
 
-Defined in: [packages/framework/src/lib/Component.ts:98](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L98)
+Defined in: [packages/framework/src/lib/Component.ts:98](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L98)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/lib/Component.ts:98](https://github.com/sora
 
 > `protected` **name\_**: `string`
 
-Defined in: [packages/framework/src/lib/Component.ts:99](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L99)
+Defined in: [packages/framework/src/lib/Component.ts:99](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L99)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [packages/framework/src/lib/Component.ts:99](https://github.com/sora
 
 > `protected` **options\_**: [`IComponentOptions`](../interfaces/IComponentOptions.md)
 
-Defined in: [packages/framework/src/lib/Component.ts:100](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L100)
+Defined in: [packages/framework/src/lib/Component.ts:100](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L100)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [packages/framework/src/lib/Component.ts:100](https://github.com/sor
 
 > `protected` **ref\_**: [`LifeRef`](LifeRef.md)\<`void`\>
 
-Defined in: [packages/framework/src/lib/Component.ts:101](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L101)
+Defined in: [packages/framework/src/lib/Component.ts:101](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L101)
 
 ## Accessors
 
@@ -60,7 +60,7 @@ Defined in: [packages/framework/src/lib/Component.ts:101](https://github.com/sor
 
 > **get** **id**(): `string`
 
-Defined in: [packages/framework/src/lib/Component.ts:65](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L65)
+Defined in: [packages/framework/src/lib/Component.ts:65](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L65)
 
 ##### Returns
 
@@ -74,7 +74,7 @@ Defined in: [packages/framework/src/lib/Component.ts:65](https://github.com/sora
 
 > **get** **meta**(): [`IComponentMetaData`](../interfaces/IComponentMetaData.md)
 
-Defined in: [packages/framework/src/lib/Component.ts:85](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L85)
+Defined in: [packages/framework/src/lib/Component.ts:85](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L85)
 
 ##### Returns
 
@@ -88,7 +88,7 @@ Defined in: [packages/framework/src/lib/Component.ts:85](https://github.com/sora
 
 > **get** **name**(): `string`
 
-Defined in: [packages/framework/src/lib/Component.ts:69](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L69)
+Defined in: [packages/framework/src/lib/Component.ts:69](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L69)
 
 ##### Returns
 
@@ -98,7 +98,7 @@ Defined in: [packages/framework/src/lib/Component.ts:69](https://github.com/sora
 
 > **set** **name**(`value`): `void`
 
-Defined in: [packages/framework/src/lib/Component.ts:73](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L73)
+Defined in: [packages/framework/src/lib/Component.ts:73](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L73)
 
 ##### Parameters
 
@@ -118,7 +118,7 @@ Defined in: [packages/framework/src/lib/Component.ts:73](https://github.com/sora
 
 > **get** **options**(): [`IComponentOptions`](../interfaces/IComponentOptions.md)
 
-Defined in: [packages/framework/src/lib/Component.ts:81](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L81)
+Defined in: [packages/framework/src/lib/Component.ts:81](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L81)
 
 ##### Returns
 
@@ -132,7 +132,7 @@ Defined in: [packages/framework/src/lib/Component.ts:81](https://github.com/sora
 
 > **get** **ready**(): `boolean`
 
-Defined in: [packages/framework/src/lib/Component.ts:77](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L77)
+Defined in: [packages/framework/src/lib/Component.ts:77](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L77)
 
 ##### Returns
 
@@ -146,7 +146,7 @@ Defined in: [packages/framework/src/lib/Component.ts:77](https://github.com/sora
 
 > **get** **scope**(): [`ComponentScope`](ComponentScope.md)
 
-Defined in: [packages/framework/src/lib/Component.ts:94](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L94)
+Defined in: [packages/framework/src/lib/Component.ts:94](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L94)
 
 ##### Returns
 
@@ -160,7 +160,7 @@ Defined in: [packages/framework/src/lib/Component.ts:94](https://github.com/sora
 
 > **get** `abstract` **version**(): `string`
 
-Defined in: [packages/framework/src/lib/Component.ts:63](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L63)
+Defined in: [packages/framework/src/lib/Component.ts:63](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L63)
 
 ##### Returns
 
@@ -172,7 +172,7 @@ Defined in: [packages/framework/src/lib/Component.ts:63](https://github.com/sora
 
 > `abstract` `protected` **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Component.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L31)
+Defined in: [packages/framework/src/lib/Component.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L31)
 
 #### Returns
 
@@ -184,7 +184,7 @@ Defined in: [packages/framework/src/lib/Component.ts:31](https://github.com/sora
 
 > `abstract` `protected` **disconnect**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Component.ts:46](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L46)
+Defined in: [packages/framework/src/lib/Component.ts:46](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L46)
 
 #### Returns
 
@@ -196,7 +196,7 @@ Defined in: [packages/framework/src/lib/Component.ts:46](https://github.com/sora
 
 > **loadOptions**(`options`): `void`
 
-Defined in: [packages/framework/src/lib/Component.ts:26](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L26)
+Defined in: [packages/framework/src/lib/Component.ts:26](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L26)
 
 #### Parameters
 
@@ -214,7 +214,7 @@ Defined in: [packages/framework/src/lib/Component.ts:26](https://github.com/sora
 
 > `abstract` `protected` **setOptions**(`options`): `void`
 
-Defined in: [packages/framework/src/lib/Component.ts:25](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L25)
+Defined in: [packages/framework/src/lib/Component.ts:25](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L25)
 
 #### Parameters
 
@@ -232,7 +232,7 @@ Defined in: [packages/framework/src/lib/Component.ts:25](https://github.com/sora
 
 > **start**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Component.ts:32](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L32)
+Defined in: [packages/framework/src/lib/Component.ts:32](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L32)
 
 #### Returns
 
@@ -244,7 +244,7 @@ Defined in: [packages/framework/src/lib/Component.ts:32](https://github.com/sora
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/lib/Component.ts:47](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L47)
+Defined in: [packages/framework/src/lib/Component.ts:47](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/Component.ts#L47)
 
 #### Returns
 

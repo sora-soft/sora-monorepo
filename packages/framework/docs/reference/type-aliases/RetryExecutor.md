@@ -8,7 +8,7 @@
 
 > **RetryExecutor**\<`T`\> = () => `Promise`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Retry.ts:17](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L17)
+Defined in: [packages/framework/src/utility/Retry.ts:17](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Retry.ts#L17)
 
 ## Type Parameters
 

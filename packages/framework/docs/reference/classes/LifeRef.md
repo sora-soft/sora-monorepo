@@ -6,7 +6,7 @@
 
 # Class: LifeRef\<T\>
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:15](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L15)
+Defined in: [packages/framework/src/utility/LifeRef.ts:15](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L15)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:15](https://github.com/so
 
 > **new LifeRef**\<`T`\>(): `LifeRef`\<`T`\>
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:16](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L16)
+Defined in: [packages/framework/src/utility/LifeRef.ts:16](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L16)
 
 #### Returns
 
@@ -34,7 +34,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:16](https://github.com/so
 
 > **get** **count**(): `number`
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:59](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L59)
+Defined in: [packages/framework/src/utility/LifeRef.ts:59](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L59)
 
 ##### Returns
 
@@ -44,7 +44,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:59](https://github.com/so
 
 > **set** **count**(`value`): `void`
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:63](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L63)
+Defined in: [packages/framework/src/utility/LifeRef.ts:63](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L63)
 
 ##### Parameters
 
@@ -62,7 +62,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:63](https://github.com/so
 
 > **add**(`callback`): `Promise`\<`T`\>
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:21](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L21)
+Defined in: [packages/framework/src/utility/LifeRef.ts:21](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L21)
 
 #### Parameters
 
@@ -80,7 +80,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:21](https://github.com/so
 
 > **minus**(`callback`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L31)
+Defined in: [packages/framework/src/utility/LifeRef.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L31)
 
 #### Parameters
 
@@ -98,7 +98,7 @@ Defined in: [packages/framework/src/utility/LifeRef.ts:31](https://github.com/so
 
 > **waitFor**(`value`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/utility/LifeRef.ts:44](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L44)
+Defined in: [packages/framework/src/utility/LifeRef.ts:44](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/LifeRef.ts#L44)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: IQueueExecutorInfo\<T\>
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L8)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L8)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/utility/QueueExecutor.ts:8](https://github.c
 
 > **executor**: [`JobExecutor`](../type-aliases/JobExecutor.md)
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:11](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L11)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:11](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [packages/framework/src/utility/QueueExecutor.ts:11](https://github.
 
 > **reject**: (`err`) => `void`
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:10](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L10)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:10](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L10)
 
 #### Parameters
 
@@ -46,4 +46,4 @@ Defined in: [packages/framework/src/utility/QueueExecutor.ts:10](https://github.
 
 > **resolve**: [`PromiseResolver`](../type-aliases/PromiseResolver.md)\<`T`\>
 
-Defined in: [packages/framework/src/utility/QueueExecutor.ts:9](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L9)
+Defined in: [packages/framework/src/utility/QueueExecutor.ts:9](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/QueueExecutor.ts#L9)

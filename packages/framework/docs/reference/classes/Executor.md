@@ -6,7 +6,7 @@
 
 # Class: Executor\<S\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:7](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L7)
+Defined in: [packages/framework/src/utility/Executor.ts:7](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L7)
 
 ## Extended by
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:7](https://github.com/so
 
 > **new Executor**\<`S`\>(`scope?`): `Executor`\<`S`\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:8](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L8)
+Defined in: [packages/framework/src/utility/Executor.ts:8](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L8)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:8](https://github.com/so
 
 > `protected` **isStopped\_**: `boolean` = `true`
 
-Defined in: [packages/framework/src/utility/Executor.ts:53](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L53)
+Defined in: [packages/framework/src/utility/Executor.ts:53](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L53)
 
 ## Accessors
 
@@ -52,7 +52,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:53](https://github.com/s
 
 > **get** **isIdle**(): `boolean`
 
-Defined in: [packages/framework/src/utility/Executor.ts:41](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L41)
+Defined in: [packages/framework/src/utility/Executor.ts:41](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L41)
 
 ##### Returns
 
@@ -64,7 +64,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:41](https://github.com/s
 
 > **doJob**\<`T`\>(`executor`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L12)
+Defined in: [packages/framework/src/utility/Executor.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L12)
 
 #### Type Parameters
 
@@ -88,7 +88,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:12](https://github.com/s
 
 > `protected` **runInContext**\<`T`\>(`callback`): `Promise`\<`T`\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L45)
+Defined in: [packages/framework/src/utility/Executor.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L45)
 
 #### Type Parameters
 
@@ -112,7 +112,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:45](https://github.com/s
 
 > **start**(): `void`
 
-Defined in: [packages/framework/src/utility/Executor.ts:31](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L31)
+Defined in: [packages/framework/src/utility/Executor.ts:31](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L31)
 
 #### Returns
 
@@ -124,7 +124,7 @@ Defined in: [packages/framework/src/utility/Executor.ts:31](https://github.com/s
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/utility/Executor.ts:35](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L35)
+Defined in: [packages/framework/src/utility/Executor.ts:35](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Executor.ts#L35)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 # Enumeration: RetryErrorCode
 
-Defined in: [packages/framework/src/ErrorCode.ts:45](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L45)
+Defined in: [packages/framework/src/ErrorCode.ts:45](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L45)
 
 ## Enumeration Members
 
@@ -14,4 +14,4 @@ Defined in: [packages/framework/src/ErrorCode.ts:45](https://github.com/sora-sof
 
 > **ErrRetryTooManyRetry**: `"ERR_RETRY_TOO_MANY_RETRY"`
 
-Defined in: [packages/framework/src/ErrorCode.ts:46](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L46)
+Defined in: [packages/framework/src/ErrorCode.ts:46](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/ErrorCode.ts#L46)

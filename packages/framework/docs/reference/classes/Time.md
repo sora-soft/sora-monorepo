@@ -6,7 +6,7 @@
 
 # Class: Time
 
-Defined in: [packages/framework/src/utility/Time.ts:1](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Time.ts#L1)
+Defined in: [packages/framework/src/utility/Time.ts:1](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Time.ts#L1)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/framework/src/utility/Time.ts:1](https://github.com/sora-s
 
 > `static` **timeout**(`timeMS`, `signal?`): `Promise`\<`void`\>
 
-Defined in: [packages/framework/src/utility/Time.ts:2](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Time.ts#L2)
+Defined in: [packages/framework/src/utility/Time.ts:2](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/utility/Time.ts#L2)
 
 #### Parameters
 

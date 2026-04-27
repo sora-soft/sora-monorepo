@@ -6,7 +6,7 @@
 
 # Class: Broadcaster\<T\>
 
-Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:12](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L12)
+Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:12](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L12)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:12](https://github.co
 
 > **new Broadcaster**\<`T`\>(): `Broadcaster`\<`T`\>
 
-Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:13](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L13)
+Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:13](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L13)
 
 #### Returns
 
@@ -32,7 +32,7 @@ Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:13](https://github.co
 
 > **notify**(`fromId?`, `toSession?`): [`ConvertRouteMethod`](../type-aliases/ConvertRouteMethod.md)\<`T`\>
 
-Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:71](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L71)
+Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:71](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L71)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:71](https://github.co
 
 > **registerConnector**(`method`, `connector`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:18](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L18)
+Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:18](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L18)
 
 #### Parameters
 
@@ -76,7 +76,7 @@ keyof `T`
 
 > **removeConnector**(`session`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:47](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L47)
+Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:47](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L47)
 
 #### Parameters
 
@@ -94,7 +94,7 @@ Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:47](https://github.co
 
 > **unregisterConnector**(`method`, `session`): `void`
 
-Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:56](https://github.com/sora-soft/sora-monorepo/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L56)
+Defined in: [packages/framework/src/lib/rpc/Broadcaster.ts:56](https://github.com/sora-soft/sora-node/blob/b502ee5b534689cc7d2350abf8d8b0ff780961fe/packages/framework/src/lib/rpc/Broadcaster.ts#L56)
 
 #### Parameters
 

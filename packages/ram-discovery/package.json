@@ -11,7 +11,7 @@
     "lint": "eslint src/",
     "preversion": "eslint src/ && npm run build"
   },
-  "repository": "git@github.com:sora-soft/sora-monorepo.git",
+  "repository": "git@github.com:sora-soft/sora-node.git",
   "type": "module",
   "exports": {
     ".": "./dist/index.js"
@@ -27,9 +27,9 @@
   "author": "yaya",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/sora-soft/sora-monorepo/issues"
+    "url": "https://github.com/sora-soft/sora-node/issues"
   },
-  "homepage": "https://github.com/sora-soft/sora-monorepo",
+  "homepage": "https://github.com/sora-soft/sora-node",
   "devDependencies": {
     "@swc/core": "^1.15.30",
     "rimraf": "^3.0.2",
