@@ -53,7 +53,7 @@ function getApiSidebarGroups(): { text: string; collapsed: boolean; items: { tex
 export default defineConfig({
   lang: 'zh-CN',
   title: 'Sora',
-  description: '高性能 TypeScript 微服务框架',
+  description: '快速搭建 MVP 的渐进式 TypeScript 微服务框架',
   base: '/',
   lastUpdated: true,
   cleanUrls: true,
