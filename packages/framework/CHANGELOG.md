@@ -1,5 +1,11 @@
 # @sora-soft/framework
 
+## 2.0.4
+
+### Patch Changes
+
+- 更新版本
+
 ## 2.0.3
 
 ### Patch Changes

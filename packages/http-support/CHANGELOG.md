@@ -1,5 +1,12 @@
 # @sora-soft/http-support
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @sora-soft/framework@2.0.4
+
 ## 2.0.4
 
 ### Patch Changes

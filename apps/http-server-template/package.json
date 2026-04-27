@@ -1,6 +1,6 @@
 {
   "name": "@sora-soft/http-server-template",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Sora minimal HTTP server template",
   "bin": {
     "app-server": "./bin/cli.js"

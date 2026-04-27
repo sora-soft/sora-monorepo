@@ -1,5 +1,12 @@
 # @sora-soft/redis-component
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @sora-soft/framework@2.0.4
+
 ## 2.0.3
 
 ### Patch Changes
