@@ -122,7 +122,7 @@ describe('RuntimeShutdown', () => {
 
     const rt = Runtime as any;
     expect(rt.services_.size).toBe(0);
-    expect(R.workers_.size).toBe(0);
+    expect(rt.workers_.size).toBe(0);
   });
 
   it('should register and unregister components', async () => {

@@ -1,7 +1,6 @@
 import {AsyncLocalStorage} from 'node:async_hooks';
 
 import type {Scope} from './Scope.js';
-import {RootScope} from './scope/RootScope.js';
 
 type AbstractConstructor<T> = abstract new (...args: any[]) => T;
 
@@ -47,7 +46,7 @@ export class Context {
 
   private static storage_ = new AsyncLocalStorage<Scope<unknown>>();
 
-  static root = new RootScope();
+  static root: Scope<unknown>;
 
   static run<T, R>(scope: Scope<T>, callback: () => R): R {
     if (this.chain().some(s => s.id === scope.id)) {

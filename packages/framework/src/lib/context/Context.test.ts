@@ -203,7 +203,7 @@ describe('Context', () => {
       class Outer {
         scope?: MockScope;
 
-        callInner(inner: { getCurrentScopeId: () => string | undefined }): string {
+        callInner(inner: { getCurrentScopeId: () => string | undefined }) {
           return inner.getCurrentScopeId();
         }
 
