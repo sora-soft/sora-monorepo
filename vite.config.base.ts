@@ -43,7 +43,7 @@ export function createConfig(packageDir: string, options: CreateConfigOptions = 
 
   return defineConfig({
     esbuild: false,
-    oxc: false,
+    // oxc: false,
     plugins: options.plugins ?? [],
     define: {
       __VERSION__: JSON.stringify(pkg.version),
@@ -55,7 +55,7 @@ export function createConfig(packageDir: string, options: CreateConfigOptions = 
         entry: entries,
         formats: ['es'],
       },
-      rolldownOptions: {
+      rollupOptions: {
         external(id: string) {
           if (id.startsWith('.') || id.startsWith('/')) return false;
           if (id.replaceAll('\\', '/').startsWith(SRC + '/')) return false;
