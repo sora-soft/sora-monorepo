@@ -1,5 +1,19 @@
 # @sora-soft/framework
 
+## 2.2.0
+
+### Minor Changes
+
+- ae9abda: 修复 Context 树形管理混乱的问题
+- 3eb0584: 放弃 vite 编译链，使用 ts-patch + jest 测试平台
+- 7bed083: 重新使用 ts-patch 作为编译器
+
+### Patch Changes
+
+- Updated dependencies [3eb0584]
+- Updated dependencies [7bed083]
+  - @sora-soft/typia-decorator@2.2.0
+
 ## 2.1.0
 
 ### Minor Changes
