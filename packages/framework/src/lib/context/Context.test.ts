@@ -30,12 +30,16 @@ describe('Context', () => {
       });
     });
 
-    it('should set parent to previous current scope', () => {
+    it('should build chain from root to current', () => {
       const parent = new MockScope();
       const child = new MockScope();
       Context.run(parent, () => {
         Context.run(child, () => {
-          expect(child.parent).toBe(parent);
+          const chain = Context.chain();
+          expect(chain).toHaveLength(3);
+          expect(chain[0]).toBe(Context.root);
+          expect(chain[1]).toBe(parent);
+          expect(chain[2]).toBe(child);
         });
       });
     });

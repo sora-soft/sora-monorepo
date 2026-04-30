@@ -1,11 +1,17 @@
 import {AsyncLocalStorage} from 'node:async_hooks';
 
 import type {Scope} from './Scope.js';
+import {RootScope} from './scope/RootScope.js';
 
 type AbstractConstructor<T> = abstract new (...args: any[]) => T;
 
 export interface IScopeClass<T extends Scope<unknown> = Scope<unknown>> {
   scope?: T;
+}
+
+export interface IContextStorage<T> {
+  scope: Scope<T>;
+  parent: IContextStorage<unknown> | null;
 }
 
 export type AbstractConstructorWithScope = abstract new (...args: any[]) => IScopeClass;
@@ -44,45 +50,56 @@ export class Context {
     return WrappedClass as unknown as T;
   }
 
-  private static storage_ = new AsyncLocalStorage<Scope<unknown>>();
+  private static storage_ = new AsyncLocalStorage<IContextStorage<unknown>>();
 
-  static root: Scope<unknown>;
+  static get root() {
+    return this.rootStorage.scope;
+  }
+
+  private static rootStorage: IContextStorage<void> = {
+    parent: null,
+    scope: new RootScope(),
+  };
 
   static run<T, R>(scope: Scope<T>, callback: () => R): R {
     if (this.chain().some(s => s.id === scope.id)) {
       return callback();
     }
 
-    scope.parent = this.current();
+    const current = this.currentStorage();
+    return this.storage_.run({parent: current, scope}, callback);
+  }
 
-    return scope.run(this.storage_, callback);
+  private static currentStorage<T>() {
+    return this.storage_.getStore() as IContextStorage<T> || this.rootStorage;
   }
 
   static current<T>() {
-    return this.storage_.getStore() as Scope<T> || this.root;
+    const storage = this.currentStorage<T>();
+    return storage.scope;
   }
 
   static bind<T extends Scope<unknown>, Args extends any[], R>(scope: T, func: (...args: Args) => R): (...args: Args) => R {
     return (...args: Args): R => {
-      return this.storage_.run(scope, func, ...args);
+      return this.run(scope, () => func(...args));
     };
   }
 
   static wrap<Args extends any[], R>(func: (...args: Args) => R): (...args: Args) => R {
     return (...args: Args): R => {
-      return this.storage_.run(this.current(), func, ...args);
+      return this.storage_.run(this.currentStorage(), func, ...args);
     };
   }
 
-  static find<T>(targetClass: AbstractConstructor<T>): T | null {
-    let iter: Scope<unknown> | undefined = this.current();
+  static find<T extends Scope<unknown>>(targetClass: AbstractConstructor<T>): T | null {
+    let iter: IContextStorage<unknown> | null = this.currentStorage();
     if (!iter) {
       return null;
     }
 
     while (iter) {
-      if (iter instanceof (targetClass as any)) {
-        return iter as T;
+      if (iter.scope instanceof (targetClass as any)) {
+        return iter.scope as T;
       }
       iter = iter.parent;
     }
@@ -91,12 +108,12 @@ export class Context {
 
   static chain(): Scope<unknown>[] {
     const result: Scope<unknown>[] = [];
-    let iter: Scope<unknown> | undefined = this.current();
+    let iter: IContextStorage<unknown> | null = this.currentStorage();
     if (!iter)
       return result;
 
     while(iter) {
-      result.unshift(iter);
+      result.unshift(iter.scope);
       iter = iter.parent;
     }
 

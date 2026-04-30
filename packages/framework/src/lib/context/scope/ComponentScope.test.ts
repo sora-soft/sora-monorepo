@@ -39,10 +39,13 @@ describe('ComponentScope', () => {
     expect(scope).toBeInstanceOf(Scope);
   });
 
-  it('should set parent when used in Context.run', () => {
+  it('should build chain when used in Context.run', () => {
     const scope = new ComponentScope({component: mockComponent as any});
     Context.run(scope, () => {
-      expect(scope.parent).toBe(Context.root);
+      const chain = Context.chain();
+      expect(chain).toHaveLength(2);
+      expect(chain[0]).toBe(Context.root);
+      expect(chain[1]).toBe(scope);
     });
   });
 
@@ -51,7 +54,11 @@ describe('ComponentScope', () => {
     const scope = new ComponentScope({component: mockComponent as any});
     Context.run(parent, () => {
       Context.run(scope, () => {
-        expect(scope.parent).toBe(parent);
+        const chain = Context.chain();
+        expect(chain).toHaveLength(3);
+        expect(chain[0]).toBe(Context.root);
+        expect(chain[1]).toBe(parent);
+        expect(chain[2]).toBe(scope);
       });
     });
   });
